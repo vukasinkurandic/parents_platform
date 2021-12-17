@@ -1,3 +1,100 @@
-<h1>Contact Page</h1>
+{% extends "layout/base_contact.html" %}
+{% load static %}
+{% block title%} Kontakt {% endblock %}
 
-<a href="{% url 'layout:home' %}">Home Page</a>
+ {% block content%}
+  
+<div class="slid insade-slid">
+  <div class="container-wrap-gradient"></div>
+  <img src="{% static 'layout/img/naslovna3.jpg' %}" />
+</div>
+
+<section class="profil-wrapper">
+  <div class="container add-fluid-div">
+    <div class="insade-profil-wrapper">
+      <div class="user-title">
+        <h1>Kontakt</h1>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="contact-right">
+            <h2>
+              Ukoliko imate bilo kakvih nedoumica ili pitanja, možete nas
+              kontaktirati, a mi ćemo Vam odgovoriti u najkraćem roku.
+            </h2>
+            <ul class="contact">
+              <li>
+                <div class="contact-icon">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="contact-text">Bulevar Mihajla Pupina 87/11</div>
+              </li>
+              <li>
+                <div class="contact-icon">
+                  <i class="fas fa-phone"></i>
+                </div>
+                <div class="contact-text">(+381) 060/17-07-410</div>
+              </li>
+              <li>
+                <div class="contact-icon">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-text">office@parentstime.org</div>
+              </li>
+            </ul>
+            <ul class="social-contact">
+              <a href="https://www.facebook.com/centarzalokalnusamoupravu">
+                <li><i class="fab fa-facebook"></i></li>
+              </a>
+              <a href="https://www.instagram.com/centar.za.lokalnu.samoupravu/">
+                <li><i class="fab fa-instagram"></i></li>
+              </a>
+              <a href="https://twitter.com/onlineCLS">
+                <li><i class="fab fa-linkedin-in"></i></li>
+              </a>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="contact-left">
+            <form method="" action="">
+              <div class="mb-3">
+                <label for="sender_name" class="form-label">Ime</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="sender_name"
+                  name="sender_name"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="sender_email" class="form-label">E-mail</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="sender_email"
+                  name="sender_email"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="sender_message" class="form-label">Poruka</label>
+                <textarea
+                  class="form-control"
+                  id="sender_message"
+                  name="sender_message"
+                ></textarea>
+              </div>
+              <input
+                type="submit"
+                name="send_msg"
+                value="Pošalji"
+                class="btn btn-log-reg"
+              />
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
