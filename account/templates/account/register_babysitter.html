@@ -1,45 +1,27 @@
+{% extends "layout/base_contact.html" %}
+{% load static %}
+{% block title %} Registracija {% endblock %}
+
+{% block content %}
 <div class="slid insade-slid">
   <div class="container-wrap-gradient"></div>
-  <img src="img/naslovna3.jpg" />
+  <img src="{% static 'layout/img/naslovna3.jpg' %}" />
 </div>
 
 <section class="profil-wrapper">
   <div class="container add-fluid-div">
     <div class="insade-profil-wrapper">
       <div class="user-title">
-        <h1 class="extrasmalldev">Registruj se kao roditelj</h1>
+        <h1 class="extrasmalldev">Registruj se kao bebisiter/dadilja</h1>
       </div>
 
       <div class="row">
         <div class="col-lg-6">
           <div class="register-info">
             <p>
-              Dragi roditelji, <br />
-              Koliko puta se desilo da ostanete duže na poslu i ne možete da
-              stignete da pokupitedecu iz vrtića na vreme? Ili želite da izađete
-              sa partnerom na romantičnu večeru zadvoje? Da se vidite se sa
-              prijateljima koje dugo niste videli? Odete u nabavku iobavite
-              kućne poslove? Ili jednostavno želite da izdvojite vreme za sebe?
-              A bake ideke nisu mogle da uskoče i pripomognu u čuvanju unuka?
-              Mnogo puta,pretpostavljamo.
-            </p>
-
-            <p>
-              <b
-                >Biti roditelj nije lako u današnje vreme kada se brzo živi i
-                dan prekratko traje zasve obaveze koje treba obaviti.</b
-              >
-            </p>
-            <p>
-              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Zato smo mi tu za vas, da vam
-              pomognemo da na najbrži naćin pronađeteidealnu osobu koja će
-              voditi računa o vašim mališanima, u trenucima kada vi to nisteu
-              mogućnosti.
-            </p>
-            <p>
-              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Registrujte se
-              <b> besplatno u promo periodu</b> na našem sajtu i pronađite
-              osobukoja će čuvati vaše dete/decu u samo par koraka.
+              Dragi bebisiteri i svi koji uživate uradu sa decom registrujte se
+              <b>besplatno u promo periodu</b> na našem sajtu i pronađite
+              porodicu u kakvoj ste oduvek želeli da radite
             </p>
           </div>
         </div>
@@ -165,37 +147,20 @@
 
               <div class="register-divider"></div>
               <h4>Registruj se</h4>
-              <form action="" method="">
-                <div class="mb-3">
-                  <label for="username" class="form-label"
-                    >Korisničko ime</label
-                  >
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="username"
-                    name="username"
-                  />
-                </div>
+              <!--FORM***************-->
+              <form action="" method="POST">
+                {% csrf_token%}
                 <div class="row">
                   <div class="mb-3">
                     <label for="email" class="form-label">E-mail</label>
-                    <input
-                      type="email"
-                      class="form-control"
-                      id="email"
-                      name="email"
-                    />
+                      <!--INPUT EMAIL-->
+                    {{form.email}}
                   </div>
                   <div class="col-lg-6">
                     <div class="mb-3">
                       <label for="password" class="form-label">Lozinka</label>
-                      <input
-                        type="password"
-                        class="form-control"
-                        id="password"
-                        name="password"
-                      />
+                      <!--INPUT PASSWORS1-->
+                     {{form.password1}}
                     </div>
                   </div>
                   <div class="col-lg-6">
@@ -203,21 +168,14 @@
                       <label for="repeat-password" class="form-label"
                         >Ponovi lozinku</label
                       >
-                      <input
-                        type="password"
-                        class="form-control"
-                        id="repeat-password"
-                        name="repeat-password"
-                      />
+                      <!--INPUT PASSWORS2-->
+                      {{form.password2}}
                     </div>
                   </div>
                 </div>
                 <div class="mb-3 form-check">
-                  <input
-                    type="checkbox"
-                    class="form-check-input"
-                    id="exampleCheck1"
-                  />
+                  <!--INPUT CHECKBOX-->
+                  {{form.is_terms_confirmed}}
                   <span
                     ><label class="form-check-label" for="exampleCheck1"
                       >Slažem se sa uslovima korišćenja</label
@@ -234,6 +192,7 @@
                   Registracija
                 </button>
               </form>
+              <!--FORM***************-->
             </div>
           </div>
         </div>
@@ -241,3 +200,4 @@
     </div>
   </div>
 </section>
+{% endblock %}
