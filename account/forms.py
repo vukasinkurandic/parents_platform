@@ -4,7 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 
 
 class UserAdminCreationForm(UserCreationForm):
-    email = forms.EmailField(widget=forms.EmailInput(
+    email = forms.EmailField(error_messages={'unique': ('Email je vec registrovan')}, widget=forms.EmailInput(
         attrs={'class': 'form-control', 'id': 'email', 'name': 'email'}))
 
     is_terms_confirmed = forms.BooleanField(required=True, widget=forms.CheckboxInput(
@@ -22,4 +22,3 @@ class UserAdminCreationForm(UserCreationForm):
         super(UserAdminCreationForm, self).__init__(*args, **kwargs)
         self.fields['password1'].widget.attrs['class'] = 'form-control'
         self.fields['password2'].widget.attrs['class'] = 'form-control'
-        #self.fields['is_terms_confirmed'].widget.attrs['class'] = 'form-check-input'
