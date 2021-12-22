@@ -326,7 +326,7 @@
                         </ul>
                      {% endif %}
                      
-                     <form action="" method="post">
+                     <form action="{% url 'layout:newsletter' %}" method="post">
                         {% csrf_token%}
                        <div class="form-newsletter">
                          {{form.email}}

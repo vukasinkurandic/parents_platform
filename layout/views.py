@@ -6,24 +6,20 @@ from . forms import NewsletterForm
 
 def home(request):
     form = NewsletterForm()
-    if request.method == "POST":
-        form = NewsletterForm(request.POST)
-        if form.is_valid():
-            form.save()
-            messages.success(request, ('Hvala, Uspešno ste poslali email!'))
-        context = {'form': form}
-        return redirect('layout:home')
     context = {'form': form}
     return render(request, 'layout/index.html', context)
 
 
 def contact(request):
-    return render(request, 'layout/contact.html')
+    form = NewsletterForm()
+    context = {'form': form}
+    return render(request, 'layout/contact.html', context)
 
 
-# if request.method == "POST":
-#     subscribedUsers = Newsletter()
-#     post_data = request.POST.copy()
-#     email = post_data.get("exampleInputEmail1", None)
-#     subscribedUsers.email = email
-#     subscribedUsers.save()
+def newsletter(request):
+    if request.method == "POST":
+        form = NewsletterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, ('Hvala, Uspešno ste poslali email!'))
+        return redirect('layout:home')
