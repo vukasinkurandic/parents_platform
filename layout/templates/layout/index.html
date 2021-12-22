@@ -316,16 +316,20 @@
                    </div>
                  </div>
                  <div class="col-lg-6 col-xl-4 col-md-12">
-                   <div class="footer-wrapper sub-mar">
+                   <div class="footer-wrapper sub-mar" id="proba">
                      <h4>Pretplatite se na naš blog</h4>
+                     {% if messages %}
+                        <ul class="messages">
+                           {% for message in messages %}
+                           <li  {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </li>
+                           {% endfor %}
+                        </ul>
+                     {% endif %}
+                     
                      <form action="" method="post">
+                        {% csrf_token%}
                        <div class="form-newsletter">
-                         <input
-                           type="email"
-                           class="form-control"
-                           id="exampleInputEmail1"
-                           aria-describedby="emailHelp"
-                         />
+                         {{form.email}}
                          <button type="submit" class="btn btn-primary dugme">
                            <i class="fas fa-paper-plane"></i>
                          </button>
