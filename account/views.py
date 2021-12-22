@@ -25,7 +25,7 @@ def register_family(request):
             return redirect('/token')
     else:
         form = UserAdminCreationForm()
-    return render(request, 'account/register.html', {'form': form})
+    return render(request, 'account/register_family.html', {'form': form})
 
 
 def register_babysitter(request):
@@ -46,7 +46,7 @@ def register_babysitter(request):
 
     else:
         form = UserAdminCreationForm()
-    return render(request, 'account/register.html', {'form': form})
+    return render(request, 'account/register_babysitter.html', {'form': form})
 
 
 def success(request):
