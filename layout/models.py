@@ -7,3 +7,13 @@ class Newsletter(models.Model):
 
     def __str__(self):
         return self.email
+
+
+class ContactMessage(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    contact_message = models.TextField()
+    date_added = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.email

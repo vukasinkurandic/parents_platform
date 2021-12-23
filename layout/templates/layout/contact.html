@@ -57,32 +57,26 @@
         </div>
         <div class="col-md-6">
           <div class="contact-left">
-            <form method="" action="">
+             {% if messages %}
+                        <ul class="messages">
+                           {% for message in messages %}
+                           <li  {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </li>
+                           {% endfor %}
+                        </ul>
+                     {% endif %}
+            <form method="POST" action="{% url 'layout:contact_message' %}">
+              {% csrf_token%}
               <div class="mb-3">
                 <label for="sender_name" class="form-label">Ime</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="sender_name"
-                  name="sender_name"
-                />
+                {{form.name}}
               </div>
               <div class="mb-3">
                 <label for="sender_email" class="form-label">E-mail</label>
-                <input
-                  type="email"
-                  class="form-control"
-                  id="sender_email"
-                  name="sender_email"
-                />
+                {{form.email}}
               </div>
               <div class="mb-3">
                 <label for="sender_message" class="form-label">Poruka</label>
-                <textarea
-                  class="form-control"
-                  id="sender_message"
-                  name="sender_message"
-                ></textarea>
+                {{form.contact_message}}
               </div>
               <input
                 type="submit"
