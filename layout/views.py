@@ -1,7 +1,7 @@
 from django.contrib import messages
 from django.shortcuts import render, redirect
-from . models import Newsletter
-from . forms import NewsletterForm
+from . models import Newsletter, ContactMessage
+from . forms import NewsletterForm, ContactMessageForm
 
 
 def home(request):
@@ -11,7 +11,7 @@ def home(request):
 
 
 def contact(request):
-    form = NewsletterForm()
+    form = ContactMessageForm()
     context = {'form': form}
     return render(request, 'layout/contact.html', context)
 
@@ -22,4 +22,17 @@ def newsletter(request):
         if form.is_valid():
             form.save()
             messages.success(request, ('Hvala, Uspešno ste poslali email!'))
+        else:
+            messages.error(
+                request, ('Vec ste se prijavili ili je email neispravan!'))
         return redirect('layout:home')
+
+
+def contact_message(request):
+    if request.method == "POST":
+        form = ContactMessageForm(request.POST)
+        if form.is_valid():
+            print('VALIDNA JEEEEEEEEEEEEEEEEEEE')
+            form.save()
+            messages.success(request, ('Hvala, Uspešno ste poslali poruku!'))
+        return redirect('layout:contact')
