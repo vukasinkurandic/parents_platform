@@ -159,14 +159,6 @@
               <div class="col-lg-6 col-xl-4 col-md-12">
                 <div class="footer-wrapper sub-mar">
                   <h4>Pretplatite se na naš blog</h4>
-                 {% if messages %}
-                        <ul class="messages">
-                           {% for message in messages %}
-                           <li  {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </li>
-                           {% endfor %}
-                        </ul>
-                     {% endif %}
-                     
                      <form action="{% url 'layout:newsletter' %}" method="post">
                         {% csrf_token%}
                        <div class="form-newsletter">

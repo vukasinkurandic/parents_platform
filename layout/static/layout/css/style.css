@@ -1986,3 +1986,35 @@ position: relative;
 }    
 
 /*profile edit parent and babysitter*/
+
+/*login form on login page*/
+
+.login-form .form-control {
+    padding: 12px 20px;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 15px;
+    color: #212529;
+    background-color: #f4f5f8;
+    border: none;
+    border-radius: 0px;
+    
+}
+
+.login-form .form-label {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+
+.reset_pass_link{
+margin-top: 20px;  
+}
+.reset_pass_link a{
+font-size: 20px;
+    color: #000;
+
+}
+
+/*login form on login page*/

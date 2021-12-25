@@ -122,6 +122,19 @@
                <div class="slid-title">
                   <h1>Parent's Time</h1>
                   <br />
+                  <!-- MESSAGES-->
+                  {% if messages %}
+                {% for message in messages %}
+                  <div class="alert alert-{{ message.tags }} mt-3" role="alert">
+                        <button type="button" class="close" data-dismiss="alert">
+                            <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                        </button>
+                    {{ message }}
+                  </div>
+                {% endfor %}
+                {% endif %}
+                  <br>
+                  <!-- MESSAGES-->
                   <p>"Porodicu ne čine samo oni sa kojima smo u krvnom srodstvu. Čine je i oni koji nas drže za ruku kada nam je to najpotrebnije"</p>
                   
                </div>
@@ -317,15 +330,7 @@
                  </div>
                  <div class="col-lg-6 col-xl-4 col-md-12">
                    <div class="footer-wrapper sub-mar" id="proba">
-                     <h4>Pretplatite se na naš blog</h4>
-                     {% if messages %}
-                        <ul class="messages">
-                           {% for message in messages %}
-                           <li  {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </li>
-                           {% endfor %}
-                        </ul>
-                     {% endif %}
-                     
+                     <h4>Pretplatite se na naš blog</h4>              
                      <form action="{% url 'layout:newsletter' %}" method="post">
                         {% csrf_token%}
                        <div class="form-newsletter">

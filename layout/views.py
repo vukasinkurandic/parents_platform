@@ -22,6 +22,9 @@ def newsletter(request):
         if form.is_valid():
             form.save()
             messages.success(request, ('Hvala, Uspešno ste poslali email!'))
+        else:
+            messages.error(
+                request, ('Vec ste se prijavili ili je email neispravan!'))
         return redirect('layout:home')
 
 

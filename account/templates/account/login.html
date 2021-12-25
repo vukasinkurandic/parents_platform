@@ -1,62 +1,57 @@
-{% load i18n %}
+{% extends "layout/base_contact.html" %}
 {% load static %}
-{% block title %}
-<title>{% trans 'Prijavi se' %}</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-{% endblock title %}
-{% load crispy_forms_tags %}
+{% block title %} Login {% endblock %}
+
 {% block content %}
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<link rel="stylesheet" href="{% static 'account/css/login.css' %}">
-<!------ Include the above in your HEAD tag ---------->
-
-<body>
-    <div id="login">
-        <div class="container pt-5">
-            <div id="login-row" class="row justify-content-center align-items-center">
-                <div id="login-column" class="col-md-6">
-                    <div id="login-box" class="col-md-12">
-                        <form id="login-form" class="form" action="" method="post">
-                            {% csrf_token %}
-                            <h3 class="text-center text-info">{% trans 'Prijavi se' %}</h3>
-                            <div class="form-group">
-                                <label for="username" class="text-info">{% blocktrans %}Korisničko ime:{% endblocktrans %}</label><br>
-                                <input type="text" name="username" id="username" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="password" class="text-info">{% blocktrans %}Lozinka:{% endblocktrans %}</label><br>
-                                <input type="password" name="password" id="password" class="form-control">
-                            </div><br>
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col">
-                                        <input style="float: left;" type="submit" name="submit" class="btn btn-info btn-md" value="{% trans 'Prijavi se' %}">
-                                    </div>
-                                    <div class="col">
-                                        <a href="{% url 'account:register' %}" style="float: right;" name="register" class="text-right btn btn-info btn-md" value="Register here">{% trans "Registruj se" %}</a>
-                                    </div>
-                                </div>                                
-                            </div>
-                            <br>
-                            <div id="register-link" class="text-center">
-                                <br><br><br>
-                                <a href="{% url 'password_reset' %}" class="text-info">{% blocktrans %}Zaboravljena lozinka?{% endblocktrans %}</a>
-                            </div>
-                        </form>
-                    </div>
-                    {% if form.non_field_errors %}
-                           <div class="alert alert-danger mt-2" role="alert">
-                                {% for error in form.non_field_errors %}
-                                     <p>{{ error }}</p>
-                                {% endfor %}
-                           </div>
-                         {% endif %}
-                </div>
-            </div>
-        </div>
+    <div class="slid insade-slid">
+        <div class="container-wrap-gradient"></div>
+        <img src="{% static 'layout/img/naslovna3.jpg' %}" />
     </div>
-</body>
 
-{% endblock content %}
+    <section class="profil-wrapper">
+      <div class="container add-fluid-div">
+        <div class="insade-profil-wrapper">
+          <div class="user-title">
+            <h1 class="extrasmalldev">Uloguj se</h1>
+          </div>
+          <!-- MESSAGES-->
+                  {% if messages %}
+                {% for message in messages %}
+                  <div class="alert alert-{{ message.tags }} mt-3" role="alert">
+                        <button type="button" class="close" data-dismiss="alert">
+                            <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                        </button>
+                    {{ message }}
+                  </div>
+                {% endfor %}
+                {% endif %}
+                  <br>
+                  <!-- MESSAGES-->
+            <div class="login-form">
+              <div class="row  d-flex justify-content-center">
+              <div class="col-lg-6 ">
+                <form action="" method="POST" >
+                    {% csrf_token%}
+                      <div class="mb-3">
+                        <label for="email" class="form-label">E-mail</label>
+                        <input type="email" class="form-control" id="email" name="email_login">
+                      </div>
+                        <div class="mt-3">
+                        <label for="password" class="form-label">Lozinka</label>
+                        <input type="password" class="form-control"  name="password_login">
+                      </div>
+                      
+                      <button type="submit" class="btn btn-user-login-inmodal" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                      Prijavi se
+                    </button>
+                    <div class="reset_pass_link">
+                          <a href="">Zaboravili ste lozinku</a>
+                        </div>
+                </form>
+              </div>  
+              </div>
+            </div>          
+        </div>
+      </div>
+    </section>
+{% endblock %}
