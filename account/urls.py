@@ -14,9 +14,6 @@ urlpatterns = [
     path('verify/<auth_token>', views.verify, name="verify"),
     path('error', views.error_page, name="error"),
     path('login/', views.login, name='login'),
-
-
-    #path('login/', auth_views.LoginView.as_view(template_name='account/login.html'), name='login'),
-    #path('logout/', auth_views.LogoutView.as_view(template_name='account/logout.html'), name='logout'),
+    # path('logout/', auth_views.LogoutView.as_view(template_name='account/logout.html'), name='logout'),
 
 ]
