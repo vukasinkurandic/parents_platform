@@ -2018,3 +2018,56 @@ font-size: 20px;
 }
 
 /*login form on login page*/
+/* flash message login success, login error etc. */
+.main_message .al-text {
+  font-size: 22px;
+  font-weight: 600;
+  color: #fff;
+  line-height: 21px;
+  text-shadow: 2px 2px rgb(0 0 0 / 20%);
+}
+
+.main_message .success {
+  background: linear-gradient(135deg, #63bef2 25%, transparent 0) -50px 0,
+    linear-gradient(225deg, #63bef2 25%, transparent 25%) -50px 0,
+    linear-gradient(315deg, #63bef2 25%, transparent 25%),
+    linear-gradient(45deg, #63bef2 25%, transparent 25%);
+  background-color: rgba(0, 0, 0, 0);
+  background-size: auto, auto, auto, auto;
+  background-size: 100px 100px;
+  background-color: #73c4f4;
+  border-radius: 10px;
+  margin: 25px;
+}
+
+.main_message .error {
+  background: linear-gradient(135deg, #f2cfd1 25%, transparent 0) -50px 0,
+    linear-gradient(225deg, #f2cfd1 25%, transparent 25%) -50px 0,
+    linear-gradient(315deg, #f2cfd1 25%, transparent 25%),
+    linear-gradient(45deg, #f2cfd1 25%, transparent 25%);
+
+  background-size: auto, auto, auto, auto;
+  background-size: 100px 100px;
+  background-color: #efc3c5;
+  border-radius: 10px;
+  margin: 25px;
+}
+
+.main_message .alert-dismissible .btn-close {
+  position: absolute;
+  top: -17px;
+  right: -24px;
+  z-index: 2;
+  padding: 12px;
+  background-color: #fff;
+  opacity: 1;
+  border-radius: 50%;
+  border: 5px solid #73c4f4;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.main_message .alert {
+  position: relative;
+  padding: 15px;
+}
+/* flash message login success, login error etc. */

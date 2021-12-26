@@ -1,13 +1,35 @@
-   <div class="global-container">
-        <div class="card login-form">
-        <div class="card-body">
-            <h3 class="card-title text-center">Hurray your mail is verified </h3>
-            <div class="card-text text-center">
-                Please login
-            </div>
-            <div class="text-center">
-            <a class="btn btn-primary" href="{% url 'login_attempt' %}" >Login</a>
-</div>
+{% extends "base_reset.html" %}
+{% load static %}
+{% block title %} Success Verify Email {% endblock %}
+
+{% block content %}
+    <div class="slid insade-slid">
+        <div class="container-wrap-gradient"></div>
+        <img src="{% static 'layout/img/naslovna3.jpg' %}" />
+    </div>
+
+    <section class="profil-wrapper">
+      <div class="container add-fluid-div">
+        <div class="insade-profil-wrapper">
+          <div class="user-title">
+            <h1 class="extrasmalldev">Link za verifikaciju je nevažeći</h1>
+          </div>
+            <div class="login-form">
+              <div class="row  d-flex justify-content-center">
+              <div class="col-lg-6 ">
+               <h2>Čestitamo, Vaš Email je verifikovan</h2>
+               <h3>Molimo Vas prijavite se, kako bi ste koristili naš servis u potpunosti.</h3>
+              </div>  
+              </div>
+                <div class="text-center">
+                    <a class="btn btn-primary" href="{% url 'login_attempt' %}" >Login</a>
+                 </div>
+            </div>          
         </div>
-    </div>
-    </div>
+      </div>
+    </section>
+{% endblock %}
+    
+
+
+  

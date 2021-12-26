@@ -32,7 +32,6 @@ def contact_message(request):
     if request.method == "POST":
         form = ContactMessageForm(request.POST)
         if form.is_valid():
-            print('VALIDNA JEEEEEEEEEEEEEEEEEEE')
             form.save()
             messages.success(request, ('Hvala, Uspešno ste poslali poruku!'))
         return redirect('layout:contact')

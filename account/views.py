@@ -68,16 +68,15 @@ def verify(request, auth_token):
         if profile_obj:
             if profile_obj.is_email_verified:
                 messages.success(request, 'Your account is already verified.')
-                return HttpResponse("Your is already verified")
+                return render(request, 'account/already_verified.html')
             profile_obj.is_email_verified = True
             profile_obj.save()
-            messages.success(request, 'Your account has been verified.')
-            return HttpResponse("Your account has been verified")
+            return render(request, 'account/success.html')
         else:
             return redirect('/error')
     except Exception as e:
         print(e)
-        return redirect('/')
+        return redirect('/login')
 
 
 def error_page(request):
