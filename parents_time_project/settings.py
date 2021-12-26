@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     # my apps
     'layout.apps.LayoutConfig',
     'account.apps.AccountConfig',
+    'family.apps.FamilyConfig',
 ]
 
 MIDDLEWARE = [
