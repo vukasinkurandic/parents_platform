@@ -5,4 +5,4 @@ from django.shortcuts import render, redirect
 
 
 def create_profil(request):
-    return render(request, 'family/create_profil.html')
+    return render(request, 'family/create_profil_family.html')
