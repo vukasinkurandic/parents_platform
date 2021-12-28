@@ -34,6 +34,10 @@ INSTALLED_APPS = [
     'layout.apps.LayoutConfig',
     'account.apps.AccountConfig',
     'family.apps.FamilyConfig',
+    'babysitter.apps.BabysitterConfig',
+
+    # Django app
+    'djmoney',
 ]
 
 MIDDLEWARE = [
