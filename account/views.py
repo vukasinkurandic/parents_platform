@@ -103,11 +103,11 @@ def login(request):
                 if user.user_type == 1:
                     messages.success(
                         request, 'You are logged in successfully like FAMILY!')
-                    return redirect('/')
+                    return redirect('/family/create_profil_family')
                 elif user.user_type == 2:
                     messages.success(
                         request, 'You are logged in successfully like Babysitter!')
-                    return redirect('/')
+                    return redirect('/babysitter/create_profil_babysitter')
             else:
                 token = str(uuid.uuid4())
                 user.auth_token = token

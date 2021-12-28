@@ -38,6 +38,7 @@ INSTALLED_APPS = [
 
     # Django app
     'djmoney',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
