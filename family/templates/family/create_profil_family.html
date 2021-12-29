@@ -1,0 +1,29 @@
+{% extends "layout/base_contact.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title%} Create family {% endblock %}
+
+{% block content%}
+    <div class="slid insade-slid">
+    <div class="container-wrap-gradient"></div>
+    <img src="{% static 'layout/img/naslovna3.jpg' %}" />  
+ </div>
+ 
+ <section class="profil-wrapper">
+    <div class="container">
+       <div class="insade-profil-wrapper insade-profil-wrapper-bebisit">
+          <div class="user-title">
+             <h1>Tatijana Milosavljević</h1>
+          </div>
+          <div class="profile_edit">
+             <form method="POST" action="" enctype="multipart/form-data" >
+                {% csrf_token %}
+                     {{ form_family|crispy }}
+                <input type="submit" name="send_msg" value="Pošalji" class="btn btn-log-reg">
+             </form>
+          </div>
+       </div>
+    </div>
+ </section>
+
+{% endblock %}

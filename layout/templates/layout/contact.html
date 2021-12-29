@@ -57,13 +57,28 @@
         </div>
         <div class="col-md-6">
           <div class="contact-left">
-             {% if messages %}
-                        <ul class="messages">
-                           {% for message in messages %}
-                           <li  {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </li>
-                           {% endfor %}
-                        </ul>
-                     {% endif %}
+                             <!-- MESSAGES-->
+                  {% if messages %}
+                     {% for message in messages %}
+                        <div class="main_message">
+                                 <div
+                                 class="alert alert-dismissible fade show {{ message.tags }}"
+                                 role="alert"
+                                 >
+                                 <span class="al-text">{{message}}</span>
+
+                                 <button
+                                    type="button"
+                                    class="btn-close"
+                                    data-bs-dismiss="alert"
+                                    aria-label="Close"
+                                 ></button>
+                                 </div>
+                           </div> 
+                     {% endfor %}
+                  {% endif %}
+                  <br>
+                  <!-- MESSAGES-->
             <form method="POST" action="{% url 'layout:contact_message' %}">
               {% csrf_token%}
               <div class="mb-3">

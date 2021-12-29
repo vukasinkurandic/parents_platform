@@ -1,10 +1,28 @@
-  <div class="global-container">
-        <div class="card login-form">
-        <div class="card-body">
-            <h3 class="card-title text-center">We have sent an email to you </h3>
-            <div class="card-text text-center">
-                Please check your mail
-            </div>
+{% extends "base_reset.html" %}
+{% load static %}
+{% block title %} Verify Email Send {% endblock %}
+
+{% block content %}
+    <div class="slid insade-slid">
+        <div class="container-wrap-gradient"></div>
+        <img src="{% static 'layout/img/naslovna3.jpg' %}" />
+    </div>
+
+    <section class="profil-wrapper">
+      <div class="container add-fluid-div">
+        <div class="insade-profil-wrapper">
+          <div class="user-title">
+            <h1 class="extrasmalldev">Molimo Vas, verifikte svoj Email</h1>
+          </div>
+            <div class="login-form">
+              <div class="row  d-flex justify-content-center">
+              <div class="col-lg-6 ">
+               <h2>Proverite svoj Email, poslali smo Vam instrukcije za verifikaciju istog</h2>
+               <h3>Ako poruke nema u inbox, obavezno proverite spam</h3>
+              </div>  
+              </div>
+            </div>          
         </div>
-    </div>
-    </div>
+      </div>
+    </section>
+{% endblock %}
