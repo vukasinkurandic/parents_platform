@@ -101,13 +101,13 @@ def login(request):
             auth.login(request, user)
             if user.is_email_verified:
                 if user.user_type == 1:
-                    messages.success(
-                        request, 'You are logged in successfully like FAMILY!')
-                    return redirect('/family/create_profil_family')
+                    # messages.success(
+                    # request, 'You are logged in successfully like FAMILY!')
+                    return redirect('/family/create_profil')
                 elif user.user_type == 2:
-                    messages.success(
-                        request, 'You are logged in successfully like Babysitter!')
-                    return redirect('/babysitter/create_profil_babysitter')
+                    # messages.success(
+                    # request, 'You are logged in successfully like Babysitter!')
+                    return redirect('/babysitter/create_profil')
             else:
                 token = str(uuid.uuid4())
                 user.auth_token = token

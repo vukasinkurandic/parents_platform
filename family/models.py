@@ -42,6 +42,10 @@ class FamilyCalendar(models.Model):
 
     date_added = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        pk = Family.objects.get(calendar_id=self.id).user_id
+        return f'{CustomUser.objects.get(id=pk).email}-{self.date_added}'
+
 
 class Family(models.Model):
     CITIZENSHIP_CHOICES = CITIZENSHIP_CHOICES
@@ -54,6 +58,7 @@ class Family(models.Model):
     last_name = models.CharField(max_length=200, blank=True)
     about_me = models.TextField(blank=True)
     about_me_eng = models.TextField(blank=True)
+    age = models.PositiveIntegerField(null=True, blank=True)
     picture = models.ImageField(default='no_face.png', upload_to="img/family", validators=[
                                 validate_image, FileExtensionValidator(['jpg', 'png', 'jpeg'])], blank=True, null=True, help_text='Slika ne sme biti veća od 2Mb i mora biti formata jpg,png ili jpeg')
     sity = models.CharField(
@@ -71,7 +76,7 @@ class Family(models.Model):
         max_length=10, choices=AGE_CHOICES, default='1-3')
     citizenship = models.CharField(
         max_length=50, choices=CITIZENSHIP_CHOICES, default='Srpski Drzavljanin')
-    calendar = models.ForeignKey(
+    calendar = models.OneToOneField(
         FamilyCalendar, on_delete=models.CASCADE, blank=True, null=True)
     is_form_submit = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True)
