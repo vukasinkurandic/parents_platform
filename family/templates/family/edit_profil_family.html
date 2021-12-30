@@ -1,4 +1,124 @@
-Dobro je radi!
-{{family.email}}
-{{family.first_name}}
-{{family.last_name}}
+{% extends "layout/base_contact.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title%} Edit Family Profil {% endblock %}
+
+{% block content%}
+    <div class="slid insade-slid">
+    <div class="container-wrap-gradient"></div>
+    <img src="{% static 'layout/img/naslovna3.jpg' %}" />  
+ </div>
+ 
+ <section class="profil-wrapper">
+    <div class="container">
+       <div class="insade-profil-wrapper insade-profil-wrapper-bebisit">
+          <div class="user-title">
+             <h1>Kreirajte Profil Vaše Porodice</h1>
+          </div>
+          <div class="profile_edit">
+             <form method="POST" action="" enctype="multipart/form-data" >
+                {% csrf_token %}
+                   <!--  {{ form_family|crispy }}
+                      {{ form.email|as_crispy_field }}
+                     FORM-->
+                  <div class="row">
+                   <div class="col-lg-6">
+                      <div class="profile_edit-left">
+                         <div class="row">
+                            <div class="col-lg-6">
+                               <div class="mb-3">
+                                  <label for="user_name" class="form-label">Ime</label>
+                                   {{ form_family.first_name}}
+                               </div>
+                            </div>
+                            <div class="col-lg-6">
+                               <div class="mb-3">
+                                  <label for="user_surname" class="form-label">Prezime</label>
+                                   {{ form_family.last_name}}
+                               </div>
+                            </div>
+                            <div class="col-lg-6">
+                               <div class="mb-3">
+                                  <label for="user_city" class="form-label">Grad</label>                                       
+                                   {{ form_family.sity}}
+                               </div>
+                            </div>
+                            <div class="col-lg-6">
+                               <div class="mb-3">
+                                  <label for="user_email" class="form-label">Email</label>                      
+                                   {{ form_family.email}}
+                               </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                               <div class="mb-3">
+                                  <label for="user_child_year" class="form-label">Uzrast dece</label>
+                                    {{ form_family.age_children}}
+                               </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                               <div class="mb-3">
+                                  <label for="user_child_number" class="form-label">Broj dece</label>
+                                  <div id="user_child_number_help" class="form-text"></div>
+                                    {{ form_family.number_children}}
+                               </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                               <div class="mb-3">
+                                  <label for="user_year" class="form-label">Godine roditelja</label>
+                                  {{ form_family.age}}
+                               </div>
+                            </div>
+                            <div class="col-lg-6">
+                               <div class="mb-3">
+                                  <label for="user_phone" class="form-label">Telefon</label>
+                                    {{ form_family.mobile_number}}
+                                  
+                               </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                               <div class="mb-3">
+                                  <label for="user_social_network" class="form-label">Socijalne mreže</label>
+                                  {{ form_family.social_network}}
+                               </div>
+                            </div>
+                         </div>
+                         <div class="mb-3">
+                            <label for="user_municipality" class="form-label">Da li je državljanin RS ili inostrani državljanin</label>
+                            <div class="form-check">
+                               {{ form_family.citizenship}}
+                               <label class="form-check-label" for="flexRadioDefault1">
+                               </label>
+                             </div>
+                         </div>
+                      </div>
+                   </div>
+                   <div class="col-lg-6">
+                      <div class="profile_edit_right">
+                         <div class="mb-3">
+                            <label for="about_me" class="form-label">O sebi</label>
+                            {{ form_family.about_me}}
+                         </div>
+                         <div class="mb-3">
+                            <label for="about_me" class="form-label">About me</label>
+                            {{ form_family.about_me_eng}}
+                         </div>
+                         <div class="mb-3">
+                            <label for="user_image" class="form-label">Slika</label>
+                            {{ form_family.picture}}
+                         </div>
+                      </div>
+                   </div>
+                </div>
+                     <!--FORM-->
+                <input type="submit" name="send_msg" value="Edituj Profil" class="btn btn-log-reg">
+             </form>
+          </div>
+       </div>
+    </div>
+ </section>
+
+{% endblock %}

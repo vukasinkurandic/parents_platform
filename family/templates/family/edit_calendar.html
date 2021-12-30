@@ -1,0 +1,97 @@
+{% extends "base_reset.html" %}
+{% load static %}
+{% block title%} Edit Calendar {% endblock %}
+
+{% block content%}
+<div class="slid insade-slid">
+    <div class="container-wrap-gradient"></div>
+    <img src="{% static 'layout/img/naslovna3.jpg' %}" />  
+ </div>
+ 
+ <section class="profil-wrapper">
+    <div class="container">
+       <div class="insade-profil-wrapper insade-profil-wrapper-bebisit">
+          <div class="user-title">
+             <h1>Ažurirajte kada Vam je u toku nedelje potrebna usluga</h1>
+          </div>
+          <div class="profile_edit">
+             <form method="post" action="">
+                 {% csrf_token %}
+                <div class="row d-flex justify-content-center">
+                   
+                   <div class="col-lg-10">
+                      <div class="profile_edit_right">
+                        <h3 >Vreme kada je potrebno čuvanje</h3>
+                            <div class="select-btn mt-4">
+                               <input type="button" class="select_all" value="Selektuj sve"/>  
+                               <input type="button" class="deselect_all" value="Resetuj selektovan"/>  
+                            </div>
+                         <div class="user-table table-responsive table-sm">
+                            
+                            <table class="table table-striped table-hover">
+                               <thead>
+                                  <tr>
+                                     <th scope="col"></th>
+                                     <th scope="col">Ponedeljak</th>
+                                     <th scope="col">Utorak</th>
+                                     <th scope="col">Sreda</th>
+                                     <th scope="col">Četvrtak</th>
+                                     <th scope="col">Petak</th>
+                                     <th scope="col">Subota</th>
+                                     <th scope="col">Nedelja</th>
+                                  </tr>
+                               </thead>
+                               <tbody>
+                                  <tr>
+                                     <th scope="row">Jutro</th>
+                                     <td>{{family_calendar_form.morning_monday}}</td>
+                                     <td>{{family_calendar_form.morning_tuesday}}</td>
+                                     <td>{{family_calendar_form.morning_wednesday}}</td>
+                                     <td>{{family_calendar_form.morning_thursday}}</td>
+                                     <td>{{family_calendar_form.morning_friday}}</td>
+                                     <td>{{family_calendar_form.morning_saturday}}</td>
+                                     <td>{{family_calendar_form.morning_sunday}}</td>       
+                                  </tr>
+                                  <tr>
+                                     <th scope="row">Popodne</th>
+                                     <td>{{family_calendar_form.afternoon_monday}}</td>
+                                     <td>{{family_calendar_form.afternoon_tuesday}}</td>
+                                     <td>{{family_calendar_form.afternoon_wednesday}}</td>
+                                     <td>{{family_calendar_form.afternoon_thursday}}</td>
+                                     <td>{{family_calendar_form.afternoon_friday}}</td>
+                                     <td>{{family_calendar_form.afternoon_saturday}}</td>
+                                     <td>{{family_calendar_form.afternoon_sunday}}</td> 
+                                  </tr>
+                                  <tr>
+                                     <th scope="row">Veče</th>
+                                     <td>{{family_calendar_form.evening_monday}}</td>
+                                     <td>{{family_calendar_form.evening_tuesday}}</td>
+                                     <td>{{family_calendar_form.evening_wednesday}}</td>
+                                     <td>{{family_calendar_form.evening_thursday}}</td>
+                                     <td>{{family_calendar_form.evening_friday}}</td>
+                                     <td>{{family_calendar_form.evening_saturday}}</td>
+                                     <td>{{family_calendar_form.evening_sunday}}</td> 
+                                  </tr>
+                                  <tr>
+                                     <th scope="row">Noć</th>
+                                     <td>{{family_calendar_form.night_monday}}</td>
+                                     <td>{{family_calendar_form.night_tuesday}}</td>
+                                     <td>{{family_calendar_form.night_wednesday}}</td>
+                                     <td>{{family_calendar_form.night_thursday}}</td>
+                                     <td>{{family_calendar_form.night_friday}}</td>
+                                     <td>{{family_calendar_form.night_saturday}}</td>
+                                     <td>{{family_calendar_form.night_sunday}}</td>
+                                  </tr>
+                               </tbody>
+                            </table>
+                         </div>
+                      </div>
+                   </div>
+                </div>
+                <input type="submit" name="send_msg" value="Pošalji" class="btn btn-log-reg">
+             </form>
+          </div>
+       </div>
+    </div>
+ </section>
+{% endblock %}

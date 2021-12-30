@@ -65,5 +65,64 @@ class FamilyForm(forms.ModelForm):
         self.fields['age'].widget.attrs['class'] = 'form-control'
 
 
-class FamilyCalendar(forms.ModelForm):
-    pass
+class FamilyCalendarForm(forms.ModelForm):
+    morning_monday = forms.BooleanField(required=False, widget=forms.CheckboxInput(
+        attrs={'class': 'chk'}))
+    morning_tuesday = forms.BooleanField(required=False, widget=forms.CheckboxInput(
+        attrs={'class': 'chk'}))
+    morning_wednesday = forms.BooleanField(required=False, widget=forms.CheckboxInput(
+        attrs={'class': 'chk'}))
+    morning_thursday = forms.BooleanField(required=False, widget=forms.CheckboxInput(
+        attrs={'class': 'chk'}))
+    morning_friday = forms.BooleanField(required=False, widget=forms.CheckboxInput(
+        attrs={'class': 'chk'}))
+    morning_saturday = forms.BooleanField(required=False, widget=forms.CheckboxInput(
+        attrs={'class': 'chk'}))
+    morning_sunday = forms.BooleanField(required=False, widget=forms.CheckboxInput(
+        attrs={'class': 'chk'}))
+    afternoon_monday = forms.BooleanField(required=False, widget=forms.CheckboxInput(
+        attrs={'class': 'chk'}))
+    afternoon_tuesday = forms.BooleanField(required=False, widget=forms.CheckboxInput(
+        attrs={'class': 'chk'}))
+    afternoon_wednesday = forms.BooleanField(required=False, widget=forms.CheckboxInput(
+        attrs={'class': 'chk'}))
+    afternoon_thursday = forms.BooleanField(required=False, widget=forms.CheckboxInput(
+        attrs={'class': 'chk'}))
+    afternoon_friday = forms.BooleanField(required=False, widget=forms.CheckboxInput(
+        attrs={'class': 'chk'}))
+    afternoon_saturday = forms.BooleanField(required=False, widget=forms.CheckboxInput(
+        attrs={'class': 'chk'}))
+    afternoon_sunday = forms.BooleanField(required=False, widget=forms.CheckboxInput(
+        attrs={'class': 'chk'}))
+    evening_monday = forms.BooleanField(required=False, widget=forms.CheckboxInput(
+        attrs={'class': 'chk'}))
+    evening_tuesday = forms.BooleanField(required=False, widget=forms.CheckboxInput(
+        attrs={'class': 'chk'}))
+    evening_wednesday = forms.BooleanField(required=False, widget=forms.CheckboxInput(
+        attrs={'class': 'chk'}))
+    evening_thursday = forms.BooleanField(required=False, widget=forms.CheckboxInput(
+        attrs={'class': 'chk'}))
+    evening_friday = forms.BooleanField(required=False, widget=forms.CheckboxInput(
+        attrs={'class': 'chk'}))
+    evening_saturday = forms.BooleanField(required=False, widget=forms.CheckboxInput(
+        attrs={'class': 'chk'}))
+    evening_sunday = forms.BooleanField(required=False, widget=forms.CheckboxInput(
+        attrs={'class': 'chk'}))
+    night_monday = forms.BooleanField(required=False, widget=forms.CheckboxInput(
+        attrs={'class': 'chk'}))
+    night_tuesday = forms.BooleanField(required=False, widget=forms.CheckboxInput(
+        attrs={'class': 'chk'}))
+    night_wednesday = forms.BooleanField(required=False, widget=forms.CheckboxInput(
+        attrs={'class': 'chk'}))
+    night_thursday = forms.BooleanField(required=False, widget=forms.CheckboxInput(
+        attrs={'class': 'chk'}))
+    night_friday = forms.BooleanField(required=False, widget=forms.CheckboxInput(
+        attrs={'class': 'chk'}))
+    night_saturday = forms.BooleanField(required=False, widget=forms.CheckboxInput(
+        attrs={'class': 'chk'}))
+    night_sunday = forms.BooleanField(required=False, widget=forms.CheckboxInput(
+        attrs={'class': 'chk'}))
+
+    class Meta:
+        model = FamilyCalendar
+        fields = '__all__'

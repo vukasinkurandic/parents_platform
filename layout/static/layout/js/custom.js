@@ -26,7 +26,7 @@ const host = "http://127.0.0.1:8000/";
 // JAVASCRIPT FOR INDEX PAGE
 if (
   window.location.href == host + "edit_babysitter.html" ||
-  window.location.href == host + "family/create_profil_family"
+  window.location.href == host + "family/edit_calendar"
 ) {
   let selektuj = document.querySelector(".select_all");
   selektuj.addEventListener("click", function () {

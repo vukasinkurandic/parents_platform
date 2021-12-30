@@ -1,0 +1,309 @@
+{% extends "layout/base_contact.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title%} Family Profil {% endblock %}
+
+{% block content%}
+<div class="slid insade-slid">
+    <div class="container-wrap-gradient"></div>
+    <img src="{% static 'layout/img/naslovna3.jpg' %}" />  
+    </div>
+          <section class="profil-wrapper">
+             <div class="container">
+                <div class="insade-profil-wrapper insade-profil-wrapper-bebisit">
+                   <div class="user-title">
+                      <h1>
+                        {%if profil.first_name == None or profil.last_name == None %}
+                        Ime i prezime
+                        {%else%}
+                        {{profil.first_name}} {{profil.last_name}} 
+                        {%endif%}
+                      </h1>
+                   </div>
+                   <div class="row">
+                      <div class="col-xxl-4 col-xl-5 col-lg-5">
+                         <div class="user-image">
+                                {%if profil.picture == None %}
+                                <img src="{% static 'layout/img/zena02.jpg' %}" class="img-fluid">
+                                {%else%}
+                                <img src="{{request.user.family.picture.url}}" class="img-fluid">
+                                {%endif%}   
+                         </div>
+                         <div class="user-social">
+                            <ul>
+                               <li> <span class="icon-user" ><i class="fas fa-phone"></i></span> <span class="user-phone" >  
+                                      {%if profil.mobile_number == None %}
+                                      {%else%}
+                                      {{profil.mobile_number}}
+                                      {%endif%}
+                               </span></li>
+                               <li> <span class="icon-user" > <i class="far fa-envelope"></i></span>  <span class="user-phone" >
+                                      {%if profil.email == None %}
+                                      {%else%}
+                                      {{profil.email}}
+                                      {%endif%}
+                               </span></li>
+                            </ul>
+                         </div>
+                         <div class="user-short-info">
+                            <ul>
+                               <li>
+                                  <span class="user-year">Društvene mreže</span>
+                                  <span class="user-year-num"><a href="{{profil.social_network}}">Klikni ovde</a></span>
+                               </li>                                      
+                               <li>
+                                  <span class="user-year">Godine</span>
+                                  <span class="user-year-num">
+                                      {%if profil.age == None %}
+                                      {%else%}
+                                      {{profil.age}}
+                                      {%endif%}
+                                  </span>
+                               </li>                                      
+                               <li>
+                                  <span class="user-year">Uzrast dece koju bi čuvala</span>
+                                  <span class="user-year-num">{{profil.number_children}}</span>
+                               </li>
+                               <li>
+                                  <span class="user-year">Broj dece</span>
+                                  <span class="user-year-num">{{profil.age_children}}</span>
+                               </li>
+                            </ul>
+                         </div>
+                 
+                         <div class="user-short-info">
+                            <ul>
+                               <li>
+                                  <span class="user-year">Ocena korisnika</span>
+                                  <span class="user-year-num rat-num">4.0</span>
+                               </li>
+                            </ul>
+                         </div>
+                      </div>
+                      <div class="col-xxl-8 col-xl-7 col-lg-7">
+                         <div class="user-main-info">
+                            <h3>O sebi</h3>
+                            <div class="about-area">
+                               <p>       {% if profil.about_me == "" %}
+                                         Napišite nešto o sebi, kako bi bebisiteri što bolje informisali...
+                                         {%else%}
+                                         {{profil.about_me}}
+                                         {%endif%}
+                               </p>
+                            </div>
+                            <div class="usual-info">
+                               <div class="usual-box">
+                                  <h4>Grad</h4>
+                                  <div class="usual-box-info">
+                                     <span>
+                                         {% if profil.sity == None %}
+                                         {%else%}
+                                         {{profil.sity}}
+                                         {%endif%}
+                                     </span>
+                                  </div>
+                               </div>
+                               <div class="usual-box">
+                                  <h4>Državljanstvo</h4>
+                                  <div class="usual-box-info">
+
+                                     <span>
+                                        {% if profil.citizenship == "Srpski Drzavljanin" %}
+                                        Srpsko
+                                        {%else%}
+                                        Strano
+                                        {%endif%}
+
+                                     </span>
+                                  </div>
+                               </div>
+                            </div>
+                            <div class="user-table table-responsive table-sm">
+                               <h3>Dostupnost</h3>
+                                       <table class="table table-striped table-hover">
+                                  <thead>
+                                     <tr><th></th>
+                                        <th scope="col">Ponedeljak</th>
+                                        <th scope="col">Utorak</th>
+                                        <th scope="col">Sreda</th>
+                                        <th scope="col">Četvrtak</th>
+                                        <th scope="col">Petak</th>
+                                        <th scope="col">Subota</th>
+                                        <th scope="col">Nedelja</th>
+                                     </tr>
+                                  </thead>
+                                  <tbody>
+                                     <tr>
+                                        <th scope="row">Jutro</th>
+                                        <td>
+                                            {%if calendar.morning_monday%}
+                                            <i class="fas fa-check"></i>
+                                            {%endif%}
+                                        </td>
+                                        <td>
+                                            {%if calendar.morning_tuesday%}
+                                            <i class="fas fa-check"></i>
+                                            {%endif%}
+                                        </td>
+                                        <td>
+                                            {%if calendar.morning_wednesday%}
+                                            <i class="fas fa-check"></i>
+                                            {%endif%}
+                                        </td>
+                                        <td>
+                                            {%if calendar.morning_thursday%}
+                                            <i class="fas fa-check"></i>
+                                            {%endif%}
+                                        </td>
+                                        <td>
+                                            {%if calendar.morning_friday%}
+                                            <i class="fas fa-check"></i>
+                                            {%endif%}
+                                        </td>
+                                        <td>
+                                            {%if calendar.morning_saturday%}
+                                            <i class="fas fa-check"></i>
+                                            {%endif%}
+                                        </td>
+                                        <td>
+                                            {%if calendar.morning_sunday%}
+                                            <i class="fas fa-check"></i>
+                                            {%endif%}
+                                        </td>
+                                     </tr>
+                                     <tr>
+                                        <th scope="row">Popodne</th>
+                                        <td>
+                                            {%if calendar.afternoon_monday%}
+                                            <i class="fas fa-check"></i>
+                                            {%endif%}
+                                        </td>
+                                        <td>
+                                            {%if calendar.afternoon_tuesday%}
+                                            <i class="fas fa-check"></i>
+                                            {%endif%}
+                                        </td>
+                                        <td>
+                                            {%if calendar.afternoon_wednesday%}
+                                            <i class="fas fa-check"></i>
+                                            {%endif%}
+                                        </td>
+                                        <td>
+                                            {%if calendar.afternoon_thursday%}
+                                            <i class="fas fa-check"></i>
+                                            {%endif%}
+                                        </td>
+                                        <td>
+                                            {%if calendar.afternoon_friday%}
+                                            <i class="fas fa-check"></i>
+                                            {%endif%}
+                                        </td>
+                                        <td>
+                                            {%if calendar.afternoon_saturday%}
+                                            <i class="fas fa-check"></i>
+                                            {%endif%}
+                                        </td>
+                                        <td>
+                                            {%if calendar.afternoon_sunday%}
+                                            <i class="fas fa-check"></i>
+                                            {%endif%}
+                                        </td>
+                                     </tr>
+                                     <tr>
+                                        <th scope="row">Veče</th>
+                                        <td>
+                                            {%if calendar.evening_monday%}
+                                            <i class="fas fa-check"></i>
+                                            {%endif%}
+                                        </td>
+                                        <td>
+                                            {%if calendar.evening_tuesday%}
+                                            <i class="fas fa-check"></i>
+                                            {%endif%}
+                                        </td>
+                                        <td>
+                                            {%if calendar.evening_wednesday%}
+                                            <i class="fas fa-check"></i>
+                                            {%endif%}
+                                        </td>
+                                        <td>
+                                            {%if calendar.evening_thursday%}
+                                            <i class="fas fa-check"></i>
+                                            {%endif%}
+                                        </td>
+                                        <td>
+                                            {%if calendar.evening_friday%}
+                                            <i class="fas fa-check"></i>
+                                            {%endif%}
+                                        </td>
+                                        <td>
+                                            {%if calendar.evening_saturday%}
+                                            <i class="fas fa-check"></i>
+                                            {%endif%}
+                                        </td>
+                                        <td>
+                                            {%if calendar.evening_sunday%}
+                                            <i class="fas fa-check"></i>
+                                            {%endif%}
+                                        </td>
+                                     <tr>
+                                        <th scope="row">Noć</th>
+                                        <td>
+                                            {%if calendar.night_monday%}
+                                            <i class="fas fa-check"></i>
+                                            {%endif%}
+                                        </td>
+                                        <td>
+                                            {%if calendar.night_tuesday%}
+                                            <i class="fas fa-check"></i>
+                                            {%endif%}
+                                        </td>
+                                        <td>
+                                            {%if calendar.night_wednesday%}
+                                            <i class="fas fa-check"></i>
+                                            {%endif%}
+                                        </td>
+                                        <td>
+                                            {%if calendar.night_thursday%}
+                                            <i class="fas fa-check"></i>
+                                            {%endif%}
+                                        </td>
+                                        <td>
+                                            {%if calendar.night_friday%}
+                                            <i class="fas fa-check"></i>
+                                            {%endif%}
+                                        </td>
+                                        <td>
+                                            {%if calendar.night_saturday%}
+                                            <i class="fas fa-check"></i>
+                                            {%endif%}
+                                        </td>
+                                        <td>
+                                            {%if calendar.night_sunday%}
+                                            <i class="fas fa-check"></i>
+                                            {%endif%}
+                                        </td>
+                                     </tr>
+                                  </tbody>
+                               </table>
+                            </div>
+
+                            <div class="comment-area">
+
+                               <div class="comment-preview">
+                                  <h6> <b> Mikan Mikanič</b></h6>
+                                  <p class="com-dat">25.12.2021</p>
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                  </p>
+                               </div>
+                            </div>
+                         </div>
+                         <!-- end user main info -->
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </section>
+{% endblock %}
