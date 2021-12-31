@@ -1291,6 +1291,7 @@ span.user-phone {
   line-height: 45px;
   font-size: 20px;
   font-weight: 600;
+  color: #000;
 }
 
 .user-short-info {
@@ -1358,6 +1359,7 @@ span.user-year-num {
   color: #fff;
   text-shadow: 2px 2px rgb(0 0 0 / 30%);
   font-family: "Quicksand", sans-serif;
+  transition: 0.5s ease-in-out;
 }
 
 span.user-year {
@@ -1367,6 +1369,9 @@ span.user-year {
   font-weight: 600;
 }
 
+a span.user-year-num:hover{
+  background-color: #63bef2;
+}
 /*register form*/
 
 .register-form {
@@ -2071,3 +2076,12 @@ font-size: 20px;
   padding: 15px;
 }
 /* flash message login success, login error etc. */
+
+.editbutton{
+display: flex;  
+}
+
+.profile-button{
+position: relative;
+margin-left: auto;
+}

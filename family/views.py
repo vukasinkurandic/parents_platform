@@ -49,8 +49,7 @@ def edit_profil(request):
                 request, 'Uspesno ste azurirali profil')
             return redirect('/family/profil')
         else:
-            # To see the form errors in the console.
-            print(form_family.errors)
+            msg = messages.error(request, form['picture'].errors)
     newsletter_form = NewsletterForm()
     context = {'form_family': form_family, 'form': newsletter_form}
     return render(request, 'family/edit_profil_family.html', context)

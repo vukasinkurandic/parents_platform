@@ -11,7 +11,7 @@ class FamilyForm(forms.ModelForm):
         attrs={'class': 'form-control', 'id': 'about_me', 'name': 'about_me'})),
     about_me_eng = forms.CharField(widget=forms.Textarea(
         attrs={'class': 'form-control', 'id': 'about_me_eng', 'name': 'about_me_eng'})),
-    picture = forms.ImageField(widget=forms.FileInput(
+    picture = forms.ImageField(error_messages={'invalid': ("Image files only")}, widget=forms.FileInput(
         attrs={'class': 'form-control', 'id': 'user_image', 'name': 'user_image'})),
     sity = forms.ChoiceField(widget=forms.Select(
         attrs={'class': 'form-control', 'id': 'user_city', 'name': 'user_city', 'aria-label': 'Default select example'})),
