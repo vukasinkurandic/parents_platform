@@ -5,6 +5,6 @@
 
 <form action="" method="post" enctype="multipart/form-data">
    {% csrf_token %}
-   {{form_babysitter}}
-   <button type="submit">Kreiraj profil</button>
+   {{form_babysitter.as_p}}
+   <button type="submit">Azuriraj profil profil</button>
 </form>

@@ -8,42 +8,6 @@ from family . choices import SITY_CHOICES, NUMBER_CHOICES, AGE_CHOICES, CITIZENS
 from djmoney.models.fields import MoneyField
 
 
-class BabysitterCalendar(models.Model):
-    morning_monday = models.BooleanField(default=False)
-    morning_tuesday = models.BooleanField(default=False)
-    morning_wednesday = models.BooleanField(default=False)
-    morning_thursday = models.BooleanField(default=False)
-    morning_friday = models.BooleanField(default=False)
-    morning_saturday = models.BooleanField(default=False)
-    morning_sunday = models.BooleanField(default=False)
-
-    afternoon_monday = models.BooleanField(default=False)
-    afternoon_tuesday = models.BooleanField(default=False)
-    afternoon_wednesday = models.BooleanField(default=False)
-    afternoon_thursday = models.BooleanField(default=False)
-    afternoon_friday = models.BooleanField(default=False)
-    afternoon_saturday = models.BooleanField(default=False)
-    afternoon_sunday = models.BooleanField(default=False)
-
-    evening_monday = models.BooleanField(default=False)
-    evening_tuesday = models.BooleanField(default=False)
-    evening_wednesday = models.BooleanField(default=False)
-    evening_thursday = models.BooleanField(default=False)
-    evening_friday = models.BooleanField(default=False)
-    evening_saturday = models.BooleanField(default=False)
-    evening_sunday = models.BooleanField(default=False)
-
-    night_monday = models.BooleanField(default=False)
-    night_tuesday = models.BooleanField(default=False)
-    night_wednesday = models.BooleanField(default=False)
-    night_thursday = models.BooleanField(default=False)
-    night_friday = models.BooleanField(default=False)
-    night_saturday = models.BooleanField(default=False)
-    night_sunday = models.BooleanField(default=False)
-
-    date_added = models.DateTimeField(auto_now_add=True)
-
-
 class Babysitter(models.Model):
     SEX_CHOICES = (
         ('Muško', 'Muško'),
@@ -80,11 +44,8 @@ class Babysitter(models.Model):
     about_me_eng = models.TextField(blank=True)
     years_care_experience = models.CharField(
         max_length=5, choices=NUMBER_CHOICES, blank=True, null=True)
-    calendar = models.ForeignKey(
-        BabysitterCalendar, on_delete=models.CASCADE, blank=True, null=True)
     work_type = models.CharField(
         max_length=15, choices=WORK_CHOICES, blank=True, null=True)
-
     car = models.BooleanField(default=False)
     driver_license = models.BooleanField(default=False)
     pets = models.BooleanField(default=False)
@@ -120,3 +81,41 @@ class Babysitter(models.Model):
         to_slug = slugify(base_slug + " " + str(get_random_code()))
         self.slug = to_slug
         super().save(*args, **kwargs)
+
+
+class BabysitterCalendar(models.Model):
+    babysitter = models.OneToOneField(
+        Babysitter, on_delete=models.CASCADE, blank=True, null=True)
+    morning_monday = models.BooleanField(default=False)
+    morning_tuesday = models.BooleanField(default=False)
+    morning_wednesday = models.BooleanField(default=False)
+    morning_thursday = models.BooleanField(default=False)
+    morning_friday = models.BooleanField(default=False)
+    morning_saturday = models.BooleanField(default=False)
+    morning_sunday = models.BooleanField(default=False)
+
+    afternoon_monday = models.BooleanField(default=False)
+    afternoon_tuesday = models.BooleanField(default=False)
+    afternoon_wednesday = models.BooleanField(default=False)
+    afternoon_thursday = models.BooleanField(default=False)
+    afternoon_friday = models.BooleanField(default=False)
+    afternoon_saturday = models.BooleanField(default=False)
+    afternoon_sunday = models.BooleanField(default=False)
+
+    evening_monday = models.BooleanField(default=False)
+    evening_tuesday = models.BooleanField(default=False)
+    evening_wednesday = models.BooleanField(default=False)
+    evening_thursday = models.BooleanField(default=False)
+    evening_friday = models.BooleanField(default=False)
+    evening_saturday = models.BooleanField(default=False)
+    evening_sunday = models.BooleanField(default=False)
+
+    night_monday = models.BooleanField(default=False)
+    night_tuesday = models.BooleanField(default=False)
+    night_wednesday = models.BooleanField(default=False)
+    night_thursday = models.BooleanField(default=False)
+    night_friday = models.BooleanField(default=False)
+    night_saturday = models.BooleanField(default=False)
+    night_sunday = models.BooleanField(default=False)
+
+    date_added = models.DateTimeField(auto_now_add=True)

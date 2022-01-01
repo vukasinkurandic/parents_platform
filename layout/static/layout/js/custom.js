@@ -25,7 +25,7 @@ if (inerWidBraust < 992) {
 const host = "http://127.0.0.1:8000/";
 // JAVASCRIPT FOR INDEX PAGE
 if (
-  window.location.href == host + "edit_babysitter.html" ||
+  window.location.href == host + "babysitter/edit_calendar" ||
   window.location.href == host + "family/edit_calendar"
 ) {
   let selektuj = document.querySelector(".select_all");
