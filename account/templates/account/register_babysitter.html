@@ -39,7 +39,7 @@
 
             <div class="register-form">
               <h4>Registruj se</h4>
-              <!--FORM***************-->
+               <!--MESSAGE-->
               {% if form.errors %}
                 {% for field in form %}
                   {% for error in field.errors %}
@@ -54,6 +54,7 @@
                   </div>
                 {% endfor %}
               {% endif %}
+              <!--MESSAGE-->
               <form action="" method="POST">
                 {% csrf_token%}
                 <div class="row">

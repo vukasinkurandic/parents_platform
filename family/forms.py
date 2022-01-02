@@ -14,7 +14,7 @@ class FamilyForm(forms.ModelForm):
     picture = forms.ImageField(error_messages={'invalid': ("Image files only")}, widget=forms.FileInput(
         attrs={'class': 'form-control', 'id': 'user_image', 'name': 'user_image'})),
     sity = forms.ChoiceField(widget=forms.Select(
-        attrs={'class': 'form-control', 'id': 'user_city', 'name': 'user_city', 'aria-label': 'Default select example'})),
+        attrs={'class': 'form-select', 'id': 'user_city', 'name': 'user_city', 'aria-label': 'Default select example'})),
     mobile_number = forms.CharField(widget=forms.TextInput(
         attrs={'class': 'form-control', 'id': 'user_phone', 'name': 'user_phone'})),
     email = forms.EmailField(widget=forms.EmailInput(
@@ -22,11 +22,11 @@ class FamilyForm(forms.ModelForm):
     social_network = forms.URLField(widget=forms.TextInput(
         attrs={'class': 'form-control', 'id': 'user_social_network', 'name': 'user_social_network'})),
     number_children = forms.ChoiceField(widget=forms.Select(
-        attrs={'class': 'form-control', 'id': 'user_child_number', 'name': 'user_child_number', 'aria-label': 'Default select example'})),
+        attrs={'class': 'form-select', 'id': 'user_child_number', 'name': 'user_child_number', 'aria-label': 'Default select example'})),
     age_children = forms.ChoiceField(widget=forms.Select(
-        attrs={'class': 'form-control', 'id': 'user_child_year', 'name': 'user_child_year', 'aria-label': 'Default select example'})),
+        attrs={'class': 'form-select', 'id': 'user_child_year', 'name': 'user_child_year', 'aria-label': 'Default select example'})),
     citizenship = forms.ChoiceField(widget=forms.RadioSelect(
-        attrs={'class': 'form-check-input', 'name': 'flexRadioDefault'})),
+        attrs={'class': 'form-select', 'name': 'flexRadioDefault'})),
     age = forms.IntegerField(widget=forms.NumberInput(
         attrs={'class': 'form-control', 'name': 'user_year', 'id': 'user_year'})),
 
@@ -55,13 +55,13 @@ class FamilyForm(forms.ModelForm):
         self.fields['about_me'].widget.attrs['class'] = 'form-control'
         self.fields['about_me_eng'].widget.attrs['class'] = 'form-control'
         self.fields['picture'].widget.attrs['class'] = 'form-control'
-        self.fields['sity'].widget.attrs['class'] = 'form-control'
+        self.fields['sity'].widget.attrs['class'] = 'form-select'
         self.fields['mobile_number'].widget.attrs['class'] = 'form-control'
         self.fields['email'].widget.attrs['class'] = 'form-control'
         self.fields['social_network'].widget.attrs['class'] = 'form-control'
-        self.fields['number_children'].widget.attrs['class'] = 'form-control'
-        self.fields['age_children'].widget.attrs['class'] = 'form-control'
-        self.fields['citizenship'].widget.attrs['class'] = 'form-control'
+        self.fields['number_children'].widget.attrs['class'] = 'form-select'
+        self.fields['age_children'].widget.attrs['class'] = 'form-select'
+        self.fields['citizenship'].widget.attrs['class'] = 'form-select'
         self.fields['age'].widget.attrs['class'] = 'form-control'
 
 

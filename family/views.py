@@ -83,7 +83,8 @@ def edit_calendar(request):
                 request, 'Uspesno ste azurirali Vasu dostupnost')
             return redirect('/family/profil')
         else:
-            print(form_family.errors)
+            messages.error(
+                request, 'Slika ne sme biti vec od 2MB i mora biti u formatu jpg, png ili jpeg')
 
     context = {'family_calendar_form': family_calendar_form}
     return render(request, 'family/edit_calendar.html', context)

@@ -13,6 +13,10 @@ class Babysitter(models.Model):
         ('Muško', 'Muško'),
         ('Žensko', 'Žensko'),
     )
+    YES_NO_CHOICES = (
+        ('DA', 'DA'),
+        ('NE', 'NE'),
+    )
     WORK_CHOICES = (
         ('Bebisiter', 'Bebisiter'),
         ('Dadilja', 'Dadilja'),
@@ -32,8 +36,8 @@ class Babysitter(models.Model):
     sity = models.CharField(
         max_length=200, choices=SITY_CHOICES, null=True, blank=True)
 
-    hourly_rate = MoneyField(
-        max_digits=10, decimal_places=0, blank=True, null=True, default_currency='RSD')
+    hourly_rate = models.PositiveIntegerField(
+        blank=True, null=True)
     mobile_num_regex = RegexValidator(
         regex=r'^\+?1?\d{9,15}$', message="Broj nije u odgovarajućem formatu, +381641234567")
     mobile_number = models.CharField(blank=True, validators=[mobile_num_regex], max_length=17, help_text=(
@@ -46,14 +50,24 @@ class Babysitter(models.Model):
         max_length=5, choices=NUMBER_CHOICES, blank=True, null=True)
     work_type = models.CharField(
         max_length=15, choices=WORK_CHOICES, blank=True, null=True)
-    car = models.BooleanField(default=False)
-    driver_license = models.BooleanField(default=False)
-    pets = models.BooleanField(default=False)
-    own_children = models.BooleanField(default=False)
-    house = models.BooleanField(default=False)
-    cooking = models.BooleanField(default=False)
-    school_activities = models.BooleanField(default=False)
-    children_with_special_needs = models.BooleanField(default=False)
+    car = models.CharField(
+        max_length=5, choices=YES_NO_CHOICES, default='NE')
+    driver_license = models.CharField(
+        max_length=5, choices=YES_NO_CHOICES, default='NE')
+    pets = models.CharField(
+        max_length=5, choices=YES_NO_CHOICES, default='NE')
+    own_children = models.CharField(
+        max_length=5, choices=YES_NO_CHOICES, default='NE')
+    house = models.CharField(
+        max_length=5, choices=YES_NO_CHOICES, default='NE')
+    cooking = models.CharField(
+        max_length=5, choices=YES_NO_CHOICES, default='NE')
+    school_activities = models.CharField(
+        max_length=5, choices=YES_NO_CHOICES, default='NE')
+    children_with_special_needs = models.CharField(
+        max_length=5, choices=YES_NO_CHOICES, default='NE')
+    home_job = models.CharField(
+        max_length=5, choices=YES_NO_CHOICES, default='NE')
     slug = models.SlugField(unique=True, blank=True)
     age_children = models.CharField(
         max_length=10, choices=AGE_CHOICES, default='1-3')

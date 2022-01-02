@@ -9,13 +9,11 @@ def create_profil(request):
     form_babysitter = BabysitterForm()
     user = request.user
     user_id = user.id
-
     try:
         babysitter_obj = Babysitter.objects.get(user_id=user_id)
     except Babysitter.DoesNotExist:
         babysitter_obj = None
     if babysitter_obj:  # PROFIL EXIST
-
         return redirect('/babysitter/profil')
     else:  # PROFIL NOT EXIST
         if request.method == "POST":
@@ -29,10 +27,11 @@ def create_profil(request):
                     request, 'Uspesno ste kreirali profil')
                 return redirect('/babysitter/edit_calendar')
             else:
-                # To see the form errors in the console.
-                print(form_babysitter.errors)
+                messages.error(
+                    request, 'Slika ne sme biti vec od 2MB i mora biti u formatu jpg, png ili jpeg')
         newsletter_form = NewsletterForm()
-        return render(request, 'babysitter/create_profil_babysitter.html', {'form_babysitter': form_babysitter, 'form': newsletter_form})
+        context = {'form_babysitter': form_babysitter, 'form': newsletter_form}
+        return render(request, 'babysitter/create_profil_babysitter.html', context)
 
 
 def edit_profil(request):
@@ -64,8 +63,8 @@ def profil(request):
     newsletter_form = NewsletterForm()
     context = {'profil': profil, 'calendar': calendar, 'form': newsletter_form}
     # PROBA STRANICA
-    return render(request, 'babysitter/profil_babysitter_proba.html', context)
-    # return render(request, 'babysitter/profil_babysitter.html', context)
+    # return render(request, 'babysitter/profil_babysitter_proba.html', context)
+    return render(request, 'babysitter/profil_babysitter.html', context)
 
 
 def edit_calendar(request):

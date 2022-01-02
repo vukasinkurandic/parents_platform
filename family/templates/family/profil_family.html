@@ -100,12 +100,12 @@
 
                                </li>                                      
                                <li>
-                                  <span class="user-year">Uzrast dece koju bi čuvala</span>
-                                  <span class="user-year-num">{{profil.number_children}}</span>
+                                  <span class="user-year">Uzrast dece koju treba čuvati</span>
+                                  <span class="user-year-num">{{profil.age_children}}</span>
                                </li>
                                <li>
                                   <span class="user-year">Broj dece</span>
-                                  <span class="user-year-num">{{profil.age_children}}</span>
+                                  <span class="user-year-num">{{profil.number_children}}</span>
                                </li>
                             </ul>
                          </div>
@@ -123,11 +123,12 @@
                          <div class="user-main-info">
                             <h3>O sebi</h3>
                             <div class="about-area">
-                               <p>       {% if profil.about_me == "" %}
-                                         Napišite nešto o sebi, kako bi bebisiteri što bolje informisali...
-                                         {%else%}
-                                         {{profil.about_me}}
-                                         {%endif%}
+                               <p>       
+                                 {% if profil.about_me == "" %}
+                                    Napišite nešto o sebi, kako bi bebisiteri što bolje informisali...
+                                 {%else%}
+                                    {{profil.about_me}}
+                                 {%endif%}
                                </p>
                             </div>
                             <div class="usual-info">
