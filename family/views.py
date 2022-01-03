@@ -29,8 +29,8 @@ def create_profil(request):
                     request, 'Uspesno ste kreirali profil')
                 return redirect('/family/edit_calendar')
             else:
-                # To see the form errors in the console.
-                print(form_family.errors)
+                messages.error(
+                    request, 'Slika ne sme biti vec od 2MB i mora biti u formatu jpg, png ili jpeg')
         newsletter_form = NewsletterForm()
         return render(request, 'family/create_profil_family.html', {'form_family': form_family, 'form': newsletter_form})
 
@@ -49,7 +49,8 @@ def edit_profil(request):
                 request, 'Uspesno ste azurirali profil')
             return redirect('/family/profil')
         else:
-            msg = messages.error(request, form['picture'].errors)
+            messages.error(
+                request, 'Slika ne sme biti vec od 2MB i mora biti u formatu jpg, png ili jpeg')
     newsletter_form = NewsletterForm()
     context = {'form_family': form_family, 'form': newsletter_form}
     return render(request, 'family/edit_profil_family.html', context)

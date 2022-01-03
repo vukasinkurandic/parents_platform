@@ -152,3 +152,5 @@ SESSION_COOKIE_AGE = 14400  # 4 hour in seconds
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

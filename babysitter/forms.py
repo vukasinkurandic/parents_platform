@@ -3,6 +3,7 @@ from . models import Babysitter, BabysitterCalendar
 
 
 class BabysitterForm(forms.ModelForm):
+
     first_name = forms.CharField(widget=forms.TextInput(
         attrs={'class': 'form-control', 'id': 'siter_name', 'name': 'siter_name'})),
     last_name = forms.CharField(widget=forms.TextInput(
@@ -97,6 +98,8 @@ class BabysitterForm(forms.ModelForm):
         self.fields['about_me'].widget.attrs['class'] = 'form-control'
         self.fields['about_me_eng'].widget.attrs['class'] = 'form-control'
         self.fields['picture'].widget.attrs['class'] = 'form-control'
+        self.fields['picture'].widget.initial_text = ("")
+        self.fields['picture'].widget.input_text = ("")
         self.fields['sity'].widget.attrs['class'] = 'form-select'
         self.fields['mobile_number'].widget.attrs['class'] = 'form-control'
         self.fields['email'].widget.attrs['class'] = 'form-control'

@@ -101,7 +101,7 @@
                                </div>
                             </div>
 
-                            <div class="col-lg-6">
+                            <div class="col-lg-12">
                                <div class="mb-3">
                                   <label for="user_social_network" class="form-label">Društvene mreže</label>
                                   {{ form_family.social_network}}
@@ -142,5 +142,16 @@
        </div>
     </div>
  </section>
+ <script>
+   let clear_check = document.querySelector('#picture-clear_id');
+  clear_check.remove()
+  var labels = document.getElementsByTagName('label');
+  for (var i = 0; i < labels.length; i++)
+    if (labels[i].htmlFor == 'user_image' || 'picture-clear_id') {
+      label = labels[i];
+      break;
+      label.remove()
+    }
+ </script>
 
 {% endblock %}

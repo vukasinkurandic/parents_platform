@@ -49,7 +49,8 @@ def edit_profil(request):
                 request, 'Uspesno ste azurirali profil')
             return redirect('/babysitter/profil')
         else:
-            msg = messages.error(request, form['picture'].errors)
+            messages.error(
+                request, 'Slika ne sme biti vec od 2MB i mora biti u formatu jpg, png ili jpeg')
     newsletter_form = NewsletterForm()
     context = {'form_babysitter': form_babysitter, 'form': newsletter_form}
     return render(request, 'babysitter/edit_profil_babysitter.html', context)

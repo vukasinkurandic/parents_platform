@@ -109,7 +109,7 @@
                         {%endif%}
                       </li>
                       <li>
-                         <span class="user-year">Grad u kojem bi  <span class="only-on-mob-one"> radio/la </span> </span>
+                         <span class="user-year">Grad u kojem bi <span class="only-on-mob-one"> radio/la </span> </span>
                          {% if profil.sity == None %}
                            <span class="user-year-num only-on-mob-two">
                            Unesite Vaš grad
@@ -119,6 +119,39 @@
                             {{profil.sity}}
                          </span>
                          {%endif%}
+                      </li>
+                      <li>
+                         <span class="user-year">Posao traži kao?</span>
+                         {% if profil.work_type == None %}
+                         <span class="user-year-num only-on-mob-two">
+                            Odaberite vrstu posla
+                         </span>
+                         {%else%}
+                         <span class="user-year-num only-on-mob-two">
+                            {{profil.work_type}}
+                           </span>
+                           {%endif%}
+                      </li>
+                        <li>
+                         <span class="user-year">Uzrast dece koju bi čuvala</span>
+                         {% if profil.age_children == None %}
+                         {%else%}
+                         <span class="user-year-num only-on-mob-two">
+                            {{profil.age_children}}
+                           </span>
+                         {%endif%}
+                        </li>
+                        <li>
+                         <span class="user-year">Godine iskustva <span class="only-on-mob-one" > u čuvanju dece</span></span>
+                         {% if profil.years_care_experience == None %}
+                         <span class="user-year-num only-on-mob-two">
+                            Niste uneli
+                           </span>
+                         {%else%}
+                         <span class="user-year-num only-on-mob-two">
+                            {{profil.years_care_experience}}
+                           </span>
+                           {%endif%}
                       </li>
                       <li>
                          <span class="user-year">Da li bi čuvala decu <span class="only-on-mob-one" > kod svoje kuće</span></span>
@@ -138,24 +171,6 @@
                            </span>
                          {%endif%}
                       </li>
-                      <li>
-                         <span class="user-year">Da li bi kuvala</span>
-                         {% if profil.cooking == None %}
-                         {%else%}
-                         <span class="user-year-num only-on-mob-two">
-                            {{profil.cooking}}
-                           </span>
-                         {%endif%}
-                      </li>
-                      <li>
-                         <span class="user-year">Uzrast dece koju bi čuvala</span>
-                         {% if profil.age_children == None %}
-                         {%else%}
-                         <span class="user-year-num only-on-mob-two">
-                            {{profil.age_children}}
-                           </span>
-                         {%endif%}
-                      </li>
                    </ul>
                 </div>
                 <div class="user-short-info">
@@ -170,7 +185,7 @@
                            {%endif%}
                       </li>
                       <li>
-                         <span class="user-year">Da li bi radila <span class="only-on-mob-one"> lalakše kućne poslove </span> </span>
+                         <span class="user-year">Da li bi radila <span class="only-on-mob-one"> lakše kućne poslove </span> </span>
                          {% if profil.home_job == None %}
                          {%else%}
                          <span class="user-year-num only-on-mob-two">
@@ -197,28 +212,13 @@
                            {%endif%}
                       </li>
                       <li>
-                         <span class="user-year">Godine iskustva <span class="only-on-mob-one" > u čuvanju dece</span></span>
-                         {% if profil.years_care_experience == None %}
-                         <span class="user-year-num only-on-mob-two">
-                            Niste uneli
-                           </span>
+                         <span class="user-year">Da li bi kuvala</span>
+                         {% if profil.cooking == None %}
                          {%else%}
                          <span class="user-year-num only-on-mob-two">
-                            {{profil.years_care_experience}}
+                            {{profil.cooking}}
                            </span>
-                           {%endif%}
-                      </li>
-                      <li>
-                         <span class="user-year">Posao traži kao?</span>
-                         {% if profil.work_type == None %}
-                         <span class="user-year-num only-on-mob-two">
-                            Odaberite vrstu posla
-                         </span>
-                         {%else%}
-                         <span class="user-year-num only-on-mob-two">
-                            {{profil.work_type}}
-                           </span>
-                           {%endif%}
+                         {%endif%}
                       </li>
                       <li>
                          <span class="user-year">Vozačka dozvola</span>

@@ -2106,3 +2106,8 @@ margin-left: auto;
   height: 46px;
   font-size: 18px;
 }
+
+.ver-text{
+width: 80%;  
+margin:0 auto 35px auto;
+}
