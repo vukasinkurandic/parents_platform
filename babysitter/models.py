@@ -5,7 +5,6 @@ from family . validators import validate_image
 from family . utils import get_random_code
 from django.template.defaultfilters import slugify
 from family . choices import SITY_CHOICES, NUMBER_CHOICES, AGE_CHOICES, CITIZENSHIP_CHOICES
-from djmoney.models.fields import MoneyField
 
 
 class Babysitter(models.Model):
