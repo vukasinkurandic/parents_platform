@@ -4,8 +4,16 @@ from . import views
 app_name = 'family'
 
 urlpatterns = [
-    path('create_profil_family', views.create_profil_family,
-         name='create_profil_family'),
+    # Family profil
+    path('create_profil', views.create_profil,
+         name='create_profil'),
+    path('edit_profil', views.edit_profil,
+         name='edit_profil'),
+    path('profil', views.profil,
+         name='profil'),
+    # Calendar
+    path('edit_calendar', views.edit_calendar,
+         name='edit_calendar'),
 
 
 

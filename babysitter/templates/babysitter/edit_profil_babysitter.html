@@ -2,7 +2,7 @@
 {% extends "layout/base_contact.html" %}
 {% load static %}
 {% load crispy_forms_tags %}
-{% block title%} Kreiraj Babysitter Profil {% endblock %}
+{% block title%} Ažuriraj Babysitter Profil {% endblock %}
 
 {% block content%}
 <div class="slid insade-slid">
@@ -14,7 +14,7 @@
        <div class="insade-profil-wrapper insade-profil-wrapper-bebisit">
           <div class="user-title">
              <h1>
-                Unesite vaše podatke
+                Ažurirajte Vaš Profil 
              </h1>
           </div>
           <!-- MESSAGES-->
@@ -180,7 +180,7 @@
                                   {{ form_babysitter.cooking}}
                                </div>
                             </div>
-                                                        <div class="col-lg-6">
+                               <div class="col-lg-6">
                                <div class="mb-3">
                                   <label for="siter_drivlic" class="form-label">Vozačka dozvola?</label>
                                      {{ form_babysitter.driver_license}}
@@ -196,12 +196,23 @@
                       </div>
                    </div>
                 </div>
-                <input type="submit" name="send_msg" value="Kreiraj profil" class="btn btn-log-reg">
+                <input type="submit" name="send_msg" value="Ažuriraj profil" class="btn btn-log-reg">
              </form>
           </div>
        </div>
     </div>
  </section>
+  <script>
+   let clear_check = document.querySelector('#picture-clear_id');
+  clear_check.remove()
+  var labels = document.getElementsByTagName('label');
+  for (var i = 0; i < labels.length; i++)
+    if (labels[i].htmlFor == 'user_image' || 'picture-clear_id') {
+      label = labels[i];
+      break;
+      label.remove()
+    }
+ </script>
  {% endblock %}
 
 

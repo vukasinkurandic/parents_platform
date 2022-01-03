@@ -1,39 +1,35 @@
-<!DOCTYPE html>
-{% load i18n %}
+{% extends "base_reset.html" %}
 {% load static %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% blocktrans %}Odjava{% endblocktrans %}</title>
-    <link rel="stylesheet" href="{% static 'account/css/logout.css' %}">
-</head>
-<body>
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <div class="logout-div">
-                    <div class="row">
-                        <h1>{% blocktrans %}Uspešno ste se odjavili{% endblocktrans %}</h1>
-                    </div>
-                    <div class="row">
-                        <h3>{% blocktrans %}Hvala Vam što koristite naš portal{% endblocktrans %}</h3>
-                    </div>
-                    <div class="row row-span">
-                        <span>{% blocktrans %}Ovde možete opet da se prijavite{% endblocktrans %}</span>
-                    </div>
-                    <div>
-                        <a class="btn-logout" href="{% url 'account:login' %}">{% trans "Prijavi se" %}</a>
-                    </div>
-                    
-                </div>
-                
-            </div>
-        </div>
+{% block title %} Logout {% endblock %}
+
+{% block content %}
+    <div class="slid insade-slid">
+        <div class="container-wrap-gradient"></div>
+        <img src="{% static 'layout/img/naslovna3.jpg' %}" />
     </div>
-</body>
-</html>
+
+    <section class="profil-wrapper">
+      <div class="container add-fluid-div">
+        <div class="insade-profil-wrapper">
+          <div class="user-title">
+            <h1 class="extrasmalldev">Uspešno ste se odjavili</h1>
+          </div>
+            <div class="login-form">
+              <div class="row  d-flex justify-content-center">
+              <div class="col-lg-6 ">
+               <h2>Hvala što ste koristili naše usluge</h2>
+               <h3>Molimo Vas prijavite se, kako bi ste ponovo koristili naš servis.</h3>
+              </div>  
+              </div>
+                <div class="text-center">
+                    <a class="btn btn-primary" href="{% url 'account:login' %}" >Login</a>
+                 </div>
+            </div>          
+        </div>
+      </div>
+    </section>
+{% endblock %}
+    
 
 
-
+  

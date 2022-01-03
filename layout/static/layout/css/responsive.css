@@ -864,7 +864,10 @@ span.user-year {
 
 @media (max-width: 575px) {
 
-
+.editbutton{
+  display: block;
+  margin-top: 25px;
+}
 
 /*babisiter profile start*/
 .only-on-mob-one{

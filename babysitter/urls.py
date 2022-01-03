@@ -4,11 +4,15 @@ from . import views
 app_name = 'babysitter'
 
 urlpatterns = [
-    path('create_profil_babysitter',
-         views.create_profil_babysitter, name='create_profil_babysitter'),
-
-
-
-
+    # Babysitter profil
+    path('create_profil',
+         views.create_profil, name='create_profil'),
+    path('edit_profil', views.edit_profil,
+         name='edit_profil'),
+    path('profil', views.profil,
+         name='profil'),
+    # Calendar
+    path('edit_calendar', views.edit_calendar,
+         name='edit_calendar'),
 
 ]

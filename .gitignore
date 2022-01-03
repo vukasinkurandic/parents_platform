@@ -109,6 +109,7 @@ target/
 */*/__pycache__/
 */__pycache__/
 local_settings.py
+media
 
 .env
 db.sqlite3

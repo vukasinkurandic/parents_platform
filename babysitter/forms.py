@@ -1,37 +1,63 @@
 from django import forms
-from . models import Family, FamilyCalendar
+from . models import Babysitter, BabysitterCalendar
 
 
-class FamilyForm(forms.ModelForm):
+class BabysitterForm(forms.ModelForm):
+
     first_name = forms.CharField(widget=forms.TextInput(
-        attrs={'class': 'form-control', 'id': 'user_name', 'name': 'user_name'})),
+        attrs={'class': 'form-control', 'id': 'siter_name', 'name': 'siter_name'})),
     last_name = forms.CharField(widget=forms.TextInput(
-        attrs={'class': 'form-control', 'id': 'user_surname', 'name': 'user_surname'})),
+        attrs={'class': 'form-control', 'id': 'siter_surname', 'name': 'siter_surname'})),
     about_me = forms.CharField(widget=forms.Textarea(
-        attrs={'class': 'form-control', 'id': 'about_me', 'name': 'about_me'})),
+        attrs={'class': 'form-control', 'id': 'siter_about_me', 'name': 'siter_about_me'})),
     about_me_eng = forms.CharField(widget=forms.Textarea(
-        attrs={'class': 'form-control', 'id': 'about_me_eng', 'name': 'about_me_eng'})),
+        attrs={'class': 'form-control', 'id': 'sitier_about_me_eng', 'name': 'sitier_about_me_eng'})),
     picture = forms.ImageField(error_messages={'invalid': ("Image files only")}, widget=forms.FileInput(
         attrs={'class': 'form-control', 'id': 'user_image', 'name': 'user_image'})),
     sity = forms.ChoiceField(widget=forms.Select(
-        attrs={'class': 'form-select', 'id': 'user_city', 'name': 'user_city', 'aria-label': 'Default select example'})),
+        attrs={'class': 'form-select', 'id': 'siter_city', 'name': 'siter_city', 'aria-label': 'Default select example'})),
     mobile_number = forms.CharField(widget=forms.TextInput(
-        attrs={'class': 'form-control', 'id': 'user_phone', 'name': 'user_phone'})),
+        attrs={'class': 'form-control', 'id': 'siter_phone', 'name': 'siter_phone'})),
     email = forms.EmailField(widget=forms.EmailInput(
-        attrs={'class': 'form-control', 'id': 'user_email', 'name': 'user_email'})),
+        attrs={'class': 'form-control', 'id': 'siter_email', 'name': 'siter_email'})),
     social_network = forms.URLField(widget=forms.TextInput(
-        attrs={'class': 'form-control', 'id': 'user_social_network', 'name': 'user_social_network'})),
-    number_children = forms.ChoiceField(widget=forms.Select(
-        attrs={'class': 'form-select', 'id': 'user_child_number', 'name': 'user_child_number', 'aria-label': 'Default select example'})),
+        attrs={'class': 'form-control', 'id': 'siter_social_network', 'name': 'siter_social_network'})),
     age_children = forms.ChoiceField(widget=forms.Select(
-        attrs={'class': 'form-select', 'id': 'user_child_year', 'name': 'user_child_year', 'aria-label': 'Default select example'})),
-    citizenship = forms.ChoiceField(widget=forms.RadioSelect(
-        attrs={'class': 'form-select', 'name': 'flexRadioDefault'})),
+        attrs={'class': 'form-select', 'id': 'user_child_number', 'name': 'user_child_number', 'aria-label': 'Default select example'})),
+    citizenship = forms.ChoiceField(widget=forms.Select(
+        attrs={'class': 'form-select', 'id': 'user_municipality', 'name': 'user_municipality'})),
     age = forms.IntegerField(widget=forms.NumberInput(
         attrs={'class': 'form-control', 'name': 'user_year', 'id': 'user_year'})),
 
+    sex = forms.ChoiceField(widget=forms.Select(
+        attrs={'class': 'form-select', 'id': 'siter_sex', 'name': 'siter_sex', 'aria-label': 'Default select example'})),
+    hourly_rate = forms.ChoiceField(widget=forms.Select(
+        attrs={'class': 'form-control', 'id': 'siter_money', 'name': 'siter_money'})),
+    years_care_experience = forms.ChoiceField(widget=forms.Select(
+        attrs={'class': 'form-select', 'id': 'siter_experience', 'name': 'siter_experience'})),
+    work_type = forms.ChoiceField(widget=forms.Select(
+        attrs={'class': 'form-select', 'id': 'siter_bd', 'name': 'siter_bd', 'aria-label': 'Default select example'})),
+    car = forms.ChoiceField(widget=forms.Select(
+        attrs={'class': 'form-select', 'id': 'siter_car', 'name': 'siter_car', 'aria-label': 'Default select example'})),
+    driver_license = forms.ChoiceField(widget=forms.Select(
+        attrs={'class': 'form-select', 'id': 'siter_drivlic', 'name': 'siter_drivlic', 'aria-label': 'Default select example'})),
+    pets = forms.ChoiceField(widget=forms.Select(
+        attrs={'class': 'form-select', 'id': 'siter_pet', 'name': 'siter_pet', 'aria-label': 'Default select example'})),
+    own_children = forms.ChoiceField(widget=forms.Select(
+        attrs={'class': 'form-select', 'id': 'siter_hc', 'name': 'siter_hc', 'aria-label': 'Default select example'})),
+    house = forms.ChoiceField(widget=forms.Select(
+        attrs={'class': 'form-select', 'id': 'siter_home', 'name': 'siter_home', 'aria-label': 'Default select example'})),
+    cooking = forms.ChoiceField(widget=forms.Select(
+        attrs={'class': 'form-select', 'id': 'siter_food', 'name': 'siter_food', 'aria-label': 'Default select example'})),
+    school_activities = forms.ChoiceField(widget=forms.Select(
+        attrs={'class': 'form-select', 'id': 'siter_schol_act', 'name': 'siter_schol_act', 'aria-label': 'Default select example'})),
+    home_job = forms.ChoiceField(widget=forms.Select(
+        attrs={'class': 'form-select', 'id': 'siter_house_job', 'name': 'siter_house_job', 'aria-label': 'Default select example'})),
+    children_with_special_needs = forms.ChoiceField(widget=forms.Select(
+        attrs={'class': 'form-select', 'id': 'siter_spec_chd', 'name': 'siter_pet', 'aria-label': 'Default select example'})),
+
     class Meta:
-        model = Family
+        model = Babysitter
         fields = [
             'first_name',
             'last_name',
@@ -42,14 +68,31 @@ class FamilyForm(forms.ModelForm):
             'mobile_number',
             'email',
             'social_network',
-            'number_children',
             'age_children',
             'citizenship',
-            'age'
+            'age',
+
+
+            'sex',  # choice
+            'hourly_rate',  # MoneyField
+            'years_care_experience',  # choice
+            'work_type',  # choice
+            'car',  # BooleanField
+            'driver_license',  # BooleanField
+            'pets',  # BooleanField
+            'own_children',  # BooleanField
+            'house',  # BooleanField
+            'cooking',  # BooleanField
+            'school_activities',  # BooleanField
+            'home_job',
+            'children_with_special_needs'
+
+
+
         ]
 
     def __init__(self, *args, **kwargs):
-        super(FamilyForm, self).__init__(*args, **kwargs)
+        super(BabysitterForm, self).__init__(*args, **kwargs)
         self.fields['first_name'].widget.attrs['class'] = 'form-control'
         self.fields['last_name'].widget.attrs['class'] = 'form-control'
         self.fields['about_me'].widget.attrs['class'] = 'form-control'
@@ -61,13 +104,25 @@ class FamilyForm(forms.ModelForm):
         self.fields['mobile_number'].widget.attrs['class'] = 'form-control'
         self.fields['email'].widget.attrs['class'] = 'form-control'
         self.fields['social_network'].widget.attrs['class'] = 'form-control'
-        self.fields['number_children'].widget.attrs['class'] = 'form-select'
         self.fields['age_children'].widget.attrs['class'] = 'form-select'
         self.fields['citizenship'].widget.attrs['class'] = 'form-select'
         self.fields['age'].widget.attrs['class'] = 'form-control'
+        self.fields['home_job'].widget.attrs['class'] = 'form-select'
+        self.fields['sex'].widget.attrs['class'] = 'form-select'
+        self.fields['hourly_rate'].widget.attrs['class'] = 'form-control'
+        self.fields['years_care_experience'].widget.attrs['class'] = 'form-select'
+        self.fields['work_type'].widget.attrs['class'] = 'form-select'
+        self.fields['car'].widget.attrs['class'] = 'form-select'
+        self.fields['driver_license'].widget.attrs['class'] = 'form-select'
+        self.fields['pets'].widget.attrs['class'] = 'form-select'
+        self.fields['own_children'].widget.attrs['class'] = 'form-select'
+        self.fields['house'].widget.attrs['class'] = 'form-select'
+        self.fields['cooking'].widget.attrs['class'] = 'form-select'
+        self.fields['school_activities'].widget.attrs['class'] = 'form-select'
+        self.fields['children_with_special_needs'].widget.attrs['class'] = 'form-select'
 
 
-class FamilyCalendarForm(forms.ModelForm):
+class BabysitterCalendarForm(forms.ModelForm):
     morning_monday = forms.BooleanField(required=False, widget=forms.CheckboxInput(
         attrs={'class': 'chk'}))
     morning_tuesday = forms.BooleanField(required=False, widget=forms.CheckboxInput(
@@ -126,5 +181,5 @@ class FamilyCalendarForm(forms.ModelForm):
         attrs={'class': 'chk'}))
 
     class Meta:
-        model = FamilyCalendar
+        model = BabysitterCalendar
         fields = '__all__'

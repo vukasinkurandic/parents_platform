@@ -1,7 +1,7 @@
 {% extends "layout/base_contact.html" %}
 {% load static %}
 {% load crispy_forms_tags %}
-{% block title%} Create Family Profil {% endblock %}
+{% block title%} Edit Family Profil {% endblock %}
 
 {% block content%}
     <div class="slid insade-slid">
@@ -13,14 +13,18 @@
     <div class="container">
        <div class="insade-profil-wrapper insade-profil-wrapper-bebisit">
           <div class="user-title">
-             <h1>Kreirajte Profil Vaše Porodice</h1>
+             <h1>Ažurirajte Profil Vaše Porodice</h1>
           </div>
-           <!-- MESSAGES-->
+          <!-- MESSAGES-->
                   {% if messages %}
                      {% for message in messages %}
                         <div class="main_message">
-                         <div class="alert alert-dismissible fade show {{ message.tags }}"role="alert">
+                                 <div
+                                 class="alert alert-dismissible fade show {{ message.tags }}"
+                                 role="alert"
+                                 >
                                  <span class="al-text">{{message}}</span>
+
                                  <button
                                     type="button"
                                     class="btn-close"
@@ -132,11 +136,22 @@
                    </div>
                 </div>
                      <!--FORM-->
-                <input type="submit" name="send_msg" value="Kreiraj profil" class="btn btn-log-reg">
+                <input type="submit" name="send_msg" value="Ažuriraj Profil" class="btn btn-log-reg">
              </form>
           </div>
        </div>
     </div>
  </section>
+ <script>
+   let clear_check = document.querySelector('#picture-clear_id');
+  clear_check.remove()
+  var labels = document.getElementsByTagName('label');
+  for (var i = 0; i < labels.length; i++)
+    if (labels[i].htmlFor == 'user_image' || 'picture-clear_id') {
+      label = labels[i];
+      break;
+      label.remove()
+    }
+ </script>
 
 {% endblock %}

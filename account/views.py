@@ -24,7 +24,7 @@ def register_family(request):
             user.is_terms_confirmed = form.cleaned_data.get(
                 'is_terms_confirmed')
             user.save()
-            messages.success(request, ('Uspešno ste se registrovali!'))
+           # messages.success(request, ('Uspešno ste se registrovali!'))
             send_mail_after_registration(email, token)
             return redirect('/token')
     else:
@@ -44,7 +44,6 @@ def register_babysitter(request):
             user.is_terms_confirmed = form.cleaned_data.get(
                 'is_terms_confirmed')
             user.save()
-            messages.success(request, ('Uspešno ste se registrovali!'))
             send_mail_after_registration(email, token)
             return redirect('/token')
 
@@ -67,10 +66,11 @@ def verify(request, auth_token):
 
         if profile_obj:
             if profile_obj.is_email_verified:
-                messages.success(request, 'Your account is already verified.')
+                messages.success(request, 'Vaš email je već verifikovan.')
                 return render(request, 'account/already_verified.html')
             profile_obj.is_email_verified = True
             profile_obj.save()
+            messages.success(request, ('Uspešno ste se registrovali!'))
             return render(request, 'account/success.html')
         else:
             return redirect('/error')
@@ -101,20 +101,20 @@ def login(request):
             auth.login(request, user)
             if user.is_email_verified:
                 if user.user_type == 1:
-                    messages.success(
-                        request, 'You are logged in successfully like FAMILY!')
-                    return redirect('/family/create_profil_family')
+                    # messages.success(
+                    # request, 'You are logged in successfully like FAMILY!')
+                    return redirect('/family/create_profil')
                 elif user.user_type == 2:
-                    messages.success(
-                        request, 'You are logged in successfully like Babysitter!')
-                    return redirect('/babysitter/create_profil_babysitter')
+                    # messages.success(
+                    # request, 'You are logged in successfully like Babysitter!')
+                    return redirect('/babysitter/create_profil')
             else:
                 token = str(uuid.uuid4())
                 user.auth_token = token
                 send_mail_after_registration(email, token)
                 return redirect('/token')
         else:
-            messages.error(request, 'Invalid username or password')
+            messages.error(request, 'Nepostojeći email ili netačna lozinka')
             return redirect('/login')
     else:
         return render(request, 'account/login.html', {'form': form})
