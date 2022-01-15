@@ -77,18 +77,38 @@
                   </ul>
                 </div>
                 <div class="col-xl-4">
-                  <div class="login-user">
-                    <a href="">
-                      <img src="{% static 'layout/img/zena02.jpg' %}" class="img-fluid" />
-                    </a>
-                  </div>
-                  <!--      <div class="no-login-select">
-                              <button class="dropbtn btn"><i class="far fa-user"></i> Registruj se/prijavi se</button>
-                              <div class="dropdown-content">
-                                 <a href="#">Kao bebisiter</a>
-                                 <a href="#">Kao dadilja</a>    
-                              </div>
-                           </div> -->
+                           <!--USER IS AUTHENTICATED-->
+                           {% if user.is_authenticated %}
+                           <div class="login-user">
+                              {%if user.user_type == 1%}
+                                 <a href="{% url 'family:profil' %}">
+                                 {%if request.user.family.picture.url == '' %}
+                                 <img src="{% static 'layout/img/zena02.jpg' %}" class="img-fluid" />
+                                 {%else%}
+                                  <img src="{{request.user.family.picture.url}}" class="img-fluid" />
+                                  {%endif%}
+                                 </a>
+                              {%else%}
+                              <a href="{% url 'babysitter:profil' %}">
+                                 {%if request.user.babysitter.picture.url == '' %}
+                                 <img src="{% static 'layout/img/zena02.jpg' %}" class="img-fluid" />
+                                 {%else%}
+                                 <img src="{{request.user.babysitter.picture.url}}" class="img-fluid" />
+                                 {%endif%}
+                              </a>
+                              {%endif%}
+                           </div> 
+                             <!--USER IS NOT AUTHENTICATED-->
+                    {%else%}
+                      <div class="no-login-select">
+                        <button class="dropbtn btn"><i class="far fa-user"></i> Registruj se/prijavi se</button>
+                        <div class="dropdown-content">
+                          <a href="{% url 'account:register_babysitter' %}">Kao Bebisiter/Dadilja</a>
+                          <a href="{% url 'account:register_family' %}">Kao Porodica</a>
+                          <a href="{% url 'account:login' %}">Prijavi se</a>       
+                        </div>
+                      </div> 
+                    {%endif%}
                 </div>
               </div>
             </nav>

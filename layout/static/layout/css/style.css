@@ -1940,7 +1940,14 @@ ul.social-contact li i {
 font-size: 22px;
 font-weight: 600;
 margin-bottom: 0;
+line-height: 24px;
 }
+
+.small_info{
+font-size: 18px;
+    color: red;  
+}
+
 
  .profile_edit .form-control {
     padding: 12px 20px;

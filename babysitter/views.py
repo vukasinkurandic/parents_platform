@@ -28,7 +28,7 @@ def create_profil(request):
                 return redirect('/babysitter/edit_calendar')
             else:
                 messages.error(
-                    request, 'Slika ne sme biti vec od 2MB i mora biti u formatu jpg, png ili jpeg')
+                    request, 'Proverite formu unetih podataka')
         newsletter_form = NewsletterForm()
         context = {'form_babysitter': form_babysitter, 'form': newsletter_form}
         return render(request, 'babysitter/create_profil_babysitter.html', context)
@@ -50,7 +50,7 @@ def edit_profil(request):
             return redirect('/babysitter/profil')
         else:
             messages.error(
-                request, 'Slika ne sme biti vec od 2MB i mora biti u formatu jpg, png ili jpeg')
+                request, 'Proverite formu unetih podataka')
     newsletter_form = NewsletterForm()
     context = {'form_babysitter': form_babysitter, 'form': newsletter_form}
     return render(request, 'babysitter/edit_profil_babysitter.html', context)
@@ -88,7 +88,8 @@ def edit_calendar(request):
                 request, 'Uspesno ste azurirali Vasu dostupnost')
             return redirect('/babysitter/profil')
         else:
-            print(form_babysitter.errors)
+            messages.error(
+                request, 'Proverite formu unetih podataka')
 
     context = {'babysitter_calendar_form': babysitter_calendar_form}
     return render(request, 'babysitter/edit_calendar.html', context)

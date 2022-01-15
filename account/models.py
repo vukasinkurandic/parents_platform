@@ -38,11 +38,18 @@ class CustomUser(AbstractUser):
         (1, 'family'),
         (2, 'babysitter'),
     )
+    USER_MEMBERSHIP = (
+        (1, 'FREE'),
+        (2, 'SILVER'),
+        (3, 'GOLD'),
+    )
     username = None
     email = models.EmailField(('email address'), unique=True)
     user_type = models.PositiveSmallIntegerField(
         choices=USER_TYPE_CHOICES, default=1)
     auth_token = models.CharField(max_length=100)
+    membership = models.PositiveSmallIntegerField(
+        choices=USER_MEMBERSHIP, default=1)
     is_email_verified = models.BooleanField(default=False)
     is_terms_confirmed = models.BooleanField(default=False)
 

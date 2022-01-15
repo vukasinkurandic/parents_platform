@@ -13,8 +13,8 @@ class Babysitter(models.Model):
         ('Žensko', 'Žensko'),
     )
     YES_NO_CHOICES = (
-        ('DA', 'DA'),
-        ('NE', 'NE'),
+        ('Da', 'Da'),
+        ('Ne', 'Ne'),
     )
     WORK_CHOICES = (
         ('Bebisiter', 'Bebisiter'),
@@ -50,23 +50,23 @@ class Babysitter(models.Model):
     work_type = models.CharField(
         max_length=15, choices=WORK_CHOICES, blank=True, null=True)
     car = models.CharField(
-        max_length=5, choices=YES_NO_CHOICES, default='NE')
+        max_length=5, choices=YES_NO_CHOICES, default='Ne')
     driver_license = models.CharField(
-        max_length=5, choices=YES_NO_CHOICES, default='NE')
+        max_length=5, choices=YES_NO_CHOICES, default='Ne')
     pets = models.CharField(
-        max_length=5, choices=YES_NO_CHOICES, default='NE')
+        max_length=5, choices=YES_NO_CHOICES, default='Ne')
     own_children = models.CharField(
-        max_length=5, choices=YES_NO_CHOICES, default='NE')
+        max_length=5, choices=YES_NO_CHOICES, default='Ne')
     house = models.CharField(
-        max_length=5, choices=YES_NO_CHOICES, default='NE')
+        max_length=5, choices=YES_NO_CHOICES, default='Ne')
     cooking = models.CharField(
-        max_length=5, choices=YES_NO_CHOICES, default='NE')
+        max_length=5, choices=YES_NO_CHOICES, default='Ne')
     school_activities = models.CharField(
-        max_length=5, choices=YES_NO_CHOICES, default='NE')
+        max_length=5, choices=YES_NO_CHOICES, default='Ne')
     children_with_special_needs = models.CharField(
-        max_length=5, choices=YES_NO_CHOICES, default='NE')
+        max_length=5, choices=YES_NO_CHOICES, default='Ne')
     home_job = models.CharField(
-        max_length=5, choices=YES_NO_CHOICES, default='NE')
+        max_length=5, choices=YES_NO_CHOICES, default='Ne')
     slug = models.SlugField(unique=True, blank=True)
     age_children = models.CharField(
         max_length=10, choices=AGE_CHOICES, default='1-3')

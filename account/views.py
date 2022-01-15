@@ -88,7 +88,9 @@ def send_mail_after_registration(email, token):
     message = f'Hi paste the link to verify your account http://127.0.0.1:8000/verify/{token}'
     email_from = settings.EMAIL_HOST_USER
     recipient_list = [email]
+    print(message)
     send_mail(subject, message, email_from, recipient_list)
+    # Odraditi try block ako ne ode email
 
 
 def login(request):
@@ -111,6 +113,7 @@ def login(request):
             else:
                 token = str(uuid.uuid4())
                 user.auth_token = token
+                user.save()
                 send_mail_after_registration(email, token)
                 return redirect('/token')
         else:
