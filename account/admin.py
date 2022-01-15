@@ -18,9 +18,9 @@ class CustomUserAdmin(UserAdmin):
         }),
     )
     list_display = ('email', 'user_type', 'is_email_verified',
-                    'is_terms_confirmed', 'is_staff', 'date_joined')
+                    'is_terms_confirmed', 'membership', 'is_staff', 'date_joined')
     search_fields = ('email', 'user_type', 'is_email_verified',
-                     'is_terms_confirmed', 'date_joined')
+                     'is_terms_confirmed', 'membership', 'date_joined')
     ordering = ('date_joined',)
 
 

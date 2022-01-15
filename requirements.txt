@@ -4,6 +4,7 @@ mysqlclient==2.1.0
 uuid==1.30
 Pillow==8.4.0 
 django-crispy-forms==1.13.0
+django-money=2.1 
 #asgiref==3.4.1
 #certifi==2021.5.30
 #charset-normalizer==2.0.6
