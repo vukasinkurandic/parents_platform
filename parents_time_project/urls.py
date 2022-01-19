@@ -11,6 +11,7 @@ urlpatterns = [
     path('', include('account.urls', namespace='account')),
     path('family/', include('family.urls', namespace='family')),
     path('babysitter/', include('babysitter.urls', namespace='babysitter')),
+    path('connection/', include('connection.urls', namespace='connection')),
 
     ### Views za resetovanje lozinke ###
     path("password-reset", auth_views.PasswordResetView.as_view(
