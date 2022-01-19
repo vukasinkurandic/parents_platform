@@ -1,0 +1,473 @@
+{% extends "layout/base_contact.html" %}
+{% load static %}
+{% block title %} All Babysitters {% endblock %}
+
+{% block content %}
+<div class="slid insade-slid">
+  <div class="container-wrap-gradient"></div>
+  <img src="{% static 'layout/img/naslovna3.jpg' %}" />
+</div>
+<section class="profil-wrapper">
+    <div class="container add-fluid-div">
+       <div class="insade-profil-wrapper">
+          <div class="user-title">
+             <h1>Filter</h1>
+          </div>
+          <div class="profile_edit">
+             <div class="row">
+                <div class="col-lg-3">
+                   <div class="filter-right">
+                      <form action="" method="post">
+                         <label for="siter_city" class="form-label">Pretraga po gradu</label>
+                         <select name="siter_city" class="form-select" aria-label="Default select example">
+                            <option selected="">Izaberite lokaciju</option>
+                            <option value="">Beograd</option>
+                            <option value="">Niš</option>
+                            <option value="">Novi Sad</option>
+                         </select>
+                         <label for="user_child_number" class="form-label">Uzrast dece koju bi čuvala</label>
+                         <select name="user_child_number" class="form-select" aria-label="Default select example">
+                            <option selected="">Uzrast dece</option>
+                            <option value="0-1">Beba 0-1</option>
+                            <option value="1-3">1-3</option>
+                            <option value="3-5">3-5</option>
+                            <option value="5-12">5-12</option>
+                         </select>
+                         <input type="submit" name="" value="Filtriraj" class="btn btn-filter-btn">
+                      </form>
+                   </div>
+                </div>
+                <div class="col-lg-9">
+                   <div class="filter-left">
+                      <div class="row">
+                         <div class="col-lg-6">
+                            <div class="user-filter-box">
+                               <div class="filter-img">
+                                  <img src="img/zena02.jpg" class="img-fluid" alt="">                               
+                               </div>
+                               <div class="filter-info">
+                                  <div class="filter-title">
+                                     <h2>Ana Marić</h2>
+                                  </div>
+                                  <div class="small-info">
+                                     <div class="small-info-first">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                     </div>
+                                     <div class="small-info-second">
+                                        Niška Banja
+                                     </div>
+                                  </div>
+                                  <div class="small-info">
+                                     <div class="small-info-first">
+                                        Satnica
+                                     </div>
+                                     <div class="small-info-second">
+                                        450 RSD
+                                     </div>
+                                  </div>
+                                  <a href="" class="btn btn-log-reg" >Detaljnije</a>
+                               </div>
+                            </div>
+                         </div>
+                                                  <div class="col-lg-6">
+                            <div class="user-filter-box">
+                               <div class="filter-img">
+                                  <img src="img/zena02.jpg" class="img-fluid" alt="">                               
+                               </div>
+                               <div class="filter-info">
+                                  <div class="filter-title">
+                                     <h2>Ana Marić</h2>
+                                  </div>
+                                  <div class="small-info">
+                                     <div class="small-info-first">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                     </div>
+                                     <div class="small-info-second">
+                                        Niška Banja
+                                     </div>
+                                  </div>
+                                  <div class="small-info">
+                                     <div class="small-info-first">
+                                        Satnica
+                                     </div>
+                                     <div class="small-info-second">
+                                        450 RSD
+                                     </div>
+                                  </div>
+                                  <a href="" class="btn btn-log-reg" >Detaljnije</a>
+                               </div>
+                            </div>
+                         </div>                         <div class="col-lg-6">
+                            <div class="user-filter-box">
+                               <div class="filter-img">
+                                  <img src="img/zena02.jpg" class="img-fluid" alt="">                               
+                               </div>
+                               <div class="filter-info">
+                                  <div class="filter-title">
+                                     <h2>Ana Marić</h2>
+                                  </div>
+                                  <div class="small-info">
+                                     <div class="small-info-first">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                     </div>
+                                     <div class="small-info-second">
+                                        Niška Banja
+                                     </div>
+                                  </div>
+                                  <div class="small-info">
+                                     <div class="small-info-first">
+                                        Satnica
+                                     </div>
+                                     <div class="small-info-second">
+                                        450 RSD
+                                     </div>
+                                  </div>
+                                  <a href="" class="btn btn-log-reg" >Detaljnije</a>
+                               </div>
+                            </div>
+                         </div>                         <div class="col-lg-6">
+                            <div class="user-filter-box">
+                               <div class="filter-img">
+                                  <img src="img/zena02.jpg" class="img-fluid" alt="">                               
+                               </div>
+                               <div class="filter-info">
+                                  <div class="filter-title">
+                                     <h2>Ana Marić</h2>
+                                  </div>
+                                  <div class="small-info">
+                                     <div class="small-info-first">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                     </div>
+                                     <div class="small-info-second">
+                                        Niška Banja
+                                     </div>
+                                  </div>
+                                  <div class="small-info">
+                                     <div class="small-info-first">
+                                        Satnica
+                                     </div>
+                                     <div class="small-info-second">
+                                        450 RSD
+                                     </div>
+                                  </div>
+                                  <a href="" class="btn btn-log-reg" >Detaljnije</a>
+                               </div>
+                            </div>
+                         </div>                         <div class="col-lg-6">
+                            <div class="user-filter-box">
+                               <div class="filter-img">
+                                  <img src="img/zena02.jpg" class="img-fluid" alt="">                               
+                               </div>
+                               <div class="filter-info">
+                                  <div class="filter-title">
+                                     <h2>Ana Marić</h2>
+                                  </div>
+                                  <div class="small-info">
+                                     <div class="small-info-first">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                     </div>
+                                     <div class="small-info-second">
+                                        Niška Banja
+                                     </div>
+                                  </div>
+                                  <div class="small-info">
+                                     <div class="small-info-first">
+                                        Satnica
+                                     </div>
+                                     <div class="small-info-second">
+                                        450 RSD
+                                     </div>
+                                  </div>
+                                  <a href="" class="btn btn-log-reg" >Detaljnije</a>
+                               </div>
+                            </div>
+                         </div>                         <div class="col-lg-6">
+                            <div class="user-filter-box">
+                               <div class="filter-img">
+                                  <img src="img/zena02.jpg" class="img-fluid" alt="">                               
+                               </div>
+                               <div class="filter-info">
+                                  <div class="filter-title">
+                                     <h2>Ana Marić</h2>
+                                  </div>
+                                  <div class="small-info">
+                                     <div class="small-info-first">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                     </div>
+                                     <div class="small-info-second">
+                                        Niška Banja
+                                     </div>
+                                  </div>
+                                  <div class="small-info">
+                                     <div class="small-info-first">
+                                        Satnica
+                                     </div>
+                                     <div class="small-info-second">
+                                        450 RSD
+                                     </div>
+                                  </div>
+                                  <a href="" class="btn btn-log-reg" >Detaljnije</a>
+                               </div>
+                            </div>
+                         </div>                         <div class="col-lg-6">
+                            <div class="user-filter-box">
+                               <div class="filter-img">
+                                  <img src="img/zena02.jpg" class="img-fluid" alt="">                               
+                               </div>
+                               <div class="filter-info">
+                                  <div class="filter-title">
+                                     <h2>Ana Marić</h2>
+                                  </div>
+                                  <div class="small-info">
+                                     <div class="small-info-first">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                     </div>
+                                     <div class="small-info-second">
+                                        Niška Banja
+                                     </div>
+                                  </div>
+                                  <div class="small-info">
+                                     <div class="small-info-first">
+                                        Satnica
+                                     </div>
+                                     <div class="small-info-second">
+                                        450 RSD
+                                     </div>
+                                  </div>
+                                  <a href="" class="btn btn-log-reg" >Detaljnije</a>
+                               </div>
+                            </div>
+                         </div>                         <div class="col-lg-6">
+                            <div class="user-filter-box">
+                               <div class="filter-img">
+                                  <img src="img/zena02.jpg" class="img-fluid" alt="">                               
+                               </div>
+                               <div class="filter-info">
+                                  <div class="filter-title">
+                                     <h2>Ana Marić</h2>
+                                  </div>
+                                  <div class="small-info">
+                                     <div class="small-info-first">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                     </div>
+                                     <div class="small-info-second">
+                                        Niška Banja
+                                     </div>
+                                  </div>
+                                  <div class="small-info">
+                                     <div class="small-info-first">
+                                        Satnica
+                                     </div>
+                                     <div class="small-info-second">
+                                        450 RSD
+                                     </div>
+                                  </div>
+                                  <a href="" class="btn btn-log-reg" >Detaljnije</a>
+                               </div>
+                            </div>
+                         </div>                         <div class="col-lg-6">
+                            <div class="user-filter-box">
+                               <div class="filter-img">
+                                  <img src="img/zena02.jpg" class="img-fluid" alt="">                               
+                               </div>
+                               <div class="filter-info">
+                                  <div class="filter-title">
+                                     <h2>Ana Marić</h2>
+                                  </div>
+                                  <div class="small-info">
+                                     <div class="small-info-first">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                     </div>
+                                     <div class="small-info-second">
+                                        Niška Banja
+                                     </div>
+                                  </div>
+                                  <div class="small-info">
+                                     <div class="small-info-first">
+                                        Satnica
+                                     </div>
+                                     <div class="small-info-second">
+                                        450 RSD
+                                     </div>
+                                  </div>
+                                  <a href="" class="btn btn-log-reg" >Detaljnije</a>
+                               </div>
+                            </div>
+                         </div>                         <div class="col-lg-6">
+                            <div class="user-filter-box">
+                               <div class="filter-img">
+                                  <img src="img/zena02.jpg" class="img-fluid" alt="">                               
+                               </div>
+                               <div class="filter-info">
+                                  <div class="filter-title">
+                                     <h2>Ana Marić</h2>
+                                  </div>
+                                  <div class="small-info">
+                                     <div class="small-info-first">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                     </div>
+                                     <div class="small-info-second">
+                                        Niška Banja
+                                     </div>
+                                  </div>
+                                  <div class="small-info">
+                                     <div class="small-info-first">
+                                        Satnica
+                                     </div>
+                                     <div class="small-info-second">
+                                        450 RSD
+                                     </div>
+                                  </div>
+                                  <a href="" class="btn btn-log-reg" >Detaljnije</a>
+                               </div>
+                            </div>
+                         </div>                         <div class="col-lg-6">
+                            <div class="user-filter-box">
+                               <div class="filter-img">
+                                  <img src="img/zena02.jpg" class="img-fluid" alt="">                               
+                               </div>
+                               <div class="filter-info">
+                                  <div class="filter-title">
+                                     <h2>Ana Marić</h2>
+                                  </div>
+                                  <div class="small-info">
+                                     <div class="small-info-first">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                     </div>
+                                     <div class="small-info-second">
+                                        Niška Banja
+                                     </div>
+                                  </div>
+                                  <div class="small-info">
+                                     <div class="small-info-first">
+                                        Satnica
+                                     </div>
+                                     <div class="small-info-second">
+                                        450 RSD
+                                     </div>
+                                  </div>
+                                  <a href="" class="btn btn-log-reg" >Detaljnije</a>
+                               </div>
+                            </div>
+                         </div>                         <div class="col-lg-6">
+                            <div class="user-filter-box">
+                               <div class="filter-img">
+                                  <img src="img/zena02.jpg" class="img-fluid" alt="">                               
+                               </div>
+                               <div class="filter-info">
+                                  <div class="filter-title">
+                                     <h2>Ana Marić</h2>
+                                  </div>
+                                  <div class="small-info">
+                                     <div class="small-info-first">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                     </div>
+                                     <div class="small-info-second">
+                                        Niška Banja
+                                     </div>
+                                  </div>
+                                  <div class="small-info">
+                                     <div class="small-info-first">
+                                        Satnica
+                                     </div>
+                                     <div class="small-info-second">
+                                        450 RSD
+                                     </div>
+                                  </div>
+                                  <a href="" class="btn btn-log-reg" >Detaljnije</a>
+                               </div>
+                            </div>
+                         </div>                         <div class="col-lg-6">
+                            <div class="user-filter-box">
+                               <div class="filter-img">
+                                  <img src="img/zena02.jpg" class="img-fluid" alt="">                               
+                               </div>
+                               <div class="filter-info">
+                                  <div class="filter-title">
+                                     <h2>Ana Marić</h2>
+                                  </div>
+                                  <div class="small-info">
+                                     <div class="small-info-first">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                     </div>
+                                     <div class="small-info-second">
+                                        Niška Banja
+                                     </div>
+                                  </div>
+                                  <div class="small-info">
+                                     <div class="small-info-first">
+                                        Satnica
+                                     </div>
+                                     <div class="small-info-second">
+                                        450 RSD
+                                     </div>
+                                  </div>
+                                  <a href="" class="btn btn-log-reg" >Detaljnije</a>
+                               </div>
+                            </div>
+                         </div>                         <div class="col-lg-6">
+                            <div class="user-filter-box">
+                               <div class="filter-img">
+                                  <img src="img/zena02.jpg" class="img-fluid" alt="">                               
+                               </div>
+                               <div class="filter-info">
+                                  <div class="filter-title">
+                                     <h2>Ana Marić</h2>
+                                  </div>
+                                  <div class="small-info">
+                                     <div class="small-info-first">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                     </div>
+                                     <div class="small-info-second">
+                                        Niška Banja
+                                     </div>
+                                  </div>
+                                  <div class="small-info">
+                                     <div class="small-info-first">
+                                        Satnica
+                                     </div>
+                                     <div class="small-info-second">
+                                        450 RSD
+                                     </div>
+                                  </div>
+                                  <a href="" class="btn btn-log-reg" >Detaljnije</a>
+                               </div>
+                            </div>
+                         </div>                         <div class="col-lg-6">
+                            <div class="user-filter-box">
+                               <div class="filter-img">
+                                  <img src="img/zena02.jpg" class="img-fluid" alt="">                               
+                               </div>
+                               <div class="filter-info">
+                                  <div class="filter-title">
+                                     <h2>Ana Marić</h2>
+                                  </div>
+                                  <div class="small-info">
+                                     <div class="small-info-first">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                     </div>
+                                     <div class="small-info-second">
+                                        Niška Banja
+                                     </div>
+                                  </div>
+                                  <div class="small-info">
+                                     <div class="small-info-first">
+                                        Satnica
+                                     </div>
+                                     <div class="small-info-second">
+                                        450 RSD
+                                     </div>
+                                  </div>
+                                  <a href="" class="btn btn-log-reg" >Detaljnije</a>
+                               </div>
+                            </div>
+                         </div>
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+ </section>
+ {% endblock%}

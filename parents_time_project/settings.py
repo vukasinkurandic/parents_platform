@@ -35,9 +35,9 @@ INSTALLED_APPS = [
     'account.apps.AccountConfig',
     'family.apps.FamilyConfig',
     'babysitter.apps.BabysitterConfig',
+    'connection.apps.ConnectionConfig',
 
     # Django app
-    'djmoney',
     'crispy_forms',
 ]
 
