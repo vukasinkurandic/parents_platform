@@ -52,6 +52,7 @@ def all_babysitters(request):
     return render(request, 'connection/all_babysitters.html', context)
 
 
+@login_required
 def babysitter_profil(request, slug):
     babysitter = get_object_or_404(Babysitter, slug=slug)
     calendar = get_object_or_404(BabysitterCalendar,
