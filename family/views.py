@@ -13,7 +13,7 @@ def create_profil(request):
     user_id = user.id
 
     try:
-        family_obj = get_object_or_404(Family, user_id=user_id)
+        family_obj = Family.objects.get(user_id=user_id)
     except Family.DoesNotExist:
         family_obj = None
     if family_obj:  # PROFIL EXIST
@@ -75,7 +75,7 @@ def profil(request):
 def edit_calendar(request):
     user = request.user
     user_id = user.id
-    family_obj = Family.objects.get(user_id=user_id)
+    family_obj = get_object_or_404(Family, user_id=user_id)
     family_id = family_obj.id
     family_calendar = get_object_or_404(FamilyCalendar,
                                         family_id=family_id)
