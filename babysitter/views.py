@@ -12,7 +12,7 @@ def create_profil(request):
     user = request.user
     user_id = user.id
     try:
-        babysitter_obj = get_object_or_404(Babysitter, user_id=user_id)
+        babysitter_obj = Babysitter.objects.get(user_id=user_id)
     except Babysitter.DoesNotExist:
         babysitter_obj = None
     if babysitter_obj:  # PROFIL EXIST
