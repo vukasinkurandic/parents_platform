@@ -171,8 +171,22 @@ CITIZENSHIP_CHOICES = (
     ('Strani Drzavljanin', 'Strani Drzavljanin'),
 )
 
+CHILDCARE_PERIOD_CHOICES = (
+    ('Manje od mesec dana', 'Manje od mesec dana'),
+    ('Mesec dana', 'Mesec dana'),
+    ('Par meseci', 'Par meseci'),
+    ('Godinu dana', 'Godinu dana'),
+    ('Više od godinu dana', 'Više od godinu dana'),
+)
+
 # MAKE LIST OF VALUE FOR SITY_CHOICES
 sity_choices = SITY_CHOICES
 sity_list = []
 for field, value in sity_choices:
     sity_list.append(value)
+
+# MAKE LIST OF VALUE FOR CHILDCARE_PERIOD_CHOICES
+childcare_period_choices = CHILDCARE_PERIOD_CHOICES
+childcare_period_list = []
+for field, value in childcare_period_choices:
+    childcare_period_list.append(value)

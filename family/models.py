@@ -4,7 +4,7 @@ from django.core.validators import RegexValidator, FileExtensionValidator
 from . validators import validate_image
 from . utils import get_random_code
 from django.template.defaultfilters import slugify
-from . choices import SITY_CHOICES, NUMBER_CHOICES, AGE_CHOICES, CITIZENSHIP_CHOICES
+from . choices import SITY_CHOICES, NUMBER_CHOICES, AGE_CHOICES, CITIZENSHIP_CHOICES, CHILDCARE_PERIOD_CHOICES
 
 
 class Family(models.Model):
@@ -36,6 +36,8 @@ class Family(models.Model):
         max_length=10, choices=AGE_CHOICES, default='1-3')
     citizenship = models.CharField(
         max_length=50, choices=CITIZENSHIP_CHOICES, default='Srpski Drzavljanin')
+    childcare_period = models.CharField(
+        max_length=50, choices=CHILDCARE_PERIOD_CHOICES, default='Mesec dana')
     is_form_submit = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)

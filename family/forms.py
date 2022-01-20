@@ -29,6 +29,8 @@ class FamilyForm(forms.ModelForm):
         attrs={'class': 'form-select', 'name': 'flexRadioDefault'})),
     age = forms.IntegerField(widget=forms.NumberInput(
         attrs={'class': 'form-control', 'name': 'user_year', 'id': 'user_year'})),
+    childcare_period = forms.ChoiceField(widget=forms.Select(
+        attrs={'class': 'form-select', 'id': 'childcare_period', 'name': 'childcare_period', 'aria-label': 'Default select example'})),
 
     class Meta:
         model = Family
@@ -45,7 +47,8 @@ class FamilyForm(forms.ModelForm):
             'number_children',
             'age_children',
             'citizenship',
-            'age'
+            'age',
+            'childcare_period'
         ]
 
     def __init__(self, *args, **kwargs):
@@ -65,6 +68,7 @@ class FamilyForm(forms.ModelForm):
         self.fields['age_children'].widget.attrs['class'] = 'form-select'
         self.fields['citizenship'].widget.attrs['class'] = 'form-select'
         self.fields['age'].widget.attrs['class'] = 'form-control'
+        self.fields['childcare_period'].widget.attrs['class'] = 'form-select'
 
 
 class FamilyCalendarForm(forms.ModelForm):
