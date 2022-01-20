@@ -1,17 +1,19 @@
 from django.contrib import messages
 from django.shortcuts import get_object_or_404, render, redirect, reverse
+from django.contrib.auth.decorators import login_required
 from layout.forms import NewsletterForm
 from . forms import FamilyForm, FamilyCalendarForm
 from . models import Family, FamilyCalendar
 
 
+@login_required
 def create_profil(request):
     form_family = FamilyForm()
     user = request.user
     user_id = user.id
 
     try:
-        family_obj = Family.objects.get(user_id=user_id)
+        family_obj = get_object_or_404(Family, user_id=user_id)
     except Family.DoesNotExist:
         family_obj = None
     if family_obj:  # PROFIL EXIST
@@ -35,10 +37,11 @@ def create_profil(request):
         return render(request, 'family/create_profil_family.html', {'form_family': form_family, 'form': newsletter_form})
 
 
+@login_required
 def edit_profil(request):
     user = request.user
     user_id = user.id
-    family_obj = Family.objects.get(user_id=user_id)
+    family_obj = get_object_or_404(Family, user_id=user_id)
 
     form_family = FamilyForm(instance=family_obj)
     if request.method == 'POST':
@@ -56,23 +59,26 @@ def edit_profil(request):
     return render(request, 'family/edit_profil_family.html', context)
 
 
+@login_required
 def profil(request):
     user = request.user
     user_id = user.id
-    profil = Family.objects.get(user_id=user_id)
-    calendar = FamilyCalendar.objects.get(family_id=profil.id)
+    profil = get_object_or_404(Family, user_id=user_id)
+    calendar = get_object_or_404(FamilyCalendar, family_id=profil.id)
     newsletter_form = NewsletterForm()
     context = {'profil': profil, 'calendar': calendar, 'form': newsletter_form}
     # return render(request, 'family/profil_family_proba.html', context) PROBA STRANICA
     return render(request, 'family/profil_family.html', context)
 
 
+@login_required
 def edit_calendar(request):
     user = request.user
     user_id = user.id
-    family_obj = Family.objects.get(user_id=user_id)
+    family_obj = get_object_or_404(Family, user_id=user_id)
     family_id = family_obj.id
-    family_calendar = FamilyCalendar.objects.get(family_id=family_id)
+    family_calendar = get_object_or_404(FamilyCalendar,
+                                        family_id=family_id)
     family_calendar_form = FamilyCalendarForm(instance=family_calendar)
     if request.method == 'POST':
         form = FamilyCalendarForm(request.POST, instance=family_calendar)

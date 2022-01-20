@@ -170,3 +170,9 @@ CITIZENSHIP_CHOICES = (
     ('Srpski Drzavljanin', 'Srpski Drzavljanin'),
     ('Strani Drzavljanin', 'Strani Drzavljanin'),
 )
+
+# MAKE LIST OF VALUE FOR SITY_CHOICES
+sity_choices = SITY_CHOICES
+sity_list = []
+for field, value in sity_choices:
+    sity_list.append(value)
