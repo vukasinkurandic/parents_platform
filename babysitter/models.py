@@ -5,6 +5,7 @@ from family . validators import validate_image
 from family . utils import get_random_code
 from django.template.defaultfilters import slugify
 from family . choices import SITY_CHOICES, NUMBER_CHOICES, AGE_CHOICES, CITIZENSHIP_CHOICES, SEX_CHOICES, YES_NO_CHOICES, WORK_CHOICES
+from multiselectfield import MultiSelectField
 
 
 class Babysitter(models.Model):
@@ -61,8 +62,8 @@ class Babysitter(models.Model):
     home_job = models.CharField(
         max_length=5, choices=YES_NO_CHOICES, default='Ne')
     slug = models.SlugField(unique=True, blank=True)
-    age_children = models.CharField(
-        max_length=10, choices=AGE_CHOICES, default='1-3')
+    age_children = MultiSelectField(
+        choices=AGE_CHOICES, default='1-3')
     citizenship = models.CharField(
         max_length=50, choices=CITIZENSHIP_CHOICES, default='Srpski Drzavljanin')
     is_form_submit = models.BooleanField(default=False)

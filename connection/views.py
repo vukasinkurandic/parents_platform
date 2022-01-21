@@ -4,6 +4,7 @@ from layout.forms import NewsletterForm
 from babysitter.models import Babysitter, BabysitterCalendar
 from family.models import Family, FamilyCalendar
 from family.choices import sity_list, work_list
+from django.db.models import Q
 
 
 @login_required
@@ -33,7 +34,7 @@ def all_babysitters(request):
         age_children = request.POST['age_children']
         if age_children != '':
             filter_babysitter = Babysitter.objects.filter(
-                age_children=age_children)
+                Q(age_children=age_children) | Q(age_children__contains=age_children))
         work_type = request.POST['work_type']
         if work_type != '':
             # IF 'Bebisiter i Dadilja' don't filter work
@@ -47,6 +48,7 @@ def all_babysitters(request):
             babysitters = filter_babysitter
         # If Filters doesnt's match
         else:
+            print(age_children)
             babysitters = False
 
     newsletter_form = NewsletterForm()
