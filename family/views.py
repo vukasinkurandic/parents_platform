@@ -32,7 +32,7 @@ def create_profil(request):
                 return redirect('/family/edit_calendar')
             else:
                 messages.error(
-                    request, 'Proverite formu unetih podataka')
+                    request, 'Proverite format broja telefona ili slike (jpg, png ili jpeg)')
         newsletter_form = NewsletterForm()
         return render(request, 'family/create_profil_family.html', {'form_family': form_family, 'form': newsletter_form})
 
@@ -53,7 +53,7 @@ def edit_profil(request):
             return redirect('/family/profil')
         else:
             messages.error(
-                request, 'Proverite formu unetih podataka')
+                request, 'Proverite format broja telefona ili slike (jpg, png ili jpeg)')
     newsletter_form = NewsletterForm()
     context = {'form_family': form_family, 'form': newsletter_form}
     return render(request, 'family/edit_profil_family.html', context)
@@ -91,7 +91,7 @@ def edit_calendar(request):
             return redirect('/family/profil')
         else:
             messages.error(
-                request, 'Proverite formu unetih podataka')
+                request, 'Proverite format broja telefona ili slike (jpg, png ili jpeg)')
 
     context = {'family_calendar_form': family_calendar_form}
     return render(request, 'family/edit_calendar.html', context)

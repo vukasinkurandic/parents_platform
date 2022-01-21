@@ -4,22 +4,13 @@ from django.core.validators import RegexValidator, FileExtensionValidator
 from family . validators import validate_image
 from family . utils import get_random_code
 from django.template.defaultfilters import slugify
-from family . choices import SITY_CHOICES, NUMBER_CHOICES, AGE_CHOICES, CITIZENSHIP_CHOICES
+from family . choices import SITY_CHOICES, NUMBER_CHOICES, AGE_CHOICES, CITIZENSHIP_CHOICES, SEX_CHOICES, YES_NO_CHOICES, WORK_CHOICES
 
 
 class Babysitter(models.Model):
-    SEX_CHOICES = (
-        ('Muško', 'Muško'),
-        ('Žensko', 'Žensko'),
-    )
-    YES_NO_CHOICES = (
-        ('Da', 'Da'),
-        ('Ne', 'Ne'),
-    )
-    WORK_CHOICES = (
-        ('Bebisiter', 'Bebisiter'),
-        ('Dadilja', 'Dadilja'),
-    )
+    SEX_CHOICES = SEX_CHOICES
+    YES_NO_CHOICES = YES_NO_CHOICES
+    WORK_CHOICES = WORK_CHOICES
     CITIZENSHIP_CHOICES = CITIZENSHIP_CHOICES
     AGE_CHOICES = AGE_CHOICES
     NUMBER_CHOICES = NUMBER_CHOICES
@@ -48,10 +39,12 @@ class Babysitter(models.Model):
     years_care_experience = models.CharField(
         max_length=5, choices=NUMBER_CHOICES, blank=True, null=True)
     work_type = models.CharField(
-        max_length=15, choices=WORK_CHOICES, blank=True, null=True)
+        max_length=50, choices=WORK_CHOICES, blank=True, null=True)
     car = models.CharField(
         max_length=5, choices=YES_NO_CHOICES, default='Ne')
-    driver_license = models.CharField(
+    sick_child = models.CharField(
+        max_length=5, choices=YES_NO_CHOICES, default='Ne')
+    travel = models.CharField(
         max_length=5, choices=YES_NO_CHOICES, default='Ne')
     pets = models.CharField(
         max_length=5, choices=YES_NO_CHOICES, default='Ne')

@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from layout.forms import NewsletterForm
 from babysitter.models import Babysitter, BabysitterCalendar
 from family.models import Family, FamilyCalendar
-from family.choices import sity_list
+from family.choices import sity_list, work_list
 
 
 @login_required
@@ -22,6 +22,11 @@ def all_babysitters(request):
     if request.method == "POST":
         filter_babysitter = False
         # Filters after POST submit
+        price_range_min = request.POST['price_range_min']
+        price_range_max = request.POST['price_range_max']
+        if price_range_min != '' or price_range_max != '':
+            filter_babysitter = Babysitter.objects.filter(
+                hourly_rate__gte=price_range_min).filter(hourly_rate__lte=price_range_max)
         city = request.POST['city']
         if city != '':
             filter_babysitter = Babysitter.objects.filter(sity=city)
@@ -31,13 +36,12 @@ def all_babysitters(request):
                 age_children=age_children)
         work_type = request.POST['work_type']
         if work_type != '':
-            filter_babysitter = Babysitter.objects.filter(
-                work_type=work_type)
-        price_range_min = request.POST['price_range_min']
-        price_range_max = request.POST['price_range_max']
-        if price_range_min != '' or price_range_max != '':
-            filter_babysitter = Babysitter.objects.filter(
-                hourly_rate__gte=price_range_min).filter(hourly_rate__lte=price_range_max)
+            # IF 'Bebisiter i Dadilja' don't filter work
+            if work_type == 'Bebisiter i Dadilja':
+                filter_babysitter = filter_babysitter
+            else:
+                filter_babysitter = Babysitter.objects.filter(
+                    work_type=work_type)
         # If Filters match
         if filter_babysitter:
             babysitters = filter_babysitter
@@ -47,8 +51,9 @@ def all_babysitters(request):
 
     newsletter_form = NewsletterForm()
     city_list = sity_list
+    work_role_list = work_list
     context = {'babysitters': babysitters,
-               'city_list': city_list, 'form': newsletter_form}
+               'city_list': city_list, 'work_role_list': work_role_list, 'form': newsletter_form}
     return render(request, 'connection/all_babysitters.html', context)
 
 

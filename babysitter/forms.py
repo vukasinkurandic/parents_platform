@@ -39,8 +39,10 @@ class BabysitterForm(forms.ModelForm):
         attrs={'class': 'form-select', 'id': 'siter_bd', 'name': 'siter_bd', 'aria-label': 'Default select example'})),
     car = forms.ChoiceField(widget=forms.Select(
         attrs={'class': 'form-select', 'id': 'siter_car', 'name': 'siter_car', 'aria-label': 'Default select example'})),
-    driver_license = forms.ChoiceField(widget=forms.Select(
-        attrs={'class': 'form-select', 'id': 'siter_drivlic', 'name': 'siter_drivlic', 'aria-label': 'Default select example'})),
+    sick_child = forms.ChoiceField(widget=forms.Select(
+        attrs={'class': 'form-select', 'id': 'sick_child', 'name': 'sick_child', 'aria-label': 'Default select example'})),
+    travel = forms.ChoiceField(widget=forms.Select(
+        attrs={'class': 'form-select', 'id': 'travel', 'name': 'travel', 'aria-label': 'Default select example'})),
     pets = forms.ChoiceField(widget=forms.Select(
         attrs={'class': 'form-select', 'id': 'siter_pet', 'name': 'siter_pet', 'aria-label': 'Default select example'})),
     own_children = forms.ChoiceField(widget=forms.Select(
@@ -78,7 +80,8 @@ class BabysitterForm(forms.ModelForm):
             'years_care_experience',  # choice
             'work_type',  # choice
             'car',  # BooleanField
-            'driver_license',  # BooleanField
+            'sick_child',  # BooleanField
+            'travel',  # BooleanField
             'pets',  # BooleanField
             'own_children',  # BooleanField
             'house',  # BooleanField
@@ -113,7 +116,8 @@ class BabysitterForm(forms.ModelForm):
         self.fields['years_care_experience'].widget.attrs['class'] = 'form-select'
         self.fields['work_type'].widget.attrs['class'] = 'form-select'
         self.fields['car'].widget.attrs['class'] = 'form-select'
-        self.fields['driver_license'].widget.attrs['class'] = 'form-select'
+        self.fields['sick_child'].widget.attrs['class'] = 'form-select'
+        self.fields['travel'].widget.attrs['class'] = 'form-select'
         self.fields['pets'].widget.attrs['class'] = 'form-select'
         self.fields['own_children'].widget.attrs['class'] = 'form-select'
         self.fields['house'].widget.attrs['class'] = 'form-select'
