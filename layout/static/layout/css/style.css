@@ -72,6 +72,7 @@ ul {
     display: inline;
     padding: 1px 5px;
     -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
 }
 
 .slid-grad {
@@ -991,8 +992,7 @@ footer {
   background-image: url(../img/naslovna2.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  position: relative;
-  padding-bottom: 23px;
+  position: relative;  
   background-attachment: fixed;
 }
 
@@ -1372,6 +1372,15 @@ span.user-year-num {
   
   width: 100%;
   letter-spacing: 1px;
+}
+
+.btn-rating-star {
+  border-radius: 0;
+  background: rgb(70, 178, 240);
+  background: linear-gradient( 90deg, rgba(70, 178, 240, 1) 0%, rgba(70, 178, 240, 1) 50%, rgba(115, 196, 244, 1) 50%, rgba(115, 196, 244, 1) 100% );
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
 }
 
 span.user-year {
