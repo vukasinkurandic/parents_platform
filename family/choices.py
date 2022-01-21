@@ -179,6 +179,21 @@ CHILDCARE_PERIOD_CHOICES = (
     ('Više od godinu dana', 'Više od godinu dana'),
 )
 
+SEX_CHOICES = (
+    ('Muško', 'Muško'),
+    ('Žensko', 'Žensko'),
+)
+YES_NO_CHOICES = (
+    ('Da', 'Da'),
+    ('Ne', 'Ne'),
+)
+WORK_CHOICES = (
+    ('Bebisiter', 'Bebisiter'),
+    ('Dadilja', 'Dadilja'),
+    ('Bebisiter i Dadilja', 'Bebisiter i Dadilja'),
+
+)
+
 # MAKE LIST OF VALUE FOR SITY_CHOICES
 sity_choices = SITY_CHOICES
 sity_list = []
@@ -190,3 +205,9 @@ childcare_period_choices = CHILDCARE_PERIOD_CHOICES
 childcare_period_list = []
 for field, value in childcare_period_choices:
     childcare_period_list.append(value)
+
+# MAKE LIST OF VALUE FOR WORK_CHOICES
+work_choices = WORK_CHOICES
+work_list = []
+for field, value in work_choices:
+    work_list.append(value)
