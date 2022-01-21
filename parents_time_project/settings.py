@@ -39,6 +39,7 @@ INSTALLED_APPS = [
 
     # Django app
     'crispy_forms',
+    'multiselectfield',
 ]
 
 MIDDLEWARE = [
