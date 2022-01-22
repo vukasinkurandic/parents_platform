@@ -83,10 +83,17 @@ def send_match(request):
         connection.family_id = family_id
         connection.babysitter_id = babysitter_id
         connection.is_matched = None
-        connection.save()
 
-        messages.success(
-            request, (f'Uspešno ste rezervisali {babysiter_for_match.work_type} {babysiter_for_match.first_name} {babysiter_for_match.first_name}'))
+        all_connection = Connection.objects.filter(
+            family_id=family_id, babysitter_id=babysitter_id)
+
+        if all_connection.exists():
+            messages.success(
+                request, (f'Već ste rezervisali {babysiter_for_match.work_type} {babysiter_for_match.first_name} {babysiter_for_match.last_name}'))
+        else:
+            connection.save()
+            messages.success(
+                request, (f'Uspešno ste rezervisali {babysiter_for_match.work_type} {babysiter_for_match.first_name} {babysiter_for_match.last_name}'))
     return redirect('family:profil')
 
 
