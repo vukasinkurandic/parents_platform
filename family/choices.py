@@ -188,9 +188,9 @@ YES_NO_CHOICES = (
     ('Ne', 'Ne'),
 )
 WORK_CHOICES = (
-    ('Bebisiter', 'Bebisiter'),
+    ('Bebisiterka', 'Bebisiterka'),
     ('Dadilja', 'Dadilja'),
-    ('Bebisiter i Dadilja', 'Bebisiter i Dadilja'),
+    ('Bebisiterka i Dadilja', 'Bebisiterka i Dadilja'),
 
 )
 

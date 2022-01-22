@@ -133,18 +133,21 @@
                                  <div class="table-responsive table-sm">
                                     <table class="table table-striped table-hover">                                       
                                        <tbody>
-                                          <tr >
-                                             <td colspan="7" class="align-middle fs-5" >Maja Pejić</td>
-                                             <td><a href="#" class="btn btn-success">Progress</a></td>
-                                          </tr>
+                                          {% if match_list %}
+                                             {% for send_babysitter, match in match_list %}
                                           <tr>
-                                             <td colspan="7" class="align-middle fs-5"  >Jelena Novaković</td>
-                                             <td><a href="#" class="btn btn-warning">Open</a></td>
+                                             <td colspan="7" class="align-middle fs-5" >{{send_babysitter.first_name}} {{send_babysitter.last_name}} {{send_babysitter.sity}}</td>
+                                             {% if match == None %}
+                                             <td><a href="#" class="btn btn-warning">Čeka se potvrda</a></td>
+                                             {% elif match == True %}
+                                             <td><a href="{% url 'connection:matched_babysitter_profil' send_babysitter.slug %}" class="btn btn-success">Vidi profil</a></td>
+                                             {%else%}
+                                             <td><a href="#" class="btn btn-danger">Odbijeno</a></td>
+                                             {% endif %}
+                                             <td><a href="#" class="btn btn-danger">Obrisi</a></td>
                                           </tr>
-                                          <tr>
-                                             <td colspan="7" class="align-middle fs-5">Tatijana Milosavljević</td>
-                                             <td><a href="#" class="btn btn-danger">On hodddld</a></td>
-                                          </tr>
+                                             {% endfor%}
+                                          {% endif%}
                                        </tbody>
                                     </table>
                                  </div>

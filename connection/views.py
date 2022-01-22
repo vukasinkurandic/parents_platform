@@ -1,4 +1,5 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from layout.forms import NewsletterForm
 from babysitter.models import Babysitter, BabysitterCalendar
@@ -38,7 +39,7 @@ def all_babysitters(request):
         work_type = request.POST['work_type']
         if work_type != '':
             # IF 'Bebisiter i Dadilja' don't filter work
-            if work_type == 'Bebisiter i Dadilja':
+            if work_type == 'Bebisiterka i Dadilja':
                 filter_babysitter = filter_babysitter
             else:
                 filter_babysitter = Babysitter.objects.filter(
@@ -70,3 +71,25 @@ def babysitter_profil(request, slug):
                'calendar': calendar,
                'form': newsletter_form}
     return render(request, 'connection/babysitter_profil.html', context)
+
+
+def send_match(request):
+    if request.method == "POST":
+        babysitter_slug = request.POST['babysitter_slug']
+        babysiter_for_match = Babysitter.objects.get(slug=babysitter_slug)
+        messages.success(
+            request, (f'Uspešno ste rezervisali {babysiter_for_match.work_type} {babysiter_for_match.first_name} {babysiter_for_match.first_name}'))
+        print(babysitter_slug)
+    return redirect('family:profil')
+
+
+def matched_babysitter_profil(request, slug):
+    babysitter = get_object_or_404(Babysitter, slug=slug)
+    calendar = get_object_or_404(BabysitterCalendar,
+                                 babysitter_id=babysitter.id)
+
+    newsletter_form = NewsletterForm()
+    context = {'babysitter': babysitter,
+               'calendar': calendar,
+               'form': newsletter_form}
+    return render(request, 'connection/matched_babysitter_profil.html', context)

@@ -167,20 +167,29 @@
                            {%endif%}
                       </li>
                       <li>
-                         <span class="user-year">Vozačka dozvola</span>
-                         {% if babysitter.driver_license == None %}
+                         <span class="user-year">Da li čuvate decu dok su bolesna?</span>
+                         {% if babysitter.sick_child == None %}
                          {%else%}
                          <span class="user-year-num only-on-mob-two">
-                            {{babysitter.driver_license}}
+                            {{babysitter.sick_child}}
                            </span>
                            {%endif%}
                       </li>
                       <li>
-                         <span class="user-year">Kola</span>
+                         <span class="user-year">Da li bi vozili decu svojim autom?</span>
                          {% if babysitter.car == None %}
                          {%else%}
                          <span class="user-year-num only-on-mob-two">
                             {{babysitter.car}}
+                           </span>
+                           {%endif%}
+                      </li>
+                        <li>
+                         <span class="user-year">Da li bi putovali sa Porodicom?</span>
+                         {% if babysitter.travel == None %}
+                         {%else%}
+                         <span class="user-year-num only-on-mob-two">
+                            {{babysitter.travel}}
                            </span>
                            {%endif%}
                       </li>
@@ -194,25 +203,14 @@
                       </li>
                    </ul>
                 </div>
-                <div class="accordion" id="accordionExample">
-                   <div class="accordion-item">
-                      <h2 class="accordion-header" id="headingThree">
-                         <button  class="accordion-button collapsed mika" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                         Prijavi korisnika
-                         </button>
-                      </h2>
-                      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                         <div class="accordion-body">
-                            <form action="" method="post">
-                               <textarea class="form-control"  id="user_report" name="user_report"></textarea>
-                               <input type="submit" class="btn btn-log-reg" value="Pošalji">
-                            </form>
-                         </div>
-                      </div>
-                   </div>
-                </div>
+
                 <div class="user-short-info">
-                   <a href="" class="btn reserve-btn">Rezerviši</a>
+                   <form action="{% url 'connection:send_match' %}" method="post">
+                      {% csrf_token%}
+                      <input type="hidden" name="babysitter_slug" value="{{babysitter.slug}}" />
+                     <button class="btn reserve-btn" type="submit">Rezerviši</button> 
+                   </form>
+                   
                 </div>
              </div>
              <div class="col-xxl-8 col-xl-7 col-lg-7">
@@ -420,50 +418,6 @@
                                   </tbody>
                                </table>
                             </div>
-                   <div class="rate-modal-wrapper">
-                      <div class="rate-wrapper">
-                         <h5>Ocenite korisnika</h5>
-                         <form action="" method="post">
-                            <div class="rate">
-                               <input type="radio" id="star5" name="rate" value="5" class="star">
-                               <label for="star5" title="5 zvezdica">5 stars</label>
-                               <input type="radio" id="star4" name="rate" value="4" class="star">
-                               <label for="star4" title="4 zvezdice">4 stars</label>
-                               <input type="radio" id="star3" name="rate" value="3" class="star">
-                               <label for="star3" title="3 zvezdice">3 stars</label>
-                               <input type="radio" id="star2" name="rate" value="2" class="star">
-                               <label for="star2" title="2 zvezdice">2 stars</label>
-                               <input type="radio" id="star1" name="rate" value="1" class="star">
-                               <label for="star1" title="1 zvezdica">1 star</label>
-                            </div>
-                            <input type="submit" class="btn btn-rating-star" value="Oceni">
-                         </form>
-                      </div>                      
-                   </div>
-                   <div class="comment-area">
-                      <div class="comment-area-field">
-                         <h5>Ostavite komentar</h5>
-                         <form action="" method="post">
-                            <textarea class="form-control" name="comment_area" id="comment_area"></textarea>
-                            <input type="submit"  class="btn btn-log-reg" value="Pošalji">
-                         </form>
-                      </div>
-                      <div class="comment-preview">
-                         <h6> <b> Petar Jelić</b></h6>
-                         <p class="com-dat">25.12.2021</p>
-                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut
-                         </p>
-                      </div>
-                      <div class="comment-preview">
-                         <h6> <b> Mikan Mikanič</b></h6>
-                         <p class="com-dat">25.12.2021</p>
-                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                         </p>
-                      </div>
-                   </div>
                 </div>
                 <!-- end user main info -->
              </div>
