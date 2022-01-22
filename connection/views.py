@@ -50,7 +50,6 @@ def all_babysitters(request):
             babysitters = filter_babysitter
         # If Filters doesnt's match
         else:
-            print(age_children)
             babysitters = False
 
     newsletter_form = NewsletterForm()
@@ -88,7 +87,6 @@ def send_match(request):
 
         messages.success(
             request, (f'Uspešno ste rezervisali {babysiter_for_match.work_type} {babysiter_for_match.first_name} {babysiter_for_match.first_name}'))
-        print(babysitter_slug)
     return redirect('family:profil')
 
 
