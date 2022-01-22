@@ -107,3 +107,19 @@ def matched_babysitter_profil(request, slug):
                'calendar': calendar,
                'form': newsletter_form}
     return render(request, 'connection/matched_babysitter_profil.html', context)
+
+
+def family_profil(request, slug):
+    profil = get_object_or_404(Family, slug=slug)
+    calendar = get_object_or_404(FamilyCalendar,
+                                 family_id=profil.id)
+
+    newsletter_form = NewsletterForm()
+    context = {'profil': profil,
+               'calendar': calendar,
+               'form': newsletter_form}
+    return render(request, 'connection/family_profil.html', context)
+
+
+def matched_family_profil(request, slug):
+    pass

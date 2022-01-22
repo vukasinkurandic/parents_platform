@@ -272,8 +272,7 @@
                                     {% if send_family_list%}
                                     {% for family in send_family_list%}
                                     <tr>
-                                       <td colspan="7" class="align-middle fs-5">{{family.first_name}} {{family.last_name}} {{family.sity}}</td>
-                                       <td><a href="#" class="btn btn-success">Vidi profil</a></td>
+                                       <td colspan="7" class="align-middle fs-5"><a href="{% url 'connection:family_profil' family.slug %}">{{family.first_name}} {{family.last_name}} {{family.sity}}</a></td>
                                        <td><a href="#" class="btn btn-success">Prihvati</a></td>
                                        <td><a href="#" class="btn btn-danger">Odbij</a></td>
                                     </tr>

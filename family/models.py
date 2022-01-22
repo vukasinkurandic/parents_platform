@@ -5,6 +5,7 @@ from . validators import validate_image
 from . utils import get_random_code
 from django.template.defaultfilters import slugify
 from . choices import SITY_CHOICES, NUMBER_CHOICES, AGE_CHOICES, CITIZENSHIP_CHOICES, CHILDCARE_PERIOD_CHOICES
+from multiselectfield import MultiSelectField
 
 
 class Family(models.Model):
@@ -32,8 +33,8 @@ class Family(models.Model):
     social_network = models.URLField(max_length=225, blank=True, null=True)
     number_children = models.CharField(
         max_length=5, choices=NUMBER_CHOICES, default='2')
-    age_children = models.CharField(
-        max_length=10, choices=AGE_CHOICES, default='1-3')
+    age_children = MultiSelectField(
+        choices=AGE_CHOICES, default='1-3')
     citizenship = models.CharField(
         max_length=50, choices=CITIZENSHIP_CHOICES, default='Srpski Drzavljanin')
     childcare_period = models.CharField(
