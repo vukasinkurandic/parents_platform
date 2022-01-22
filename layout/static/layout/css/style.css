@@ -2205,12 +2205,7 @@ width: 80%;
 margin:0 auto 35px auto;
 }
 
-/* filter */
-
-.filter-left{
-padding: 0 55px;  
-}
-
+/* filter  start*/
 .btn-filter-btn {
   border-radius: 0;
   background: rgb(70, 178, 240);
@@ -2230,66 +2225,54 @@ padding: 0 55px;
 }
 
 
-.user-filter-box{
-margin-bottom: 35px;
+.filter-left a {
+  text-decoration: none;
 }
-
-.filter-info{
-padding: 10px;  
-box-shadow: 0 9px 24px 0 rgb(26 47 106 / 10%);
-width: 90%;
-margin:-25px auto 0 auto;
-position: relative;
-background-color: #fff;
-}
-
-.filter-img img{
-  width: 100%;
+.filter-box-main {
+  display: flex;
+  background-color: #63bef2;
   height: 235px;
+  position: relative;
+  width: 100%;
+  margin: 0px auto 60px auto;
+  border-top-right-radius: 50px;
+  border-bottom-left-radius: 50px;
+}
+
+.filter-img-main {
+  width: 175px;
+  height: 235px;
+  overflow: hidden;
+  position: relative;
+  border-bottom-left-radius: 50px;
+  border-right:3px solid #fff ;
+}
+
+.filter-img-main img {
+  width: 175px;
+  height: 236px;
   object-fit: cover;
-  border-top-left-radius: 7px;
-  border-top-right-radius: 7px;
+  border-bottom-left-radius: 50px;
 }
 
-
-.filter-title{
-text-align: center;  
-position: relative;
-margin-top: -29px;
+.filter-text{
+padding: 20px;
 }
 
-.filter-title h2{
-  background: linear-gradient(135deg, #f2cfd1 25%, transparent 0) -25px 0, linear-gradient(225deg, #f2cfd1 25%, transparent 25%) -25px 0, linear-gradient(315deg, #f2cfd1 25%, transparent 25%), linear-gradient(45deg, #f2cfd1 25%, transparent 25%);
-  background-color: rgba(0, 0, 0, 0);
-  background-size: auto, auto, auto, auto;
-background-size: 50px 50px;
-background-color: #efc3c5;
-display: inline-block;  
-color: #fff;
-text-shadow: 2px 2px rgb(0 0 0 / 20%);
-padding: 0 10px;
-border-radius: 7px;
-font-size: 32px;
+.filter-text h4{
+  margin-bottom: 20px;
+  font-size: 34px;
+  line-height: 31px;
+  color: #fff;  
 }
 
-.small-info{
-display: flex; 
-color: #fff;
-font-size: 24px;
-background-color: #73c4f4;
-width: 100%;
-padding: 0 10px;
-letter-spacing: 1px;
-width: 80%;
-margin: 15px auto 15px auto;
-border-radius: 7px;
-}
-
-.small-info-first{
-margin-right: 15px;  
+.filter-ocupation {
+ width: 172px;
 }
 
 /* filter end */
+
+
 /* price slider range start */
 .container-price{
     position: relative;
