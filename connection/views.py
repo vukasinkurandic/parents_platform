@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from layout.forms import NewsletterForm
+from . models import Connection
 from babysitter.models import Babysitter, BabysitterCalendar
 from family.models import Family, FamilyCalendar
 from family.choices import sity_list, work_list
@@ -77,6 +78,14 @@ def send_match(request):
     if request.method == "POST":
         babysitter_slug = request.POST['babysitter_slug']
         babysiter_for_match = Babysitter.objects.get(slug=babysitter_slug)
+        family_id = request.user.family.id
+        babysitter_id = babysiter_for_match.id
+        connection = Connection()
+        connection.family_id = family_id
+        connection.babysitter_id = babysitter_id
+        connection.is_matched = None
+        connection.save()
+
         messages.success(
             request, (f'Uspešno ste rezervisali {babysiter_for_match.work_type} {babysiter_for_match.first_name} {babysiter_for_match.first_name}'))
         print(babysitter_slug)
