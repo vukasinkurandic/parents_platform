@@ -138,3 +138,18 @@ if (window.location.href == price_range_slid + "connection/all_babysitters") {
   }
 }
 
+
+
+// samo za filter stranu
+const filter_host = "http://127.0.0.1:8000/";
+if(window.location.href==filter_host + "connection/all_babysitters"){
+let inerWidBraust2 = window.innerWidth;  
+let remodiv = document.querySelectorAll(".add-fluid-div2");
+if (inerWidBraust2 < 1400) {
+remodiv.forEach(function (e) {
+e.classList.remove("container");
+e.classList.add("container-fluid");
+});
+}
+}
+
