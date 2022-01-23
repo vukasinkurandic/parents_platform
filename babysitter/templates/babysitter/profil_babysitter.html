@@ -273,8 +273,8 @@
                                     {% for family, connection in send_list%}
                                     <tr>
                                        {%if connection.is_matched == None %}
-                                       <td colspan="7" class="align-middle fs-5"><a href="{% url 'connection:family_profil' family.slug %}">{{family.first_name}} {{family.last_name}} {{family.sity}}</a></td>
-                                       <td><a href="{% url 'connection:matched_family_profil' family.slug %}" class="btn btn-success">Prihvati</a></td>
+                                       <td colspan="7" class="align-middle fs-5"><a  class="matched_family" href="{% url 'connection:family_profil' family.slug %}">{{family.first_name}} {{family.last_name}} {{family.sity}}</a></td>
+                                       <td ><a href="{% url 'connection:matched_family_profil' family.slug %}" class="btn btn-success">Prihvati</a></td>
                                        <td><form action="{% url 'connection:deny_connection' %}" method="post" onsubmit="return confirm('Da li ste sigurni da zelite da odbijete zahtev?')">
                                           {% csrf_token%}
                                           <input type="hidden" name="connection_id" value="{{connection.id}}">
