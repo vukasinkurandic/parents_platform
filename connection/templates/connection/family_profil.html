@@ -117,6 +117,18 @@
                                </li>
                             </ul>
                          </div>
+                    <div class="user-short-info">
+                     <a href="{% url 'connection:matched_family_profil' profil.slug %}"><button class="btn btn-success">Prihvati zahtev</button></a>
+                </div>
+                {% for connection in connection_list%}
+               <div class="user-short-info">
+                   <form action="{% url 'connection:deny_connection' %}" method="post">
+                      {% csrf_token%}
+                        <input type="hidden" name="connection_id" value="{{connection.id}}">
+                        <button class="btn btn-danger" type="submit" class="">Odbij zahtev</button>
+                   </form>   
+                </div>
+                {% endfor%}
                       </div>
                       <div class="col-xxl-8 col-xl-7 col-lg-7">
                          <div class="user-main-info">

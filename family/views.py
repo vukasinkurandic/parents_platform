@@ -70,22 +70,20 @@ def profil(request):
 
     # LOGIC FOR FIND ALL BABYSITTER WHICH PROFIL SEND MATCH REQUEST (CONNECTION APP)
     all_babysitters_match_queryset = []
-    is_matched_list = []
+    connection_list = []
 
     # All match for family profile
     all_match_queryset = Connection.objects.filter(family_id=profil.id)
     all_match_list = list(all_match_queryset)
     for one_match in all_match_list:
+        connection_list.append(one_match)
         id_babysitter = one_match.babysitter_id
-        is_matched = one_match.is_matched
         one_match_babysitter = Babysitter.objects.get(id=id_babysitter)
-
         all_babysitters_match_queryset.append(one_match_babysitter)
-        is_matched_list.append(is_matched)
 
     send_babysitters_list = list(all_babysitters_match_queryset)
     # MAKING ONE LIST FROM SEND_BABYSITTERS LIST AND IS_MATCHED_LIST
-    match_list = zip(send_babysitters_list, is_matched_list)
+    match_list = zip(send_babysitters_list, connection_list)
 
     newsletter_form = NewsletterForm()
     context = {'profil': profil, 'calendar': calendar,

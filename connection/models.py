@@ -11,8 +11,9 @@ class Connection(models.Model):
     is_matched = models.BooleanField(default=None, null=True)
     date = models.DateTimeField(auto_now_add=True)
 
-    def matched_check(connection):
-        return connection.is_matched
-
     def __str__(self):
         return f'{self.family} - {self.babysitter}'
+
+
+def matched_check(connection):
+    return connection.is_matched

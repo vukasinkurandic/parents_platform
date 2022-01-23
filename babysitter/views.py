@@ -70,20 +70,29 @@ def profil(request):
 
     # LOGIC FOR FIND ALL FAMILY WHICH PROFIL SEND MATCH REQUEST (CONNECTION APP)
     all_families_match_queryset = []
-
+    connection_list = []
     # All match for babysitter profile
-    all_match_queryset = Connection.objects.filter(babysitter_id=profil.id)
-    all_match_list = list(all_match_queryset)
-    for one_match in all_match_list:
+    all_match_connections_queryset = Connection.objects.filter(
+        babysitter_id=profil.id)
+    all_match_connections_list = list(all_match_connections_queryset)
+
+    for one_match in all_match_connections_list:
+        # Append every singe connection to list
+        connection_list.append(one_match)
+
         id_family = one_match.family_id
-        #is_matched = one_match.is_matched
         one_match_family = Family.objects.get(id=id_family)
+        # Append every singe family to list MOZDA MOZE JEDAN KORAK MANJE
         all_families_match_queryset.append(one_match_family)
+
     send_family_list = list(all_families_match_queryset)
+
+    # Put to send_family_list and connection_list in one and send in context
+    send_list = zip(send_family_list, connection_list)
 
     newsletter_form = NewsletterForm()
     context = {'profil': profil, 'calendar': calendar,
-               'form': newsletter_form, 'send_family_list': send_family_list}
+               'form': newsletter_form, 'send_list': send_list}
     # PROBA STRANICA
     # return render(request, 'babysitter/profil_babysitter_proba.html', context)
     return render(request, 'babysitter/profil_babysitter.html', context)

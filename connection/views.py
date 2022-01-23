@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, user_passes_test
 from layout.forms import NewsletterForm
 from . models import Connection
 from babysitter.models import Babysitter, BabysitterCalendar
@@ -73,6 +73,7 @@ def babysitter_profil(request, slug):
     return render(request, 'connection/babysitter_profil.html', context)
 
 
+@login_required
 def send_match(request):
     if request.method == "POST":
         babysitter_slug = request.POST['babysitter_slug']
@@ -86,10 +87,16 @@ def send_match(request):
 
         all_connection = Connection.objects.filter(
             family_id=family_id, babysitter_id=babysitter_id)
-
         if all_connection.exists():
-            messages.success(
-                request, (f'Već ste rezervisali {babysiter_for_match.work_type} {babysiter_for_match.first_name} {babysiter_for_match.last_name}'))
+            for connection in all_connection:
+                if connection.is_matched == False:
+                    connection.is_matched = None
+                    connection.save()
+                    messages.success(
+                        request, (f'Ponovo ste ste rezervisali {babysiter_for_match.work_type} {babysiter_for_match.first_name} {babysiter_for_match.last_name}'))
+                else:
+                    messages.success(
+                        request, (f'Već ste rezervisali {babysiter_for_match.work_type} {babysiter_for_match.first_name} {babysiter_for_match.last_name}'))
         else:
             connection.save()
             messages.success(
@@ -97,29 +104,97 @@ def send_match(request):
     return redirect('family:profil')
 
 
+@login_required
 def matched_babysitter_profil(request, slug):
     babysitter = get_object_or_404(Babysitter, slug=slug)
     calendar = get_object_or_404(BabysitterCalendar,
                                  babysitter_id=babysitter.id)
 
-    newsletter_form = NewsletterForm()
-    context = {'babysitter': babysitter,
-               'calendar': calendar,
-               'form': newsletter_form}
-    return render(request, 'connection/matched_babysitter_profil.html', context)
+    connection_queryset = Connection.objects.filter(
+        family_id=request.user.family.id, babysitter_id=babysitter.id)
+    # Stop URL connection if is mached is FALSE or Connection doesn't exists
+    if connection_queryset.exists():
+        if connection_queryset[0].is_matched == False:
+            return redirect('family:profil')
+        else:
+            newsletter_form = NewsletterForm()
+            context = {'babysitter': babysitter,
+                       'calendar': calendar,
+                       'form': newsletter_form}
+            return render(request, 'connection/matched_babysitter_profil.html', context)
+    else:
+        return redirect('family:profil')
 
 
+@login_required
 def family_profil(request, slug):
     profil = get_object_or_404(Family, slug=slug)
     calendar = get_object_or_404(FamilyCalendar,
                                  family_id=profil.id)
+    babysitter_id = request.user.babysitter.id
+    # Connection for context
+    connection_list = []
+    all_connection_queryset = Connection.objects.filter(
+        family_id=profil.id, babysitter_id=babysitter_id)
+
+    for connection in all_connection_queryset:
+        connection_list.append(connection)
 
     newsletter_form = NewsletterForm()
-    context = {'profil': profil,
+    context = {'profil': profil, 'connection_list': connection_list,
                'calendar': calendar,
                'form': newsletter_form}
     return render(request, 'connection/family_profil.html', context)
 
 
+@login_required
 def matched_family_profil(request, slug):
-    pass
+    babysitter_id = request.user.babysitter.id
+    profil = get_object_or_404(Family, slug=slug)
+    calendar = get_object_or_404(FamilyCalendar,
+                                 family_id=profil.id)
+
+    connection_queryset = Connection.objects.filter(
+        family_id=profil.id, babysitter_id=babysitter_id)
+    # Stop URL connection if is mached is FALSE or Connection doesn't exists
+    if connection_queryset.exists():
+        if connection_queryset[0].is_matched == False:
+            return redirect('babysitter:profil')
+        else:
+            # Change is matched in TRUE
+            for connection in connection_queryset:
+                connection.is_matched = True
+                connection.save()
+
+            newsletter_form = NewsletterForm()
+            context = {'profil': profil,
+                       'calendar': calendar,
+                       'form': newsletter_form}
+            return render(request, 'connection/matched_family_profil.html', context)
+    else:
+        return redirect('babysitter:profil')
+
+
+@login_required
+def deny_connection(request):
+    if request.method == "POST":
+        connection_id = request.POST['connection_id']
+        connection = Connection.objects.get(id=connection_id)
+        connection.is_matched = False
+        connection.save()
+        messages.success(
+            request, ('Uspešno ste odbili zahtev!'))
+        context = {'connection': connection}
+        return redirect('babysitter:profil')
+
+
+@login_required
+def delete_connection(request):
+    if request.method == "POST":
+        connection_id = request.POST['connection_id']
+        connection = Connection.objects.get(id=connection_id)
+        connection.delete()
+        messages.success(
+            request, ('Uspešno ste obrisali zahtev!'))
+        context = {'connection': connection}
+        return redirect('family:profil')

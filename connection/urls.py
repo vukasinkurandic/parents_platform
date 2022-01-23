@@ -19,5 +19,12 @@ urlpatterns = [
          name='family_profil'),
     path('matched_family_profil/<str:slug>/', views.matched_family_profil,
          name='matched_family_profil'),
+    #  Deny connection
+    path('deny_connection', views.deny_connection,
+         name='deny_connection'),
+    # Delete connection
+    path('delete_connection', views.delete_connection,
+         name='delete_connection'),
+
 
 ]
