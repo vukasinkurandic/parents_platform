@@ -22,6 +22,9 @@ if (inerWidBraust < 992) {
   });
 }
 
+
+// ====================
+
 const host = "http://127.0.0.1:8000/";
 // JAVASCRIPT FOR INDEX PAGE
 if (
@@ -51,6 +54,9 @@ if (
   }
 }
 
+// ==================
+
+
 
 if (window.location.href == host + "password-reset-confirm/MTU/set-password") {
   let passinfo = document.querySelector('#hint_id_new_password1');
@@ -64,6 +70,10 @@ if (window.location.href == host + "password-reset-confirm/MTU/set-password") {
   error2.innerHTML = 'Lozinka mora sadržati min 8 karaktera/Password must contain at least 8 characters';
   error3.innerHTML = "Lozinka ne sme biti sastavljena samo od brojeva/Password can't be entirely numeric ";
 }
+
+
+// ====================
+
 if (window.location.href == host + "family/edit_profil/" ||
   window.location.href == host + "babisitter/edit_profil/") {
   /*Clear chack box and label for edit family and babysitter profil form*/
@@ -77,6 +87,9 @@ if (window.location.href == host + "family/edit_profil/" ||
     }
   label.remove()
 }
+
+
+// ========================
 
 if (window.location.href == host + 'register_babysitter/' ||
   window.location.href == host + 'register_family/') {
@@ -98,6 +111,8 @@ if (window.location.href == host + 'register_babysitter/' ||
     error49.innerHTML = '<strong>Lozinka ne sme biti slična email adresi</strong>';
   }
 }
+
+// ================
 
 // JAVASCRIPT FOR PRICE FILTER
 const price_range_slid = "http://127.0.0.1:8000/";
