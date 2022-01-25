@@ -42,7 +42,14 @@
                             <option value="{{work}}">{{work}}</option>
                             {% endfor%}
                         </select>
-                        <label for="hourly_rate" class="form-label">Cena</label>  
+                        <label for="experience_number" class="form-label">Godine iskustva</label>
+                        <select name="experience_number" id="experience_number" class="form-select" aria-label="Default select example">
+                           <option selected="" value="">Izaberite</option>
+                            {% for experience in experience_number_list %}
+                            <option value="{{experience}}">{{experience}}</option>
+                            {% endfor%}
+                        </select>
+                        <label for="hourly_rate" class="form-label">Cena po satu</label>  
                         <div class="price-wrapper">
                            <div class="values">
                               <span id="range1">
@@ -59,6 +66,61 @@
                               <input type="range" step="50"  name="price_range_max" min="0" max="1500" value="1000" id="price_range_max" oninput="slideTwo()">
                            </div>
                         </div>
+                         <div class="accordion adwanced-filter" id="accordionExample">
+                                 <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingThree">
+                                       <button  class="accordion-button collapsed mika" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                       Napredni filteri
+                                       </button>
+                                    </h2>
+                                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                       <div class="accordion-body">
+                                          
+                                          <ul class="ks-cboxtags">
+                                             <li><input type="checkbox" id="checkboxOne" value="True" name="children_with_special_needs" class="filter_chb_c">
+                                                <label for="checkboxOne">Čuva decu sa posebnim potrebama</label>
+                                             </li>
+
+                                             <li><input type="checkbox" id="checkboxTwo" value="True" name="home_job">
+                                                <label for="checkboxTwo">Radi lakse kućne poslove</label>
+                                             </li>
+
+                                             <li><input type="checkbox" id="checkboxThree" value="True" name="pets" class="filter_chb_c">
+                                                <label for="checkboxThree">Ne smetaju joj kućni ljubimci</label>
+                                             </li>
+
+                                             <li><input type="checkbox" id="checkboxFour" value="True" name="house" class="filter_chb_c">
+                                                <label for="checkboxFour">Čuva decu kod svoje kuće</label>
+                                             </li>
+
+                                             <li><input type="checkbox" id="checkboxFive" value="True" name="own_children" class="filter_chb_c">
+                                                <label for="checkboxFive">Ima svoju decu</label>
+                                             </li>
+
+                                             <li class="ks-selected"><input type="checkbox" id="checkboxSix" value="True" name="cooking" class="filter_chb_c">
+                                                <label for="checkboxSix">Kuva deci hranu</label>
+                                             </li>
+
+                                             <li><input type="checkbox" id="checkboxSeven" value="True" name="sick_child" class="filter_chb_c">
+                                                <label for="checkboxSeven">Čuva decu dok su bolesna</label>
+                                             </li>
+
+                                             <li><input type="checkbox" id="checkboxEight" value="True" name="car" class="filter_chb_c">
+                                                <label for="checkboxEight">Ima kola</label>
+                                             </li>
+
+                                             <li><input type="checkbox" id="checkboxNine" value="True" name="school_activities" class="filter_chb_c">
+                                                <label for="checkboxNine">Radi školske aktivnosti</label>
+                                             </li>
+
+                                             <li><input type="checkbox" id="checkboxTen" value="True" name="travel" class="filter_chb_c">
+                                                <label for="checkboxTen">Putuje sa porodicom</label>
+                                             </li>
+                                          </ul>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
                         <input type="submit" name="" value="Filtriraj" class="btn btn-filter-btn">
                      </form>
                   </div>

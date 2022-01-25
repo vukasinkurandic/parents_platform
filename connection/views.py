@@ -5,7 +5,7 @@ from layout.forms import NewsletterForm
 from . models import Connection
 from babysitter.models import Babysitter, BabysitterCalendar
 from family.models import Family, FamilyCalendar
-from family.choices import sity_list, work_list
+from family.choices import sity_list, work_list, number_list
 from django.db.models import Q
 
 
@@ -25,6 +25,7 @@ def all_babysitters(request):
     if request.method == "POST":
         filter_babysitter = False
         # Filters after POST submit
+        # BASIC FILTERS
         price_range_min = request.POST['price_range_min']
         price_range_max = request.POST['price_range_max']
         if price_range_min != '' or price_range_max != '':
@@ -45,6 +46,62 @@ def all_babysitters(request):
             else:
                 filter_babysitter = Babysitter.objects.filter(
                     work_type=work_type)
+        experience_number = request.POST['experience_number']
+        if experience_number != '':
+            filter_babysitter = Babysitter.objects.filter(
+                years_care_experience=experience_number)
+
+        # ADVANCED FILTERS
+        if "children_with_special_needs" in request.POST:
+            children_with_special_needs = request.POST['children_with_special_needs']
+            filter_babysitter = Babysitter.objects.filter(
+                children_with_special_needs='Da')
+
+        if "home_job" in request.POST:
+            home_job = request.POST['home_job']
+            filter_babysitter = Babysitter.objects.filter(
+                home_job='Da')
+
+        if "pets" in request.POST:
+            pets = request.POST['pets']
+            filter_babysitter = Babysitter.objects.filter(
+                pets='Ne')
+
+        if "house" in request.POST:
+            house = request.POST['house']
+            filter_babysitter = Babysitter.objects.filter(
+                house='Da')
+
+        if "own_children" in request.POST:
+            own_children = request.POST['own_children']
+            filter_babysitter = Babysitter.objects.filter(
+                own_children='Da')
+
+        if "cooking" in request.POST:
+            cooking = request.POST['cooking']
+            filter_babysitter = Babysitter.objects.filter(
+                cooking='Da')
+
+        if "sick_child" in request.POST:
+            sick_child = request.POST['sick_child']
+            filter_babysitter = Babysitter.objects.filter(
+                sick_child='Da')
+
+        if "car" in request.POST:
+            car = request.POST['car']
+            filter_babysitter = Babysitter.objects.filter(
+                car='Da')
+
+        if "school_activities" in request.POST:
+            school_activities = request.POST['school_activities']
+            filter_babysitter = Babysitter.objects.filter(
+                school_activities='Da')
+
+        if "travel" in request.POST:
+            travel = request.POST['travel']
+            filter_babysitter = Babysitter.objects.filter(
+                travel='Da')
+
         # If Filters match
         if filter_babysitter:
             babysitters = filter_babysitter
@@ -55,8 +112,9 @@ def all_babysitters(request):
     newsletter_form = NewsletterForm()
     city_list = sity_list
     work_role_list = work_list
+    experience_number_list = number_list
     context = {'babysitters': babysitters,
-               'city_list': city_list, 'work_role_list': work_role_list, 'form': newsletter_form}
+               'city_list': city_list, 'work_role_list': work_role_list, 'experience_number_list': experience_number_list, 'form': newsletter_form}
     return render(request, 'connection/all_babysitters.html', context)
 
 

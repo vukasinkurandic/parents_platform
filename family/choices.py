@@ -211,3 +211,9 @@ work_choices = WORK_CHOICES
 work_list = []
 for field, value in work_choices:
     work_list.append(value)
+
+# MAKE LIST OF VALUE FOR NUMBER_CHOICES
+number_choices = NUMBER_CHOICES
+number_list = []
+for field, value in number_choices:
+    number_list.append(value)

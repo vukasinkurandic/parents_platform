@@ -87,8 +87,8 @@ class BabysitterForm(forms.ModelForm):
             'house',  # BooleanField
             'cooking',  # BooleanField
             'school_activities',  # BooleanField
-            'home_job',
-            'children_with_special_needs'
+            'home_job',  # BooleanField
+            'children_with_special_needs'  # BooleanField
 
 
 

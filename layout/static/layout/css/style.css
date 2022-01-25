@@ -2279,7 +2279,129 @@ padding: 20px;
 }
 
 /* filter end */
+/*===checkbox cloud start====*/
 
+.accordion-button:focus {
+    z-index: 3;
+    border-color: none;
+    outline: 0;
+  box-shadow: none;
+}
+
+.adwanced-filter{
+margin-top: 25px;  
+}
+
+.adwanced-filter .accordion-body {
+    padding: 0px;
+}
+
+.adwanced-filter .accordion-item {
+    background-color: #fff;
+    border: none;
+}
+
+.adwanced-filter .accordion-button {
+    font-size: 20px;
+    font-weight: 600;
+    color: #000;
+    letter-spacing: 1px;
+    background: linear-gradient(
+135deg
+, #f2cfd1 25%, transparent 0) -25px 0, linear-gradient(
+225deg
+, #f2cfd1 25%, transparent 25%) -25px 0, linear-gradient(
+315deg
+, #f2cfd1 25%, transparent 25%), linear-gradient(
+45deg
+, #f2cfd1 25%, transparent 25%);
+    background-size: 50px 50px;
+    background-color: #efc3c5;
+    
+}
+
+.adwanced-filter .accordion-item:first-of-type .accordion-button {
+    border-top-left-radius: calc(0.25rem - 1px);
+    border-top-right-radius: calc(0.25rem - 1px);
+border: 1px solid rgba(0,0,0,.125);    
+}
+
+ul.ks-cboxtags {
+    list-style: none;
+    margin-top: 25px;
+    
+}
+ul.ks-cboxtags li{
+  display: inline;
+}
+ul.ks-cboxtags li label{
+    display: inline-block;
+    background-color: rgba(255, 255, 255, .9);
+    border: 2px solid rgba(139, 139, 139, .3);
+    color: #000;
+    font-size: 17px;
+    border-radius: 25px;
+    white-space: nowrap;
+    margin: 3px 0px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: all .2s;
+    font-weight: 500;
+}
+
+ul.ks-cboxtags li label {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+ul.ks-cboxtags li label::before {
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 12px;
+    padding: 2px 6px 2px 2px;
+    content: "\f067";
+    transition: transform .3s ease-in-out;
+}
+
+ul.ks-cboxtags li input[type="checkbox"]:checked + label::before {
+    content: "\f00c";
+    transform: rotate(-360deg);
+    transition: transform .3s ease-in-out;
+}
+
+ul.ks-cboxtags li input[type="checkbox"]:checked + label {
+    border: 2px solid #efc3c5;
+    background-color: #efc3c5;
+    color: #000;
+    transition: all .2s;    
+}
+ul.ks-cboxtags li label:hover{
+background-color: rgba(139, 139, 139, .3);  
+}
+ul.ks-cboxtags li input[type="checkbox"] {
+  display: absolute;
+}
+ul.ks-cboxtags li input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+}
+ul.ks-cboxtags li input[type="checkbox"]:focus + label {
+  border: 2px solid #efc3c5;  
+color: #000
+
+
+}
+
+/*===checkbox cloud end====*/
 
 /* price slider range start */
 .container-price{
