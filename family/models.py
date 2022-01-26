@@ -51,16 +51,20 @@ class Family(models.Model):
 
     def save(self, *args, **kwargs):
         ex = False
-        if self.first_name and self.last_name:
-            base_slug = slugify(str(self.first_name) +
-                                " " + str(self.last_name))
-        elif self.first_name:
-            base_slug = str(self.first_name)
+        if self.slug:
+            self.slug = self.slug
+            super().save(*args, **kwargs)
         else:
-            base_slug = str(self.user)
-        to_slug = slugify(base_slug + " " + str(get_random_code()))
-        self.slug = to_slug
-        super().save(*args, **kwargs)
+            if self.first_name and self.last_name:
+                base_slug = slugify(str(self.first_name) +
+                                    " " + str(self.last_name))
+            elif self.first_name:
+                base_slug = str(self.first_name)
+            else:
+                base_slug = str(self.user)
+            to_slug = slugify(base_slug + " " + str(get_random_code()))
+            self.slug = to_slug
+            super().save(*args, **kwargs)
 
 
 class FamilyCalendar(models.Model):
