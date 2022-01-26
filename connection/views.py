@@ -5,7 +5,7 @@ from layout.forms import NewsletterForm
 from . models import Connection
 from babysitter.models import Babysitter, BabysitterCalendar
 from family.models import Family, FamilyCalendar
-from family.choices import sity_list, work_list, number_list
+from family.choices import sity_list, work_list, number_list, number_experience_list
 from django.db.models import Q
 
 
@@ -112,7 +112,7 @@ def all_babysitters(request):
     newsletter_form = NewsletterForm()
     city_list = sity_list
     work_role_list = work_list
-    experience_number_list = number_list
+    experience_number_list = number_experience_list
     context = {'babysitters': babysitters,
                'city_list': city_list, 'work_role_list': work_role_list, 'experience_number_list': experience_number_list, 'form': newsletter_form}
     return render(request, 'connection/all_babysitters.html', context)

@@ -4,7 +4,7 @@ from django.core.validators import RegexValidator, FileExtensionValidator
 from family . validators import validate_image
 from family . utils import get_random_code
 from django.template.defaultfilters import slugify
-from family . choices import SITY_CHOICES, NUMBER_CHOICES, AGE_CHOICES, CITIZENSHIP_CHOICES, SEX_CHOICES, YES_NO_CHOICES, WORK_CHOICES
+from family . choices import SITY_CHOICES, NUMBER_CHOICES, AGE_CHOICES, CITIZENSHIP_CHOICES, SEX_CHOICES, YES_NO_CHOICES, WORK_CHOICES, NUMBER_EXPERIENCE_CHOICES
 from multiselectfield import MultiSelectField
 
 
@@ -38,7 +38,7 @@ class Babysitter(models.Model):
     about_me = models.TextField(blank=True)
     about_me_eng = models.TextField(blank=True)
     years_care_experience = models.CharField(
-        max_length=5, choices=NUMBER_CHOICES, blank=True, null=True)
+        max_length=255, choices=NUMBER_EXPERIENCE_CHOICES, blank=True, null=True)
     work_type = models.CharField(
         max_length=50, choices=WORK_CHOICES, blank=True, null=True)
     car = models.CharField(
