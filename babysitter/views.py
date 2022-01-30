@@ -4,6 +4,8 @@ from django.contrib.auth.decorators import login_required
 from layout.forms import NewsletterForm
 from . forms import BabysitterForm, BabysitterCalendarForm
 from . models import Babysitter, BabysitterCalendar
+from connection . models import Connection
+from family . models import Family
 
 
 @login_required
@@ -65,8 +67,32 @@ def profil(request):
     user_id = user.id
     profil = get_object_or_404(Babysitter, user_id=user_id)
     calendar = get_object_or_404(BabysitterCalendar, babysitter_id=profil.id)
+
+    # LOGIC FOR FIND ALL FAMILY WHICH PROFIL SEND MATCH REQUEST (CONNECTION APP)
+    all_families_match_queryset = []
+    connection_list = []
+    # All match for babysitter profile
+    all_match_connections_queryset = Connection.objects.filter(
+        babysitter_id=profil.id)
+    all_match_connections_list = list(all_match_connections_queryset)
+
+    for one_match in all_match_connections_list:
+        # Append every singe connection to list
+        connection_list.append(one_match)
+
+        id_family = one_match.family_id
+        one_match_family = Family.objects.get(id=id_family)
+        # Append every singe family to list MOZDA MOZE JEDAN KORAK MANJE
+        all_families_match_queryset.append(one_match_family)
+
+    send_family_list = list(all_families_match_queryset)
+
+    # Put to send_family_list and connection_list in one and send in context
+    send_list = zip(send_family_list, connection_list)
+
     newsletter_form = NewsletterForm()
-    context = {'profil': profil, 'calendar': calendar, 'form': newsletter_form}
+    context = {'profil': profil, 'calendar': calendar,
+               'form': newsletter_form, 'send_list': send_list}
     # PROBA STRANICA
     # return render(request, 'babysitter/profil_babysitter_proba.html', context)
     return render(request, 'babysitter/profil_babysitter.html', context)

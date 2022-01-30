@@ -22,8 +22,8 @@ class BabysitterForm(forms.ModelForm):
         attrs={'class': 'form-control', 'id': 'siter_email', 'name': 'siter_email'})),
     social_network = forms.URLField(widget=forms.TextInput(
         attrs={'class': 'form-control', 'id': 'siter_social_network', 'name': 'siter_social_network'})),
-    age_children = forms.ChoiceField(widget=forms.Select(
-        attrs={'class': 'form-select', 'id': 'user_child_number', 'name': 'user_child_number', 'aria-label': 'Default select example'})),
+    age_children = forms.MultipleChoiceField(widget=forms.CheckboxInput(
+        attrs={'class': 'chk', 'id': 'user_child_number', 'name': 'user_child_number', 'aria-label': 'Default select example'})),
     citizenship = forms.ChoiceField(widget=forms.Select(
         attrs={'class': 'form-select', 'id': 'user_municipality', 'name': 'user_municipality'})),
     age = forms.IntegerField(widget=forms.NumberInput(
@@ -87,8 +87,8 @@ class BabysitterForm(forms.ModelForm):
             'house',  # BooleanField
             'cooking',  # BooleanField
             'school_activities',  # BooleanField
-            'home_job',
-            'children_with_special_needs'
+            'home_job',  # BooleanField
+            'children_with_special_needs'  # BooleanField
 
 
 
@@ -107,7 +107,7 @@ class BabysitterForm(forms.ModelForm):
         self.fields['mobile_number'].widget.attrs['class'] = 'form-control'
         self.fields['email'].widget.attrs['class'] = 'form-control'
         self.fields['social_network'].widget.attrs['class'] = 'form-control'
-        self.fields['age_children'].widget.attrs['class'] = 'form-select'
+        self.fields['age_children'].widget.attrs['class'] = 'chk'
         self.fields['citizenship'].widget.attrs['class'] = 'form-select'
         self.fields['age'].widget.attrs['class'] = 'form-control'
         self.fields['home_job'].widget.attrs['class'] = 'form-select'

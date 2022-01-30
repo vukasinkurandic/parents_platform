@@ -23,7 +23,7 @@ class FamilyForm(forms.ModelForm):
         attrs={'class': 'form-control', 'id': 'user_social_network', 'name': 'user_social_network'})),
     number_children = forms.ChoiceField(widget=forms.Select(
         attrs={'class': 'form-select', 'id': 'user_child_number', 'name': 'user_child_number', 'aria-label': 'Default select example'})),
-    age_children = forms.ChoiceField(widget=forms.Select(
+    age_children = forms.MultipleChoiceField(widget=forms.CheckboxInput(
         attrs={'class': 'form-select', 'id': 'user_child_year', 'name': 'user_child_year', 'aria-label': 'Default select example'})),
     citizenship = forms.ChoiceField(widget=forms.RadioSelect(
         attrs={'class': 'form-select', 'name': 'flexRadioDefault'})),
@@ -65,7 +65,7 @@ class FamilyForm(forms.ModelForm):
         self.fields['email'].widget.attrs['class'] = 'form-control'
         self.fields['social_network'].widget.attrs['class'] = 'form-control'
         self.fields['number_children'].widget.attrs['class'] = 'form-select'
-        self.fields['age_children'].widget.attrs['class'] = 'form-select'
+        self.fields['age_children'].widget.attrs['class'] = 'chk'
         self.fields['citizenship'].widget.attrs['class'] = 'form-select'
         self.fields['age'].widget.attrs['class'] = 'form-control'
         self.fields['childcare_period'].widget.attrs['class'] = 'form-select'

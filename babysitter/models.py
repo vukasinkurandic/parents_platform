@@ -4,7 +4,8 @@ from django.core.validators import RegexValidator, FileExtensionValidator
 from family . validators import validate_image
 from family . utils import get_random_code
 from django.template.defaultfilters import slugify
-from family . choices import SITY_CHOICES, NUMBER_CHOICES, AGE_CHOICES, CITIZENSHIP_CHOICES, SEX_CHOICES, YES_NO_CHOICES, WORK_CHOICES
+from family . choices import SITY_CHOICES, NUMBER_CHOICES, AGE_CHOICES, CITIZENSHIP_CHOICES, SEX_CHOICES, YES_NO_CHOICES, WORK_CHOICES, NUMBER_EXPERIENCE_CHOICES
+from multiselectfield import MultiSelectField
 
 
 class Babysitter(models.Model):
@@ -37,7 +38,7 @@ class Babysitter(models.Model):
     about_me = models.TextField(blank=True)
     about_me_eng = models.TextField(blank=True)
     years_care_experience = models.CharField(
-        max_length=5, choices=NUMBER_CHOICES, blank=True, null=True)
+        max_length=255, choices=NUMBER_EXPERIENCE_CHOICES, blank=True, null=True)
     work_type = models.CharField(
         max_length=50, choices=WORK_CHOICES, blank=True, null=True)
     car = models.CharField(
@@ -61,8 +62,8 @@ class Babysitter(models.Model):
     home_job = models.CharField(
         max_length=5, choices=YES_NO_CHOICES, default='Ne')
     slug = models.SlugField(unique=True, blank=True)
-    age_children = models.CharField(
-        max_length=10, choices=AGE_CHOICES, default='1-3')
+    age_children = MultiSelectField(
+        choices=AGE_CHOICES, default='1-3')
     citizenship = models.CharField(
         max_length=50, choices=CITIZENSHIP_CHOICES, default='Srpski Drzavljanin')
     is_form_submit = models.BooleanField(default=False)
@@ -77,16 +78,20 @@ class Babysitter(models.Model):
 
     def save(self, *args, **kwargs):
         ex = False
-        if self.first_name and self.last_name:
-            base_slug = slugify(str(self.first_name) +
-                                " " + str(self.last_name))
-        elif self.first_name:
-            base_slug = str(self.first_name)
+        if self.slug:
+            self.slug = self.slug
+            super().save(*args, **kwargs)
         else:
-            base_slug = str(self.user)
-        to_slug = slugify(base_slug + " " + str(get_random_code()))
-        self.slug = to_slug
-        super().save(*args, **kwargs)
+            if self.first_name and self.last_name:
+                base_slug = slugify(str(self.first_name) +
+                                    " " + str(self.last_name))
+            elif self.first_name:
+                base_slug = str(self.first_name)
+            else:
+                base_slug = str(self.user)
+            to_slug = slugify(base_slug + " " + str(get_random_code()))
+            self.slug = to_slug
+            super().save(*args, **kwargs)
 
 
 class BabysitterCalendar(models.Model):

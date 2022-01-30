@@ -68,16 +68,22 @@
                         <img src="{% static 'layout/img/logo4.png' %}" class="img-fluid" />
                      </div>
                      <div class="row">
-                        <div class="col-xl-8">
+                        <div class="col-md-8">
                            <ul class="mob-mar">
                               <li><a href="{% url 'layout:home' %}">naslovna</a></li>
                               <li><a href="">blog</a></li>
                               <li><a href="{% url 'layout:contact' %}">kontakt</a></li>
+                              {% if user.is_authenticated and user.user_type == 1 %}
+                              <li><a href="{% url 'connection:all_babysitters' %}">baza bebisitera/dadilja</a></li>
+                              {%endif%}
                            </ul>
                         </div>
-                        <div class="col-xl-4">
+                        <div class="col-md-4">
                            <!--USER IS AUTHENTICATED-->
                            {% if user.is_authenticated %}
+                           <div class="logout">
+                              <a class="btn btn-logout" href="{% url 'account:logout' %}">Odjavi se</a>
+                            </div>
                            <div class="login-user">
                               {%if user.user_type == 1%}
                                  <a href="{% url 'family:profil' %}">
@@ -196,7 +202,7 @@
                         Parent's time je platforma koja je tu da izadje u susret svakom
                         roditelju kome je potrebna pomoć prilikom traženja idealne osobe
                         koja bi čuvala njihovo dete kada oni to nisu u mogućnosti. U
-                        samo par koraka i potpuno Besplatno u promo periodu moguće je
+                        samo par koraka i potpuno <b> besplatno</b> u promo periodu moguće je
                         pronaći bebisetera/dadilju koji odgovaraju baš Vašim
                         kriterijumima.
                      </p>
@@ -249,19 +255,19 @@
          <div class="babisit-divider"></div>
       </section>
       <section class="babysitter">
-         <div class="container">
+         <div class="container add-fluid-div">
             <div class="reg-log-all">               
                <div class="circle-logo-btn">
                   <img src="{% static 'layout/img/logo6.png' %}" />
                </div>
                <a class="zigzag-link"  href="{% url 'account:register_family' %}">
                   <div class="first-large-btn">
-                     REGISTRUJ SE/PRIJAVI SE KAO RODITELJ
+                     REGISTRUJ SE/PRIJAVI SE KAO <br> RODITELJ
                   </div>
                </a>
                <a class="zigzag-link" href="{% url 'account:register_babysitter' %}">
                   <div class="second-large-btn">
-                     REGISTRUJ SE/PRIJAVI SE KAO BEBISITER/DADILJA
+                     REGISTRUJ SE/PRIJAVI SE KAO <br> BEBISITER/DADILJA
                   </div>
                </a>
             </div>
@@ -331,6 +337,9 @@
                          <li>
                            <a href="">Ko smo mi</a>
                          </li>
+                        {% if user.is_authenticated and user.user_type == 1 %}
+                        <li><a href="{% url 'connection:all_babysitters' %}">Baza bebisitera/dadilja</a></li>
+                        {%endif%}
                          <li>
                            <a href="">Novosti iz dečijeg sveta</a>
                          </li>
@@ -349,7 +358,7 @@
                            U svakom trenutku pronađite dadilju na teritoriji cele
                            Srbije koja odgovara baš Vašoj porodici!
                          </p>
-                         <p>Besplatna i uvekdostupna baza bebisitera/dadilja</p>
+                         <p>U promo periodu besplatna i uvekdostupna baza bebisitera/dadilja</p>
                        </div>
                        <div class="foter-map">
                          <img src="{% static 'layout/img/mapa.png' %}" class="img-fluid" />

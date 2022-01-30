@@ -1,6 +1,6 @@
 {% extends "layout/base_contact.html" %}
 {% load static %}
-{% block title %} Babysitter Profil {% endblock %}
+{% block title %} Matched Babysitter Profil {% endblock %}
 
 {% block content %}
 <div class="slid insade-slid">
@@ -13,6 +13,18 @@
           <div class="user-title">
              <h1>{{babysitter.first_name}} {{babysitter.last_name}}</h1>
           </div>
+          <div class="vertical-line-menu">
+            <ul class="vertical-ul">
+              <li><i class="fas fa-info"></i>
+                <div class="content">
+                      <h2>INFO</h2>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                      </p>
+                  </div>
+                </li>    
+              </ul>
+          </div>
           <div class="row">
              <div class="col-xxl-4 col-xl-5 col-lg-5">
                 <div class="user-image">
@@ -21,11 +33,13 @@
                 <div class="user-social">
                    <ul>
                       <li> <span class="icon-user" ><i class="fas fa-phone"></i></span> <span class="user-phone" >  {{babysitter.mobile_number}}</span></li>
-                      <li> <span class="icon-user" > <i class="far fa-envelope"></i></span>  <span class="user-phone" >{{babysitter.email}}</span></li>
-                   </ul>
+                  </ul>
                 </div>
                 <div class="user-short-info">
                    <ul>
+                     <li class="email-center" ><span class="user-year">
+                        {{babysitter.email}}
+                      </span></li>                      
                      {% if babysitter.social_network == None %}
                         <li>
                            <span class="user-year">Nema Društvene mreže</span>
@@ -80,7 +94,7 @@
                          <span class="user-year">Da li ima dece</span>
                          {% if babysitter.own_children == None %}
                          {%else%}
-                         <span class="user-year-num only-on-mob-two">
+                         <span class="user-year-num">
                             {{babysitter.own_children}}
                            </span>
                          {%endif%}
@@ -89,12 +103,12 @@
                          <span class="user-year">Da li bi kuvala</span>
                          {% if babysitter.cooking == None %}
                          {%else%}
-                         <span class="user-year-num only-on-mob-two">
+                         <span class="user-year-num">
                             {{babysitter.cooking}}
                            </span>
                          {%endif%}
                       </li>
-                         <span class="user-year">Uzrast dece koju bi čuvala</span>
+                         <span class="user-year">Uzrast dece <span class="only-on-mob-one" > koju bi čuvala</span></span>
                          {% if babysitter.age_children == None %}
                          {%else%}
                          <span class="user-year-num only-on-mob-two">
@@ -149,7 +163,7 @@
                             Nije uneto
                            </span>
                          {%else%}
-                         <span class="user-year-num only-on-mob-two">
+                         <span class="user-year-num only-on-mob-three">
                             {{babysitter.years_care_experience}}
                            </span>
                            {%endif%}
@@ -157,17 +171,17 @@
                       <li>
                          <span class="user-year">Posao traži kao?</span>
                          {% if babysitter.work_type == None %}
-                         <span class="user-year-num only-on-mob-two">
+                         <span class="user-year-num">
                             Nije uneto
                          </span>
                          {%else%}
-                         <span class="user-year-num only-on-mob-two">
+                         <span class="user-year-num">
                             {{babysitter.work_type}}
                            </span>
                            {%endif%}
                       </li>
                       <li>
-                         <span class="user-year">Da li čuvate decu dok su bolesna?</span>
+                         <span class="user-year">Da li čuvate decu <span class="only-on-mob-one" >dok su bolesna?</span></span>
                          {% if babysitter.sick_child == None %}
                          {%else%}
                          <span class="user-year-num only-on-mob-two">
@@ -176,7 +190,7 @@
                            {%endif%}
                       </li>
                       <li>
-                         <span class="user-year">Da li bi vozili decu svojim autom?</span>
+                         <span class="user-year">Da li bi vozili decu <span class="only-on-mob-one" > svojim autom?</span></span>
                          {% if babysitter.car == None %}
                          {%else%}
                          <span class="user-year-num only-on-mob-two">
@@ -184,8 +198,8 @@
                            </span>
                            {%endif%}
                       </li>
-                        <li>
-                         <span class="user-year">Da li bi putovali sa Porodicom?</span>
+                      <li>
+                         <span class="user-year">Da li bi putovali <span class="only-on-mob-one" >sa Porodicom?</span></span>
                          {% if babysitter.travel == None %}
                          {%else%}
                          <span class="user-year-num only-on-mob-two">
@@ -203,14 +217,22 @@
                       </li>
                    </ul>
                 </div>
-
-                <div class="user-short-info">
-                   <form action="{% url 'connection:send_match' %}" method="post">
-                      {% csrf_token%}
-                      <input type="hidden" name="babysitter_slug" value="{{babysitter.slug}}" />
-                     <button class="btn reserve-btn" type="submit">Rezerviši</button> 
-                   </form>
-                   
+                <div class="accordion mb-4" id="accordionExample">
+                   <div class="accordion-item">
+                      <h2 class="accordion-header" id="headingThree">
+                         <button  class="accordion-button collapsed mika" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                         Prijavi korisnika
+                         </button>
+                      </h2>
+                      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                         <div class="accordion-body">
+                            <form action="" method="post">
+                               <textarea class="form-control"  id="user_report" name="user_report"></textarea>
+                               <input type="submit" class="btn btn-log-reg" value="Pošalji">
+                            </form>
+                         </div>
+                      </div>
+                   </div>
                 </div>
              </div>
              <div class="col-xxl-8 col-xl-7 col-lg-7">
@@ -418,6 +440,50 @@
                                   </tbody>
                                </table>
                             </div>
+                   <div class="rate-modal-wrapper">
+                      <div class="rate-wrapper">
+                         <h5>Ocenite korisnika</h5>
+                         <form action="" method="post">
+                            <div class="rate">
+                               <input type="radio" id="star5" name="rate" value="5" class="star">
+                               <label for="star5" title="5 zvezdica">5 stars</label>
+                               <input type="radio" id="star4" name="rate" value="4" class="star">
+                               <label for="star4" title="4 zvezdice">4 stars</label>
+                               <input type="radio" id="star3" name="rate" value="3" class="star">
+                               <label for="star3" title="3 zvezdice">3 stars</label>
+                               <input type="radio" id="star2" name="rate" value="2" class="star">
+                               <label for="star2" title="2 zvezdice">2 stars</label>
+                               <input type="radio" id="star1" name="rate" value="1" class="star">
+                               <label for="star1" title="1 zvezdica">1 star</label>
+                            </div>
+                            <input type="submit" class="btn btn-rating-star" value="Oceni">
+                         </form>
+                      </div>                      
+                   </div>
+                   <div class="comment-area">
+                      <div class="comment-area-field">
+                         <h5>Ostavite komentar</h5>
+                         <form action="" method="post">
+                            <textarea class="form-control" name="comment_area" id="comment_area"></textarea>
+                            <input type="submit"  class="btn btn-log-reg" value="Pošalji">
+                         </form>
+                      </div>
+                      <div class="comment-preview">
+                         <h6> <b> Petar Jelić</b></h6>
+                         <p class="com-dat">25.12.2021</p>
+                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            tempor incididunt ut
+                         </p>
+                      </div>
+                      <div class="comment-preview">
+                         <h6> <b> Mikan Mikanič</b></h6>
+                         <p class="com-dat">25.12.2021</p>
+                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                         </p>
+                      </div>
+                   </div>
                 </div>
                 <!-- end user main info -->
              </div>

@@ -4,6 +4,8 @@ from django.contrib.auth.decorators import login_required
 from layout.forms import NewsletterForm
 from . forms import FamilyForm, FamilyCalendarForm
 from . models import Family, FamilyCalendar
+from babysitter . models import Babysitter
+from connection . models import Connection
 
 
 @login_required
@@ -65,9 +67,28 @@ def profil(request):
     user_id = user.id
     profil = get_object_or_404(Family, user_id=user_id)
     calendar = get_object_or_404(FamilyCalendar, family_id=profil.id)
+
+    # LOGIC FOR FIND ALL BABYSITTER WHICH PROFIL SEND MATCH REQUEST (CONNECTION APP)
+    all_babysitters_match_queryset = []
+    connection_list = []
+
+    # All match for family profile
+    all_match_queryset = Connection.objects.filter(family_id=profil.id)
+    all_match_list = list(all_match_queryset)
+    for one_match in all_match_list:
+        connection_list.append(one_match)
+        id_babysitter = one_match.babysitter_id
+        one_match_babysitter = Babysitter.objects.get(id=id_babysitter)
+        all_babysitters_match_queryset.append(one_match_babysitter)
+
+    send_babysitters_list = list(all_babysitters_match_queryset)
+    # MAKING ONE LIST FROM SEND_BABYSITTERS LIST AND IS_MATCHED_LIST
+    match_list = zip(send_babysitters_list, connection_list)
+
     newsletter_form = NewsletterForm()
-    context = {'profil': profil, 'calendar': calendar, 'form': newsletter_form}
-    # return render(request, 'family/profil_family_proba.html', context) PROBA STRANICA
+    context = {'profil': profil, 'calendar': calendar,
+               'form': newsletter_form, 'match_list': match_list}
+
     return render(request, 'family/profil_family.html', context)
 
 

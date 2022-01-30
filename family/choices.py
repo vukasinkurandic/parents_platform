@@ -152,12 +152,14 @@ NUMBER_CHOICES = (
     ('3', '3'),
     ('4', '4'),
     ('5', '5'),
-    ('6', '6'),
-    ('7', '7'),
-    ('8', '8'),
-    ('9', '9'),
-    ('10', '10'),
-    ('10+', '10+'),
+    ('5+', '5+'),
+
+)
+NUMBER_EXPERIENCE_CHOICES = (
+    ('Nemam iskustva', 'Nemam iskustva'),
+    ('Do godinu dana', 'Do godinu dana'),
+    ('Više od godinu dana', 'Više od godinu dana'),
+
 )
 AGE_CHOICES = (
     ('0-1', '0-1'),
@@ -188,9 +190,9 @@ YES_NO_CHOICES = (
     ('Ne', 'Ne'),
 )
 WORK_CHOICES = (
-    ('Bebisiter', 'Bebisiter'),
+    ('Bebisiterka', 'Bebisiterka'),
     ('Dadilja', 'Dadilja'),
-    ('Bebisiter i Dadilja', 'Bebisiter i Dadilja'),
+    ('Bebisiterka i Dadilja', 'Bebisiterka i Dadilja'),
 
 )
 
@@ -211,3 +213,16 @@ work_choices = WORK_CHOICES
 work_list = []
 for field, value in work_choices:
     work_list.append(value)
+
+# MAKE LIST OF VALUE FOR NUMBER_CHOICES
+number_choices = NUMBER_CHOICES
+number_list = []
+for field, value in number_choices:
+    number_list.append(value)
+
+
+# MAKE LIST OF VALUE FOR NUMBER_EXPERIENCE_CHOICES
+number_experience_choices = NUMBER_EXPERIENCE_CHOICES
+number_experience_list = []
+for field, value in number_experience_choices:
+    number_experience_list.append(value)
