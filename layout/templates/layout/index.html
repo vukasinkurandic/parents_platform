@@ -73,7 +73,9 @@
                               <li><a href="{% url 'layout:home' %}">naslovna</a></li>
                               <li><a href="">blog</a></li>
                               <li><a href="{% url 'layout:contact' %}">kontakt</a></li>
-                              <li><a href="">baza bebisitera/dadilja</a></li>
+                              {% if user.is_authenticated and user.user_type == 1 %}
+                              <li><a href="{% url 'connection:all_babysitters' %}">baza bebisitera/dadilja</a></li>
+                              {%endif%}
                            </ul>
                         </div>
                         <div class="col-md-4">
@@ -335,9 +337,9 @@
                          <li>
                            <a href="">Ko smo mi</a>
                          </li>
-                         <li>
-                           <a href="">Baza bebisitera/dadilja</a>
-                         </li>
+                        {% if user.is_authenticated and user.user_type == 1 %}
+                        <li><a href="{% url 'connection:all_babysitters' %}">Baza bebisitera/dadilja</a></li>
+                        {%endif%}
                          <li>
                            <a href="">Novosti iz dečijeg sveta</a>
                          </li>
