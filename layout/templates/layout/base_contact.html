@@ -69,16 +69,20 @@
                 <img src="{% static 'layout/img/logo4.png' %}" class="img-fluid" />
               </div>
               <div class="row">
-                <div class="col-xl-8">
+                <div class="col-md-8">
                   <ul class="mob-mar">
                     <li><a href="{% url 'layout:home' %}">naslovna</a></li>
                     <li><a href="">blog</a></li>
                     <li><a href="{% url 'layout:contact' %}">kontakt</a></li>
+                    <li><a href="">baza bebisitera/dadilja</a></li>
                   </ul>
                 </div>
-                <div class="col-xl-4">
+                <div class="col-md-4">
                            <!--USER IS AUTHENTICATED-->
                            {% if user.is_authenticated %}
+                           <div class="logout">
+                            <a class="btn btn-logout" href="{% url 'account:logout' %}">Odjavi se</a>
+                          </div>
                            <div class="login-user">
                               {%if user.user_type == 1%}
                                  <a href="{% url 'family:profil' %}">
@@ -151,6 +155,9 @@
                         <a href="">Ko smo mi</a>
                       </li>
                       <li>
+                        <a href="">Baza bebisitera/dadilja</a>
+                      </li>
+                      <li>
                         <a href="">Novosti iz dečijeg sveta</a>
                       </li>
                       <li>
@@ -168,7 +175,7 @@
                         U svakom trenutku pronađite dadilju na teritoriji cele
                         Srbije koja odgovara baš Vašoj porodici!
                       </p>
-                      <p>Besplatna i uvekdostupna baza bebisitera/dadilja</p>
+                      <p>U promo periodu besplatna i uvekdostupna baza bebisitera/dadilja</p>
                     </div>
                     <div class="foter-map">
                       <img src="{% static 'layout/img/mapa.png' %}" class="img-fluid" />

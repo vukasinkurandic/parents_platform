@@ -403,6 +403,20 @@ padding: 10px 5px;
 
 /* filter end */
 
+/* navigation circle logo start*/
+.circle-logo {
+  position: absolute;  
+  top: -62px;
+  width: 100px;
+  height: 100px
+  }
+
+.circle-logo img{
+width: 90px;
+height: 90px;
+}
+/* navigation circle logo end*/
+
   
   /*==========================*/
 }
@@ -595,11 +609,65 @@ padding: 10px 5px;
   /* filter end */
 
 
+/* navigation circle logo start*/
+.circle-logo {
+  position: absolute;  
+  top: -62px;
+  width: 100px;
+  height: 100px
+  }
+
+.circle-logo img{
+width: 90px;
+height: 90px;
+}
+
+
+nav ul li {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.no-login-select {
+  position: relative;
+  display: inline-block;
+  
+  margin-right: 25px;
+  line-height: 0;
+  margin-top: 68px;
+  margin-left: -42px;
+}
+
+
+.logout a {
+ margin-left: -29px;
+ margin-top: -155px;
+ background-color: #fff;
+}
+
+
+
+/* navigation circle logo end*/  
+
+
+/* vertical info from cls map circle start */
+
+.vertical-line-menu {
+  position: absolute;
+  left: 63px;
+  top: 238px;
+}
+/* vertical info from cls map circle end */
+
   /*==========================*/
 }
 
 @media (min-width: 576px) and (max-width: 767px) {
   /*==========================*/
+
+  .btn-report-user{
+    margin-left: 25px;
+  }
 
 /*slid title on index*/
 .slid-title h1 {
@@ -1061,6 +1129,16 @@ padding: 10px 5px;
   /* filter page end */
 
 
+
+/* vertical info from cls map circle start */
+
+.vertical-line-menu {
+  position: absolute;
+  left: 63px;
+  top: 239px;
+}
+/* vertical info from cls map circle end */
+
   /*==========================*/
 }
 
@@ -1081,6 +1159,15 @@ line-height: 26px;
 margin-top: 26px;  
 }
 
+span.only-on-mob-three{
+float: left;  
+margin-top: 2px;
+  }
+
+  
+
+  
+
 .about-area {
 padding: 25px ;
 }
@@ -1094,7 +1181,9 @@ padding: 25px ;
 .rate-wrapper {
  margin: 30px 0;
 }
-
+.rate-wrapper h5{
+margin-bottom: 15px;  
+}
 
 .rate {
   margin-top: -10px;
@@ -1709,5 +1798,57 @@ display: none;
     }
     
     /* filter page end */
+
+/* profile parent */
+    .accordion-button{
+      padding: 10px 8px;
+     }
+     
+     .acc-btn-baby-list {
+      font-size: 20px;
+     }
+     
+     .acc-btn-baby-list:not(.collapsed) {
+      font-size: 20px;
+     }
+
+     .user-main-info h3 {
+      font-size: 37px;
+      line-height: 37px;
+    }
+
+    h3.only-on-mob-title{
+      font-size: 29px;
+line-height: 30px;
+    }
+
+.btn-report-user{
+width: 100%;  
+}
+.btn-rating-star {
+   margin-top: -7px;
+}
+
+
+/* vertical info from cls map circle start */
+
+.vertical-line-menu {
+  position: absolute;
+  left: 29px;
+  top: 196px;
+}
+
+
+ul.vertical-ul li .content {
+  
+  left: 125px;
+  
+}
+ul.vertical-ul li .content:before {
+  
+  left: 30px;
+}
+
+/* vertical info from cls map circle end */
 
 }
