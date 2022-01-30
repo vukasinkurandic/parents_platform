@@ -178,6 +178,7 @@ ul {
 .top-lang img {
   width: 35px;
   height: 23px;
+  border: 2px solid rgba(255,255,255,.5);
 }
 
 .top-lang a {
@@ -260,7 +261,7 @@ nav ul li a:hover {
 
 .no-login-select {
   position: relative;
-  display: inline-block;
+  display: block;
   float: right;
   margin-right: 50px;
   line-height: 0;
@@ -690,6 +691,11 @@ text-shadow: 1px 1px rgb(0 0 0 / 20%);
   color: #fff;
   text-shadow: 2px 2px rgba(0, 0, 0, 0.2);
   position: relative;
+  transition: 0.2s ease-in;
+}
+.second-large-btn:hover{
+  text-shadow: 2px 2px rgba(255, 255, 255, .7);
+color: #46b2f0;
 }
 
 .second-large-btn:before {
@@ -719,6 +725,13 @@ text-shadow: 1px 1px rgb(0 0 0 / 20%);
   color: #fff;
   text-shadow: 2px 2px rgba(0, 0, 0, 0.2);
   position: relative;
+  transition: 0.2s ease-in;
+}
+
+
+.first-large-btn:hover{
+  
+color: #efc3c5;
 }
 
 .first-large-btn:before {
@@ -757,7 +770,7 @@ text-shadow: 1px 1px rgb(0 0 0 / 20%);
 }
 
 .baby-title {
-  margin-bottom: 100px;
+  margin-bottom: 52px;
 }
 
 .baby-title h2 {
@@ -826,11 +839,11 @@ text-shadow: 1px 1px rgb(0 0 0 / 20%);
   display: flex;
   background-color: #63bef2;
   height: 235px;
-  position: relative;
-  width: 90%;
-  margin: 0px auto 90px auto;
+  position: relative;  
+  margin-bottom:100px;
+  margin-top: 55px;
   border-top-right-radius: 50px;
-  border-bottom-left-radius: 50px;
+  border-bottom-left-radius: 50px;  
 }
 
 .babsit-box-ocupation {
@@ -921,8 +934,7 @@ p.baby-p-first {
   color: #fff;
   font-size: 24px;
   background-color: #73c4f4;
-  display: block;
-  width: 100%;
+  display: inline-block;  
   padding: 0 10px;
   letter-spacing: 1px;
   margin-bottom: 10px;
@@ -1096,6 +1108,11 @@ footer {
 .footer-wrapper ul li a {
   font-size: 20px;
   line-height: 25px;
+  transition: .2s ease-in;
+}
+
+.footer-wrapper ul li a:hover{
+color: #63bef2;  
 }
 
 .footer-logo-img {
@@ -1195,7 +1212,7 @@ h4.soc-fot-tit {
 ul.soc-bot-link {
   padding-left: 0;
   float: right;
-  display: inline-block;
+  display: block;
   margin-top: 5px;
 }
 
@@ -1434,7 +1451,7 @@ span.icon-user i {
 
 span.user-phone {
   float: right;
-  display: inline-block;
+  display: block;
   line-height: 45px;
   font-size: 20px;
   font-weight: 600;
@@ -1495,7 +1512,7 @@ text-align: center;
 
 span.user-year-num {
   float: right;
-  display: inline-block;
+  display: block;
   line-height: 30px;
   font-size: 20px;
   font-weight: 600;
@@ -2661,3 +2678,47 @@ input[type="range"]:active::-webkit-slider-thumb{
 }
 /* price slider range end */
 
+
+
+
+.swiper-pagination > .swiper-pagination-bullet {
+    background-color:   #efc3c5;
+  width: 20px;
+  height: 20px;
+  opacity: .5;
+}
+.swiper-pagination > .swiper-pagination-bullet-active {
+  background-color:#63bef2;
+  width: 20px;
+  height: 20px;
+  opacity: 1;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper a{
+text-decoration: none;  
+}
+
+
+
+.swiper-slide {
+  
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
