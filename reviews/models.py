@@ -33,8 +33,8 @@ class Rate(models.Model):
 class Report(models.Model):
 
     author_of_report = models.ForeignKey(
-        CustomUser, on_delete=models.CASCADE, related_name='author_of_rate')
+        CustomUser, on_delete=models.CASCADE, related_name='author_of_report')
     reported_person = models.ForeignKey(
-        CustomUser, on_delete=models.CASCADE, related_name='rated_person')
+        CustomUser, on_delete=models.CASCADE, related_name='reported_person')
     report_body = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
