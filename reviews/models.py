@@ -12,7 +12,11 @@ class Commentary(models.Model):
     commentated_person = models.ForeignKey(
         CustomUser, on_delete=models.CASCADE, related_name='commentated_person')
     commentary_body = models.TextField()
+    published = models.BooleanField(default=False)
     date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.author_of_commentary} - {self.commentated_person} - {self.commentary_body} - {self.date}'
 
 
 class Rate(models.Model):
@@ -29,6 +33,9 @@ class Rate(models.Model):
                                 )
     date = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return f'{self.author_of_rate} - {self.rated_person} - {self.score} - {self.date}'
+
 
 class Report(models.Model):
 
@@ -38,3 +45,6 @@ class Report(models.Model):
         CustomUser, on_delete=models.CASCADE, related_name='reported_person')
     report_body = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.author_of_report} - {self.reported_person} - {self.report_body} - {self.date}'

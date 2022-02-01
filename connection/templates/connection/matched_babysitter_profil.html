@@ -25,6 +25,18 @@
                 </li>    
               </ul>
           </div>
+               <!-- MESSAGES-->
+               {% if messages %}
+                  {% for message in messages %}
+                  <div class="main_message">
+                     <div class="alert alert-dismissible fade show {{ message.tags }}" role="alert">
+                        <span class="al-text">{{message}}</span>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                     </div>
+                  </div> 
+               {% endfor %}
+            {% endif %}  
+                  <!-- MESSAGES-->
           <div class="row">
              <div class="col-xxl-4 col-xl-5 col-lg-5">
                 <div class="user-image">
@@ -227,8 +239,9 @@
                       <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                          <div class="accordion-body">
                             <form action="" method="post">
+                               {% csrf_token%}
                                <textarea class="form-control"  id="user_report" name="user_report"></textarea>
-                               <input type="submit" class="btn btn-log-reg" value="Pošalji">
+                               <input type="submit" name="report_submit" class="btn btn-log-reg" value="Pošalji">
                             </form>
                          </div>
                       </div>
@@ -444,6 +457,7 @@
                       <div class="rate-wrapper">
                          <h5>Ocenite korisnika</h5>
                          <form action="" method="post">
+                            {% csrf_token %}
                             <div class="rate">
                                <input type="radio" id="star5" name="rate" value="5" class="star">
                                <label for="star5" title="5 zvezdica">5 stars</label>
@@ -456,7 +470,7 @@
                                <input type="radio" id="star1" name="rate" value="1" class="star">
                                <label for="star1" title="1 zvezdica">1 star</label>
                             </div>
-                            <input type="submit" class="btn btn-rating-star" value="Oceni">
+                            <input type="submit" name="rate_submit" class="btn btn-rating-star" value="Oceni">
                          </form>
                       </div>                      
                    </div>
@@ -464,8 +478,9 @@
                       <div class="comment-area-field">
                          <h5>Ostavite komentar</h5>
                          <form action="" method="post">
+                            {% csrf_token %}
                             <textarea class="form-control" name="comment_area" id="comment_area"></textarea>
-                            <input type="submit"  class="btn btn-log-reg" value="Pošalji">
+                            <input type="submit" name="commentary_submit"  class="btn btn-log-reg" value="Pošalji">
                          </form>
                       </div>
                       <div class="comment-preview">

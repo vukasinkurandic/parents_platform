@@ -7,6 +7,7 @@ from babysitter.models import Babysitter, BabysitterCalendar
 from family.models import Family, FamilyCalendar
 from family.choices import sity_list, work_list, number_list, number_experience_list
 from django.db.models import Q
+from reviews .models import Commentary, Rate, Report
 
 
 @login_required
@@ -175,6 +176,74 @@ def matched_babysitter_profil(request, slug):
         if connection_queryset[0].is_matched == False:
             return redirect('family:profil')
         else:
+            #COMENNTARY, RATE and REPORT
+            author_id = request.user.id
+            person_id = babysitter.user_id
+            commentary_model = Commentary()
+            rate_model = Rate()
+            report_model = Report()
+            if request.method == "POST":
+                # Commentary section
+                if 'commentary_submit' in request.POST:
+                    commentary = request.POST['comment_area']
+                    try:
+                        commentary_model = Commentary.objects.get(
+                            author_of_commentary_id=author_id, commentated_person_id=person_id)
+                        commentary_model.commentary_body = commentary
+                        commentary_model.published = True
+                        commentary_model.save()
+                        messages.success(
+                            request, ('Uspešno ste ostavili komentar!'))
+                    except Commentary.DoesNotExist:
+                        commentary_model = Commentary.objects.create(
+                            author_of_commentary_id=author_id,
+                            commentated_person_id=person_id,
+                            commentary_body=commentary,
+                            published=True
+                        )
+                        messages.success(
+                            request, ('Uspešno ste ostavili komentar!'))
+                # Rate section
+                if 'rate_submit' in request.POST and request.POST.get('rate'):
+                    score = request.POST['rate']
+                    try:
+                        rate_model = Rate.objects.get(
+                            author_of_rate_id=author_id, rated_person_id=person_id)
+                        rate_model.score = score
+                        rate_model.save()
+                        messages.success(
+                            request, ('Uspešno ste ocenili korisnika!'))
+                    except Rate.DoesNotExist:
+                        rate_model = Rate.objects.create(
+                            author_of_rate_id=author_id,
+                            rated_person_id=person_id,
+                            score=score
+                        )
+                        messages.success(
+                            request, ('Uspešno ste ocenili korisnika!'))
+                else:
+                    messages.error(
+                        request, ('Morate izabrati željenu ocenu!'))
+                # Report section
+                if 'report_submit' in request.POST:
+                    report = request.POST['user_report']
+                    try:
+                        report_model = Report.objects.get(
+                            author_of_report_id=author_id, reported_person_id=person_id)
+                        report_model.report_body = report
+                        report_model.save()
+                        messages.success(
+                            request, ('Uspešno ste prijavili korisnika!'))
+                    except Report.DoesNotExist:
+                        report_model = Report.objects.create(
+                            author_of_report_id=author_id,
+                            reported_person_id=person_id,
+                            report_body=report
+                        )
+                        messages.success(
+                            request, ('Uspešno ste prijavili korisnika!'))
+
+            # END OF COMENNTARY, RATE and REPORT
             newsletter_form = NewsletterForm()
             context = {'babysitter': babysitter,
                        'calendar': calendar,
@@ -223,6 +292,74 @@ def matched_family_profil(request, slug):
             for connection in connection_queryset:
                 connection.is_matched = True
                 connection.save()
+            #COMENNTARY, RATE and REPORT
+            author_id = request.user.id
+            person_id = profil.user_id
+            commentary_model = Commentary()
+            rate_model = Rate()
+            report_model = Report()
+            if request.method == "POST":
+                # Commentary section
+                if 'commentary_submit' in request.POST:
+                    commentary = request.POST['comment_area']
+                    try:
+                        commentary_model = Commentary.objects.get(
+                            author_of_commentary_id=author_id, commentated_person_id=person_id)
+                        commentary_model.commentary_body = commentary
+                        commentary_model.published = True
+                        commentary_model.save()
+                        messages.success(
+                            request, ('Uspešno ste ostavili komentar!'))
+                    except Commentary.DoesNotExist:
+                        commentary_model = Commentary.objects.create(
+                            author_of_commentary_id=author_id,
+                            commentated_person_id=person_id,
+                            commentary_body=commentary,
+                            published=True
+                        )
+                        messages.success(
+                            request, ('Uspešno ste ostavili komentar!'))
+                # Rate section
+                if 'rate_submit' in request.POST and request.POST.get('rate'):
+                    score = request.POST['rate']
+                    try:
+                        rate_model = Rate.objects.get(
+                            author_of_rate_id=author_id, rated_person_id=person_id)
+                        rate_model.score = score
+                        rate_model.save()
+                        messages.success(
+                            request, ('Uspešno ste ocenili korisnika!'))
+                    except Rate.DoesNotExist:
+                        rate_model = Rate.objects.create(
+                            author_of_rate_id=author_id,
+                            rated_person_id=person_id,
+                            score=score
+                        )
+                        messages.success(
+                            request, ('Uspešno ste ocenili korisnika!'))
+                else:
+                    messages.error(
+                        request, ('Morate izabrati željenu ocenu!'))
+                # Report section
+                if 'report_submit' in request.POST:
+                    report = request.POST['user_report']
+                    try:
+                        report_model = Report.objects.get(
+                            author_of_report_id=author_id, reported_person_id=person_id)
+                        report_model.report_body = report
+                        report_model.save()
+                        messages.success(
+                            request, ('Uspešno ste prijavili korisnika!'))
+                    except Report.DoesNotExist:
+                        report_model = Report.objects.create(
+                            author_of_report_id=author_id,
+                            reported_person_id=person_id,
+                            report_body=report
+                        )
+                        messages.success(
+                            request, ('Uspešno ste prijavili korisnika!'))
+
+            # END OF COMENNTARY, RATE and REPORT
 
             newsletter_form = NewsletterForm()
             context = {'profil': profil,
