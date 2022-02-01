@@ -2229,7 +2229,98 @@ ul.social-contact li i {
 
 
 /*profile edit parent and babysitter*/
+.edit-circle{
+position: absolute;  
+left: 25px;
+top: 25px;
+width: 75px;
+height: 75px;
+border-radius: 50%;
+background: linear-gradient(135deg, #63bef2 25%, transparent 0) -25px 0, linear-gradient(225deg, #63bef2 25%, transparent 25%) -25px 0, linear-gradient(315deg, #63bef2 25%, transparent 25%), linear-gradient(45deg, #63bef2 25%, transparent 25%);
+background-size: auto, auto, auto, auto;
+background-size: 50px 50px;
+background-color: #68b0dc;
+text-align: center;
+line-height: 75px;
+font-size: 55px;
+font-weight: 600;
+color: #fff;
+text-shadow: 2px 2px rgb(0 0 0 / 20%);
+z-index: 2;
+animation: blop2 1.3s infinite;
+}
 
+
+.edit-circle2{
+  position: absolute;  
+  left: 25px;
+  top: 780px;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #63bef2 25%, transparent 0) -25px 0, linear-gradient(225deg, #63bef2 25%, transparent 25%) -25px 0, linear-gradient(315deg, #63bef2 25%, transparent 25%), linear-gradient(45deg, #63bef2 25%, transparent 25%);
+  background-size: auto, auto, auto, auto;
+  background-size: 50px 50px;
+  background-color: #68b0dc;
+  text-align: center;
+  line-height: 75px;
+  font-size: 55px;
+  font-weight: 600;
+  color: #fff;
+  text-shadow: 2px 2px rgb(0 0 0 / 20%);
+  z-index: 2;
+  animation: blop2 1.3s infinite;
+  }
+
+
+  .edit-circle3{
+    position: absolute;  
+    left: 25px;
+    bottom: 575px;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #63bef2 25%, transparent 0) -25px 0, linear-gradient(225deg, #63bef2 25%, transparent 25%) -25px 0, linear-gradient(315deg, #63bef2 25%, transparent 25%), linear-gradient(45deg, #63bef2 25%, transparent 25%);
+    background-size: auto, auto, auto, auto;
+    background-size: 50px 50px;
+    background-color: #68b0dc;
+    text-align: center;
+    line-height: 75px;
+    font-size: 55px;
+    font-weight: 600;
+    color: #fff;
+    text-shadow: 2px 2px rgb(0 0 0 / 20%);
+    z-index: 2;
+    animation: blop2 1.3s infinite;
+    }
+
+
+    .edit-circle4{
+      position: absolute;  
+      left: 61px;
+      top: 94px;
+      width: 5px;
+      height: 972px;      
+      background: linear-gradient(135deg, #63bef2 25%, transparent 0) -25px 0, linear-gradient(225deg, #63bef2 25%, transparent 25%) -25px 0, linear-gradient(315deg, #63bef2 25%, transparent 25%), linear-gradient(45deg, #63bef2 25%, transparent 25%);
+      background-size: auto, auto, auto, auto;
+      background-size: 50px 50px;
+      background-color: #68b0dc;
+      z-index: 1;
+      }
+      @keyframes blop2 {
+        0% {
+          box-shadow: 0 0 0 0 rgba(115, 196, 244, 1);
+        }
+        100% {
+          box-shadow: 0 0 0 15px transparent;
+        }
+      }
+
+
+.profile_edit{
+width: 80%;
+margin: 0 auto;
+}
 
 .profile_edit .form-label {
 font-size: 22px;
@@ -2400,7 +2491,7 @@ margin-left: auto;
   background-color: #eff2f7;
   border: none;
   border-radius: 0px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   border-bottom: 1px solid #73c4f4;
 }
 
@@ -2722,3 +2813,12 @@ text-decoration: none;
   -webkit-align-items: center;
   align-items: center;
 }
+
+
+ul#id_age_children li{
+  display: inline-block;
+  margin-right: 17px;
+  font-size: 20px;
+}
+
+
