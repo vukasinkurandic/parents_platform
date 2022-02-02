@@ -221,7 +221,7 @@ def matched_babysitter_profil(request, slug):
                         )
                         messages.success(
                             request, ('Uspešno ste ocenili korisnika!'))
-                else:
+                elif 'rate_submit' in request.POST:
                     messages.error(
                         request, ('Morate izabrati željenu ocenu!'))
                 # Report section
@@ -337,7 +337,7 @@ def matched_family_profil(request, slug):
                         )
                         messages.success(
                             request, ('Uspešno ste ocenili korisnika!'))
-                else:
+                elif 'rate_submit' in request.POST:
                     messages.error(
                         request, ('Morate izabrati željenu ocenu!'))
                 # Report section
