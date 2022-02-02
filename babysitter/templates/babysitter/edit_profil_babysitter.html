@@ -11,7 +11,7 @@
  </div>
  <section class="profil-wrapper">
     <div class="container">
-       <div class="insade-profil-wrapper insade-profil-wrapper-bebisit">
+       <div class="insade-profil-wrapper insade-profil-wrapper-bebisit">          
           <div class="user-title">
              <h1>
                 Ažurirajte Vaš Profil 
@@ -32,14 +32,13 @@
                                  </div>
                            </div> 
                      {% endfor %}
-                  {% endif %}
-                  <br>
+                  {% endif %}                  
                   <!-- MESSAGES-->
           <div class="profile_edit">
              <form method="post" action="" enctype="multipart/form-data">
                {% csrf_token%}
                 <div class="row">
-                   <div class="col-lg-6">
+                   <div class="col-lg-12">
                       <div class="profile_edit-left">
                          <div class="row">
                             <div class="col-lg-6">
@@ -73,12 +72,18 @@
                                </div>
                             </div>
                             <div class="col-lg-6">
-                               <div class="mb-3">
-                                  <label for="siter_phone" class="form-label">Telefon</label>
-                                  <span class="small_info" >u formi +38163123456</span>
-                                    {{ form_babysitter.mobile_number}}
-                               </div>
-                            </div>
+                              <div class="mb-3">
+                                 <label for="user_child_number" class="form-label">Vaše godine starosti</label>
+                                {{ form_babysitter.age}}
+                              </div>
+                           </div> 
+                           <div class="col-lg-6">
+                              <div class="mb-3">
+                                 <label for="siter_phone" class="form-label">Telefon</label>
+                                 <span class="small_info" >u formi +38163123456</span>
+                                   {{ form_babysitter.mobile_number}}
+                              </div>
+                           </div>                           
                             <div class="col-lg-6">
                                <div class="mb-3">
                                   <label for="siter_email" class="form-label">E-mail</label>
@@ -91,12 +96,7 @@
                                  {{ form_babysitter.work_type}}
                                </div>
                             </div>
-                             <div class="col-lg-6">
-                               <div class="mb-3">
-                                  <label for="user_child_number" class="form-label">Vaše godine starosti</label>
-                                 {{ form_babysitter.age}}
-                               </div>
-                            </div>
+                             
                             <div class="col-lg-6">
                                <div class="mb-3">
                                   <label for="siter_experience" class="form-label">Godine iskustva u radu</label>
@@ -115,6 +115,7 @@
                                   {{ form_babysitter.social_network}}
                                </div>
                             </div>
+                            
                             <div class="col-lg-6">
                                <div class="mb-3">
                                   <label for="siter_spec_chd" class="form-label">Deca sa posebnim potrebama</label>
@@ -142,7 +143,7 @@
                          </div>
                       </div>
                    </div>
-                   <div class="col-lg-6">
+                   <div class="col-lg-12">
                       <div class="profile_edit_right">
                          <div class="mb-3">
                             <label for="siter_about_me" class="form-label">O sebi</label>

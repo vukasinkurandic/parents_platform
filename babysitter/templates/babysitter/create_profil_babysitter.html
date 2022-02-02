@@ -12,6 +12,10 @@
  <section class="profil-wrapper">
     <div class="container">
        <div class="insade-profil-wrapper insade-profil-wrapper-bebisit">
+          <div class="edit-circle">1</div>
+          <div class="edit-circle2">2</div>
+          <div class="edit-circle3">3</div>
+          <div class="edit-circle4"></div>
           <div class="user-title">
              <h1>
                 Unesite vaše podatke
@@ -32,14 +36,13 @@
                                  </div>
                            </div> 
                      {% endfor %}
-                  {% endif %}
-                  <br>
+                  {% endif %}                  
                   <!-- MESSAGES-->
           <div class="profile_edit">
              <form method="post" action="" enctype="multipart/form-data">
                {% csrf_token%}
                 <div class="row">
-                   <div class="col-lg-6">
+                   <div class="col-lg-12">
                       <div class="profile_edit-left">
                          <div class="row">
                             <div class="col-lg-6">
@@ -55,6 +58,31 @@
                                </div>
                             </div>
                             <div class="col-lg-6">
+                              <div class="mb-3">
+                                 <label for="siter_email" class="form-label">E-mail</label>
+                                 {{ form_babysitter.email}}
+                              </div>
+                           </div>
+                           <div class="col-lg-6">
+                              <div class="mb-3">
+                                 <label for="siter_phone" class="form-label">Telefon</label>
+                                 <span class="small_info" >u formi +38163123456</span>
+                                   {{ form_babysitter.mobile_number}}
+                              </div>
+                           </div>
+                           <div class="col-lg-6">
+                              <div class="mb-3">
+                                 <label for="siter_money" class="form-label">Satnica/RSD</label>
+                                 {{ form_babysitter.hourly_rate}}
+                              </div>
+                           </div> 
+                           <div class="col-lg-6">
+                              <div class="mb-3">
+                                 <label for="user_child_number" class="form-label">Vaše godine starosti</label>
+                                {{ form_babysitter.age}}
+                              </div>
+                           </div>                                 
+                            <div class="col-lg-6">
                                <div class="mb-3">
                                   <label for="siter_sex" class="form-label">Pol</label>
                                   {{ form_babysitter.sex}}
@@ -65,100 +93,62 @@
                                   <label for="siter_city" class="form-label">Grad u kojem bi radio/la</label>
                                   {{ form_babysitter.sity}}
                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                               <div class="mb-3">
-                                  <label for="siter_money" class="form-label">Satnica/RSD</label>
-                                  {{ form_babysitter.hourly_rate}}
-                               </div>
-                            </div>
-                            <div class="col-lg-6">
-                               <div class="mb-3">
-                                  <label for="siter_phone" class="form-label">Telefon</label>
-                                  <span class="small_info" >u formi +38163123456</span>
-                                    {{ form_babysitter.mobile_number}}
-                               </div>
-                            </div>
-                            <div class="col-lg-6">
-                               <div class="mb-3">
-                                  <label for="siter_email" class="form-label">E-mail</label>
-                                  {{ form_babysitter.email}}
-                               </div>
-                            </div>
-                            <div class="col-lg-6">
-                               <div class="mb-3">
-                                  <label for="siter_bd" class="form-label">Posao traži kao?</label>
-                                 {{ form_babysitter.work_type}}
-                               </div>
-                            </div>
-                             <div class="col-lg-6">
-                               <div class="mb-3">
-                                  <label for="user_child_number" class="form-label">Vaše godine starosti</label>
-                                 {{ form_babysitter.age}}
-                               </div>
-                            </div>
+                            </div>                                                                                
+                           <div class="col-lg-6">
+                              <div class="mb-3">
+                                 <label for="siter_bd" class="form-label">Posao traži kao?</label>
+                                {{ form_babysitter.work_type}}
+                              </div>
+                           </div>
                             <div class="col-lg-6">
                                <div class="mb-3">
                                   <label for="siter_experience" class="form-label">Godine iskustva u radu</label>
                                   {{ form_babysitter.years_care_experience}}
                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                               <div class="mb-3">
-                                  <label for="user_child_number" class="form-label">Uzrast dece koju čuvate</label>
-                                 {{ form_babysitter.age_children}}
-                               </div>
-                            </div>
+                            </div>                            
                             <div class="col-lg-6">
                                <div class="mb-3">
                                   <label for="siter_social_network" class="form-label">Društvene mreže</label>
                                   <span class="small_info" >u formi https://www.instagram.com/...</span>
                                   {{ form_babysitter.social_network}}
                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                               <div class="mb-3">
-                                  <label for="siter_spec_chd" class="form-label">Deca sa posebnim potrebama</label>
-                                    {{ form_babysitter.children_with_special_needs}}
-                               </div>
-                            </div>
-                               <div class="col-lg-6">
-                               <div class="mb-3">
-                                  <label for="siter_pet" class="form-label">Da li bi ste radili lakse kućne poslove?</label>
-                                  {{ form_babysitter.home_job}}
-                               </div>
-                            </div>
+                            </div>                                                           
                              <div class="col-lg-6">
                                <div class="mb-3">
                                   <label for="siter_experience" class="form-label">Drzavljanstvo</label>
                                   {{ form_babysitter.citizenship}}
                                </div>
-                            </div>
+                            </div>  
                             <div class="col-lg-6">
-                               <div class="mb-3">
-                                  <label for="siter_pet" class="form-label">Smetaju mi kućni ljubimci?</label>
-                                  {{ form_babysitter.pets}}
-                               </div>
-                            </div>
+                              <div class="mb-3">
+                                 <label for="user_child_number" class="form-label">Uzrast dece koju čuvate</label>
+                                {{ form_babysitter.age_children}}
+                              </div>
+                           </div>                          
                          </div>
                       </div>
                    </div>
-                   <div class="col-lg-6">
+                   <div class="col-lg-12">
                       <div class="profile_edit_right">
+                        <div class="row mt-3">
+                        <div class="col-lg-6" >
                          <div class="mb-3">
                             <label for="siter_about_me" class="form-label">O sebi</label>
                             {{ form_babysitter.about_me}}
                          </div>
+                        </div>
+                        <div class="col-lg-6" >
                          <div class="mb-3">
                             <label for="about_me" class="form-label">About me</label>
                             {{ form_babysitter.about_me_eng}}
                          </div>
+                        </div>
                          <div class="mb-3">
                             <label for="user_image" class="form-label">Slika</label>
                             <span class="small_info" >mora biti manja od 2MB</span>
                             {{ form_babysitter.picture}}
                          </div>
-                         <div class="row mt-3">
+                         
                             <div class="col-lg-6">
                                <div class="mb-3">
                                   <label for="siter_home" class="form-label">Čuvanje dece kod svoje kuće dece?</label>
@@ -201,6 +191,24 @@
                                   {{ form_babysitter.car}}
                                </div>
                             </div>
+                            <div class="col-lg-6">
+                              <div class="mb-3">
+                                 <label for="siter_spec_chd" class="form-label">Deca sa posebnim potrebama</label>
+                                   {{ form_babysitter.children_with_special_needs}}
+                              </div>
+                           </div>
+                           <div class="col-lg-6">
+                              <div class="mb-3">
+                                 <label for="siter_pet" class="form-label">Da li bi ste radili lakse kućne poslove?</label>
+                                 {{ form_babysitter.home_job}}
+                              </div>
+                           </div>
+                           <div class="col-lg-6">
+                              <div class="mb-3">
+                                 <label for="siter_pet" class="form-label">Smetaju mi kućni ljubimci?</label>
+                                 {{ form_babysitter.pets}}
+                              </div>
+                           </div>
                          </div>
                       </div>
                    </div>
