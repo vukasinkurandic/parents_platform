@@ -98,7 +98,7 @@ def profil(request):
             author_of_commentary = Babysitter.objects.get(
                 user_id=comment.author_of_commentary_id)
             author_of_commentary_list.append(author_of_commentary)
-        # MAKING ONE LIST FROM SEND_BABYSITTERS LIST AND IS_MATCHED_LIST
+        # MAKING ONE LIST FROM COMMENT LIST AND AUTHOR OF COMMENTARY_LIST
         commentary_list = zip(comment_list, author_of_commentary_list)
     else:
         commentary_list = None
