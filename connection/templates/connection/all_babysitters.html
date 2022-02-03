@@ -128,8 +128,8 @@
                <div class="col-lg-9 col-md-8">
                   <div class="filter-left">
                      <div class="row">
-                         {% if babysitters %}
-                         {% for babysitter in babysitters%}
+                         {% if babysitter_list %}
+                         {% for babysitter,number_of_comment, rate in babysitter_list%}
                         <div class="col-lg-6">
                            <a href="{% url 'connection:babysitter_profil' babysitter.slug %}">
                               <div class="babsit-box filter-box-main">
@@ -137,10 +137,18 @@
                                  <div class="babsit-img filter-img-main"><img src="{{babysitter.picture.url}}" class="img-fluid"></div>
                                  <div class="babsit-info filter-text">
                                     <h4>{{babysitter.first_name}} <br> {{babysitter.last_name}}</h4>
-                                    <p class="baby-p-first filter-p-first"><i class="fas fa-map-marker-alt"></i>&nbsp;{{babysitter.sity}}</p>                                          
+                                    {% if babysitter.sity == None%}
+                                    <p class="baby-p-first filter-p-first"><i class="fas fa-map-marker-alt"></i>&nbsp;</p>
+                                    {%else%}
+                                    <p class="baby-p-first filter-p-first"><i class="fas fa-map-marker-alt"></i>&nbsp;{{babysitter.sity}}</p>
+                                    {%endif%}
                                     <div class="baby-rew">
-                                       <div class="baby-he"><i class="fas fa-star"></i><span> 4.5</span></div>
-                                       <div class="baby-com"><i class="fas fa-comment"></i><span> 21 Komentar</span></div>
+                                       {% if rate == None%}
+                                       <div class="baby-he"><i class="fas fa-star"></i><span>Neocenjen</span></div>
+                                       {%else%}
+                                       <div class="baby-he"><i class="fas fa-star"></i><span>{{rate}}</span></div>
+                                       {%endif%}
+                                       <div class="baby-com"><i class="fas fa-comment"></i><span> {{number_of_comment}} Komentar</span></div>
                                        <div class="baby-link">
                                           <div class="baby-link-circle"><i class="fas fa-chevron-right"></i></div>
                                        </div>

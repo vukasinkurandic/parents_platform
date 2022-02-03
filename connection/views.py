@@ -21,6 +21,7 @@ def all_babysitters(request):
     if babysitters.exists():
         babysitters = babysitters
     else:
+        # CHANGE IN FUTURE
         # Random Babysitter if same city is not exists. MEMBERSHIP GOLD OR A FEW FIRST
         babysitters = Babysitter.objects.all()
 
@@ -110,12 +111,27 @@ def all_babysitters(request):
         # If Filters doesnt's match
         else:
             babysitters = False
-
+    # Commentary and Rate number for babysitters
+    number_of_comment_list = []
+    rate_list = []
+    if babysitters:
+        for babysitter in babysitters:
+            number_of_comment = Commentary.objects.filter(
+                commentated_person_id=babysitter.user_id).count()
+            number_of_comment_list.append(number_of_comment)
+            babysitter_rate = Rate.objects.filter(
+                rated_person_id=babysitter.user_id).aggregate(Avg('score')).get('score__avg', 0.00)
+            rate_list.append(babysitter_rate)
+        # Put 3 list in one list for context
+        babysitter_list = zip(
+            babysitters, number_of_comment_list, rate_list)
+    else:
+        babysitter_list = False
     newsletter_form = NewsletterForm()
     city_list = sity_list
     work_role_list = work_list
     experience_number_list = number_experience_list
-    context = {'babysitters': babysitters,
+    context = {'babysitter_list': babysitter_list,
                'city_list': city_list, 'work_role_list': work_role_list, 'experience_number_list': experience_number_list, 'form': newsletter_form}
     return render(request, 'connection/all_babysitters.html', context)
 
@@ -134,10 +150,10 @@ def babysitter_profil(request, slug):
     if comentary_queryset.exists():
         for comment in comentary_queryset:
             comment_list.append(comment)
-            print(comment.commentary_body)
+
             author_of_commentary = Family.objects.get(
                 user_id=comment.author_of_commentary_id)
-            print(author_of_commentary.first_name)
+
             author_of_commentary_list.append(author_of_commentary)
         # MAKING ONE LIST FROM COMMENT LIST AND AUTHOR OF COMMENTARY_LIST
         commentary_list = zip(comment_list, author_of_commentary_list)
@@ -207,10 +223,10 @@ def matched_babysitter_profil(request, slug):
             if comentary_queryset.exists():
                 for comment in comentary_queryset:
                     comment_list.append(comment)
-                    print(comment.commentary_body)
+
                     author_of_commentary = Family.objects.get(
                         user_id=comment.author_of_commentary_id)
-                    print(author_of_commentary.first_name)
+
                     author_of_commentary_list.append(author_of_commentary)
                 # MAKING ONE LIST FROM COMMENT LIST AND AUTHOR OF COMMENTARY_LIST
                 commentary_list = zip(comment_list, author_of_commentary_list)
@@ -321,10 +337,10 @@ def family_profil(request, slug):
     if comentary_queryset.exists():
         for comment in comentary_queryset:
             comment_list.append(comment)
-            print(comment.commentary_body)
+
             author_of_commentary = Babysitter.objects.get(
                 user_id=comment.author_of_commentary_id)
-            print(author_of_commentary.first_name)
+
             author_of_commentary_list.append(author_of_commentary)
         # MAKING ONE LIST FROM COMMENT LIST AND AUTHOR OF COMMENTARY_LIST
         commentary_list = zip(comment_list, author_of_commentary_list)
@@ -364,10 +380,10 @@ def matched_family_profil(request, slug):
             if comentary_queryset.exists():
                 for comment in comentary_queryset:
                     comment_list.append(comment)
-                    print(comment.commentary_body)
+
                     author_of_commentary = Babysitter.objects.get(
                         user_id=comment.author_of_commentary_id)
-                    print(author_of_commentary.first_name)
+
                     author_of_commentary_list.append(author_of_commentary)
                 # MAKING ONE LIST FROM COMMENT LIST AND AUTHOR OF COMMENTARY_LIST
                 commentary_list = zip(comment_list, author_of_commentary_list)
