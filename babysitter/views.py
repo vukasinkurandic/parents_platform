@@ -92,7 +92,7 @@ def profil(request):
     # Put to send_family_list and connection_list in one and send in context
     send_list = zip(send_family_list, connection_list)
 
-    # COMMENTARY FOR FAMILY
+    # COMMENTARY FOR BABYSITTER
     comment_list = []
     author_of_commentary_list = []
     comentary_queryset = Commentary.objects.filter(
@@ -103,11 +103,11 @@ def profil(request):
             author_of_commentary = Family.objects.get(
                 user_id=comment.author_of_commentary_id)
             author_of_commentary_list.append(author_of_commentary)
-        # MAKING ONE LIST FROM SEND_BABYSITTERS LIST AND IS_MATCHED_LIST
+        # MAKING ONE LIST FROM COMMENT LIST AND AUTHOR OF COMMENTARY
         commentary_list = zip(comment_list, author_of_commentary_list)
     else:
         commentary_list = None
-    # RATE FOR FAMILY
+    # RATE FOR BABYSITTER
     rate_average = Rate.objects.filter(
         rated_person_id=request.user.id).aggregate(Avg('score')).get('score__avg', 0.00)
 
@@ -115,8 +115,6 @@ def profil(request):
     context = {'profil': profil, 'calendar': calendar,
                'form': newsletter_form, 'send_list': send_list,
                'commentary_list': commentary_list, 'rate_average': rate_average}
-    # PROBA STRANICA
-    # return render(request, 'babysitter/profil_babysitter_proba.html', context)
     return render(request, 'babysitter/profil_babysitter.html', context)
 
 

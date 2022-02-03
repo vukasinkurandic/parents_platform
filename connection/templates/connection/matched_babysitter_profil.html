@@ -223,10 +223,14 @@
                 </div>
                 <div class="user-short-info">
                    <ul>
-                      <li>
-                         <span class="user-year">Ocena korisnika</span>
-                         <span class="user-year-num rat-num">4.0</span>
-                      </li>
+                     <li>
+                        <span class="user-year">Ocena korisnika</span>
+                        {%if rate_average == None %}
+                        <span class="user-year-num">Nema ocene</span>
+                        {%else%}
+                        <span class="user-year-num rat-num">{{rate_average}}</span>
+                        {%endif%}
+                        </li>
                    </ul>
                 </div>
                 <div class="accordion mb-4" id="accordionExample">
@@ -474,31 +478,23 @@
                          </form>
                       </div>                      
                    </div>
-                   <div class="comment-area">
-                      <div class="comment-area-field">
-                         <h5>Ostavite komentar</h5>
-                         <form action="" method="post">
-                            {% csrf_token %}
-                            <textarea class="form-control" name="comment_area" id="comment_area"></textarea>
-                            <input type="submit" name="commentary_submit"  class="btn btn-log-reg" value="Pošalji">
-                         </form>
-                      </div>
-                      <div class="comment-preview">
-                         <h6> <b> Petar Jelić</b></h6>
-                         <p class="com-dat">25.12.2021</p>
-                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut
-                         </p>
-                      </div>
-                      <div class="comment-preview">
-                         <h6> <b> Mikan Mikanič</b></h6>
-                         <p class="com-dat">25.12.2021</p>
-                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                         </p>
-                      </div>
-                   </div>
+                  <div class="comment-area">
+                  {% if commentary_list != None %}
+                  {% for commentary, author in commentary_list %}
+                     <div class="comment-preview">
+                        <h6> <b> {{author.first_name}} {{author.last_name}}</b></h6>
+                        <p class="com-dat">{{commentary.date}}</p>
+                        <p>{{commentary.commentary_body}}</p>
+                     </div>
+                  {% endfor %}
+                  {% else %}
+                  <div class="comment-preview">
+                     <h6> <b> Nema komentara</b></h6>
+                     <p class="com-dat"></p>
+                     <p></p>
+                  </div>
+                  {% endif %}
+                  </div>
                 </div>
                 <!-- end user main info -->
              </div>
