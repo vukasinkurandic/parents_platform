@@ -11,6 +11,9 @@ urlpatterns = [
          name='edit_profil'),
     path('profil', views.profil,
          name='profil'),
+    path('delete_profile', views.delete_profile,
+         name='delete_profile'),
+
     # Calendar
     path('edit_calendar', views.edit_calendar,
          name='edit_calendar'),

@@ -138,3 +138,11 @@ def edit_calendar(request):
 
     context = {'family_calendar_form': family_calendar_form}
     return render(request, 'family/edit_calendar.html', context)
+
+
+def delete_profile(request):
+    if request.method == "POST":
+        user = request.user
+        user.delete()
+        messages.success(request, ('Uspešno ste obrisali profil!!!'))
+        return redirect('layout:home')

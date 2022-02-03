@@ -94,6 +94,8 @@ def send_mail_after_registration(email, token):
 
 
 def login(request):
+    if request.user.is_authenticated:
+        return redirect('account:logout')
     form = NewsletterForm()
     if request.method == 'POST':
         email = request.POST['email_login']
