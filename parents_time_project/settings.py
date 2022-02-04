@@ -147,8 +147,10 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 
+LOGIN_URL = 'account:login'
 PASSWORD_RESET_TIMEOUT = 300  # 5 minuta traje link za resetovanje
 SESSION_COOKIE_AGE = 14400  # 4 hour in seconds
+
 
 # MEDIA
 

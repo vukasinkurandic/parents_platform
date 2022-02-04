@@ -85,27 +85,25 @@
                            <div class="logout">
                             <a class="btn btn-logout" href="{% url 'account:logout' %}">Odjavi se</a>
                           </div>
-                           <div class="login-user">
                               {%if user.user_type == 1%}
+                                 {%if request.user.family.picture.url == '' %}                               
+                                 {%else%}
+                                 <div class="login-user">
                                  <a href="{% url 'family:profil' %}">
-                                 {%if request.user.family.picture.url == '' %}
-                                 <img src="{% static 'layout/img/zena02.jpg' %}" class="img-fluid" />
-                                 {%else%}
-                                  <img src="{{request.user.family.picture.url}}" class="img-fluid" />
+                                  <img src="{{request.user.family.picture.url}}" class="img-fluid" /></a>
+                                  </div>
                                   {%endif%}
-                                 </a>
                               {%else%}
-                              <a href="{% url 'babysitter:profil' %}">
                                  {%if request.user.babysitter.picture.url == '' %}
-                                 <img src="{% static 'layout/img/zena02.jpg' %}" class="img-fluid" />
                                  {%else%}
-                                 <img src="{{request.user.babysitter.picture.url}}" class="img-fluid" />
+                                 <div class="login-user">
+                                 <a href="{% url 'babysitter:profil' %}">
+                                 <img src="{{request.user.babysitter.picture.url}}" class="img-fluid" /></a>
+                                 </div>
                                  {%endif%}
-                              </a>
                               {%endif%}
-                           </div> 
                              <!--USER IS NOT AUTHENTICATED-->
-                    {%else%}
+                        {%else%}
                       <div class="no-login-select">
                         <button class="dropbtn btn"><i class="far fa-user"></i> Registruj se/prijavi se</button>
                         <div class="dropdown-content">

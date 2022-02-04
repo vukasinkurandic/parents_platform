@@ -32,7 +32,7 @@ def create_profil(request):
                 family.user_id = user.id
                 family.save()
                 messages.success(
-                    request, 'Uspesno ste kreirali profil')
+                    request, "Čestitamo, upravo ste kreirali profil na Parent's time platformi.")
                 return redirect('/family/edit_calendar')
             else:
                 messages.error(
@@ -130,7 +130,7 @@ def edit_calendar(request):
             form_family_calendar.family_id = family_id
             form_family_calendar.save()
             messages.success(
-                request, 'Uspesno ste azurirali Vasu dostupnost')
+                request, 'Uspesno ste azurirali vreme kada Vam je potrebno čuvanje dece')
             return redirect('/family/profil')
         else:
             messages.error(

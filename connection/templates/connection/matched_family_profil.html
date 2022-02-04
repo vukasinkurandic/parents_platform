@@ -134,7 +134,7 @@
                                  <div class="accordion-body">
                                     <form action="" method="post">
                                        {% csrf_token%}
-                                       <textarea class="form-control"  id="user_report" name="user_report"></textarea>
+                                       <textarea class="form-control"  id="user_report" name="user_report" required></textarea>
                                        <input type="submit" name="report_submit" class="btn btn-log-reg" value="Pošalji">
                                     </form>
                                  </div>
@@ -378,7 +378,7 @@
                                  <h5>Ostavite komentar</h5>
                                  <form action="" method="post">
                                     {% csrf_token %}
-                                    <textarea class="form-control" name="comment_area" id="comment_area"></textarea>
+                                    <textarea class="form-control" name="comment_area" id="comment_area" required></textarea>
                                     <input type="submit" name="commentary_submit"  class="btn btn-log-reg" value="Pošalji">
                                  </form>
                               </div>

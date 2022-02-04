@@ -30,7 +30,7 @@ def create_profil(request):
                 babysitter.user_id = user.id
                 babysitter.save()
                 messages.success(
-                    request, 'Uspesno ste kreirali profil')
+                    request, "Čestitamo, upravo ste kreirali profil na Parent's time platformi.")
                 return redirect('/babysitter/edit_calendar')
             else:
                 messages.error(
@@ -137,7 +137,7 @@ def edit_calendar(request):
             form_babysitter_calendar.babysitter_id = babysitter_id
             form_babysitter_calendar.save()
             messages.success(
-                request, 'Uspesno ste azurirali Vasu dostupnost')
+                request, 'Uspesno ste azurirali vreme kada možete da čuvate decu')
             return redirect('/babysitter/profil')
         else:
             messages.error(
