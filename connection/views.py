@@ -14,96 +14,236 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 @login_required
 def all_babysitters(request):
+
     family = get_object_or_404(Family, user_id=request.user.id)
     family_city = family.sity
-    babysitters = Babysitter.objects.filter(sity=family_city)
 
-    # Babysitter with same city like family
-    if babysitters.exists():
-        babysitters = babysitters
-    else:
-        # CHANGE IN FUTURE
-        # Random Babysitter if same city is not exists. MEMBERSHIP GOLD OR A FEW FIRST
-        babysitters = Babysitter.objects.all()
+    if request.method == 'GET':
+        filter_babysitter = False
+        # IF SOME SEESION EXIST
+        if 'price_range_min' in request.session and 'price_range_max' in request.session:
+            price_range_min = request.session['price_range_min']
+            price_range_max = request.session['price_range_max']
+            filter_babysitter = Babysitter.objects.filter(
+                hourly_rate__gte=price_range_min).filter(hourly_rate__lte=price_range_max)
+
+        if 'city' in request.session:
+            city = request.session['city']
+            filter_babysitter = filter_babysitter.filter(sity=city)
+
+        if 'age_children' in request.session:
+            city = request.session['age_children']
+            filter_babysitter = filter_babysitter.filter(
+                Q(age_children=age_children) | Q(age_children__contains=age_children))
+
+        if 'work_type' in request.session:
+            work_type = request.session['work_type']
+            if work_type == 'Bebisiterka i Dadilja':
+                filter_babysitter = filter_babysitter
+
+            else:
+                filter_babysitter = filter_babysitter.filter(
+                    work_type=work_type)
+
+        if 'experience_number' in request.session:
+            experience_number = request.session['experience_number']
+            filter_babysitter = filter_babysitter.filter(
+                years_care_experience=experience_number)
+
+        # ADVANCED FILTER BY SESSION
+        if 'children_with_special_needs' in request.session:
+            children_with_special_needs = request.session['children_with_special_needs']
+            filter_babysitter = filter_babysitter.filter(
+                children_with_special_needs='Da')
+
+        if 'home_job' in request.session:
+            home_job = request.session['home_job']
+            filter_babysitter = filter_babysitter.filter(
+                home_job='Da')
+
+        if 'pets' in request.session:
+            pets = request.session['pets']
+            filter_babysitter = filter_babysitter.filter(
+                pets='Ne')
+
+        if 'house' in request.session:
+            house = request.session['house']
+            filter_babysitter = filter_babysitter.filter(
+                house='Da')
+
+        if 'own_children' in request.session:
+            own_children = request.session['own_children']
+            filter_babysitter = filter_babysitter.filter(
+                own_children='Da')
+
+        if 'cooking' in request.session:
+            cooking = request.session['cooking']
+            filter_babysitter = filter_babysitter.filter(
+                cooking='Da')
+
+        if 'sick_child' in request.session:
+            sick_child = request.session['sick_child']
+            filter_babysitter = filter_babysitter.filter(
+                sick_child='Da')
+
+        if 'car' in request.session:
+            car = request.session['car']
+            filter_babysitter = filter_babysitter.filter(
+                car='Da')
+
+        if 'school_activities' in request.session:
+            school_activities = request.session['school_activities']
+            filter_babysitter = filter_babysitter.filter(
+                school_activities='Da')
+
+        if 'travel' in request.session:
+            travel = request.session['travel']
+            filter_babysitter = filter_babysitter.filter(
+                travel='Da')
+
+        # END OF SESSION FILTER
+        # If Filters match
+        if filter_babysitter:
+            babysitters = filter_babysitter
+        # If Filters doesnt's match
+        else:
+
+            #babysitters = False
+            babysitters = Babysitter.objects.filter(sity=family_city)
+            if babysitters.exists():
+                babysitters = babysitters
+            else:
+                babysitters = Babysitter.objects.all()
 
     if request.method == "POST":
+        # DELETE ALL FILTER SESSION
+        if 'price_range_min' in request.session:
+            del request.session['price_range_min']
+        if 'price_range_max' in request.session:
+            del request.session['price_range_max']
+        if 'city' in request.session:
+            del request.session['city']
+        if 'age_children' in request.session:
+            del request.session['age_children']
+        if 'work_type' in request.session:
+            del request.session['work_type']
+        if 'experience_number' in request.session:
+            del request.session['experience_number']
+        if 'children_with_special_needs' in request.session:
+            del request.session['children_with_special_needs']
+        if 'home_job' in request.session:
+            del request.session['home_job']
+        if 'pets' in request.session:
+            del request.session['pets']
+        if 'cooking' in request.session:
+            del request.session['cooking']
+        if 'own_children' in request.session:
+            del request.session['own_children']
+        if 'house' in request.session:
+            del request.session['house']
+        if 'sick_child' in request.session:
+            del request.session['sick_child']
+        if 'car' in request.session:
+            del request.session['car']
+        if 'school_activities' in request.session:
+            del request.session['school_activities']
+        if 'travel' in request.session:
+            del request.session['travel']
+        # DELETE ALL FILTER SESSION
+
         filter_babysitter = False
         # Filters after POST submit
         # BASIC FILTERS
         price_range_min = request.POST['price_range_min']
+        request.session['price_range_min'] = price_range_min
         price_range_max = request.POST['price_range_max']
+        request.session['price_range_max'] = price_range_max
         if price_range_min != '' or price_range_max != '':
             filter_babysitter = Babysitter.objects.filter(
                 hourly_rate__gte=price_range_min).filter(hourly_rate__lte=price_range_max)
         city = request.POST['city']
         if city != '':
-            filter_babysitter = Babysitter.objects.filter(sity=city)
+            request.session['city'] = city
+            filter_babysitter = filter_babysitter.filter(sity=city)
         age_children = request.POST['age_children']
         if age_children != '':
-            filter_babysitter = Babysitter.objects.filter(
+            request.session['age_children'] = age_children
+            filter_babysitter = filter_babysitter.filter(
                 Q(age_children=age_children) | Q(age_children__contains=age_children))
         work_type = request.POST['work_type']
         if work_type != '':
+            request.session['work_type'] = work_type
             # IF 'Bebisiter i Dadilja' don't filter work
             if work_type == 'Bebisiterka i Dadilja':
                 filter_babysitter = filter_babysitter
             else:
-                filter_babysitter = Babysitter.objects.filter(
+                filter_babysitter = filter_babysitter.filter(
                     work_type=work_type)
         experience_number = request.POST['experience_number']
         if experience_number != '':
-            filter_babysitter = Babysitter.objects.filter(
+            request.session['experience_number'] = experience_number
+            filter_babysitter = filter_babysitter.filter(
                 years_care_experience=experience_number)
 
         # ADVANCED FILTERS
         if "children_with_special_needs" in request.POST:
             children_with_special_needs = request.POST['children_with_special_needs']
-            filter_babysitter = Babysitter.objects.filter(
+            request.session['children_with_special_needs'] = children_with_special_needs
+            filter_babysitter = filter_babysitter.filter(
                 children_with_special_needs='Da')
 
         if "home_job" in request.POST:
             home_job = request.POST['home_job']
-            filter_babysitter = Babysitter.objects.filter(
+            request.session['home_job'] = home_job
+            filter_babysitter = filter_babysitter.filter(
                 home_job='Da')
 
         if "pets" in request.POST:
             pets = request.POST['pets']
-            filter_babysitter = Babysitter.objects.filter(
+            request.session['pets'] = pets
+            filter_babysitter = filter_babysitter.filter(
                 pets='Ne')
 
         if "house" in request.POST:
             house = request.POST['house']
-            filter_babysitter = Babysitter.objects.filter(
+            request.session['house'] = house
+            filter_babysitter = filter_babysitter.filter(
                 house='Da')
 
         if "own_children" in request.POST:
             own_children = request.POST['own_children']
-            filter_babysitter = Babysitter.objects.filter(
+            request.session['own_children'] = own_children
+            filter_babysitter = filter_babysitter.filter(
                 own_children='Da')
 
         if "cooking" in request.POST:
             cooking = request.POST['cooking']
-            filter_babysitter = Babysitter.objects.filter(
+            request.session['cooking'] = cooking
+            filter_babysitter = filter_babysitter.filter(
                 cooking='Da')
 
         if "sick_child" in request.POST:
             sick_child = request.POST['sick_child']
-            filter_babysitter = Babysitter.objects.filter(
+            request.session['sick_child'] = sick_child
+            filter_babysitter = filter_babysitter.filter(
                 sick_child='Da')
 
         if "car" in request.POST:
             car = request.POST['car']
-            filter_babysitter = Babysitter.objects.filter(
+            request.session['car'] = car
+            filter_babysitter = filter_babysitter.filter(
                 car='Da')
 
         if "school_activities" in request.POST:
             school_activities = request.POST['school_activities']
-            filter_babysitter = Babysitter.objects.filter(
+            request.session['school_activities'] = school_activities
+            filter_babysitter = filter_babysitter.filter(
                 school_activities='Da')
 
         if "travel" in request.POST:
             travel = request.POST['travel']
-            filter_babysitter = Babysitter.objects.filter(
+            request.session['travel'] = travel
+            filter_babysitter = filter_babysitter.filter(
                 travel='Da')
 
         # If Filters match
@@ -112,6 +252,7 @@ def all_babysitters(request):
         # If Filters doesnt's match
         else:
             babysitters = False
+
     # Commentary and Rate number for babysitters
     number_of_comment_list = []
     rate_list = []
@@ -127,19 +268,17 @@ def all_babysitters(request):
         paginator = Paginator(babysitters, 2)  # 10 babysitters in page
         page = request.GET.get('page')
         venues = paginator.get_page(page)
-        nums = "a" * venues.paginator.num_pages
         babysitter_list = zip(
             venues, number_of_comment_list, rate_list)
     else:
         venues = False
-        nums = False
         babysitter_list = False
 
     newsletter_form = NewsletterForm()
     city_list = sity_list
     work_role_list = work_list
     experience_number_list = number_experience_list
-    context = {'babysitter_list': babysitter_list, 'venues': venues, 'nums': nums,
+    context = {'babysitter_list': babysitter_list, 'venues': venues,
                'city_list': city_list, 'work_role_list': work_role_list, 'experience_number_list': experience_number_list, 'form': newsletter_form}
     return render(request, 'connection/all_babysitters.html', context)
 
@@ -404,7 +543,7 @@ def matched_family_profil(request, slug):
             for connection in connection_queryset:
                 connection.is_matched = True
                 connection.save()
-            #COMENNTARY, RATE and REPORT
+            # COMENNTARY, RATE and REPORT
             author_id = request.user.id
             person_id = profil.user_id
             commentary_model = Commentary()

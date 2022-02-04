@@ -121,7 +121,7 @@
                                     </div>
                                  </div>
                               </div>
-                        <input type="submit" name="" value="Filtriraj" class="btn btn-filter-btn">
+                        <input type="submit" name="nums" value="Filtriraj" class="btn btn-filter-btn">
                      </form>
                   </div>
                </div>
@@ -167,17 +167,25 @@
          </div>
          {% if venues %}
          <div class="paginator">
-            <span class="step-links">
-               {% if venues.has_previous %}
-               <a href="?page={{ venues.previous_page_number }}">Predhodna</a>
-               {% endif %}
-               {% for i in nums %}
-               <a href="?page={{ forloop.counter }}">{{ forloop.counter }}</a>
-               {% endfor %}
-               {% if venues.has_next %}
-               <a href="?page={{ venues.next_page_number }}">Sledećа</a>
-               {% endif %}
-            </span>
+            {% if venues %}
+            {% if venues.has_previous %}
+            <a href="{% if request.GET.key is not None %}{{ request.get_full_path }}&{% else %}?{% endif %}page=1" class="btn btn-outline-info mb-4">Prva</a>
+            <a href="{% if request.GET.key is not None %}{{ request.get_full_path }}&{% else %}?{% endif %}page={{ venues.previous_page_number }}" class="btn btn-outline-info mb-4">Predhodna</a>
+            {% endif %}
+
+            {% for num in venues.paginator.page_range %}
+            {% if venues.number == num %}
+            <a href="{% if request.GET.key is not None %}{{ request.get_full_path }}&{% else %}?{% endif %}page={{ num }}" class="btn btn-info mb-4">{{ num }}</a>
+            {% elif num > venues.number|add:'-3' and num < venues.number|add:'3' %}
+            <a href="{% if request.GET.key is not None %}{{ request.get_full_path }}&{% else %}?{% endif %}page={{ num }}" class="btn btn-outline-info mb-4">{{ num }}</a>
+            {% endif %}
+            {% endfor %}
+
+            {% if venues.has_next %}
+            <a href="{% if request.GET.key is not None %}{{ request.get_full_path }}&{% else %}?{% endif %}page={{ venues.next_page_number }}" class="btn btn-outline-info mb-4">Sledeća</a>
+            <a href="{% if request.GET.key is not None %}{{ request.get_full_path }}&{% else %}?{% endif %}page={{ venues.paginator.num_pages }}" class="btn btn-outline-info mb-4">Poslednja</a>
+            {% endif %}
+            {% endif %}
          </div>
          {% endif %}
 
