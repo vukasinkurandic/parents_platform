@@ -165,8 +165,26 @@
                </div>
             </div>
          </div>
+         {% if venues %}
+         <div class="paginator">
+            <span class="step-links">
+               {% if venues.has_previous %}
+               <a href="?page={{ venues.previous_page_number }}">Predhodna</a>
+               {% endif %}
+               {% for i in nums %}
+               <a href="?page={{ forloop.counter }}">{{ forloop.counter }}</a>
+               {% endfor %}
+               {% if venues.has_next %}
+               <a href="?page={{ venues.next_page_number }}">Sledećа</a>
+               {% endif %}
+            </span>
+         </div>
+         {% endif %}
+
       </div>
+     
    </div>
+   
 </section>
 <script type="text/javascript" src="{% static 'layout/js/connection_all_babysitter.js' %}"></script>
 {% endblock%}
