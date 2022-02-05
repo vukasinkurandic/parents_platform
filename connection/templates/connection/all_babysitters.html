@@ -11,8 +11,9 @@
    <div class="container add-fluid-div2">
       <div class="insade-profil-wrapper onsmallfil">
          <div class="user-title">
-            <h1>Pretražite bazu prema Vama važnim kriterijumima</h1>
+            <h1 class="extrasmalldev-filter" >Pretražite bazu prema Vama važnim kriterijumima</h1>
          </div>
+         <button value="dodaj" class="dugmic btn-pag-current btn" >prikaži filter</button>
          <div class="profile_edit">
             <div class="row">
                <div class="col-lg-3 col-md-4">
@@ -133,7 +134,7 @@
                         <div class="col-lg-6">
                            <a href="{% url 'connection:babysitter_profil' babysitter.slug %}">
                               <div class="babsit-box filter-box-main">
-                                 <div class="babsit-box-ocupation filter-ocupation"><span>Bebisiterka</span></div>
+                                 <div class="babsit-box-ocupation filter-ocupation"><span>Rezerviši</span></div>
                                  <div class="babsit-img filter-img-main"><img src="{{babysitter.picture.url}}" class="img-fluid"></div>
                                  <div class="babsit-info filter-text">
                                     <h4>{{babysitter.first_name}} <br> {{babysitter.last_name}}</h4>
@@ -142,11 +143,11 @@
                                     {%else%}
                                     <p class="baby-p-first filter-p-first"><i class="fas fa-map-marker-alt"></i>&nbsp;{{babysitter.sity}}</p>
                                     {%endif%}
-                                    <div class="baby-rew">
+                                    <div class="baby-rew baby-rew-on-filter">
                                        {% if rate == None%}
-                                       <div class="baby-he"><i class="fas fa-star"></i><span>Neocenjen</span></div>
+                                       <div class="baby-he"><i class="fas fa-star"> </i><span> Neocenjen</span></div>
                                        {%else%}
-                                       <div class="baby-he"><i class="fas fa-star"></i><span>{{rate}}</span></div>
+                                       <div class="baby-he"><i class="fas fa-star"> </i><span>{{rate}}</span></div>
                                        {%endif%}
                                        <div class="baby-com"><i class="fas fa-comment"></i><span> {{number_of_comment}} Komentar</span></div>
                                        <div class="baby-link">
@@ -169,21 +170,21 @@
          <div class="paginator">
             {% if venues %}
             {% if venues.has_previous %}
-            <a href="{% if request.GET.key is not None %}{{ request.get_full_path }}&{% else %}?{% endif %}page=1" class="btn btn-outline-info mb-4">Prva</a>
-            <a href="{% if request.GET.key is not None %}{{ request.get_full_path }}&{% else %}?{% endif %}page={{ venues.previous_page_number }}" class="btn btn-outline-info mb-4">Predhodna</a>
+            <a href="{% if request.GET.key is not None %}{{ request.get_full_path }}&{% else %}?{% endif %}page=1" class="btn btn-pag-first mb-4">Prva</a>
+            <a href="{% if request.GET.key is not None %}{{ request.get_full_path }}&{% else %}?{% endif %}page={{ venues.previous_page_number }}" class="btn btn-pag-first mb-4">Predhodna</a>
             {% endif %}
 
             {% for num in venues.paginator.page_range %}
             {% if venues.number == num %}
-            <a href="{% if request.GET.key is not None %}{{ request.get_full_path }}&{% else %}?{% endif %}page={{ num }}" class="btn btn-info mb-4">{{ num }}</a>
+            <a href="{% if request.GET.key is not None %}{{ request.get_full_path }}&{% else %}?{% endif %}page={{ num }}" class="btn btn-pag-current  mb-4">{{ num }}</a>
             {% elif num > venues.number|add:'-3' and num < venues.number|add:'3' %}
-            <a href="{% if request.GET.key is not None %}{{ request.get_full_path }}&{% else %}?{% endif %}page={{ num }}" class="btn btn-outline-info mb-4">{{ num }}</a>
+            <a href="{% if request.GET.key is not None %}{{ request.get_full_path }}&{% else %}?{% endif %}page={{ num }}" class="btn  btn-pag-first mb-4">{{ num }}</a>
             {% endif %}
             {% endfor %}
 
             {% if venues.has_next %}
-            <a href="{% if request.GET.key is not None %}{{ request.get_full_path }}&{% else %}?{% endif %}page={{ venues.next_page_number }}" class="btn btn-outline-info mb-4">Sledeća</a>
-            <a href="{% if request.GET.key is not None %}{{ request.get_full_path }}&{% else %}?{% endif %}page={{ venues.paginator.num_pages }}" class="btn btn-outline-info mb-4">Poslednja</a>
+            <a href="{% if request.GET.key is not None %}{{ request.get_full_path }}&{% else %}?{% endif %}page={{ venues.next_page_number }}" class="btn btn-pag-first mb-4">Sledeća</a>
+            <a href="{% if request.GET.key is not None %}{{ request.get_full_path }}&{% else %}?{% endif %}page={{ venues.paginator.num_pages }}" class="btn btn-pag-first mb-4">Poslednja</a>
             {% endif %}
             {% endif %}
          </div>
