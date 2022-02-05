@@ -22,3 +22,22 @@ if (inerWidBraust < 992) {
     e.classList.add("container-fluid");
   });
 }
+
+
+let index_mob = window.innerWidth;
+ if (index_mob < 656) {
+let slid = document.querySelectorAll('.slid img' );
+slid.forEach(function(n){
+  n.src="static/layout/img/for_mob.jpg";
+})
+ }
+
+
+
+let fot_mob2 = window.innerWidth;
+if (fot_mob2 < 656) {
+  fot = document.querySelector(".footer-wrapper-main");
+  fot.style.backgroundImage = "url(static/layout/img/for_mob_footer.jpg)";
+}
+
+

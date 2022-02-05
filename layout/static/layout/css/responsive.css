@@ -415,6 +415,22 @@ height: 90px;
 }
 /* navigation circle logo end*/
 
+
+
+/* only on create profil*/
+
+.only-on-create_profil-page{
+  width: 90%;
+  margin: 0 auto;  
+  }
+.edit-circle::after {
+  height: 964px;
+}
+
+.edit-circle3::after {
+  height: 581px;
+}
+/* only on create profil*/
   
   /*==========================*/
 }
@@ -661,6 +677,28 @@ h1.calendar-h1{
 font-size: 32px;  
 }
 /* calendar main title */
+
+
+
+/* only on create profil  */
+.only-on-create_profil-page{
+  width: 95%;
+  margin: 0 auto;    
+  }
+
+  .edit-circle::after {
+    height: 1752px;
+  }
+
+  .edit-circle3::after {
+    height: 1038px;
+  }
+
+  .edit-circle2::after {
+    height: 122px;
+  }
+
+/* only on create profil  */
 
   /*==========================*/
 }
@@ -1159,6 +1197,29 @@ left: -1px;
 }
 
   /* calendar main title */
+
+
+/* only on create profil  */
+.only-on-create_profil-page{
+  width: 95%;
+  margin: 0 auto;    
+  }
+
+  .edit-circle::after {
+    height: 1752px;
+  }
+
+  .edit-circle3::after {
+    height: 1040px;
+  }
+
+  .edit-circle2::after {
+    height: 122px;
+  }
+
+/* only on create profil  */
+
+
   /*==========================*/
 }
 
@@ -1895,5 +1956,47 @@ display: block;
 }
 
   /* calendar main title */
+
+
+/* only on create profil  new 04.02*/
+.only-on-create_profil-page{
+  width: 100%;
+  margin: 0 auto;    
+  }
+
+  .edit-circle, .edit-circle2, .edit-circle3 {
+    position: relative;
+    width: 45px;
+    height: 45px;    
+    line-height: 45px;
+    font-size: 35px;
+    margin-bottom: 15px;
+    margin-left: -17px;
+    margin-top: 20px;
+  }
+
+  .edit-circle::after {
+    height: 1766px;
+    left: 0px;
+top: 19px;
+  }
+
+  .edit-circle2,.edit-circle3{
+margin-left: -5px;    
+  }
+
+  .edit-circle2::after {
+    height: 110px;
+    top: 18px;
+  }
+
+  .edit-circle3::after {
+    height: 1025px;
+    top: 19px;
+  }
+
+  
+
+/* only on create profil  new 04.02*/
 
 }
