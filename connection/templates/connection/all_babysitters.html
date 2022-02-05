@@ -17,7 +17,7 @@
             <div class="row">
                <div class="col-lg-3 col-md-4">
                   <div class="filter-right">
-                     <form action="" method="post">
+                     <form action="{% url 'connection:all_babysitters' %}" method="post">
                         {% csrf_token %}
                         <label for="city" class="form-label">Pretraga po gradu</label>
                         <select name="city" id="city" class="form-select" aria-label="Default select example">

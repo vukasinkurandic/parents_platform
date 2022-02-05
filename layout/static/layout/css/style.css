@@ -1270,7 +1270,7 @@ ul.soc-bot-link li a {
 .insade-profil-wrapper {
   padding: 70px 15px 35px 15px;
   background-color: #fff;
-  margin-top: -200px;
+  margin-top: -150px;
   position: relative;  
   margin-bottom: 55px;
   box-shadow: 0 1px 1px rgb(173 168 168 / 10%);
@@ -1778,7 +1778,7 @@ p.pull-insd {
   width: 100%;
   height: 650px;
   top: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.2);
 }
 
 .user-main-info h3 {
@@ -2229,59 +2229,29 @@ ul.social-contact li i {
 
 
 /*profile edit parent and babysitter*/
-.edit-circle{
-position: absolute;  
-left: 25px;
-top: 25px;
-width: 75px;
-height: 75px;
-border-radius: 50%;
-background: linear-gradient(135deg, #63bef2 25%, transparent 0) -25px 0, linear-gradient(225deg, #63bef2 25%, transparent 25%) -25px 0, linear-gradient(315deg, #63bef2 25%, transparent 25%), linear-gradient(45deg, #63bef2 25%, transparent 25%);
-background-size: auto, auto, auto, auto;
-background-size: 50px 50px;
-background-color: #68b0dc;
-text-align: center;
-line-height: 75px;
-font-size: 55px;
-font-weight: 600;
-color: #fff;
-text-shadow: 2px 2px rgb(0 0 0 / 20%);
-z-index: 2;
-animation: blop2 1.3s infinite;
-}
 
-
-.edit-circle2{
-  position: absolute;  
-  left: 25px;
-  top: 780px;
-  width: 75px;
-  height: 75px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #63bef2 25%, transparent 0) -25px 0, linear-gradient(225deg, #63bef2 25%, transparent 25%) -25px 0, linear-gradient(315deg, #63bef2 25%, transparent 25%), linear-gradient(45deg, #63bef2 25%, transparent 25%);
-  background-size: auto, auto, auto, auto;
-  background-size: 50px 50px;
-  background-color: #68b0dc;
-  text-align: center;
-  line-height: 75px;
-  font-size: 55px;
+p.create-profil{
+  font-size: 18px;
   font-weight: 600;
-  color: #fff;
-  text-shadow: 2px 2px rgb(0 0 0 / 20%);
-  z-index: 2;
-  animation: blop2 1.3s infinite;
+  margin-bottom: 30px;   
+  }
+  
+  
+  
+  
+  .only-on-create_profil-page{
+  width: 85%;
+  margin: 0 auto;  
   }
 
 
-  .edit-circle3{
-    position: absolute;  
-    left: 25px;
-    bottom: 575px;
+
+  .edit-circle,.edit-circle2,.edit-circle3{
+    position: relative;  
     width: 75px;
     height: 75px;
     border-radius: 50%;
     background: linear-gradient(135deg, #63bef2 25%, transparent 0) -25px 0, linear-gradient(225deg, #63bef2 25%, transparent 25%) -25px 0, linear-gradient(315deg, #63bef2 25%, transparent 25%), linear-gradient(45deg, #63bef2 25%, transparent 25%);
-    background-size: auto, auto, auto, auto;
     background-size: 50px 50px;
     background-color: #68b0dc;
     text-align: center;
@@ -2292,35 +2262,55 @@ animation: blop2 1.3s infinite;
     text-shadow: 2px 2px rgb(0 0 0 / 20%);
     z-index: 2;
     animation: blop2 1.3s infinite;
+    margin-bottom: 15px;
+    margin-left: -25px;
+    margin-top: 40px;
     }
-
-
-    .edit-circle4{
-      position: absolute;  
-      left: 61px;
-      top: 94px;
-      width: 5px;
-      height: 972px;      
-      background: linear-gradient(135deg, #63bef2 25%, transparent 0) -25px 0, linear-gradient(225deg, #63bef2 25%, transparent 25%) -25px 0, linear-gradient(315deg, #63bef2 25%, transparent 25%), linear-gradient(45deg, #63bef2 25%, transparent 25%);
-      background-size: auto, auto, auto, auto;
-      background-size: 50px 50px;
-      background-color: #68b0dc;
-      z-index: 1;
+    
+    .edit-circle:after,.edit-circle2:after,.edit-circle3:after{
+    display: block;  
+    clear: both;
+    content: '';
+    position: absolute;  
+    left: 0px;
+    top: 37px;
+    background: linear-gradient(135deg, #63bef2 25%, transparent 0) -25px 0, linear-gradient(225deg, #63bef2 25%, transparent 25%) -25px 0, linear-gradient(315deg, #63bef2 25%, transparent 25%), linear-gradient(45deg, #63bef2 25%, transparent 25%);
+    background-size: 50px 50px;
+    background-color: #68b0dc;
+    width: 5px;
+    }
+    
+    
+    
+    .edit-circle:after{
+      height: 938px;  
       }
-      @keyframes blop2 {
-        0% {
-          box-shadow: 0 0 0 0 rgba(115, 196, 244, 1);
-        }
-        100% {
-          box-shadow: 0 0 0 15px transparent;
-        }
+      
+      .edit-circle2:after{
+      height: 122px;  
       }
+      
+      .edit-circle3:after{
+        height: 531px;  
+        }
+    
+    
+    
+    
+          @keyframes blop2 {
+            0% {
+              box-shadow: 0 0 0 0 rgba(115, 196, 244, 1);
+            }
+            100% {
+              box-shadow: 0 0 0 15px transparent;
+            }
+          }
 
 
-.profile_edit{
-width: 80%;
-margin: 0 auto;
-}
+
+
+
+
 
 .profile_edit .form-label {
 font-size: 22px;
