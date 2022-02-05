@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'babysitter.apps.BabysitterConfig',
     'connection.apps.ConnectionConfig',
     'reviews.apps.ReviewsConfig',
+    'error_handlers.apps.ErrorHandlersConfig',
 
     # Django app
     'crispy_forms',
