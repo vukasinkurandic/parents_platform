@@ -47,3 +47,25 @@ e.classList.remove("container");
 e.classList.add("container-fluid");
 });
 }
+
+
+
+let dugme = document.querySelector('.dugmic')
+let filtermob = document.querySelector('.filter-right')
+dugme.addEventListener('click',function(){
+ 
+ filtermob.classList.toggle('filter-right-klik') ; 
+ 
+ if(filtermob.classList.contains('filter-right-klik')){
+  
+setTimeout(function(){
+  dugme.innerHTML = 'sakrij filter'
+},500)
+
+ }else{
+  setTimeout(function(){
+    dugme.innerHTML = 'prikaži filter'
+  },500)
+ }
+})
+

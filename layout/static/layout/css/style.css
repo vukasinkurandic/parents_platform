@@ -958,6 +958,10 @@ p.baby-p-second {
   display: flex;
 }
 
+.baby-rew-on-filter{
+  display: block;
+}
+
 .baby-he i,
 .baby-com i {
   color: #fff;
@@ -2246,7 +2250,7 @@ p.create-profil{
 
 
 
-  .edit-circle,.edit-circle2,.edit-circle3{
+  .edit-circle,.edit-circle2,.edit-circle3,.crea-parents,.ed-cir-he,.ed-cir-he2{
     position: relative;  
     width: 75px;
     height: 75px;
@@ -2267,7 +2271,7 @@ p.create-profil{
     margin-top: 40px;
     }
     
-    .edit-circle:after,.edit-circle2:after,.edit-circle3:after{
+    .edit-circle:after,.edit-circle2:after,.edit-circle3:after,.crea-parents:after{
     display: block;  
     clear: both;
     content: '';
@@ -2285,6 +2289,10 @@ p.create-profil{
     .edit-circle:after{
       height: 938px;  
       }
+
+      .ed-cir-he:after{
+        height: 922px;
+      }
       
       .edit-circle2:after{
       height: 122px;  
@@ -2293,9 +2301,14 @@ p.create-profil{
       .edit-circle3:after{
         height: 531px;  
         }
+
+        .ed-cir-he2:after{
+          height: 144px;
+        }
     
-    
-    
+    .crea-parents:after{
+    height: 812px;
+    }
     
           @keyframes blop2 {
             0% {
@@ -2363,12 +2376,31 @@ display: flex;
 
 .select_all, .deselect_all{
 background-color: #73c4f4;  
-color: #fff;
+color: #000;
 border: none;
-padding: 10px;
+padding: 5px 10px;
 margin-bottom: 20px;
 font-weight: 600;
+border-radius: 10px;
+border-bottom: 4px solid #63bef2;
+font-size: 18px;
+font-weight: 600;
+border-radius: 10px;
 }
+
+
+/* color: #000;
+font-size: 18px;
+font-weight: 600;
+border-radius: 10px;
+margin-top: 25px; */
+
+.select_all:hover, .deselect_all:hover{
+color: #fff;  
+text-shadow: 2px 2px rgb(0 0 0 / 20%);
+}
+
+
 
 .deselect_all{
 position: relative;
@@ -2409,6 +2441,9 @@ font-size: 20px;
 
 /*login form on login page*/
 /* flash message login success, login error etc. */
+
+
+
 .main_message .al-text {
   font-size: 22px;
   font-weight: 600;
@@ -2427,7 +2462,7 @@ font-size: 20px;
   background-size: 100px 100px;
   background-color: #73c4f4;
   border-radius: 10px;
-  margin: 25px;
+  margin: -33px 25px 71px 25px;
 }
 
 .main_message .error {
@@ -2557,7 +2592,23 @@ padding: 20px;
 }
 
 .filter-ocupation {
- width: 172px;
+  width: 165px;
+}
+
+.paginator{
+margin-top: 45px;
+}
+
+.btn-pag-first{
+border: 1px solid #63bef2;
+}
+
+.btn-pag-current{
+background-color: #63bef2;  
+}
+
+.btn-pag-first:hover{
+background-color: #63bef2;  
 }
 
 /* filter end */
@@ -2758,6 +2809,16 @@ input[type="range"]:active::-webkit-slider-thumb{
     color: #000;
 }
 /* price slider range end */
+
+
+/* filter show hife */
+
+  .dugmic{
+    display: none;
+  }
+
+
+  /* filter show hife */
 
 
 

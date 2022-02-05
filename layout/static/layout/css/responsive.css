@@ -196,7 +196,7 @@ p.baby-p-first {
   }
 
 .filter-ocupation{
-width: 163px;    
+width: 150px;    
 }
 
 .filter-img-main {
@@ -396,7 +396,7 @@ line-height: 25px;
 }
 
 .filter-text {
-padding: 10px 5px;
+padding: 10px 15px;
 }
 
 /* filter end */
@@ -430,6 +430,11 @@ height: 90px;
 .edit-circle3::after {
   height: 581px;
 }
+
+.crea-parents:after{
+height: 862px;  
+}
+
 /* only on create profil*/
   
   /*==========================*/
@@ -620,6 +625,17 @@ height: 90px;
   
   /* filter end */
 
+/* filter page main title */
+
+h1.extrasmalldev-filter {
+  font-size: 35px;
+  line-height: 40px;
+  margin-top: 10px;
+  }
+  
+  
+  /* filter page main title */
+
 
 /* navigation circle logo start*/
 .circle-logo {
@@ -699,7 +715,9 @@ font-size: 32px;
   }
 
 /* only on create profil  */
-
+.crea-parents:after{
+  height: 1543px;  
+  }
   /*==========================*/
 }
 
@@ -1172,9 +1190,61 @@ font-size: 32px;
     box-shadow: 0 0 10px 0 rgb(0 0 0 / 15%);
   }
   
+
+  .baby-rew-on-filter {
+    display: flex;
+  }
+
   /* filter page end */
 
 
+/* filter page main title */
+
+h1.extrasmalldev-filter {
+  font-size: 26px;
+  line-height: 30px;
+  margin-top: 13px;
+  }
+  
+  
+  /* filter page main title */
+
+  /* filter pagination */
+  .paginator {
+    margin-top: -54px;
+  }
+/* filter pagination */
+
+
+/* filter show hide */
+
+
+.filter-right{
+  position: relative;  
+  margin-top: -750px;
+  transition: .5s ease-in;
+  opacity: 0;
+  z-index: 10;
+  width: 100%;
+  z-index: 0;
+  background-color: #d9d9d9;
+  padding: 10px;
+  }
+  
+  .filter-right-klik{
+  margin-top: 25px;
+  opacity: 1;
+  }
+
+  .dugmic{
+    font-size: 18px;
+    text-transform: uppercase;
+    margin-top: 15px;
+    display: block;
+  }
+
+
+  /* filter show hide */
 
 /* vertical info from cls map circle start */
 
@@ -1883,7 +1953,58 @@ display: none;
       box-shadow: 0 0 10px 0 rgb(0 0 0 / 15%);
     }
     
+  
+
     /* filter page end */
+
+/* filter page main title */
+
+h1.extrasmalldev-filter {
+font-size: 26px;
+line-height: 30px;
+margin-top: -19px;
+}
+
+
+/* filter page main title */
+
+
+/* filter pagination */
+.paginator {
+  margin-top: -54px;
+}
+
+
+/* filter show hide */
+
+
+.filter-right{
+  position: relative;  
+  margin-top: -750px;
+  transition: .5s ease-in;
+  opacity: 0;
+  z-index: 10;
+  width: 100%;
+  z-index: 0;
+  background-color: #d9d9d9;
+  padding: 10px;
+  }
+  
+  .filter-right-klik{
+  margin-top: 25px;
+  opacity: 1;
+  }
+
+  .dugmic{
+    font-size: 18px;
+    text-transform: uppercase;
+    margin-top: 15px;
+    display: block;
+  }
+
+
+  /* filter show hide */
+
 
 /* profile parent */
     .accordion-button{
@@ -1995,7 +2116,17 @@ margin-left: -5px;
     top: 19px;
   }
 
-  
+  .crea-parents:after{
+    height: 1612px;  
+    }
+
+.ed-cir-he:after{
+height: 1724px;  
+}
+
+.ed-cir-he2:after{
+  height: 132px;  
+  }
 
 /* only on create profil  new 04.02*/
 

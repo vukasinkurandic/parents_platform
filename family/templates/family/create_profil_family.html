@@ -10,10 +10,10 @@
  </div>
  
  <section class="profil-wrapper">
-    <div class="container">
+    <div class="container add-fluid-div">
        <div class="insade-profil-wrapper insade-profil-wrapper-bebisit">
           <div class="user-title">
-             <h1>Kreirajte Profil Vaše Porodice</h1>
+             <h1 class="extrasmalldev" >Kreirajte Profil Vaše Porodice</h1>
           </div>
            <!-- MESSAGES-->
                   {% if messages %}
@@ -33,15 +33,21 @@
                   {% endif %}
                   <br>
                   <!-- MESSAGES-->
-          <div class="profile_edit">
+          <div class="profile_edit only-on-create_profil-page">
+            <p class="create-profil">Ovo je strana za kreiranje vašeg profila.
+                U 2 laka koraka se kreira profil.                 
+                 Prvi korak popunjavate osnovne informacije o sebi. Dugi korak ubacite vašu sliku. 
+                 Na kraju samo kliknite na dugme kreiraj profil i to je to.
+                   Srećno u pronalaženju odgovarajuće bebisiterke/dadilje.</p>
+            <div class="edit-circle crea-parents">1</div>
              <form method="POST" action="" enctype="multipart/form-data" >
                 {% csrf_token %}
                    <!--  {{ form_family|crispy }}
                       {{ form.email|as_crispy_field }}
                      FORM-->
-                  <div class="row">
-                   <div class="col-lg-6">
-                      <div class="profile_edit-left">
+                  
+                   
+                      
                          <div class="row">
                             <div class="col-lg-6">
                                <div class="mb-3">
@@ -56,35 +62,31 @@
                                </div>
                             </div>
                             <div class="col-lg-6">
-                               <div class="mb-3">
-                                  <label for="user_city" class="form-label">Grad</label>                                       
-                                   {{ form_family.sity}}
-                               </div>
-                            </div>
+                              <div class="mb-3">
+                                 <label for="user_phone" class="form-label">Telefon</label>
+                                 <span class="small_info" >u formi +38163123456</span>
+                                   {{ form_family.mobile_number}}
+                              </div>
+                           </div>                            
                             <div class="col-lg-6">
                                <div class="mb-3">
                                   <label for="user_email" class="form-label">Email</label>                      
                                    {{ form_family.email}}
                                </div>
                             </div>
+                            
                             <div class="col-lg-6">
-                               <div class="mb-3">
-                                  <label for="user_child_year" class="form-label">Uzrast dece</label>
-                                    {{ form_family.age_children}}
-                               </div>
-                            </div>
+                              <div class="mb-3">
+                                 <label for="user_child_number" class="form-label">Broj dece koju treba čuvati</label>
+                                   {{ form_family.number_children}}
+                              </div>
+                           </div>
                              <div class="col-lg-6">
                                <div class="mb-3">
                                   <label for="childcare_period" class="form-label">Vremenski period čuvanja</label>
                                     {{ form_family.childcare_period}}
                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                               <div class="mb-3">
-                                  <label for="user_child_number" class="form-label">Broj dece koju treba čuvati</label>
-                                    {{ form_family.number_children}}
-                               </div>
-                            </div>
+                            </div>                                       
                             <div class="col-lg-6">
                                <div class="mb-3">
                                   <label for="user_year" class="form-label">Godine roditelja</label>
@@ -92,48 +94,59 @@
                                </div>
                             </div>
                             <div class="col-lg-6">
-                               <div class="mb-3">
-                                  <label for="user_phone" class="form-label">Telefon</label>
-                                  <span class="small_info" >u formi +38163123456</span>
-                                    {{ form_family.mobile_number}}
-                               </div>
-                            </div>
-                            <div class="col-lg-12">
-                               <div class="mb-3">
-                                  <label for="user_social_network" class="form-label">Društvene mreže</label>
-                                  <span class="small_info" >u formi https://www.instagram.com/...</span>
-                                  {{ form_family.social_network}}
-                               </div>
-                            </div>
-                         </div>
-                         <div class="mb-3">
-                            <label for="user_municipality" class="form-label">Da li je državljanin RS ili inostrani državljanin</label>
-                            <div class="form-check">
-                               {{ form_family.citizenship}}
-                               <label class="form-check-label" for="flexRadioDefault1">
-                               </label>
-                             </div>
-                         </div>
-                      </div>
-                   </div>
-                   <div class="col-lg-6">
-                      <div class="profile_edit_right">
-                         <div class="mb-3">
+                              <div class="mb-3">
+                                 <label for="user_social_network" class="form-label">Društvene mreže</label>
+                                 <span class="small_info" >u formi https://www.instagram.com/...</span>
+                                 {{ form_family.social_network}}
+                              </div>
+                           </div>
+                            <div class="col-lg-6">
+                              <div class="mb-3">
+                                 <label for="user_city" class="form-label">Grad</label>                                       
+                                  {{ form_family.sity}}
+                              </div>
+                           </div>
+                            
+
+                            <div class="col-lg-6">
+                              <div class="mb-3">
+                                 <label for="user_municipality" class="form-label">Da li je državljanin RS ili inostrani državljanin</label>
+                                 <div class="form-check-brisatiovuklasuprovera">
+                                    {{ form_family.citizenship}}
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                    </label>
+                                  </div>
+                              </div>
+                             </div>                          
+
+
+                        
+                         <div class="col-lg-6">
                             <label for="about_me" class="form-label">O sebi</label>
                             {{ form_family.about_me}}
                          </div>
-                         <div class="mb-3">
+                         <div class="col-lg-6">
                             <label for="about_me" class="form-label">About me</label>
                             {{ form_family.about_me_eng}}
                          </div>
+                         <div class="col-lg-6">
+                           <div class="mb-3">
+                              <label for="user_child_year" class="form-label">Uzrast dece</label>
+                                {{ form_family.age_children}}
+                           </div>
+                        </div>                 
+                         <div class="col-lg-12"></div>
+                         <div class="edit-circle2">2</div> 
+                         <div class="col-lg-12">
+                           
                          <div class="mb-3">
                             <label for="user_image" class="form-label">Slika</label>
                             <span class="small_info" >mora biti manja od 2MB</span>
                             {{ form_family.picture}}
                          </div>
-                      </div>
-                   </div>
-                </div>
+                        </div>
+                        </div>
+                
                      <!--FORM-->
                 <input type="submit" name="send_msg" value="Kreiraj profil" class="btn btn-log-reg">
              </form>
