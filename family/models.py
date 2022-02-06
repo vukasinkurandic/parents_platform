@@ -6,6 +6,14 @@ from . utils import get_random_code
 from django.template.defaultfilters import slugify
 from . choices import SITY_CHOICES, NUMBER_CHOICES, AGE_CHOICES, CITIZENSHIP_CHOICES, CHILDCARE_PERIOD_CHOICES
 from multiselectfield import MultiSelectField
+from functools import partial
+
+
+def make_filepath(field_name, instance, filename):
+    new_filename = "%s.%s" % (CustomUser.objects.make_random_password(10),
+                              filename.split('.')[-1])
+    return '/'.join([instance.__class__.__name__.lower(),
+                     field_name, new_filename])
 
 
 class Family(models.Model):
@@ -20,7 +28,7 @@ class Family(models.Model):
     about_me = models.TextField(blank=True)
     about_me_eng = models.TextField(blank=True)
     age = models.PositiveIntegerField(null=True, blank=True)
-    picture = models.ImageField(default='no_face.png', upload_to="img/family", validators=[
+    picture = models.ImageField(default='no_face.png', upload_to=partial(make_filepath, 'image'), validators=[
                                 validate_image, FileExtensionValidator(['jpg', 'png', 'jpeg'])], blank=True, null=True, help_text='Slika ne sme biti veća od 2Mb i mora biti formata jpg,png ili jpeg')
     sity = models.CharField(
         max_length=200, choices=SITY_CHOICES, null=True, blank=True)

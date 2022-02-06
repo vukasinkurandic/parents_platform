@@ -6,6 +6,14 @@ from family . utils import get_random_code
 from django.template.defaultfilters import slugify
 from family . choices import SITY_CHOICES, NUMBER_CHOICES, AGE_CHOICES, CITIZENSHIP_CHOICES, SEX_CHOICES, YES_NO_CHOICES, WORK_CHOICES, NUMBER_EXPERIENCE_CHOICES
 from multiselectfield import MultiSelectField
+from functools import partial
+
+
+def make_filepath(field_name, instance, filename):
+    new_filename = "%s.%s" % (CustomUser.objects.make_random_password(10),
+                              filename.split('.')[-1])
+    return '/'.join([instance.__class__.__name__.lower(),
+                     field_name, new_filename])
 
 
 class Babysitter(models.Model):
@@ -19,7 +27,7 @@ class Babysitter(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
     first_name = models.CharField(max_length=200, blank=True)
     last_name = models.CharField(max_length=200, blank=True)
-    picture = models.ImageField(default='no_face.png', upload_to="img/babysitter", validators=[
+    picture = models.ImageField(default='no_face.png', upload_to=partial(make_filepath, 'image'), validators=[
                                 validate_image, FileExtensionValidator(['jpg', 'png', 'jpeg'])], blank=True, null=True, help_text='Slika ne sme biti veća od 2Mb i mora biti formata jpg,png ili jpeg')
     age = models.PositiveIntegerField(null=True, blank=True)
     sex = models.CharField(
