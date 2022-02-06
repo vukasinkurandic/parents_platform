@@ -264,21 +264,19 @@ def all_babysitters(request):
             babysitter_rate = Rate.objects.filter(
                 rated_person_id=babysitter.user_id).aggregate(Avg('score')).get('score__avg', 0.00)
             rate_list.append(babysitter_rate)
-        # Put 3 list in one list for context
+
         paginator = Paginator(babysitters, 2)  # 10 babysitters in page
         page = request.GET.get('page')
         venues = paginator.get_page(page)
-        babysitter_list = zip(
-            venues, number_of_comment_list, rate_list)
+
     else:
         venues = False
-        babysitter_list = False
 
     newsletter_form = NewsletterForm()
     city_list = sity_list
     work_role_list = work_list
     experience_number_list = number_experience_list
-    context = {'babysitter_list': babysitter_list, 'venues': venues,
+    context = {'venues': venues,
                'city_list': city_list, 'work_role_list': work_role_list, 'experience_number_list': experience_number_list, 'form': newsletter_form}
     return render(request, 'connection/all_babysitters.html', context)
 
