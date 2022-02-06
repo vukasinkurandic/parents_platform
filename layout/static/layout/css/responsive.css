@@ -104,7 +104,7 @@
   }
 
   ul.mob-mar {
-    margin-top: 90px;
+    margin-top: 200px;
   }
 
   .nav-top {
@@ -399,6 +399,15 @@ line-height: 25px;
 padding: 10px 15px;
 }
 
+p.filter-page-h{
+    margin-bottom: 5px;
+    padding: 0 0px;
+    }
+    
+    .baby-link {
+    width: 65px;
+    }
+
 /* filter end */
 
 /* navigation circle logo start*/
@@ -623,6 +632,18 @@ height: 862px;
     padding: 10px;
   }
   
+  p.filter-page-h{
+    margin-bottom: 5px;
+    padding: 0 0px;
+    }
+    
+    .baby-link {
+    width: 65px;
+    }
+
+    
+
+
   /* filter end */
 
 /* filter page main title */
@@ -1244,6 +1265,8 @@ h1.extrasmalldev-filter {
   }
 
 
+  
+
   /* filter show hide */
 
 /* vertical info from cls map circle start */
@@ -1286,6 +1309,13 @@ left: -1px;
   .edit-circle2::after {
     height: 122px;
   }
+
+  .crea-parents:after{
+    height: 1532px;  
+    }
+.crea-parents2:after{
+  height: 143px;
+}
 
 /* only on create profil  */
 
@@ -1718,6 +1748,10 @@ display: none;
     background-color: #63bef2;
 }
 
+.babsit-info {
+  padding: 25px 18px 58px;
+}
+
 
 /*index end*/
 
@@ -2002,6 +2036,15 @@ margin-top: -19px;
     display: block;
   }
 
+  span.only-on-mob-one-filter{
+    display: block;
+  line-height: 26px;
+  margin-left: 16px;
+  }
+
+  ul.ks-cboxtags {
+   padding: 0px 10px 10px 10px;
+  }
 
   /* filter show hide */
 
@@ -2116,9 +2159,7 @@ margin-left: -5px;
     top: 19px;
   }
 
-  .crea-parents:after{
-    height: 1612px;  
-    }
+  
 
 .ed-cir-he:after{
 height: 1724px;  
@@ -2128,6 +2169,21 @@ height: 1724px;
   height: 132px;  
   }
 
+  .crea-parents:after{
+    height: 1520px;  
+    }
+.crea-parents2:after{
+  height: 130px;
+}
+
 /* only on create profil  new 04.02*/
+.footer-wrapper-main {
+ 
+ 
+  background-size: cover;
+  position: relative;
+  background-attachment: initial;
+}
+
 
 }

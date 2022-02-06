@@ -20,12 +20,15 @@
                 </div>
                 <div class="user-social">
                    <ul>
-                      <li> <span class="icon-user" ><i class="fas fa-phone"></i></span> <span class="user-phone" >  {{babysitter.mobile_number}}</span></li>
-                      <li> <span class="icon-user" > <i class="far fa-envelope"></i></span>  <span class="user-phone" >{{babysitter.email}}</span></li>
+                      <li> <span class="icon-user" ><i class="fas fa-phone"></i></span> <span class="user-phone" >  {{babysitter.mobile_number}}</span></li>                      
                    </ul>
                 </div>
                 <div class="user-short-info">
                    <ul>
+                     <li class="email-center"><span class="user-year">
+                        {{babysitter.email}}
+                 </span>
+               </li>
                      {% if babysitter.social_network == None %}
                         <li>
                            <span class="user-year">Nema Društvene mreže</span>
@@ -80,7 +83,7 @@
                          <span class="user-year">Da li ima dece</span>
                          {% if babysitter.own_children == None %}
                          {%else%}
-                         <span class="user-year-num only-on-mob-two">
+                         <span class="user-year-num">
                             {{babysitter.own_children}}
                            </span>
                          {%endif%}
@@ -89,12 +92,12 @@
                          <span class="user-year">Da li bi kuvala</span>
                          {% if babysitter.cooking == None %}
                          {%else%}
-                         <span class="user-year-num only-on-mob-two">
+                         <span class="user-year-num">
                             {{babysitter.cooking}}
                            </span>
                          {%endif%}
                       </li>
-                         <span class="user-year">Uzrast dece koju bi čuvala</span>
+                         <span class="user-year">Uzrast dece  <span class="only-on-mob-one" > koju bi čuvala</span></span>
                          {% if babysitter.age_children == None %}
                          {%else%}
                          <span class="user-year-num only-on-mob-two">
@@ -157,17 +160,17 @@
                       <li>
                          <span class="user-year">Posao traži kao?</span>
                          {% if babysitter.work_type == None %}
-                         <span class="user-year-num only-on-mob-two">
+                         <span class="user-year-num">
                             Nije uneto
                          </span>
                          {%else%}
-                         <span class="user-year-num only-on-mob-two">
+                         <span class="user-year-num ">
                             {{babysitter.work_type}}
                            </span>
                            {%endif%}
                       </li>
                       <li>
-                         <span class="user-year">Da li čuvate decu dok su bolesna?</span>
+                         <span class="user-year">Da li čuvate decu <span class="only-on-mob-one" >  dok su bolesna?</span></span>
                          {% if babysitter.sick_child == None %}
                          {%else%}
                          <span class="user-year-num only-on-mob-two">
@@ -176,7 +179,7 @@
                            {%endif%}
                       </li>
                       <li>
-                         <span class="user-year">Da li bi vozili decu svojim autom?</span>
+                         <span class="user-year">Da li bi vozili <span class="only-on-mob-one" > decu svojim autom?</span></span>
                          {% if babysitter.car == None %}
                          {%else%}
                          <span class="user-year-num only-on-mob-two">
@@ -185,7 +188,7 @@
                            {%endif%}
                       </li>
                         <li>
-                         <span class="user-year">Da li bi putovali sa Porodicom?</span>
+                         <span class="user-year">Da li bi putovali <span class="only-on-mob-one" > sa Porodicom?</span></span>
                          {% if babysitter.travel == None %}
                          {%else%}
                          <span class="user-year-num only-on-mob-two">

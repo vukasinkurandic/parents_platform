@@ -322,8 +322,6 @@ nav ul li a:hover {
 
 
 
-
-
 .btn-logout {  
   border-radius: 8px;
 }
@@ -339,9 +337,10 @@ text-shadow: 1px 1px rgb(0 0 0 / 20%);
   display: none;
   position: relative;
   background-color: #f1f1f1;
-  min-width: 160px;
+  width: 244px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
+  margin: 0 auto;
 }
 
 .dropdown-content a {
@@ -2581,14 +2580,18 @@ margin:0 auto 35px auto;
 }
 
 .filter-text{
-padding: 20px;
+padding: 10px 20px;
 }
 
 .filter-text h4{
-  margin-bottom: 20px;
+  margin-bottom: 14px;
   font-size: 34px;
   line-height: 31px;
   color: #fff;  
+}
+
+p.filter-page-h{
+margin-bottom: 5px;
 }
 
 .filter-ocupation {
