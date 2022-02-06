@@ -79,7 +79,7 @@
                                           
                                           <ul class="ks-cboxtags">
                                              <li><input type="checkbox" id="checkboxOne" value="True" name="children_with_special_needs" class="filter_chb_c">
-                                                <label for="checkboxOne">Čuva decu sa posebnim potrebama</label>
+                                                <label for="checkboxOne">Čuva decu sa <span class="only-on-mob-one-filter" > posebnim potrebama</span></label>
                                              </li>
 
                                              <li><input type="checkbox" id="checkboxTwo" value="True" name="home_job">
@@ -143,6 +143,7 @@
                                     {%else%}
                                     <p class="baby-p-first filter-p-first"><i class="fas fa-map-marker-alt"></i>&nbsp;{{babysitter.sity}}</p>
                                     {%endif%}
+                                    <p class="baby-p-second filter-page-h">Satnica: 450 RSD</p>
                                     <div class="baby-rew baby-rew-on-filter">
                                        {% if rate == None%}
                                        <div class="baby-he"><i class="fas fa-star"> </i><span> Neocenjen</span></div>
