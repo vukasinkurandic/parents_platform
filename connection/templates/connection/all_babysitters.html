@@ -128,8 +128,8 @@
                </div>
                <div class="col-lg-9 col-md-8">
                   <div class="filter-left">
-                     <div class="row">
-                         {% if venues %}
+                     {% if venues %}
+                     <div class="row">    
                          {% for babysitter in venues%}
                         <div class="col-lg-6">
                            <a href="{% url 'connection:babysitter_profil' babysitter.slug %}">
@@ -159,12 +159,14 @@
                            </a>                           
                         </div>
                         {%endfor%}
+                        </div>
                         {% else%}
-                        {% endif%}
-                     </div>
+                     
                      <div class="no-data-filter">
                         <h6>Za zadate filtere nema rezultata pretrage. Pokušajte ponovo sa nekim izmenama u selektovanim filterima.</h6>
                      </div>
+                        {% endif%}
+
                   </div>
                </div>
             </div>
