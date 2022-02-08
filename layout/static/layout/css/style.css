@@ -959,6 +959,9 @@ p.baby-p-second {
 
 .baby-rew-on-filter{
   display: block;
+  color: #fff;
+  font-size: 20px;
+  padding: 0 10px;
 }
 
 .baby-he i,
@@ -2819,7 +2822,19 @@ input[type="range"]:active::-webkit-slider-thumb{
   .dugmic{
     display: none;
   }
+  .no-data-filter{    
+    border-radius: 8px;
+    border: 1px solid #e8ecf3;
+    background-color: #fff;    
+    width: 80%;
+    margin: 0 auto;
+    box-shadow: 0 10px 40px 0 rgb(6 22 58 / 10%);
+    padding: 25px;
+  }
 
+  .no-data-filter h6{
+    font-size: 25px;
+    }
 
   /* filter show hife */
 
