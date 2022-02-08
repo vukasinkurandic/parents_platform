@@ -23,7 +23,7 @@ if (inerWidBraust < 992) {
   });
 }
 
-let hostimgmobile = "https://polovnooruzje.rs";
+let hostimgmobile = "https://parentstime.rs";
 
 let index_mob = window.innerWidth;
  if (index_mob < 656) {
