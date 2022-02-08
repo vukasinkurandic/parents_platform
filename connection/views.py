@@ -283,6 +283,10 @@ def all_babysitters(request):
 
 @login_required
 def babysitter_profil(request, slug):
+    # Stop babysitters to see another babysitters
+    if request.user.user_type == 2:
+        return redirect('babysitter:profil')
+
     babysitter = get_object_or_404(Babysitter, slug=slug)
     calendar = get_object_or_404(BabysitterCalendar,
                                  babysitter_id=babysitter.id)
@@ -348,6 +352,9 @@ def send_match(request):
 
 @login_required
 def matched_babysitter_profil(request, slug):
+    # Stop babysitters to see another babysitters
+    if request.user.user_type == 2:
+        return redirect('babysitter:profil')
     babysitter = get_object_or_404(Babysitter, slug=slug)
     calendar = get_object_or_404(BabysitterCalendar,
                                  babysitter_id=babysitter.id)
@@ -461,6 +468,10 @@ def matched_babysitter_profil(request, slug):
 
 @login_required
 def family_profil(request, slug):
+    # Stop family to see another family
+    if request.user.user_type == 1:
+        return redirect('family:profil')
+
     profil = get_object_or_404(Family, slug=slug)
     calendar = get_object_or_404(FamilyCalendar,
                                  family_id=profil.id)
@@ -469,6 +480,13 @@ def family_profil(request, slug):
     connection_list = []
     all_connection_queryset = Connection.objects.filter(
         family_id=profil.id, babysitter_id=babysitter_id)
+
+    # STOP SEE FAMILY PROFILE FROM URL WITHOUT MATCHED REQUEST
+    if all_connection_queryset.exists():
+        True
+    else:
+        return redirect('layout:home')
+    # STOP SEE FAMILY PROFILE FROM URL WITHOUT MATCHED REQUEST
 
     for connection in all_connection_queryset:
         connection_list.append(connection)
@@ -504,6 +522,9 @@ def family_profil(request, slug):
 
 @login_required
 def matched_family_profil(request, slug):
+    # Stop family to see another family
+    if request.user.user_type == 1:
+        return redirect('family:profil')
     babysitter_id = request.user.babysitter.id
     profil = get_object_or_404(Family, slug=slug)
     calendar = get_object_or_404(FamilyCalendar,
