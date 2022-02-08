@@ -196,7 +196,7 @@ p.baby-p-first {
   }
 
 .filter-ocupation{
-width: 150px;    
+width: 164px;    
 }
 
 .filter-img-main {
@@ -349,8 +349,8 @@ font-size: 22px;
 }
 
 .filter-ocupation{
-width: 131px;    
-height: 35px;
+  width: 129px;
+  height: 37px;
 }
 
 .filter-box-main:hover .babsit-box-ocupation {
@@ -1290,6 +1290,11 @@ margin-top: 10px;
 
 }
 
+.no-data-filter{    
+  width: 100%;
+   margin: -107px 0 20px 0;    
+ }
+
 /* vertical info from cls map circle start */
 
 .vertical-line-menu {
@@ -2074,10 +2079,8 @@ margin-top: -19px;
   /* filter no data message */
 
   .no-data-filter{    
-    
-    width: 100%;
-    margin: 0 0;
-    
+   width: 100%;
+    margin: -75px 0 20px 0;    
   }
 
   .no-data-filter h6{
