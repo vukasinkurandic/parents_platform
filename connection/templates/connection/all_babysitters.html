@@ -11,13 +11,14 @@
    <div class="container add-fluid-div2">
       <div class="insade-profil-wrapper onsmallfil">
          <div class="user-title">
-            <h1>Filter</h1>
+            <h1 class="extrasmalldev-filter" >Pretražite bazu prema Vama važnim kriterijumima</h1>
          </div>
+         <button value="dodaj" class="dugmic btn-pag-current btn" >prikaži filter</button>
          <div class="profile_edit">
             <div class="row">
                <div class="col-lg-3 col-md-4">
                   <div class="filter-right">
-                     <form action="" method="post">
+                     <form action="{% url 'connection:all_babysitters' %}" method="post">
                         {% csrf_token %}
                         <label for="city" class="form-label">Pretraga po gradu</label>
                         <select name="city" id="city" class="form-select" aria-label="Default select example">
@@ -26,7 +27,7 @@
                             <option value="{{city}}">{{city}}</option>
                             {% endfor%}
                         </select>
-                        <label for="age_children" class="form-label">Uzrast dece koju bi čuvala</label>
+                        <label for="age_children" class="form-label">Uzrast dece koju je potrebno čuvati</label>
                         <select name="age_children" id="age_children" class="form-select" aria-label="Default select example">
                             <option selected="" value="">Uzrast dece</option>
                             <option value="0-1">Beba 0-1</option>
@@ -35,7 +36,7 @@
                             <option value="5-12">5-12</option>
                             <option value="12-18">12-18</option>
                         </select>
-                        <label for="work_type" class="form-label">Tražite (bebisiterka/dadilja)</label>
+                        <label for="work_type" class="form-label">Tražite (bebisiterku/dadilju)</label>
                         <select name="work_type" id="work_type" class="form-select" aria-label="Default select example">
                            <option selected="" value="">Izaberite</option>
                             {% for work in work_role_list %}
@@ -62,8 +63,8 @@
                            </div>
                            <div class="container-price">
                               <div class="slider-track"></div>
-                              <input type="range" step="50" name="price_range_min" min="0" max="1500" value="0" id="price_range_min" oninput="slideOne()">
-                              <input type="range" step="50"  name="price_range_max" min="0" max="1500" value="1000" id="price_range_max" oninput="slideTwo()">
+                              <input type="range" step="50" name="price_range_min" min="0" max="3000" value="0" id="price_range_min" oninput="slideOne()">
+                              <input type="range" step="50"  name="price_range_max" min="0" max="3000" value="1500" id="price_range_max" oninput="slideTwo()">
                            </div>
                         </div>
                          <div class="accordion adwanced-filter" id="accordionExample">
@@ -78,7 +79,7 @@
                                           
                                           <ul class="ks-cboxtags">
                                              <li><input type="checkbox" id="checkboxOne" value="True" name="children_with_special_needs" class="filter_chb_c">
-                                                <label for="checkboxOne">Čuva decu sa posebnim potrebama</label>
+                                                <label for="checkboxOne">Čuva decu sa <span class="only-on-mob-one-filter" > posebnim potrebama</span></label>
                                              </li>
 
                                              <li><input type="checkbox" id="checkboxTwo" value="True" name="home_job">
@@ -121,26 +122,34 @@
                                     </div>
                                  </div>
                               </div>
-                        <input type="submit" name="" value="Filtriraj" class="btn btn-filter-btn">
+                        <input type="submit" name="nums" value="Filtriraj" class="btn btn-filter-btn">
                      </form>
                   </div>
                </div>
                <div class="col-lg-9 col-md-8">
                   <div class="filter-left">
                      <div class="row">
-                         {% if babysitters %}
-                         {% for babysitter in babysitters%}
+                         {% if venues %}
+                         {% for babysitter in venues%}
                         <div class="col-lg-6">
                            <a href="{% url 'connection:babysitter_profil' babysitter.slug %}">
                               <div class="babsit-box filter-box-main">
-                                 <div class="babsit-box-ocupation filter-ocupation"><span>Bebisiterka</span></div>
+                                 <div class="babsit-box-ocupation filter-ocupation"><span>Rezerviši</span></div>
                                  <div class="babsit-img filter-img-main"><img src="{{babysitter.picture.url}}" class="img-fluid"></div>
                                  <div class="babsit-info filter-text">
                                     <h4>{{babysitter.first_name}} <br> {{babysitter.last_name}}</h4>
-                                    <p class="baby-p-first filter-p-first"><i class="fas fa-map-marker-alt"></i>&nbsp;{{babysitter.sity}}</p>                                          
-                                    <div class="baby-rew">
-                                       <div class="baby-he"><i class="fas fa-star"></i><span> 4.5</span></div>
-                                       <div class="baby-com"><i class="fas fa-comment"></i><span> 21 Komentar</span></div>
+                                    {% if babysitter.sity == None%}
+                                    <p class="baby-p-first filter-p-first"><i class="fas fa-map-marker-alt"></i>&nbsp;Nema lokacije</p>
+                                    {%else%}
+                                    <p class="baby-p-first filter-p-first"><i class="fas fa-map-marker-alt"></i>&nbsp;{{babysitter.sity}}</p>
+                                    {%endif%}
+                                    <p class="baby-p-second filter-page-h">Satnica: 450 RSD</p>
+                                    <div class="baby-rew baby-rew-on-filter">
+                                    {% if babysitter.work_type == None%}
+                                    <p></p>
+                                    {%else%}
+                                    <p>{{babysitter.work_type}}</p>
+                                    {%endif%}
                                        <div class="baby-link">
                                           <div class="baby-link-circle"><i class="fas fa-chevron-right"></i></div>
                                        </div>
@@ -157,8 +166,34 @@
                </div>
             </div>
          </div>
+         {% if venues %}
+         <div class="paginator">
+            {% if venues %}
+            {% if venues.has_previous %}
+            <a href="{% if request.GET.key is not None %}{{ request.get_full_path }}&{% else %}?{% endif %}page=1" class="btn btn-pag-first mb-4">Prva</a>
+            <a href="{% if request.GET.key is not None %}{{ request.get_full_path }}&{% else %}?{% endif %}page={{ venues.previous_page_number }}" class="btn btn-pag-first mb-4">Predhodna</a>
+            {% endif %}
+
+            {% for num in venues.paginator.page_range %}
+            {% if venues.number == num %}
+            <a href="{% if request.GET.key is not None %}{{ request.get_full_path }}&{% else %}?{% endif %}page={{ num }}" class="btn btn-pag-current  mb-4">{{ num }}</a>
+            {% elif num > venues.number|add:'-3' and num < venues.number|add:'3' %}
+            <a href="{% if request.GET.key is not None %}{{ request.get_full_path }}&{% else %}?{% endif %}page={{ num }}" class="btn  btn-pag-first mb-4">{{ num }}</a>
+            {% endif %}
+            {% endfor %}
+
+            {% if venues.has_next %}
+            <a href="{% if request.GET.key is not None %}{{ request.get_full_path }}&{% else %}?{% endif %}page={{ venues.next_page_number }}" class="btn btn-pag-first mb-4">Sledeća</a>
+            <a href="{% if request.GET.key is not None %}{{ request.get_full_path }}&{% else %}?{% endif %}page={{ venues.paginator.num_pages }}" class="btn btn-pag-first mb-4">Poslednja</a>
+            {% endif %}
+            {% endif %}
+         </div>
+         {% endif %}
+
       </div>
+     
    </div>
+   
 </section>
 <script type="text/javascript" src="{% static 'layout/js/connection_all_babysitter.js' %}"></script>
 {% endblock%}

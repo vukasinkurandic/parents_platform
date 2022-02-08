@@ -12,6 +12,8 @@ urlpatterns = [
     path('family/', include('family.urls', namespace='family')),
     path('babysitter/', include('babysitter.urls', namespace='babysitter')),
     path('connection/', include('connection.urls', namespace='connection')),
+    path('reviews/', include('reviews.urls', namespace='reviews')),
+
 
     ### Views za resetovanje lozinke ###
     path("password-reset", auth_views.PasswordResetView.as_view(
@@ -32,6 +34,12 @@ urlpatterns = [
          name="password_reset_complete")
 
 ]
+
+handler400 = 'error_handlers.views.custom_bad_request_view'
+handler403 = 'error_handlers.views.custom_permission_denied_view'
+handler404 = 'error_handlers.views.custom_page_not_found_view'
+handler500 = 'error_handlers.views.custom_error_view'
+
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,
                           document_root=settings.MEDIA_ROOT)

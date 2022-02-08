@@ -178,6 +178,7 @@ ul {
 .top-lang img {
   width: 35px;
   height: 23px;
+  border: 2px solid rgba(255,255,255,.5);
 }
 
 .top-lang a {
@@ -260,7 +261,7 @@ nav ul li a:hover {
 
 .no-login-select {
   position: relative;
-  display: inline-block;
+  display: block;
   float: right;
   margin-right: 50px;
   line-height: 0;
@@ -321,8 +322,6 @@ nav ul li a:hover {
 
 
 
-
-
 .btn-logout {  
   border-radius: 8px;
 }
@@ -338,9 +337,10 @@ text-shadow: 1px 1px rgb(0 0 0 / 20%);
   display: none;
   position: relative;
   background-color: #f1f1f1;
-  min-width: 160px;
+  width: 244px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
+  margin: 0 auto;
 }
 
 .dropdown-content a {
@@ -690,6 +690,11 @@ text-shadow: 1px 1px rgb(0 0 0 / 20%);
   color: #fff;
   text-shadow: 2px 2px rgba(0, 0, 0, 0.2);
   position: relative;
+  transition: 0.2s ease-in;
+}
+.second-large-btn:hover{
+  text-shadow: 2px 2px rgba(255, 255, 255, .7);
+color: #46b2f0;
 }
 
 .second-large-btn:before {
@@ -719,6 +724,13 @@ text-shadow: 1px 1px rgb(0 0 0 / 20%);
   color: #fff;
   text-shadow: 2px 2px rgba(0, 0, 0, 0.2);
   position: relative;
+  transition: 0.2s ease-in;
+}
+
+
+.first-large-btn:hover{
+  
+color: #efc3c5;
 }
 
 .first-large-btn:before {
@@ -757,7 +769,7 @@ text-shadow: 1px 1px rgb(0 0 0 / 20%);
 }
 
 .baby-title {
-  margin-bottom: 100px;
+  margin-bottom: 52px;
 }
 
 .baby-title h2 {
@@ -826,11 +838,11 @@ text-shadow: 1px 1px rgb(0 0 0 / 20%);
   display: flex;
   background-color: #63bef2;
   height: 235px;
-  position: relative;
-  width: 90%;
-  margin: 0px auto 90px auto;
+  position: relative;  
+  margin-bottom:100px;
+  margin-top: 55px;
   border-top-right-radius: 50px;
-  border-bottom-left-radius: 50px;
+  border-bottom-left-radius: 50px;  
 }
 
 .babsit-box-ocupation {
@@ -921,8 +933,7 @@ p.baby-p-first {
   color: #fff;
   font-size: 24px;
   background-color: #73c4f4;
-  display: block;
-  width: 100%;
+  display: inline-block;  
   padding: 0 10px;
   letter-spacing: 1px;
   margin-bottom: 10px;
@@ -944,6 +955,10 @@ p.baby-p-second {
 
 .baby-rew {
   display: flex;
+}
+
+.baby-rew-on-filter{
+  display: block;
 }
 
 .baby-he i,
@@ -1096,6 +1111,11 @@ footer {
 .footer-wrapper ul li a {
   font-size: 20px;
   line-height: 25px;
+  transition: .2s ease-in;
+}
+
+.footer-wrapper ul li a:hover{
+color: #63bef2;  
 }
 
 .footer-logo-img {
@@ -1195,7 +1215,7 @@ h4.soc-fot-tit {
 ul.soc-bot-link {
   padding-left: 0;
   float: right;
-  display: inline-block;
+  display: block;
   margin-top: 5px;
 }
 
@@ -1253,7 +1273,7 @@ ul.soc-bot-link li a {
 .insade-profil-wrapper {
   padding: 70px 15px 35px 15px;
   background-color: #fff;
-  margin-top: -200px;
+  margin-top: -150px;
   position: relative;  
   margin-bottom: 55px;
   box-shadow: 0 1px 1px rgb(173 168 168 / 10%);
@@ -1434,7 +1454,7 @@ span.icon-user i {
 
 span.user-phone {
   float: right;
-  display: inline-block;
+  display: block;
   line-height: 45px;
   font-size: 20px;
   font-weight: 600;
@@ -1495,7 +1515,7 @@ text-align: center;
 
 span.user-year-num {
   float: right;
-  display: inline-block;
+  display: block;
   line-height: 30px;
   font-size: 20px;
   font-weight: 600;
@@ -1761,7 +1781,7 @@ p.pull-insd {
   width: 100%;
   height: 650px;
   top: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.2);
 }
 
 .user-main-info h3 {
@@ -2213,6 +2233,96 @@ ul.social-contact li i {
 
 /*profile edit parent and babysitter*/
 
+p.create-profil{
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 30px;   
+  }
+  
+  
+  
+  
+  .only-on-create_profil-page{
+  width: 85%;
+  margin: 0 auto;  
+  }
+
+
+
+  .edit-circle,.edit-circle2,.edit-circle3,.crea-parents,.ed-cir-he,.ed-cir-he2{
+    position: relative;  
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #63bef2 25%, transparent 0) -25px 0, linear-gradient(225deg, #63bef2 25%, transparent 25%) -25px 0, linear-gradient(315deg, #63bef2 25%, transparent 25%), linear-gradient(45deg, #63bef2 25%, transparent 25%);
+    background-size: 50px 50px;
+    background-color: #68b0dc;
+    text-align: center;
+    line-height: 75px;
+    font-size: 55px;
+    font-weight: 600;
+    color: #fff;
+    text-shadow: 2px 2px rgb(0 0 0 / 20%);
+    z-index: 2;
+    animation: blop2 1.3s infinite;
+    margin-bottom: 15px;
+    margin-left: -25px;
+    margin-top: 40px;
+    }
+    
+    .edit-circle:after,.edit-circle2:after,.edit-circle3:after,.crea-parents:after{
+    display: block;  
+    clear: both;
+    content: '';
+    position: absolute;  
+    left: 0px;
+    top: 37px;
+    background: linear-gradient(135deg, #63bef2 25%, transparent 0) -25px 0, linear-gradient(225deg, #63bef2 25%, transparent 25%) -25px 0, linear-gradient(315deg, #63bef2 25%, transparent 25%), linear-gradient(45deg, #63bef2 25%, transparent 25%);
+    background-size: 50px 50px;
+    background-color: #68b0dc;
+    width: 5px;
+    }
+    
+    
+    
+    .edit-circle:after{
+      height: 938px;  
+      }
+
+      .ed-cir-he:after{
+        height: 922px;
+      }
+      
+      .edit-circle2:after{
+      height: 122px;  
+      }
+      
+      .edit-circle3:after{
+        height: 531px;  
+        }
+
+        .ed-cir-he2:after{
+          height: 144px;
+        }
+    
+    .crea-parents:after{
+    height: 812px;
+    }
+    
+          @keyframes blop2 {
+            0% {
+              box-shadow: 0 0 0 0 rgba(115, 196, 244, 1);
+            }
+            100% {
+              box-shadow: 0 0 0 15px transparent;
+            }
+          }
+
+
+
+
+
+
 
 .profile_edit .form-label {
 font-size: 22px;
@@ -2265,12 +2375,31 @@ display: flex;
 
 .select_all, .deselect_all{
 background-color: #73c4f4;  
-color: #fff;
+color: #000;
 border: none;
-padding: 10px;
+padding: 5px 10px;
 margin-bottom: 20px;
 font-weight: 600;
+border-radius: 10px;
+border-bottom: 4px solid #63bef2;
+font-size: 18px;
+font-weight: 600;
+border-radius: 10px;
 }
+
+
+/* color: #000;
+font-size: 18px;
+font-weight: 600;
+border-radius: 10px;
+margin-top: 25px; */
+
+.select_all:hover, .deselect_all:hover{
+color: #fff;  
+text-shadow: 2px 2px rgb(0 0 0 / 20%);
+}
+
+
 
 .deselect_all{
 position: relative;
@@ -2311,6 +2440,9 @@ font-size: 20px;
 
 /*login form on login page*/
 /* flash message login success, login error etc. */
+
+
+
 .main_message .al-text {
   font-size: 22px;
   font-weight: 600;
@@ -2329,7 +2461,7 @@ font-size: 20px;
   background-size: 100px 100px;
   background-color: #73c4f4;
   border-radius: 10px;
-  margin: 25px;
+  margin: -33px 25px 71px 25px;
 }
 
 .main_message .error {
@@ -2383,7 +2515,7 @@ margin-left: auto;
   background-color: #eff2f7;
   border: none;
   border-radius: 0px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   border-bottom: 1px solid #73c4f4;
 }
 
@@ -2448,18 +2580,38 @@ margin:0 auto 35px auto;
 }
 
 .filter-text{
-padding: 20px;
+padding: 10px 20px;
 }
 
 .filter-text h4{
-  margin-bottom: 20px;
+  margin-bottom: 14px;
   font-size: 34px;
   line-height: 31px;
   color: #fff;  
 }
 
+p.filter-page-h{
+margin-bottom: 5px;
+}
+
 .filter-ocupation {
- width: 172px;
+  width: 165px;
+}
+
+.paginator{
+margin-top: 45px;
+}
+
+.btn-pag-first{
+border: 1px solid #63bef2;
+}
+
+.btn-pag-current{
+background-color: #63bef2;  
+}
+
+.btn-pag-first:hover{
+background-color: #63bef2;  
 }
 
 /* filter end */
@@ -2660,4 +2812,67 @@ input[type="range"]:active::-webkit-slider-thumb{
     color: #000;
 }
 /* price slider range end */
+
+
+/* filter show hife */
+
+  .dugmic{
+    display: none;
+  }
+
+
+  /* filter show hife */
+
+
+
+
+.swiper-pagination > .swiper-pagination-bullet {
+    background-color:   #efc3c5;
+  width: 20px;
+  height: 20px;
+  opacity: .5;
+}
+.swiper-pagination > .swiper-pagination-bullet-active {
+  background-color:#63bef2;
+  width: 20px;
+  height: 20px;
+  opacity: 1;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper a{
+text-decoration: none;  
+}
+
+
+
+.swiper-slide {
+  
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+
+ul#id_age_children li{
+  display: inline-block;
+  margin-right: 17px;
+  font-size: 20px;
+}
+
 

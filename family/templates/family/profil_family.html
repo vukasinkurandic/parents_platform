@@ -9,7 +9,7 @@
     <img src="{% static 'layout/img/naslovna3.jpg' %}" />  
     </div>
           <section class="profil-wrapper">
-             <div class="container">
+             <div class="container add-fluid-div">
                 <div class="insade-profil-wrapper insade-profil-wrapper-bebisit">
                    <div class="user-title">
                       <h1>
@@ -24,10 +24,11 @@
                      <ul class="vertical-ul">
                        <li><i class="fas fa-info"></i>
                          <div class="content">
-                               <h2>INFO</h2>
-                               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                               tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                               </p>
+                               <h2>Ovo je vaš profil</h2>
+                               <p>Ovde možete da vidite korisnike koje ste kontaktirali.
+                                   Možete da ažurirate profil i da ažurirate
+                                    kada vam je potrebno vreme čuvanja u toku nedelje. Pretragu bebititerki/dadilja
+                                     vršite na dugme koje se nalazi u meniju - BAZA BEBISITERA DADILJA ili na žuto dugme u okviru vašeg profila</p>
                            </div>
                          </li>    
                        </ul>
@@ -113,8 +114,8 @@
 
                                </li>                                      
                                <li>
-                                  <span class="user-year">Uzrast dece <span class="only-on-mob-one" > koju treba čuvati</span></span>
-                                  <span class="user-year-num only-on-mob-two">{{profil.age_children}}</span>
+                                  <span class="user-year">Uzrast dece  koju treba čuvati</span>
+                                  <span class="user-year-num">{{profil.age_children}}</span>
                                </li>
                                <li>
                                   <span class="user-year">Broj dece</span>
@@ -127,7 +128,11 @@
                             <ul>
                                <li>
                                   <span class="user-year">Ocena korisnika</span>
-                                  <span class="user-year-num">4.0</span>
+                                  {%if rate_average == None %}
+                                  <span class="user-year-num">Nema ocene</span>
+                                  {%else%}
+                                  <span class="user-year-num rat-num">{{rate_average}}</span>
+                                  {%endif%}
                                </li>
                             </ul>
                          </div>
@@ -149,12 +154,15 @@
                                           {% if match_list %}
                                              {% for send_babysitter, connection in match_list %}
                                           <tr>
-                                             <td colspan="7" class="align-middle fs-5" >{{send_babysitter.first_name}} {{send_babysitter.last_name}} {{send_babysitter.sity}}</td>
+                                             
                                              {% if connection.is_matched == None %}
+                                              <td colspan="7" class="align-middle fs-5" ><a href="{% url 'connection:babysitter_profil' send_babysitter.slug %}">{{send_babysitter.first_name}} {{send_babysitter.last_name}} {{send_babysitter.sity}}</a> </td>
                                              <td><a href="#" class="btn btn-warning">Čeka se potvrda</a></td>
                                              {% elif connection.is_matched == True %}
+                                              <td colspan="7" class="align-middle fs-5" ><a href="{% url 'connection:matched_babysitter_profil' send_babysitter.slug %}">{{send_babysitter.first_name}} {{send_babysitter.last_name}} {{send_babysitter.sity}}</a> </td>
                                              <td><a href="{% url 'connection:matched_babysitter_profil' send_babysitter.slug %}" class="btn btn-success">Vidi profil</a></td>
                                              {%else%}
+                                              <td colspan="7" class="align-middle fs-5" >{{send_babysitter.first_name}} {{send_babysitter.last_name}} {{send_babysitter.sity}}</td>
                                              <td><a href="#" class="btn btn-danger">Odbijeno</a></td>
                                              {% endif %}
                                              <td><form action="{% url 'connection:delete_connection' %}" method="post" onsubmit="return confirm('Da li ste sigurni da zelite da obrišete zahtev?')">
@@ -171,13 +179,16 @@
                               </div>
                            </div>
                         </div>
-                        <div class="user-short-info">
-                           <div class="d-grid gap-2">
-                            <a class="btn btn-delete"  href="">Obriši nalog</a>
-                            
-                          </div>
-                                               </div>
+                        
                      </div>
+                     <div class="user-short-info">
+                        <div class="d-grid gap-2">
+                        <form action="{% url 'family:delete_profile' %}" method="post" onsubmit="return confirm('Da li ste sigurni da zelite da obrišete profil?')">
+                        {% csrf_token%}
+                         <input type="submit" class="btn btn-delete" value="Obriši nalog">
+                        </form>
+                       </div>
+                      </div>
                       </div>
                       <div class="col-xxl-8 col-xl-7 col-lg-7">
                          <div class="user-main-info">
@@ -399,15 +410,22 @@
                                </div>
                             </div>
                             <div class="comment-area">
-
+                              {% if commentary_list != None %}
+                              {% for commentary, author in commentary_list %}
                                <div class="comment-preview">
-                                  <h6> <b> Mikan Mikanič</b></h6>
-                                  <p class="com-dat">25.12.2021</p>
-                                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                  <h6> <b> {{author.first_name}} {{author.last_name}}</b></h6>
+                                  <p class="com-dat">{{commentary.date}}</p>
+                                  <p>{{commentary.commentary_body}}
                                   </p>
                                </div>
+                               {% endfor %}
+                               {%else%}
+                               <div class="comment-preview">
+                                  <h6> <b> Nema komentara</b></h6>
+                                  <p class="com-dat"></p>
+                                  <p></p>
+                               </div>
+                               {% endif%}
                             </div>
                          </div>
                          <!-- end user main info -->

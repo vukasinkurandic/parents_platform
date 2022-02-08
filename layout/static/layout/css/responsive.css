@@ -104,7 +104,7 @@
   }
 
   ul.mob-mar {
-    margin-top: 90px;
+    margin-top: 200px;
   }
 
   .nav-top {
@@ -196,7 +196,7 @@ p.baby-p-first {
   }
 
 .filter-ocupation{
-width: 163px;    
+width: 150px;    
 }
 
 .filter-img-main {
@@ -282,9 +282,7 @@ span.user-year {
     margin-top: -121px;
   }
 
-  .babsit-box {
-    width: 65%;
-  }
+  
 
   /* index end */
 
@@ -398,8 +396,17 @@ line-height: 25px;
 }
 
 .filter-text {
-padding: 10px 5px;
+padding: 10px 15px;
 }
+
+p.filter-page-h{
+    margin-bottom: 5px;
+    padding: 0 0px;
+    }
+    
+    .baby-link {
+    width: 65px;
+    }
 
 /* filter end */
 
@@ -417,6 +424,27 @@ height: 90px;
 }
 /* navigation circle logo end*/
 
+
+
+/* only on create profil*/
+
+.only-on-create_profil-page{
+  width: 90%;
+  margin: 0 auto;  
+  }
+.edit-circle::after {
+  height: 964px;
+}
+
+.edit-circle3::after {
+  height: 581px;
+}
+
+.crea-parents:after{
+height: 862px;  
+}
+
+/* only on create profil*/
   
   /*==========================*/
 }
@@ -472,9 +500,7 @@ height: 90px;
     height: 110px;
   }
 
-  .babsit-box {
-    width: 83%;
-  }
+  
 
   /* index end */
 
@@ -606,7 +632,30 @@ height: 90px;
     padding: 10px;
   }
   
+  p.filter-page-h{
+    margin-bottom: 5px;
+    padding: 0 0px;
+    }
+    
+    .baby-link {
+    width: 65px;
+    }
+
+    
+
+
   /* filter end */
+
+/* filter page main title */
+
+h1.extrasmalldev-filter {
+  font-size: 35px;
+  line-height: 40px;
+  margin-top: 10px;
+  }
+  
+  
+  /* filter page main title */
 
 
 /* navigation circle logo start*/
@@ -659,6 +708,37 @@ nav ul li {
 }
 /* vertical info from cls map circle end */
 
+
+/* calendar main title */
+h1.calendar-h1{
+font-size: 32px;  
+}
+/* calendar main title */
+
+
+
+/* only on create profil  */
+.only-on-create_profil-page{
+  width: 95%;
+  margin: 0 auto;    
+  }
+
+  .edit-circle::after {
+    height: 1752px;
+  }
+
+  .edit-circle3::after {
+    height: 1038px;
+  }
+
+  .edit-circle2::after {
+    height: 122px;
+  }
+
+/* only on create profil  */
+.crea-parents:after{
+  height: 1543px;  
+  }
   /*==========================*/
 }
 
@@ -869,12 +949,16 @@ nav ul li {
       rgba(93, 187, 255, 1) 50%,
       rgba(93, 187, 255, 1) 100%
     );
+    bottom: -9px;
   }
+
+  
+    
 
   /* ==bebisit on index */
 
   .baby-title {
-    margin-bottom: 230px;
+    margin-bottom: 30px;
   }
 
   .baby-title h2::before {
@@ -893,12 +977,13 @@ nav ul li {
   .babsit-box {
     display: table;
     height: initial;
-    width: 80%;
-    margin: 0px auto 150px auto;
+    width: 350px;
+    margin-bottom: 100px;
     border-top-right-radius: initial;
     z-index: 2;
     border-bottom-left-radius: initial;
     position: relative;
+    margin-top: 123px;
   }
 
   .babsit-box:after {
@@ -1126,9 +1211,63 @@ nav ul li {
     box-shadow: 0 0 10px 0 rgb(0 0 0 / 15%);
   }
   
+
+  .baby-rew-on-filter {
+    display: flex;
+  }
+
   /* filter page end */
 
 
+/* filter page main title */
+
+h1.extrasmalldev-filter {
+  font-size: 26px;
+  line-height: 30px;
+  margin-top: 13px;
+  }
+  
+  
+  /* filter page main title */
+
+  /* filter pagination */
+  .paginator {
+    margin-top: -54px;
+  }
+/* filter pagination */
+
+
+/* filter show hide */
+
+
+.filter-right{
+  position: relative;  
+  margin-top: -750px;
+  transition: .5s ease-in;
+  opacity: 0;
+  z-index: 10;
+  width: 100%;
+  z-index: 0;
+  background-color: #d9d9d9;
+  padding: 10px;
+  }
+  
+  .filter-right-klik{
+  margin-top: 25px;
+  opacity: 1;
+  }
+
+  .dugmic{
+    font-size: 18px;
+    text-transform: uppercase;
+    margin-top: 15px;
+    display: block;
+  }
+
+
+  
+
+  /* filter show hide */
 
 /* vertical info from cls map circle start */
 
@@ -1138,6 +1277,48 @@ nav ul li {
   top: 239px;
 }
 /* vertical info from cls map circle end */
+
+/* calendar main title */
+h1.calendar-h1{
+  font-size: 23px;  
+  line-height: 28px;
+  }
+
+.edit-calendar-h1{
+top: -29px; 
+left: -1px; 
+}
+
+  /* calendar main title */
+
+
+/* only on create profil  */
+.only-on-create_profil-page{
+  width: 95%;
+  margin: 0 auto;    
+  }
+
+  .edit-circle::after {
+    height: 1752px;
+  }
+
+  .edit-circle3::after {
+    height: 1040px;
+  }
+
+  .edit-circle2::after {
+    height: 122px;
+  }
+
+  .crea-parents:after{
+    height: 1532px;  
+    }
+.crea-parents2:after{
+  height: 143px;
+}
+
+/* only on create profil  */
+
 
   /*==========================*/
 }
@@ -1485,21 +1666,26 @@ font-weight: 600;
 display: none;  
 }
 
-
+.baby-title {
+  margin-bottom: 0px;
+}
 
 
 .babsit-box {
     display: table;
     height: initial;
-    width: 95%;
-    margin: 50px auto 40px auto;
+    width: 300px;
+    margin: 144px auto 96px auto;
     border-top-right-radius: initial;
     z-index: 2;
     border-bottom-left-radius: initial;
     position: relative;
 }
 
+.babysitter {
+ padding: 0px 0 54px 0;
 
+}
 .babsit-box:before {
     transform: skewY(
 6deg);
@@ -1560,6 +1746,10 @@ display: none;
     left: 0;
     z-index: -1;
     background-color: #63bef2;
+}
+
+.babsit-info {
+  padding: 25px 18px 58px;
 }
 
 
@@ -1797,7 +1987,67 @@ display: none;
       box-shadow: 0 0 10px 0 rgb(0 0 0 / 15%);
     }
     
+  
+
     /* filter page end */
+
+/* filter page main title */
+
+h1.extrasmalldev-filter {
+font-size: 26px;
+line-height: 30px;
+margin-top: -19px;
+}
+
+
+/* filter page main title */
+
+
+/* filter pagination */
+.paginator {
+  margin-top: -54px;
+}
+
+
+/* filter show hide */
+
+
+.filter-right{
+  position: relative;  
+  margin-top: -750px;
+  transition: .5s ease-in;
+  opacity: 0;
+  z-index: 10;
+  width: 100%;
+  z-index: 0;
+  background-color: #d9d9d9;
+  padding: 10px;
+  }
+  
+  .filter-right-klik{
+  margin-top: 25px;
+  opacity: 1;
+  }
+
+  .dugmic{
+    font-size: 18px;
+    text-transform: uppercase;
+    margin-top: 15px;
+    display: block;
+  }
+
+  span.only-on-mob-one-filter{
+    display: block;
+  line-height: 26px;
+  margin-left: 16px;
+  }
+
+  ul.ks-cboxtags {
+   padding: 0px 10px 10px 10px;
+  }
+
+  /* filter show hide */
+
 
 /* profile parent */
     .accordion-button{
@@ -1850,5 +2100,90 @@ ul.vertical-ul li .content:before {
 }
 
 /* vertical info from cls map circle end */
+
+
+/* calendar main title */
+h1.calendar-h1{
+  font-size: 23px;  
+  line-height: 28px;
+  }
+
+.edit-calendar-h1{
+top: -57px; 
+left: -1px; 
+width: 95%;
+}
+
+
+span.calendar-title-baby{
+display: block;
+}
+
+  /* calendar main title */
+
+
+/* only on create profil  new 04.02*/
+.only-on-create_profil-page{
+  width: 100%;
+  margin: 0 auto;    
+  }
+
+  .edit-circle, .edit-circle2, .edit-circle3 {
+    position: relative;
+    width: 45px;
+    height: 45px;    
+    line-height: 45px;
+    font-size: 35px;
+    margin-bottom: 15px;
+    margin-left: -17px;
+    margin-top: 20px;
+  }
+
+  .edit-circle::after {
+    height: 1766px;
+    left: 0px;
+top: 19px;
+  }
+
+  .edit-circle2,.edit-circle3{
+margin-left: -5px;    
+  }
+
+  .edit-circle2::after {
+    height: 110px;
+    top: 18px;
+  }
+
+  .edit-circle3::after {
+    height: 1025px;
+    top: 19px;
+  }
+
+  
+
+.ed-cir-he:after{
+height: 1724px;  
+}
+
+.ed-cir-he2:after{
+  height: 132px;  
+  }
+
+  .crea-parents:after{
+    height: 1520px;  
+    }
+.crea-parents2:after{
+  height: 130px;
+}
+
+/* only on create profil  new 04.02*/
+.footer-wrapper-main {
+ 
+ 
+  background-size: cover;
+  position: relative;
+  background-attachment: initial;
+}
+
 
 }

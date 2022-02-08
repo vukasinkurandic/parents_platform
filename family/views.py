@@ -6,6 +6,8 @@ from . forms import FamilyForm, FamilyCalendarForm
 from . models import Family, FamilyCalendar
 from babysitter . models import Babysitter
 from connection . models import Connection
+from reviews .models import Commentary, Rate
+from django.db.models import Avg
 
 
 @login_required
@@ -30,7 +32,7 @@ def create_profil(request):
                 family.user_id = user.id
                 family.save()
                 messages.success(
-                    request, 'Uspesno ste kreirali profil')
+                    request, "Čestitamo, upravo ste kreirali profil na Parent's time platformi.")
                 return redirect('/family/edit_calendar')
             else:
                 messages.error(
@@ -85,9 +87,29 @@ def profil(request):
     # MAKING ONE LIST FROM SEND_BABYSITTERS LIST AND IS_MATCHED_LIST
     match_list = zip(send_babysitters_list, connection_list)
 
+    # COMMENTARY FOR FAMILY
+    comment_list = []
+    author_of_commentary_list = []
+    comentary_queryset = Commentary.objects.filter(
+        commentated_person_id=request.user.id)
+    if comentary_queryset.exists():
+        for comment in comentary_queryset:
+            comment_list.append(comment)
+            author_of_commentary = Babysitter.objects.get(
+                user_id=comment.author_of_commentary_id)
+            author_of_commentary_list.append(author_of_commentary)
+        # MAKING ONE LIST FROM COMMENT LIST AND AUTHOR OF COMMENTARY_LIST
+        commentary_list = zip(comment_list, author_of_commentary_list)
+    else:
+        commentary_list = None
+    # RATE FOR FAMILY
+    rate_average = Rate.objects.filter(
+        rated_person_id=request.user.id).aggregate(Avg('score')).get('score__avg', 0.00)
+
     newsletter_form = NewsletterForm()
     context = {'profil': profil, 'calendar': calendar,
-               'form': newsletter_form, 'match_list': match_list}
+               'form': newsletter_form, 'match_list': match_list,
+               'commentary_list': commentary_list, 'rate_average': rate_average}
 
     return render(request, 'family/profil_family.html', context)
 
@@ -108,7 +130,7 @@ def edit_calendar(request):
             form_family_calendar.family_id = family_id
             form_family_calendar.save()
             messages.success(
-                request, 'Uspesno ste azurirali Vasu dostupnost')
+                request, 'Uspesno ste azurirali vreme kada Vam je potrebno čuvanje dece')
             return redirect('/family/profil')
         else:
             messages.error(
@@ -116,3 +138,11 @@ def edit_calendar(request):
 
     context = {'family_calendar_form': family_calendar_form}
     return render(request, 'family/edit_calendar.html', context)
+
+
+def delete_profile(request):
+    if request.method == "POST":
+        user = request.user
+        user.delete()
+        messages.success(request, ('Uspešno ste obrisali profil!!!'))
+        return redirect('layout:home')

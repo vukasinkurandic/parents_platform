@@ -26,6 +26,7 @@
          integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
          crossorigin="anonymous"
          />
+         <link   rel="stylesheet"   href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
        <link rel="stylesheet" type="text/css" href="{% static 'layout/css/style.css' %}" /> 
        <link rel="stylesheet" type="text/css" href="{% static 'layout/css/responsive.css' %}" />
       <title>Home</title>
@@ -262,52 +263,125 @@
                </div>
                <a class="zigzag-link"  href="{% url 'account:register_family' %}">
                   <div class="first-large-btn">
-                     REGISTRUJ SE/PRIJAVI SE KAO <br> RODITELJ
+                     REGISTRUJ SE/PRIJAVI SE <br> KAO  RODITELJ
                   </div>
                </a>
                <a class="zigzag-link" href="{% url 'account:register_babysitter' %}">
                   <div class="second-large-btn">
-                     REGISTRUJ SE/PRIJAVI SE KAO <br> BEBISITER/DADILJA
+                     REGISTRUJ SE/PRIJAVI SE <br>  KAO  BEBISITER/DADILJA
                   </div>
                </a>
             </div>
          </div>
+
+
+
+<!-- OVDE ĆE DA IDE CAROUSEL START -->
+         {% if user.is_authenticated and user.user_type == 1 %}
          <div class="container text-center">
             <div class="baby-title">
                <h2>Bebisiterke/Dadije</h2>
             </div>
          </div>
-
-
-<!-- OVDE ĆE DA IDE CAROUSEL START -->
-
          <div class="container">
-            <div class="row">
-               <div class="col-lg-12 col-xl-6">
-                  <a href="">
-                     <div class="babsit-box">
-                        <div class="babsit-box-ocupation"><span>Bebisiterka</span></div>
-                        <div class="babsit-img"><img src="{% static 'layout/img/zena02.jpg' %}" class="img-fluid" ></div>
-                        <div class="babsit-info">
-                           <h4>Jelena Matijašević</h4>
-                           <p class="baby-p-first" ><i class="fas fa-map-marker-alt"></i>&nbsp;Banja Koviljača</p>
-                           <p class="baby-p-second" >Lorem ipsum dolor sit amet...</p>
-                           <div class="baby-rew">
-                              <div class="baby-he"><i class="fas fa-star"></i><span> 4.5</span></div>
-                              <div class="baby-com"><i class="fas fa-comment"></i><span> 21 Komentar</span></div>
-                              <div class="baby-link">
-                                 <div class="baby-link-circle"><i class="fas fa-chevron-right"></i></div>
+            <div class="swiper mySwiper">
+               <div class="swiper-wrapper">
+                  {% if babysitter_list %}
+                  {% for babysitter,number_of_comment, rate in babysitter_list%}
+                 <div class="swiper-slide">
+                    <a href="{% url 'connection:babysitter_profil' babysitter.slug %}">
+                              <div class="babsit-box">
+                                 <div class="babsit-box-ocupation"><span>Rezerviši</span></div>
+                                 <div class="babsit-img"><img src="{{babysitter.picture.url}}" class="img-fluid" ></div>
+                                 <div class="babsit-info">
+                                    <h4>{{babysitter.first_name}} {{babysitter.last_name}}</h4>
+                                    {% if babysitter.sity == None%}
+                                    <p class="baby-p-first" ><i class="fas fa-map-marker-alt"></i>&nbsp;</p>
+                                    {%else%}
+                                    <p class="baby-p-first" ><i class="fas fa-map-marker-alt"></i>&nbsp;{{babysitter.sity}}</p>
+                                    {%endif%}
+                                    {% if babysitter.hourly_rate == None%}
+                                    <p class="baby-p-second" ></p>
+                                    {%else%}
+                                    <p class="baby-p-second" >Satnica: {{babysitter.hourly_rate}} RSD</p>
+                                    {%endif%}
+                                    <div class="baby-rew">
+                                       {% if rate == None%}
+                                       <div class="baby-he"><i class="fas fa-star"></i><span> Neocenjen</span></div>
+                                       {%else%}
+                                       <div class="baby-he"><i class="fas fa-star"></i><span>{{rate}}</span></div>
+                                       {%endif%}
+                                       
+                                       <div class="baby-com"><i class="fas fa-comment"></i><span> {{number_of_comment}} Komentar</span></div>
+                                       <div class="baby-link">
+                                          <div class="baby-link-circle"><i class="fas fa-chevron-right"></i></div>
+                                       </div>
+                                    </div>
+                                 </div>
                               </div>
-                           </div>
-                        </div>
-                     </div>
-                  </a>
+                           </a>
+                 </div>
+                     {%endfor%}
+                     {% else%}
+                     {% endif%}
                </div>
-      
-          
-      
+               <div class="swiper-pagination"></div>
+             </div>
+         </div>
+         {% elif user.is_authenticated and user.user_type == 2 %}
+         <!--Babysitter cant 'see swiper-->
+         {%else%}
+         <div class="container text-center">
+            <div class="baby-title">
+               <h2>Bebisiterke/Dadije</h2>
             </div>
          </div>
+                  <div class="container">
+            <div class="swiper mySwiper">
+               <div class="swiper-wrapper">
+                  {% if babysitter_list %}
+                  {% for babysitter,number_of_comment, rate in babysitter_list%}
+                 <div class="swiper-slide">
+                    <a href="{% url 'account:login' %}">
+                              <div class="babsit-box">
+                                 <div class="babsit-box-ocupation"><span>Rezerviši</span></div>
+                                 <div class="babsit-img"><img src="{{babysitter.picture.url}}" class="img-fluid" ></div>
+                                 <div class="babsit-info">
+                                    <h4>{{babysitter.first_name}} {{babysitter.last_name}}</h4>
+                                    {% if babysitter.sity == None%}
+                                    <p class="baby-p-first" ><i class="fas fa-map-marker-alt"></i>&nbsp;</p>
+                                    {%else%}
+                                    <p class="baby-p-first" ><i class="fas fa-map-marker-alt"></i>&nbsp;{{babysitter.sity}}</p>
+                                    {%endif%}
+                                    {% if babysitter.hourly_rate == None%}
+                                    <p class="baby-p-second" ></p>
+                                    {%else%}
+                                    <p class="baby-p-second" >Satnica: {{babysitter.hourly_rate}} RSD</p>
+                                    {%endif%}
+                                    <div class="baby-rew">
+                                       {% if rate == None%}
+                                       <div class="baby-he"><i class="fas fa-star"></i><span> Neocenjen</span></div>
+                                       {%else%}
+                                       <div class="baby-he"><i class="fas fa-star"></i><span> {{rate}}</span></div>
+                                       {%endif%}
+                                       
+                                       <div class="baby-com"><i class="fas fa-comment"></i><span> {{number_of_comment}} Komentar</span></div>
+                                       <div class="baby-link">
+                                          <div class="baby-link-circle"><i class="fas fa-chevron-right"></i></div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </a>
+                 </div>
+                     {%endfor%}
+                     {% else%}
+                     {% endif%}
+               </div>
+               <div class="swiper-pagination"></div>
+             </div>
+         </div>
+         {%endif%}
 
          <!-- OVDE ĆE DA IDE CAROUSEL END -->
 
@@ -358,7 +432,7 @@
                            U svakom trenutku pronađite dadilju na teritoriji cele
                            Srbije koja odgovara baš Vašoj porodici!
                          </p>
-                         <p>U promo periodu besplatna i uvekdostupna baza bebisitera/dadilja</p>
+                         <p>U promo periodu besplatna i uvek dostupna baza bebisitera/dadilja</p>
                        </div>
                        <div class="foter-map">
                          <img src="{% static 'layout/img/mapa.png' %}" class="img-fluid" />
@@ -408,11 +482,13 @@
            </div>
          </div>
        </footer>
+       <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
        <script
          src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
          integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
          crossorigin="anonymous"
        ></script>
+       <script type="text/javascript" src="{% static 'layout/js/slider.js' %}"></script>
        <script type="text/javascript" src="{% static 'layout/js/custom.js' %}"></script>
      </body>
    </html>

@@ -10,6 +10,9 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.contrib import auth
 from layout.forms import NewsletterForm
+from django.core.mail import EmailMultiAlternatives
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
 
 
 def register_family(request):
@@ -88,12 +91,20 @@ def send_mail_after_registration(email, token):
     message = f'Hi paste the link to verify your account http://127.0.0.1:8000/verify/{token}'
     email_from = settings.EMAIL_HOST_USER
     recipient_list = [email]
-    print(message)
-    send_mail(subject, message, email_from, recipient_list)
+    html_content = render_to_string(
+        "email_verified.html", {'title': subject, 'content': message})
+    text_content = strip_tags(html_content)
+    email = EmailMultiAlternatives(
+        subject, text_content, email_from, recipient_list)
+    email.attach_alternative(html_content, 'text/html')
+    email.send()
+    #send_mail(subject, message, email_from, recipient_list)
     # Odraditi try block ako ne ode email
 
 
 def login(request):
+    if request.user.is_authenticated:
+        return redirect('account:logout')
     form = NewsletterForm()
     if request.method == 'POST':
         email = request.POST['email_login']

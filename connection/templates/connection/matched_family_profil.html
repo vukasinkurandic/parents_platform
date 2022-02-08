@@ -24,10 +24,13 @@
                      <ul class="vertical-ul">
                        <li><i class="fas fa-info"></i>
                          <div class="content">
-                               <h2>INFO</h2>
-                               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                               tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                               </p>
+                           <h2>Kontaktirani ste</h2>
+                           <p>Ova porodica vas je kontaktirala i vi ste prihvatili njihov zahtev za rezervaciju.
+                              Možete ih kontaktirati putem telefona ili mejla za dalji dogovor. 
+                               Sve porodice
+                               koje su vas kontaktirale možete naći na svom profilu u delu "Porodice koje žele kontakt sa vama".
+                              Hvala što koristite platformu Parent's Time
+                           </p>
                            </div>
                          </li>    
                        </ul>
@@ -36,23 +39,13 @@
                   {% if messages %}
                      {% for message in messages %}
                         <div class="main_message">
-                                 <div
-                                 class="alert alert-dismissible fade show {{ message.tags }}"
-                                 role="alert"
-                                 >
-                                 <span class="al-text">{{message}}</span>
-
-                                 <button
-                                    type="button"
-                                    class="btn-close"
-                                    data-bs-dismiss="alert"
-                                    aria-label="Close"
-                                 ></button>
-                                 </div>
-                           </div> 
+                           <div class="alert alert-dismissible fade show {{ message.tags }}" role="alert">
+                              <span class="al-text">{{message}}</span>
+                              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                           </div>
+                        </div> 
                      {% endfor %}
-                  {% endif %}
-                  
+                  {% endif %}  
                   <!-- MESSAGES-->
                    <div class="row">
                       <div class="col-xxl-4 col-xl-5 col-lg-5">
@@ -111,8 +104,8 @@
 
                                </li>                                      
                                <li>                                  
-                                  <span class="user-year">Uzrast dece <span class="only-on-mob-one" > koju treba čuvati</span></span>
-                                  <span class="user-year-num only-on-mob-two">{{profil.age_children}}</span>
+                                  <span class="user-year">Uzrast dece  koju treba čuvati</span>
+                                  <span class="user-year-num ">{{profil.age_children}}</span>
                                </li>
                                <li>
                                   <span class="user-year">Broj dece</span>
@@ -123,10 +116,14 @@
                  
                          <div class="user-short-info">
                             <ul>
-                               <li>
-                                  <span class="user-year">Ocena korisnika</span>
-                                  <span class="user-year-num">4.0</span>
-                               </li>
+                              <li>
+                                 <span class="user-year">Ocena korisnika</span>
+                                 {%if rate_average == None %}
+                                 <span class="user-year-num">Nema ocene</span>
+                                 {%else%}
+                                 <span class="user-year-num rat-num">{{rate_average}}</span>
+                                 {%endif%}
+                              </li>
                             </ul>
                          </div>
                          <div class="accordion mb-3" id="accordionExample">
@@ -139,8 +136,9 @@
                               <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                                  <div class="accordion-body">
                                     <form action="" method="post">
-                                       <textarea class="form-control"  id="user_report" name="user_report"></textarea>
-                                       <input type="submit" class="btn btn-log-reg" value="Pošalji">
+                                       {% csrf_token%}
+                                       <textarea class="form-control"  id="user_report" name="user_report" required></textarea>
+                                       <input type="submit" name="report_submit" class="btn btn-log-reg" value="Pošalji">
                                     </form>
                                  </div>
                               </div>
@@ -361,6 +359,7 @@
                               <div class="rate-wrapper">
                                  <h5>Ocenite korisnika</h5>
                                  <form action="" method="post">
+                                    {% csrf_token %}
                                     <div class="rate">
                                        <input type="radio" id="star5" name="rate" value="5" class="star">
                                        <label for="star5" title="5 zvezdica">5 stars</label>
@@ -373,7 +372,7 @@
                                        <input type="radio" id="star1" name="rate" value="1" class="star">
                                        <label for="star1" title="1 zvezdica">1 star</label>
                                     </div>
-                                    <input type="submit" class="btn btn-rating-star" value="Oceni">
+                                    <input type="submit" name="rate_submit" class="btn btn-rating-star" value="Oceni">
                                  </form>
                               </div>                      
                            </div>
@@ -381,26 +380,28 @@
                               <div class="comment-area-field">
                                  <h5>Ostavite komentar</h5>
                                  <form action="" method="post">
-                                    <textarea class="form-control" name="comment_area" id="comment_area"></textarea>
-                                    <input type="submit"  class="btn btn-log-reg" value="Pošalji">
+                                    {% csrf_token %}
+                                    <textarea class="form-control" name="comment_area" id="comment_area" required></textarea>
+                                    <input type="submit" name="commentary_submit"  class="btn btn-log-reg" value="Pošalji">
                                  </form>
                               </div>
-                              <div class="comment-preview">
-                                 <h6> <b> Petar Jelić</b></h6>
-                                 <p class="com-dat">25.12.2021</p>
-                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                    tempor incididunt ut
-                                 </p>
-                              </div>
-                              <div class="comment-preview">
-                                 <h6> <b> Mikan Mikanič</b></h6>
-                                 <p class="com-dat">25.12.2021</p>
-                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                 </p>
-                              </div>
-                           </div>
+                              {% if commentary_list != None %}
+                              {% for commentary, author in commentary_list %}
+                               <div class="comment-preview">
+                                  <h6> <b> {{author.first_name}} {{author.last_name}}</b></h6>
+                                  <p class="com-dat">{{commentary.date}}</p>
+                                  <p>{{commentary.commentary_body}}
+                                  </p>
+                               </div>
+                               {% endfor %}
+                               {%else%}
+                               <div class="comment-preview">
+                                  <h6> <b> Nema komentara</b></h6>
+                                  <p class="com-dat"></p>
+                                  <p></p>
+                               </div>
+                               {% endif%}
+                            </div>
                          </div>
                          <!-- end user main info -->
                       </div>
