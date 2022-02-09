@@ -55,3 +55,9 @@ def contact_message(request):
             form.save()
             messages.success(request, ('Hvala, Uspešno ste poslali poruku!'))
         return redirect('layout:contact')
+
+
+def instruction_page(request):
+    form = NewsletterForm()
+    context = {'form': form}
+    return render(request, 'layout/instruction_page.html', context)
