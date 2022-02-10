@@ -30,7 +30,7 @@ def register_family(request):
             user.save()
            # messages.success(request, ('Uspešno ste se registrovali!'))
             send_mail_after_registration(email, token)
-            return redirect('/token')
+            return redirect('account:token')
     else:
         form = UserAdminCreationForm()
     return render(request, 'account/register_family.html', {'form': form})
@@ -49,7 +49,7 @@ def register_babysitter(request):
                 'is_terms_confirmed')
             user.save()
             send_mail_after_registration(email, token)
-            return redirect('/token')
+            return redirect('account:token')
 
     else:
         form = UserAdminCreationForm()
@@ -77,10 +77,10 @@ def verify(request, auth_token):
             messages.success(request, _('Uspešno ste se registrovali!'))
             return render(request, 'account/success.html')
         else:
-            return redirect('/error')
+            return redirect('account:error')
     except Exception as e:
         print(e)
-        return redirect('/login')
+        return redirect('account:login')
 
 
 def error_page(request):
@@ -117,19 +117,19 @@ def login(request):
                 if user.user_type == 1:
                     # messages.success(
                     # request, 'You are logged in successfully like FAMILY!')
-                    return redirect('/family/create_profil')
+                    return redirect('family:create_profil')
                 elif user.user_type == 2:
                     # messages.success(
                     # request, 'You are logged in successfully like Babysitter!')
-                    return redirect('/babysitter/create_profil')
+                    return redirect('babysitter:create_profil')
             else:
                 token = str(uuid.uuid4())
                 user.auth_token = token
                 user.save()
                 send_mail_after_registration(email, token)
-                return redirect('/token')
+                return redirect('account:token')
         else:
             messages.error(request, _('Nepostojeći email ili netačna lozinka'))
-            return redirect('/login')
+            return redirect('account:login')
     else:
         return render(request, 'account/login.html', {'form': form})

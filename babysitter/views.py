@@ -20,7 +20,7 @@ def create_profil(request):
     except Babysitter.DoesNotExist:
         babysitter_obj = None
     if babysitter_obj:  # PROFIL EXIST
-        return redirect('/babysitter/profil')
+        return redirect('babysitter:profil')
     else:  # PROFIL NOT EXIST
         if request.method == "POST":
             form_babysitter = BabysitterForm(request.POST, request.FILES)
@@ -31,7 +31,7 @@ def create_profil(request):
                 babysitter.save()
                 messages.success(
                     request, "Čestitamo, upravo ste kreirali profil na Parent's time platformi.")
-                return redirect('/babysitter/edit_calendar')
+                return redirect('babysitter:edit_calendar')
             else:
                 messages.error(
                     request, 'Proverite format broja telefona ili slike (jpg, png ili jpeg)')
@@ -54,7 +54,7 @@ def edit_profil(request):
             form.save()
             messages.success(
                 request, 'Uspesno ste azurirali profil')
-            return redirect('/babysitter/profil')
+            return redirect('babysitter:profil')
         else:
             messages.error(
                 request, 'Proverite format broja telefona ili slike (jpg, png ili jpeg)')
@@ -138,7 +138,7 @@ def edit_calendar(request):
             form_babysitter_calendar.save()
             messages.success(
                 request, 'Uspesno ste azurirali vreme kada možete da čuvate decu')
-            return redirect('/babysitter/profil')
+            return redirect('babysitter:profil')
         else:
             messages.error(
                 request, 'Proverite format broja telefona ili slike (jpg, png ili jpeg)')

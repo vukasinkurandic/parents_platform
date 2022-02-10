@@ -23,7 +23,7 @@ def create_profil(request):
         family_obj = None
     if family_obj:  # PROFIL EXIST
 
-        return redirect('/family/profil')
+        return redirect('family:profil')
     else:  # PROFIL NOT EXIST
         if request.method == "POST":
             form_family = FamilyForm(request.POST, request.FILES)
@@ -34,7 +34,7 @@ def create_profil(request):
                 family.save()
                 messages.success(
                     request, _("Čestitamo, upravo ste kreirali profil na Parent's time platformi."))
-                return redirect('/family/edit_calendar')
+                return redirect('family:edit_calendar')
             else:
                 messages.error(
                     request, _('Proverite format broja telefona ili slike (jpg, png ili jpeg)'))
@@ -55,7 +55,7 @@ def edit_profil(request):
             form.save()
             messages.success(
                 request, _('Uspesno ste azurirali profil'))
-            return redirect('/family/profil')
+            return redirect('family:profil')
         else:
             messages.error(
                 request, _('Proverite format broja telefona ili slike (jpg, png ili jpeg)'))
@@ -132,7 +132,7 @@ def edit_calendar(request):
             form_family_calendar.save()
             messages.success(
                 request, _('Uspesno ste azurirali vreme kada Vam je potrebno čuvanje dece'))
-            return redirect('/family/profil')
+            return redirect('family:profil')
         else:
             messages.error(
                 request, _('Proverite format broja telefona ili slike (jpg, png ili jpeg)'))
