@@ -1,4 +1,5 @@
 {% extends "base_reset.html" %}
+{% load i18n %}
 {% load static %}
 {% block title %} Logout {% endblock %}
 
@@ -12,17 +13,17 @@
       <div class="container add-fluid-div">
         <div class="insade-profil-wrapper">
           <div class="user-title">
-            <h1 class="extrasmalldev">Uspešno ste se odjavili</h1>
+            <h1 class="extrasmalldev">{% trans "Uspešno ste se odjavili" %}</h1>
           </div>
             <div class="login-form">
               <div class="row  d-flex justify-content-center">
               <div class="col-lg-6 ">
-               <h2>Hvala što ste koristili naše usluge</h2>
-               <h3>Molimo Vas prijavite se, kako bi ste ponovo koristili naš servis.</h3>
+               <h2>{% trans "Hvala što ste koristili naše usluge" %}</h2>
+               <h3>{% trans "Molimo Vas prijavite se, kako bi ste ponovo koristili naš servis." %}</h3>
               </div>  
               </div>
                 <div class="text-center">
-                    <a class="btn btn-report-user" href="{% url 'account:login' %}" >Login</a>
+                    <a class="btn btn-report-user" href="{% url 'account:login' %}" >{% trans "Prijavi se" %}</a>
                  </div>
             </div>          
         </div>

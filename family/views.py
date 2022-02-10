@@ -8,6 +8,7 @@ from babysitter . models import Babysitter
 from connection . models import Connection
 from reviews .models import Commentary, Rate
 from django.db.models import Avg
+from django.utils.translation import gettext_lazy as _
 
 
 @login_required
@@ -32,11 +33,11 @@ def create_profil(request):
                 family.user_id = user.id
                 family.save()
                 messages.success(
-                    request, "Čestitamo, upravo ste kreirali profil na Parent's time platformi.")
+                    request, _("Čestitamo, upravo ste kreirali profil na Parent's time platformi."))
                 return redirect('/family/edit_calendar')
             else:
                 messages.error(
-                    request, 'Proverite format broja telefona ili slike (jpg, png ili jpeg)')
+                    request, _('Proverite format broja telefona ili slike (jpg, png ili jpeg)'))
         newsletter_form = NewsletterForm()
         return render(request, 'family/create_profil_family.html', {'form_family': form_family, 'form': newsletter_form})
 
@@ -53,11 +54,11 @@ def edit_profil(request):
         if form.is_valid():
             form.save()
             messages.success(
-                request, 'Uspesno ste azurirali profil')
+                request, _('Uspesno ste azurirali profil'))
             return redirect('/family/profil')
         else:
             messages.error(
-                request, 'Proverite format broja telefona ili slike (jpg, png ili jpeg)')
+                request, _('Proverite format broja telefona ili slike (jpg, png ili jpeg)'))
     newsletter_form = NewsletterForm()
     context = {'form_family': form_family, 'form': newsletter_form}
     return render(request, 'family/edit_profil_family.html', context)
@@ -130,11 +131,11 @@ def edit_calendar(request):
             form_family_calendar.family_id = family_id
             form_family_calendar.save()
             messages.success(
-                request, 'Uspesno ste azurirali vreme kada Vam je potrebno čuvanje dece')
+                request, _('Uspesno ste azurirali vreme kada Vam je potrebno čuvanje dece'))
             return redirect('/family/profil')
         else:
             messages.error(
-                request, 'Proverite format broja telefona ili slike (jpg, png ili jpeg)')
+                request, _('Proverite format broja telefona ili slike (jpg, png ili jpeg)'))
 
     context = {'family_calendar_form': family_calendar_form}
     return render(request, 'family/edit_calendar.html', context)
@@ -144,5 +145,5 @@ def delete_profile(request):
     if request.method == "POST":
         user = request.user
         user.delete()
-        messages.success(request, ('Uspešno ste obrisali profil!!!'))
+        messages.success(request, _('Uspešno ste obrisali profil!!!'))
         return redirect('layout:home')

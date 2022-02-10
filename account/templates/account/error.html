@@ -1,6 +1,7 @@
 {% extends "base_reset.html" %}
+{% load i18n %}
 {% load static %}
-{% block title %} Verify Error {% endblock %}
+{% block title %} {% trans "Greška pri verifikaciji" %} {% endblock %}
 
 {% block content %}
     <div class="slid insade-slid">
@@ -12,17 +13,17 @@
       <div class="container add-fluid-div">
         <div class="insade-profil-wrapper">
           <div class="user-title">
-            <h1 class="extrasmalldev">Link za verifikaciju je nevažeći</h1>
+            <h1 class="extrasmalldev">{% trans "Link za verifikaciju je nevažeći" %}</h1>
           </div>
             <div class="login-form">
               <div class="row  d-flex justify-content-center">
               <div class="col-lg-6 ">
-               <h2>Vas link za verifikaciju je istekao</h2>
-               <h3>Kada pokušate da se ulogujete automatski cemo vam poslati novi Email sa važećim linkom.</h3>
+               <h2>{% trans "Vas link za verifikaciju je istekao" %}</h2>
+               <h3>{% trans "Kada pokušate da se prijavite automatski cemo vam poslati novi Email sa važećim linkom." %}</h3>
               </div>  
               </div>
               <div class="text-center">
-                    <a class="btn btn-primary" href="{% url 'account:login' %}" >Login</a>
+                    <a class="btn btn-primary" href="{% url 'account:login' %}" >{% trans "Prijavi se" %}</a>
                  </div>
             </div>          
         </div>

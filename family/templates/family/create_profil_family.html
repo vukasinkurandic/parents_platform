@@ -1,7 +1,8 @@
 {% extends "layout/base_contact.html" %}
+{% load i18n %}
 {% load static %}
 {% load crispy_forms_tags %}
-{% block title%} Create Family Profil {% endblock %}
+{% block title%} {% trans "Kreiraj profil" %} {% endblock %}
 
 {% block content%}
     <div class="slid insade-slid">
@@ -13,7 +14,7 @@
     <div class="container add-fluid-div">
        <div class="insade-profil-wrapper insade-profil-wrapper-bebisit">
           <div class="user-title">
-             <h1 class="extrasmalldev" >Kreirajte Profil Vaše Porodice</h1>
+             <h1 class="extrasmalldev">{% trans "Kreirajte Profil Vaše Porodice" %}</h1>
           </div>
            <!-- MESSAGES-->
                   {% if messages %}
@@ -34,11 +35,16 @@
                   <br>
                   <!-- MESSAGES-->
           <div class="profile_edit only-on-create_profil-page">
-            <p class="create-profil">Ovo je strana za kreiranje vašeg profila.
+            <p class="create-profil">
+               {% blocktrans %}  
+               Ovo je strana za kreiranje vašeg profila.
                 U 2 laka koraka se kreira profil.                 
                  Prvi korak popunjavate osnovne informacije o sebi. Dugi korak ubacite vašu sliku. 
                  Na kraju samo kliknite na dugme kreiraj profil i to je to.
-                   Srećno u pronalaženju odgovarajuće bebisiterke/dadilje.</p>
+                   Srećno u pronalaženju odgovarajuće bebisiterke/dadilje.
+               {% endblocktrans %} 
+               
+                  </p>
             <div class="edit-circle crea-parents">1</div>
              <form method="POST" action="" enctype="multipart/form-data" >
                 {% csrf_token %}
@@ -51,20 +57,20 @@
                          <div class="row">
                             <div class="col-lg-6">
                                <div class="mb-3">
-                                  <label for="user_name" class="form-label">Ime</label>
+                                  <label for="user_name" class="form-label">{% trans "Ime" %}</label>
                                    {{ form_family.first_name}}
                                </div>
                             </div>
                             <div class="col-lg-6">
                                <div class="mb-3">
-                                  <label for="user_surname" class="form-label">Prezime</label>
+                                  <label for="user_surname" class="form-label">{% trans "Prezime" %}</label>
                                    {{ form_family.last_name}}
                                </div>
                             </div>
                             <div class="col-lg-6">
                               <div class="mb-3">
-                                 <label for="user_phone" class="form-label">Telefon</label>
-                                 <span class="small_info" >u formi +38163123456</span>
+                                 <label for="user_phone" class="form-label">{% trans "Telefon" %}</label>
+                                 <span class="small_info" >{% trans "u formi +38163123456" %}</span>
                                    {{ form_family.mobile_number}}
                               </div>
                            </div>                            
@@ -77,32 +83,32 @@
                             
                             <div class="col-lg-6">
                               <div class="mb-3">
-                                 <label for="user_child_number" class="form-label">Broj dece koju treba čuvati</label>
+                                 <label for="user_child_number" class="form-label">{% trans "Broj dece koju treba čuvati" %}</label>
                                    {{ form_family.number_children}}
                               </div>
                            </div>
                              <div class="col-lg-6">
                                <div class="mb-3">
-                                  <label for="childcare_period" class="form-label">Vremenski period čuvanja</label>
+                                  <label for="childcare_period" class="form-label">{% trans "Vremenski period čuvanja" %}</label>
                                     {{ form_family.childcare_period}}
                                </div>
                             </div>                                       
                             <div class="col-lg-6">
                                <div class="mb-3">
-                                  <label for="user_year" class="form-label">Godine roditelja</label>
+                                  <label for="user_year" class="form-label">{% trans "Godine roditelja" %}</label>
                                   {{ form_family.age}}
                                </div>
                             </div>
                             <div class="col-lg-6">
                               <div class="mb-3">
-                                 <label for="user_social_network" class="form-label">Društvene mreže</label>
-                                 <span class="small_info" >u formi https://www.instagram.com/...</span>
+                                 <label for="user_social_network" class="form-label">{% trans "Društvene mreže" %}</label>
+                                 <span class="small_info" >{% trans "u formi https://www.instagram.com/..." %}</span>
                                  {{ form_family.social_network}}
                               </div>
                            </div>
                             <div class="col-lg-6">
                               <div class="mb-3">
-                                 <label for="user_city" class="form-label">Grad</label>                                       
+                                 <label for="user_city" class="form-label">{% trans "Grad" %}</label>                                       
                                   {{ form_family.sity}}
                               </div>
                            </div>
@@ -110,7 +116,7 @@
 
                             <div class="col-lg-6">
                               <div class="mb-3">
-                                 <label for="user_municipality" class="form-label">Da li je državljanin RS ili inostrani državljanin</label>
+                                 <label for="user_municipality" class="form-label">{% trans "Da li je državljanin RS ili inostrani državljanin" %}</label>
                                  <div class="form-check-brisatiovuklasuprovera">
                                     {{ form_family.citizenship}}
                                     <label class="form-check-label" for="flexRadioDefault1">
@@ -118,9 +124,6 @@
                                   </div>
                               </div>
                              </div>                          
-
-
-                        
                          <div class="col-lg-6">
                             <label for="about_me" class="form-label">O sebi</label>
                             {{ form_family.about_me}}
@@ -131,7 +134,7 @@
                          </div>
                          <div class="col-lg-6">
                            <div class="mb-3">
-                              <label for="user_child_year" class="form-label">Uzrast dece</label>
+                              <label for="user_child_year" class="form-label">{% trans "Uzrast dece" %}</label>
                                 {{ form_family.age_children}}
                            </div>
                         </div>                 
@@ -140,8 +143,8 @@
                          <div class="col-lg-12">
                            
                          <div class="mb-3">
-                            <label for="user_image" class="form-label">Slika</label>
-                            <span class="small_info" >mora biti manja od 2MB</span>
+                            <label for="user_image" class="form-label">{% trans "Slika" %}</label>
+                            <span class="small_info" >{% trans "mora biti manja od 2MB" %}</span>
                             {{ form_family.picture}}
                          </div>
                         </div>

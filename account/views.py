@@ -13,6 +13,7 @@ from layout.forms import NewsletterForm
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
+from django.utils.translation import gettext_lazy as _
 
 
 def register_family(request):
@@ -69,11 +70,11 @@ def verify(request, auth_token):
 
         if profile_obj:
             if profile_obj.is_email_verified:
-                messages.success(request, 'Vaš email je već verifikovan.')
+                messages.success(request, _('Vaš email je već verifikovan.'))
                 return render(request, 'account/already_verified.html')
             profile_obj.is_email_verified = True
             profile_obj.save()
-            messages.success(request, ('Uspešno ste se registrovali!'))
+            messages.success(request, _('Uspešno ste se registrovali!'))
             return render(request, 'account/success.html')
         else:
             return redirect('/error')
@@ -87,8 +88,8 @@ def error_page(request):
 
 
 def send_mail_after_registration(email, token):
-    subject = 'Your accounts need to be verified'
-    message = f'Hi paste the link to verify your account http://127.0.0.1:8000/verify/{token}'
+    subject = _('Vaš nalog mora biti verifikovan')
+    message = f'Link => https://parentstime.rs/verify/{token}'
     email_from = settings.EMAIL_HOST_USER
     recipient_list = [email]
     html_content = render_to_string(
@@ -128,7 +129,7 @@ def login(request):
                 send_mail_after_registration(email, token)
                 return redirect('/token')
         else:
-            messages.error(request, 'Nepostojeći email ili netačna lozinka')
+            messages.error(request, _('Nepostojeći email ili netačna lozinka'))
             return redirect('/login')
     else:
         return render(request, 'account/login.html', {'form': form})

@@ -1,3 +1,4 @@
+{% load i18n %}
 {% load static%}
 <!DOCTYPE html>
 <html lang="en">
@@ -54,8 +55,11 @@
                      </div>
                      <div class="col-md-8">
                         <div class="top-lang">
-                           <a href=""><img src="{% static 'layout/img/eng.png' %}" /></a>
-                           <a href=""><img src="{% static 'layout/img/srb.jpg' %}" /></a>
+                           {% get_current_language as LANGUAGE_CODE %}
+                           {% get_available_languages as LANGUAGES %}
+                           
+                           <a href="/en/"><img src="{% static 'layout/img/eng.png' %}" /></a>
+                           <a href="/sr/"><img src="{% static 'layout/img/srb.jpg' %}" /></a>
                         </div>
                      </div>
                   </div>
@@ -71,11 +75,11 @@
                      <div class="row">
                         <div class="col-md-8">
                            <ul class="mob-mar">
-                              <li><a href="{% url 'layout:home' %}">naslovna</a></li>
+                              <li><a href="{% url 'layout:home' %}">{% trans "naslovna" %}</a></li>
                               <li><a href="">blog</a></li>
-                              <li><a href="{% url 'layout:contact' %}">kontakt</a></li>
+                              <li><a href="{% url 'layout:contact' %}">{% trans "kontakt" %}</a></li>
                               {% if user.is_authenticated and user.user_type == 1 %}
-                              <li><a href="{% url 'connection:all_babysitters' %}">baza bebisitera/dadilja</a></li>
+                              <li><a href="{% url 'connection:all_babysitters' %}">{% trans "baza bebisitera/dadilja" %}</a></li>
                               {%endif%}
                            </ul>
                         </div>
@@ -83,7 +87,7 @@
                            <!--USER IS AUTHENTICATED-->
                            {% if user.is_authenticated %}
                            <div class="logout">
-                              <a class="btn btn-logout" href="{% url 'account:logout' %}">Odjavi se</a>
+                              <a class="btn btn-logout" href="{% url 'account:logout' %}">{% trans "Odjavi se" %}</a>
                             </div>
                            <div class="login-user">
                               {%if user.user_type == 1%}
@@ -107,11 +111,11 @@
                              <!--USER IS NOT AUTHENTICATED-->
                            {%else%}
                            <div class="no-login-select">
-                              <button class="dropbtn btn"><i class="far fa-user"></i> Registruj se/prijavi se</button>
+                              <button class="dropbtn btn"><i class="far fa-user"></i>{% trans "Registruj se/prijavi se" %} </button>
                               <div class="dropdown-content">
-                                 <a href="{% url 'account:register_babysitter' %}">Kao Bebisiter/Dadilja</a>
-                                 <a href="{% url 'account:register_family' %}">Kao Porodica</a>
-                                 <a href="{% url 'account:login' %}">Prijavi se</a>       
+                                 <a href="{% url 'account:register_babysitter' %}">{% trans "Kao Bebisiter/Dadilja" %}</a>
+                                 <a href="{% url 'account:register_family' %}">{% trans "Kao Porodica" %}</a>
+                                 <a href="{% url 'account:login' %}">{% trans "Prijavi se" %}</a>       
                               </div>
                               </div> 
                            {%endif%}
@@ -171,8 +175,7 @@
                   {% endif %}
                   <br>
                   <!-- MESSAGES-->
-                  <p>"Porodicu ne čine samo oni sa kojima smo u krvnom srodstvu. Čine je i oni koji nas drže za ruku kada nam je to najpotrebnije"</p>
-                  
+                  <p>{% blocktrans %}Porodicu ne čine samo oni sa kojima smo u krvnom srodstvu. Čine je i oni koji nas drže za ruku kada nam je to najpotrebnije {% endblocktrans %}</p>             
                </div>
             </div>
          </div>
@@ -190,22 +193,20 @@
                <div class="col-lg-4">
                   <div class="box-large-text">
                      <p>
-                        <b
-                           >Pronalaženje bebisitera
-                        <span> nikad nije bilo jednostavnije!</span></b
-                           >
+                        <b>{% trans "Pronalaženje bebisitera" %}
+                        <span> {% trans "nikad nije bilo jednostavnije!" %}</span></b>
                      </p>
                   </div>
                </div>
                <div class="col-lg-8">
                   <div class="box-small-text">
-                     <p>
-                        Parent's time je platforma koja je tu da izadje u susret svakom
+                     <p>{% blocktrans %} "Parent's time je platforma koja je tu da izadje u susret svakom
                         roditelju kome je potrebna pomoć prilikom traženja idealne osobe
                         koja bi čuvala njihovo dete kada oni to nisu u mogućnosti. U
                         samo par koraka i potpuno <b> besplatno</b> u promo periodu moguće je
                         pronaći bebisetera/dadilju koji odgovaraju baš Vašim
-                        kriterijumima.
+                        kriterijumima." {% endblocktrans %}
+
                      </p>
                   </div>
                </div>
@@ -217,38 +218,38 @@
             <img src="{% static 'layout/img/shape.png' %}" alt="">
          </div>
          <div class="container text-center">
-            <h2>Kako platforma funkcioniše?</h2>
+            <h2>{% trans "Kako platforma funkcioniše?" %}</h2>
          </div>
          <div class="container ">
          <div class="row ">
             <div class="col-lg-5">
                <div class="mission-img">
-                  <div class="mission-img-text"><span> SVE U TRI KORAKA</span></div>
+                  <div class="mission-img-text"><span> {% trans "SVE U TRI KORAKA" %}</span></div>
                   <img src="{% static 'layout/img/pitanja2.jfif' %}" class="img-fluid">
                </div>
             </div>
             <div class="col-lg-7">
                <div class="mission-box-wrapper">
                <div class="mission-box">
-                  <h3>Pretražite bazu dostupnih bebisitera/dadilja</h3>
+                  <h3>{% trans "Pretražite bazu dostupnih bebisitera/dadilja" %}</h3>
                   <div class="mission-icon">
                      <i class="fas fa-search"></i>
                   </div>
-                  <p>Pronađite bebisitera/dadilju prema vašim kriterijumima</p>
+                  <p>{% trans "Pronađite bebisitera/dadilju prema vašim kriterijumima" %}</p>
                </div>
                <div class="mission-box">
                   <h3>Povežite se</h3>
                   <div class="mission-icon">
                      <i class="fas fa-link"></i>
                   </div>
-                  <p>pozovite kandidata telefonom ili putem mejla i izaberite bebisitera/dadilju koja odgovara vašoj porodici</p>
+                  <p>{% trans "pozovite kandidata telefonom ili putem mejla i izaberite bebisitera/dadilju koja odgovara vašoj porodici" %}</p>
                </div>
                <div class="mission-box">
-                  <h3>Zakažite upoznavanje</h3>
+                  <h3>{% trans "Zakažite upoznavanje" %}</h3>
                   <div class="mission-icon">
                      <i class="fas fa-calendar-alt"></i>
                   </div>
-                  <p>Odaberite datum i vreme kako biste se sa kandidatom upoznali uživo</p>
+                  <p>{% trans "Odaberite datum i vreme kako biste se sa kandidatom upoznali uživo" %}</p>
                </div>
             </div>
             </div>
@@ -263,12 +264,12 @@
                </div>
                <a class="zigzag-link"  href="{% url 'account:register_family' %}">
                   <div class="first-large-btn">
-                     REGISTRUJ SE/PRIJAVI SE <br> KAO  RODITELJ
+                     {% trans "REGISTRUJ SE/PRIJAVI SE " %}<br>{% trans "KAO  RODITELJ" %}
                   </div>
                </a>
                <a class="zigzag-link" href="{% url 'account:register_babysitter' %}">
                   <div class="second-large-btn">
-                     REGISTRUJ SE/PRIJAVI SE <br>  KAO  BEBISITER/DADILJA
+                     {% trans "REGISTRUJ SE/PRIJAVI SE " %}<br>{% trans "KAO  BEBISITER/DADILJA" %}  
                   </div>
                </a>
             </div>
@@ -280,7 +281,7 @@
          {% if user.is_authenticated and user.user_type == 1 %}
          <div class="container text-center">
             <div class="baby-title">
-               <h2>Bebisiterke/Dadije</h2>
+               <h2>{% trans "Bebisiterke/Dadije" %}</h2>
             </div>
          </div>
          <div class="container">
@@ -291,7 +292,7 @@
                  <div class="swiper-slide">
                     <a href="{% url 'connection:babysitter_profil' babysitter.slug %}">
                               <div class="babsit-box">
-                                 <div class="babsit-box-ocupation"><span>Rezerviši</span></div>
+                                 <div class="babsit-box-ocupation"><span>{% trans "Rezerviši" %}</span></div>
                                  <div class="babsit-img"><img src="{{babysitter.picture.url}}" class="img-fluid" ></div>
                                  <div class="babsit-info">
                                     <h4>{{babysitter.first_name}} {{babysitter.last_name}}</h4>
@@ -303,16 +304,16 @@
                                     {% if babysitter.hourly_rate == None%}
                                     <p class="baby-p-second" ></p>
                                     {%else%}
-                                    <p class="baby-p-second" >Satnica: {{babysitter.hourly_rate}} RSD</p>
+                                    <p class="baby-p-second" >{% trans "Satnica: " %}{{babysitter.hourly_rate}} RSD</p>
                                     {%endif%}
                                     <div class="baby-rew">
                                        {% if rate == None%}
-                                       <div class="baby-he"><i class="fas fa-star"></i><span> Neocenjen</span></div>
+                                       <div class="baby-he"><i class="fas fa-star"></i><span> {% trans "Neocenjen" %}</span></div>
                                        {%else%}
                                        <div class="baby-he"><i class="fas fa-star"></i><span>{{rate}}</span></div>
                                        {%endif%}
                                        
-                                       <div class="baby-com"><i class="fas fa-comment"></i><span> {{number_of_comment}} Komentar</span></div>
+                                       <div class="baby-com"><i class="fas fa-comment"></i><span> {{number_of_comment}}{% trans "Komentar" %} </span></div>
                                        <div class="baby-link">
                                           <div class="baby-link-circle"><i class="fas fa-chevron-right"></i></div>
                                        </div>
@@ -333,7 +334,7 @@
          {%else%}
          <div class="container text-center">
             <div class="baby-title">
-               <h2>Bebisiterke/Dadije</h2>
+               <h2>{% trans "Bebisiterke/Dadije" %}</h2>
             </div>
          </div>
                   <div class="container">
@@ -344,7 +345,7 @@
                  <div class="swiper-slide">
                     <a href="{% url 'account:login' %}">
                               <div class="babsit-box">
-                                 <div class="babsit-box-ocupation"><span>Rezerviši</span></div>
+                                 <div class="babsit-box-ocupation"><span>{% trans "Rezerviši" %}</span></div>
                                  <div class="babsit-img"><img src="{{babysitter.picture.url}}" class="img-fluid" ></div>
                                  <div class="babsit-info">
                                     <h4>{{babysitter.first_name}} {{babysitter.last_name}}</h4>
@@ -356,16 +357,16 @@
                                     {% if babysitter.hourly_rate == None%}
                                     <p class="baby-p-second" ></p>
                                     {%else%}
-                                    <p class="baby-p-second" >Satnica: {{babysitter.hourly_rate}} RSD</p>
+                                    <p class="baby-p-second" >{% trans "Satnica:" %} {{babysitter.hourly_rate}} RSD</p>
                                     {%endif%}
                                     <div class="baby-rew">
                                        {% if rate == None%}
-                                       <div class="baby-he"><i class="fas fa-star"></i><span> Neocenjen</span></div>
+                                       <div class="baby-he"><i class="fas fa-star"></i><span>{% trans "Neocenjen" %} </span></div>
                                        {%else%}
                                        <div class="baby-he"><i class="fas fa-star"></i><span> {{rate}}</span></div>
                                        {%endif%}
                                        
-                                       <div class="baby-com"><i class="fas fa-comment"></i><span> {{number_of_comment}} Komentar</span></div>
+                                       <div class="baby-com"><i class="fas fa-comment"></i><span> {{number_of_comment}}{% trans "Komentar" %} </span></div>
                                        <div class="baby-link">
                                           <div class="baby-link-circle"><i class="fas fa-chevron-right"></i></div>
                                        </div>
@@ -395,30 +396,30 @@
                  <div class="col-lg-6 col-xl-3 col-md-6">
                    <div class="footer-wrapper">
                      <img src="{% static 'layout/img/logo4.png' %}" class="img-fluid footer-logo-img" />
-                     <p class="footer-logo-info">
-                       Parent's time je platforma koja je tu da izadje u susret
+                     <p class="footer-logo-info">{% blocktrans %} "Parent's time je platforma koja je tu da izadje u susret
                        svakom roditelju kome je potrebna pomoć prilikom traženja
                        idealne osobe koja bi čuvala njihovo dete kada oni to nisu u
-                       mogućnosti.
+                       mogućnosti." {% endblocktrans %}
+                       
                      </p>
                    </div>
                  </div>
                  <div class="col-lg-6 col-xl-3 col-md-6">
                    <div class="footer-wrapper">
                      <div class="footer-main-link">
-                       <h4>Brzi linkovi</h4>
+                       <h4>{% trans "Brzi linkovi" %}</h4>
                        <ul>
                          <li>
-                           <a href="">Ko smo mi</a>
+                           <a href="">{% trans "Ko smo mi" %}</a>
                          </li>
                         {% if user.is_authenticated and user.user_type == 1 %}
-                        <li><a href="{% url 'connection:all_babysitters' %}">Baza bebisitera/dadilja</a></li>
+                        <li><a href="{% url 'connection:all_babysitters' %}">{% trans "Baza bebisitera/dadilja" %}</a></li>
                         {%endif%}
                          <li>
-                           <a href="">Novosti iz dečijeg sveta</a>
+                           <a href="">{% trans "Novosti iz dečijeg sveta" %}</a>
                          </li>
                          <li>
-                           <a href="{% url 'layout:contact' %}">Kontakt</a>
+                           <a href="{% url 'layout:contact' %}">{% trans "Kontakt" %}</a>
                          </li>
                        </ul>
                      </div>
@@ -428,11 +429,11 @@
                    <div class="footer-wrapper">
                      <div class="fot-map-info-main">
                        <div class="fot-map-text">
-                         <p>
-                           U svakom trenutku pronađite dadilju na teritoriji cele
-                           Srbije koja odgovara baš Vašoj porodici!
+                         <p>{% blocktrans %} "U svakom trenutku pronađite dadilju na teritoriji cele
+                           Srbije koja odgovara baš Vašoj porodici!" {% endblocktrans %}
+                           
                          </p>
-                         <p>U promo periodu besplatna i uvek dostupna baza bebisitera/dadilja</p>
+                         <p>{% trans "U promo periodu besplatna i uvek dostupna baza bebisitera/dadilja" %}</p>
                        </div>
                        <div class="foter-map">
                          <img src="{% static 'layout/img/mapa.png' %}" class="img-fluid" />
@@ -442,7 +443,7 @@
                  </div>
                  <div class="col-lg-6 col-xl-4 col-md-12">
                    <div class="footer-wrapper sub-mar" id="proba">
-                     <h4>Pretplatite se na naš blog</h4>              
+                     <h4>{% trans "Pretplatite se na naš blog" %}</h4>              
                      <form action="{% url 'layout:newsletter' %}" method="post">
                         {% csrf_token%}
                        <div class="form-newsletter">
@@ -461,10 +462,10 @@
              <div class="footer-bottom">
                <ul class="agree-ul-f">
                  <li>
-                   <a href="">Uslovi korišćenja i politika privatnosti</a>
+                   <a href="">{% trans "Uslovi korišćenja i politika privatnosti" %}</a>
                  </li>
                  <li>
-                   <a href="">Mere poverenja i bezbednosti</a>
+                   <a href="">{% trans "Mere poverenja i bezbednosti" %}</a>
                  </li>
                </ul>
                <ul class="soc-bot-link">

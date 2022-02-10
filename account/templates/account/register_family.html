@@ -1,6 +1,7 @@
 {% extends "layout/base_contact.html" %}
+{% load i18n %}
 {% load static %}
-{% block title %} Register Family {% endblock %}
+{% block title %} {% trans "Registracija Porodice" %} {% endblock %}
 
 {% block content %}
 
@@ -13,14 +14,15 @@
   <div class="container add-fluid-div">
     <div class="insade-profil-wrapper">
       <div class="user-title">
-        <h1 class="extrasmalldev">Registruj se kao roditelj</h1>
+        <h1 class="extrasmalldev">{% trans "Registruj se kao roditelj" %}</h1>
       </div>
 
       <div class="row">
         <div class="col-lg-6">
           <div class="register-info">
             <p>
-              Dragi roditelji, <br />
+              {% blocktrans %}
+               Dragi roditelji, <br />
               Koliko puta se desilo da ostanete duže na poslu i ne možete da
               stignete da pokupite decu iz vrtića na vreme? Ili želite da izađete
               sa partnerom na romantičnu večeru za dvoje? Da se vidite sa
@@ -28,24 +30,28 @@
               kućne poslove? Ili jednostavno želite da izdvojite vreme za sebe?
               A bake i deke nisu mogle da uskoče i pripomognu u čuvanju unuka?
               Mnogo puta, pretpostavljamo.
-            </p>
-
-            <p>
-              <b
-                >Biti roditelj nije lako u današnje vreme kada se brzo živi i
-                dan prekratko traje zasve obaveze koje treba obaviti.</b
-              >
+              {% endblocktrans %}      
             </p>
             <p>
-               Zato smo mi tu za vas, da vam
+              <b>{% blocktrans %} 
+                  Biti roditelj nije lako u današnje vreme kada se brzo živi i
+                  dan prekratko traje zasve obaveze koje treba obaviti.
+                {% endblocktrans %}      
+                
+              </b>
+            </p>
+            <p>{% blocktrans %}
+              Zato smo mi tu za vas, da vam
               pomognemo da na najbrži način pronađete idealnu osobu koja će
               voditi računa o vašim mališanima, u trenucima kada vi to niste u
-              mogućnosti.
+              mogućnosti.  
+              {% endblocktrans %}       
             </p>
-            <p>
+            <p>{% blocktrans %}
                Registrujte se
               <b> besplatno u promo periodu</b> na našem sajtu i pronađite
               osobu koja će čuvati vaše dete/decu u samo par koraka.
+              {% endblocktrans %} 
             </p>
           </div>
         </div>
@@ -53,16 +59,17 @@
           <div class="user-main-info">
             <div class="register-form-login">
               <div class="login-div">
-                <p>
+                <p>{% blocktrans %}
                   Ukoliko ste već registrovani kod nas kliknite na dugme
-                  "Prijavi se". <br />
+                  "Prijavi se".
+                  {% endblocktrans %}  <br />
                 </p>
-                <a class="btn btn-user-login-inmodal" href="{% url 'account:login' %}">Prijavi se</a>
+                <a class="btn btn-user-login-inmodal" href="{% url 'account:login' %}">{% trans "Prijavi se" %}</a>
               </div>
             </div>
 
             <div class="register-form">
-              <h4>Registruj se</h4>
+              <h4>{% trans "Registruj se" %}</h4>
               <!--FORM***************-->
               {% if form.errors %}
                 {% for field in form %}
@@ -88,16 +95,18 @@
                   </div>
                   <div class="col-lg-6">
                     <div class="mb-3">
-                      <label for="password" class="form-label">Lozinka</label>
+                      <label for="password" class="form-label">
+                        {% trans "Lozinka" %}
+                      </label>
                       <!--INPUT PASSWORS1-->
                      {{form.password1}}
                     </div>
                   </div>
                   <div class="col-lg-6">
                     <div class="mb-3">
-                      <label for="repeat-password" class="form-label"
-                        >Ponovi lozinku</label
-                      >
+                      <label for="repeat-password" class="form-label">
+                        {% trans "Ponovi lozinku" %}
+                        </label>
                       <!--INPUT PASSWORS2-->
                       {{form.password2}}
                     </div>
@@ -107,19 +116,20 @@
                   <!--INPUT CHECKBOX-->
                   {{form.is_terms_confirmed}}
                   <span
-                    ><label class="form-check-label" for="exampleCheck1"
-                      >Slažem se sa uslovima korišćenja</label
+                    ><label class="form-check-label" for="exampleCheck1">
+                      {% trans "Slažem se sa uslovima korišćenja" %}
+                      </label
                     >
                   </span>
                   <span
                     ><div class="form-check-agree">
-                      <a href="">Uslovi korišćenja</a>
+                      <a href="">{% trans "Uslovi korišćenja" %}</a>
                     </div></span
                   >
                 </div>
 
                 <button type="submit" class="btn btn-log-reg">
-                  Registracija
+                  {% trans "Registracija" %}
                 </button>
                 
               </form>

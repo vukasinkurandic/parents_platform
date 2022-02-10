@@ -5,6 +5,7 @@ from . forms import NewsletterForm, ContactMessageForm
 from reviews .models import Commentary, Rate, Report
 from babysitter.models import Babysitter
 from django.db.models import Avg
+from django.utils.translation import gettext_lazy as _
 
 
 def home(request):
@@ -41,10 +42,10 @@ def newsletter(request):
         form = NewsletterForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, ('Hvala, Uspešno ste poslali email!'))
+            messages.success(request, _('Hvala, Uspešno ste poslali email!'))
         else:
             messages.error(
-                request, ('Vec ste se prijavili ili je email neispravan!'))
+                request, _('Vec ste se prijavili ili je email neispravan!'))
         return redirect('layout:home')
 
 
@@ -53,7 +54,7 @@ def contact_message(request):
         form = ContactMessageForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, ('Hvala, Uspešno ste poslali poruku!'))
+            messages.success(request, _('Hvala, Uspešno ste poslali poruku!'))
         return redirect('layout:contact')
 
 

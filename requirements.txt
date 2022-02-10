@@ -5,6 +5,7 @@ uuid==1.30
 Pillow==8.4.0 
 django-crispy-forms==1.13.0
 django-multiselectfield==0.1.12
+django-rosetta==0.9.8
 
 #django-money==2.1 
 #asgiref==3.4.1
