@@ -126,6 +126,24 @@
                                   <span class="user-year">{% trans "Broj dece" %}</span>
                                   <span class="user-year-num">{{profil.number_children}}</span>
                                </li>
+                               <li>
+                                  <span class="user-year">{% trans "Period čuvanja" %}</span>
+                                  <span class="user-year-num">
+                                     
+                                    {% if profil.childcare_period == 'Manje od mesec dana' %}
+                                       {% trans "Manje od mesec dana" %}
+                                    {% elif profil.childcare_period == 'Mesec dana' %}
+                                       {% trans "Mesec dana" %}
+                                    {% elif profil.childcare_period == 'Par meseci' %}
+                                       {% trans "Par meseci" %}
+                                    {% elif profil.childcare_period == 'Godinu dana' %}
+                                       {% trans "Godinu dana" %}
+                                    {% elif profil.childcare_period == 'Više od godinu dana' %}
+                                       {% trans "Više od godinu dana" %}
+                                    {%endif%}
+
+                                  </span>
+                               </li>
                             </ul>
                          </div>
                  

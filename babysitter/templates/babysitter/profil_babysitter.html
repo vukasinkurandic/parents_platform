@@ -142,7 +142,14 @@
                          </span>
                          {%else%}
                          <span class="user-year-num">
-                            {{profil.work_type}}
+                            
+                            {% if profil.work_type == 'Bebisiterka' %}
+                              {% trans "Bebisiterka" %}
+                            {% elif profil.work_type == 'Dadilja' %}
+                              {% trans "Dadilja" %}
+                            {% elif profil.work_type == 'Bebisiterka i Dadilja' %}
+                              {% trans "Bebisiterka i Dadilja" %}
+                              {%endif%}
                            </span>
                            {%endif%}
                       </li>
@@ -163,7 +170,13 @@
                            </span>
                          {%else%}
                          <span class="user-year-num only-on-mob-two">
-                            {{profil.years_care_experience}}
+                            {% if profil.years_care_experience == 'Nemam iskustva' %}
+                              {% trans "Nemam iskustva" %}
+                            {% elif profil.years_care_experience == 'Do godinu dana' %}
+                              {% trans "Do godinu dana" %}
+                            {% elif profil.years_care_experience == 'Više od godinu dana' %}
+                              {% trans "Više od godinu dana" %}
+                               {%endif%}
                            </span>
                            {%endif%}
                       </li>
@@ -172,7 +185,11 @@
                          {% if profil.house == None %}
                          {%else%}
                          <span class="user-year-num only-on-mob-two">
-                            {{profil.house}}
+                            {% if profil.house == "Ne" %}
+                              {% trans "Ne" %}
+                           {%else%}
+                              {% trans "Da" %}
+                           {%endif%}
                            </span>
                          {%endif%}
                       </li>
@@ -181,7 +198,11 @@
                          {% if profil.own_children == None %}
                          {%else%}
                          <span class="user-year-num ">
-                            {{profil.own_children}}
+                            {% if profil.own_children == "Ne" %}
+                              {% trans "Ne" %}
+                           {%else%}
+                              {% trans "Da" %}
+                           {%endif%}
                            </span>
                          {%endif%}
                       </li>
@@ -194,7 +215,11 @@
                          {% if profil.pets == None %}
                          {%else%}
                          <span class="user-year-num only-on-mob-two">
-                            {{profil.pets}}
+                            {% if profil.pets == "Ne" %}
+                              {% trans "Ne" %}
+                           {%else%}
+                              {% trans "Da" %}
+                           {%endif%}
                            </span>
                            {%endif%}
                       </li>
@@ -203,7 +228,11 @@
                          {% if profil.home_job == None %}
                          {%else%}
                          <span class="user-year-num only-on-mob-two">
-                            {{profil.home_job}}
+                            {% if profil.home_job == "Ne" %}
+                              {% trans "Ne" %}
+                           {%else%}
+                              {% trans "Da" %}
+                           {%endif%}
                            </span>
                            {%endif%}
                       </li>
@@ -212,7 +241,11 @@
                          {% if profil.school_activities == None %}
                          {%else%}
                          <span class="user-year-num only-on-mob-two">
-                            {{profil.school_activities}}
+                            {% if profil.school_activities == "Ne" %}
+                              {% trans "Ne" %}
+                           {%else%}
+                              {% trans "Da" %}
+                           {%endif%}
                            </span>
                            {%endif%}
                       </li>
@@ -220,8 +253,12 @@
                          <span class="user-year">{% trans "Čuvanje dece" %}  <span class="only-on-mob-one" >{% trans "sa posebnim potrebama" %} </span></span>
                          {% if profil.children_with_special_needs == None %}
                          {%else%}
-                         <span class="user-year-num only-on-mob-two">
-                            {{profil.children_with_special_needs}}
+                         <span class="user-year-num only-on-mob-two"> 
+                           {% if profil.children_with_special_needs == "Ne" %}
+                              {% trans "Ne" %}
+                           {%else%}
+                              {% trans "Da" %}
+                           {%endif%}
                            </span>
                            {%endif%}
                       </li>
@@ -230,7 +267,11 @@
                          {% if profil.cooking == None %}
                          {%else%}
                          <span class="user-year-num">
-                            {{profil.cooking}}
+                           {% if profil.cooking == "Ne" %}
+                              {% trans "Ne" %}
+                           {%else%}
+                              {% trans "Da" %}
+                           {%endif%}
                            </span>
                          {%endif%}
                       </li>
@@ -239,7 +280,12 @@
                          {% if profil.sick_child == None %}
                          {%else%}
                          <span class="user-year-num only-on-mob-two">
-                            {{profil.sick_child}}
+                            {% if profil.sick_child == "Ne" %}
+                              {% trans "Ne" %}
+                           {%else%}
+                              {% trans "Da" %}
+                           {%endif%}
+                            
                            </span>
                            {%endif%}
                       </li>
@@ -248,7 +294,11 @@
                          {% if profil.car == None %}
                          {%else%}
                          <span class="user-year-num only-on-mob-two">
-                            {{profil.car}}
+                            {% if profil.car == "Ne" %}
+                              {% trans "Ne" %}
+                           {%else%}
+                              {% trans "Da" %}
+                           {%endif%}
                            </span>
                            {%endif%}
                       </li>
@@ -257,7 +307,11 @@
                          {% if profil.travel == None %}
                          {%else%}
                          <span class="user-year-num only-on-mob-two">
-                            {{profil.travel}}
+                           {% if profil.travel == "Ne" %}
+                              {% trans "Ne" %}
+                           {%else%}
+                              {% trans "Da" %}
+                           {%endif%}
                            </span>
                            {%endif%}
                       </li>
@@ -348,7 +402,11 @@
                             {% if profil.sex == None %}
                             {%else%}
                            <span>
-                              {{profil.sex}}
+                              {% if profil.sex == "Žensko" %}
+                              {% trans "Žensko" %}
+                              {%else%}
+                              {% trans "Muško" %}
+                              {%endif%}
                            </span>
                            {%endif%}
                          </div>
@@ -359,7 +417,11 @@
                            {% if profil.citizenship == None %}
                            {%else%}
                            <span>
-                              {{profil.citizenship}}
+                              {% if profil.citizenship == "Strani Drzavljanin" %}
+                              {% trans "Strani Drzavljanin" %}
+                              {%else%}
+                              {% trans "Srpski Drzavljanin" %}
+                              {%endif%}
                            </span>
                            {%endif%}
                          </div>
