@@ -30,7 +30,7 @@ def register_family(request):
             user.save()
            # messages.success(request, ('Uspešno ste se registrovali!'))
             send_mail_after_registration(email, token)
-            return redirect('account:token')
+            return redirect('/token')
     else:
         form = UserAdminCreationForm()
     return render(request, 'account/register_family.html', {'form': form})
@@ -49,7 +49,7 @@ def register_babysitter(request):
                 'is_terms_confirmed')
             user.save()
             send_mail_after_registration(email, token)
-            return redirect('account:token')
+            return redirect('/token')
 
     else:
         form = UserAdminCreationForm()
@@ -77,7 +77,7 @@ def verify(request, auth_token):
             messages.success(request, _('Uspešno ste se registrovali!'))
             return render(request, 'account/success.html')
         else:
-            return redirect('account:error')
+            return redirect('/error')
     except Exception as e:
         print(e)
         return redirect('account:login')
@@ -127,7 +127,7 @@ def login(request):
                 user.auth_token = token
                 user.save()
                 send_mail_after_registration(email, token)
-                return redirect('account:token')
+                return redirect('/token')
         else:
             messages.error(request, _('Nepostojeći email ili netačna lozinka'))
             return redirect('account:login')
