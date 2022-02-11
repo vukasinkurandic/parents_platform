@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-11 22:35+0100\n"
-"PO-Revision-Date: 2022-02-12 00:11+0000\n"
+"POT-Creation-Date: 2022-02-12 00:32+0100\n"
+"PO-Revision-Date: 2022-02-12 00:33+0000\n"
 "Last-Translator:   <natasa@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -1113,6 +1113,11 @@ msgstr "You have successfully updated the time when you babysitting"
 #: .\babysitter\views.py:155 .\family\views.py:148
 msgid "Uspešno ste obrisali profil!!!"
 msgstr "You have successfully deleted your profile !!!"
+
+#: .\connection\templates\connection\all_babysitters.html:4
+#| msgid "Baza bebisitera/dadilja"
+msgid "Baza Bebisiterki/Dadilja"
+msgstr "Babysitter/Nanny base"
 
 #: .\connection\templates\connection\all_babysitters.html:15
 msgid "Pretražite bazu prema Vama važnim kriterijumima"
