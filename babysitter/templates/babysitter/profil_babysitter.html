@@ -48,10 +48,18 @@
                      <ul class="vertical-ul">
                        <li><i class="fas fa-info"></i>
                          <div class="content">
-                           <h2>{% trans "Ovo je vaš profil" %}</h2>
-                           <p>{% trans "Ovde možete da vidite porodice koji su vas kontaktirale.
-                               Možete da ažurirate profil i da ažurirate
-                                vreme kada čuvate decu u toku nedelje." %} </p>
+                           <h2>
+                              {% blocktrans %}
+                                 Ovo je vaš profil  
+                              {% endblocktrans %}      
+                           </h2>
+                           <p>
+                              {% blocktrans %}
+                                 Ovde možete da vidite porodice koji su vas kontaktirale.
+                                 Možete da ažurirate profil i da ažurirate
+                                 vreme kada čuvate decu u toku nedelje.
+                              {% endblocktrans %}      
+                              </p>
                            </div>
                          </li>    
                        </ul>
@@ -347,7 +355,7 @@
                                        {%if connection.is_matched == None %}
                                        <td colspan="7" class="align-middle fs-5"><a  class="matched_family" href="{% url 'connection:family_profil' family.slug %}">{{family.first_name}} {{family.last_name}} {{family.sity}}</a></td>
                                        <td ><a href="{% url 'connection:matched_family_profil' family.slug %}" class="btn btn-success">{% trans "Prihvati" %}</a></td>
-                                       <td><form action="{% url 'connection:deny_connection' %}" method="post" onsubmit="return confirm('Da li ste sigurni da zelite da odbijete zahtev?')">
+                                       <td><form action="{% url 'connection:deny_connection' %}" method="post" onsubmit="return confirm('{% blocktrans %} Da li ste sigurni da zelite da odbijete zahtev? {% endblocktrans %} ')">
                                           {% csrf_token%}
                                           <input type="hidden" name="connection_id" value="{{connection.id}}">
                                           <button class="btn btn-danger" type="submit" class="">{% trans "Odbij zahtev" %}</button>
@@ -357,7 +365,7 @@
                                        <td><a href="" class="btn btn-danger">{% trans "Odbijeno" %}</a></td>
                                        {%else%}
                                        <td colspan="7" class="align-middle fs-5"><a class="matched_family" href="{% url 'connection:matched_family_profil' family.slug %}">{{family.first_name}} {{family.last_name}} {{family.sity}}</a></td>
-                                       <td><form action="{% url 'connection:deny_connection' %}" method="post" onsubmit="return confirm('Da li ste sigurni da zelite da odbijete zahtev?')">
+                                       <td><form action="{% url 'connection:deny_connection' %}" method="post" onsubmit="return confirm('{% blocktrans %} Da li ste sigurni da zelite da odbijete zahtev? {% endblocktrans %} ')">
                                           {% csrf_token%}
                                           <input type="hidden" name="connection_id" value="{{connection.id}}">
                                           <button class="btn btn-danger" type="submit" class="">{% trans "Odbij zahtev" %}</button>
@@ -376,7 +384,7 @@
                </div>
                <div class="user-short-info">
                   <div class="d-grid gap-2">
-                     <form action="{% url 'babysitter:delete_profile' %}" method="post" onsubmit="return confirm('Da li ste sigurni da zelite da obrišete profil?')">
+                     <form action="{% url 'babysitter:delete_profile' %}" method="post" onsubmit="return confirm('{% blocktrans %} Da li ste sigurni da zelite da obrišete profil? {% endblocktrans %} ')">
                         {% csrf_token%}
                      <input type="submit" class="btn btn-delete" value="{% blocktrans %} Obriši nalog {% endblocktrans %} ">
                   </form>

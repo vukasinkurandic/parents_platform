@@ -25,7 +25,7 @@
                      <ul class="vertical-ul">
                        <li><i class="fas fa-info"></i>
                          <div class="content">
-                               <h2>{% trans "Ovo je vaš profil" %}</h2>
+                               <h2>{% blocktrans %} "Ovo je vaš profil" {% endblocktrans %}</h2>
                                <p>
                                  {% blocktrans %}
                                  Ovde možete da vidite korisnike koje ste kontaktirali.
@@ -33,7 +33,7 @@
                                  kada vam je potrebno vreme čuvanja u toku nedelje. Pretragu bebititerki/dadilja
                                  vršite na dugme koje se nalazi u meniju - BAZA BEBISITERA DADILJA ili na žuto dugme u okviru vašeg profila 
                                  {% endblocktrans %} 
-                                    </p>
+                                 </p>
                            </div>
                          </li>    
                        </ul>
@@ -188,7 +188,7 @@
                                               <td colspan="7" class="align-middle fs-5" >{{send_babysitter.first_name}} {{send_babysitter.last_name}} {{send_babysitter.sity}}</td>
                                              <td><a href="#" class="btn btn-danger">{% trans "Odbijeno" %}</a></td>
                                              {% endif %}
-                                             <td><form action="{% url 'connection:delete_connection' %}" method="post" onsubmit="return confirm('Da li ste sigurni da zelite da obrišete zahtev?')">
+                                             <td><form action="{% url 'connection:delete_connection' %}" method="post" onsubmit="return confirm('{% blocktrans %} Da li ste sigurni da zelite da obrišete zahtev? {% endblocktrans %} ')">
                                               {% csrf_token%}
                                              <input type="hidden" name="connection_id" value="{{connection.id}}">
                                              <button class="btn btn-danger" type="submit" class="">{% trans "Obriši zahtev" %}</button>
@@ -206,7 +206,7 @@
                      </div>
                      <div class="user-short-info">
                         <div class="d-grid gap-2">
-                        <form action="{% url 'family:delete_profile' %}" method="post" onsubmit="return confirm('Da li ste sigurni da zelite da obrišete profil?')">
+                        <form action="{% url 'family:delete_profile' %}" method="post" onsubmit="return confirm('{% blocktrans %} Da li ste sigurni da zelite da obrišete profil? {% endblocktrans %} ')">
                         {% csrf_token%}
                          <input type="submit" class="btn btn-delete" value="{% blocktrans %} Obriši nalog {% endblocktrans %}">
                         </form>
