@@ -36,7 +36,8 @@ urlpatterns += i18n_patterns(
     path("password-reset-complete/",
          auth_views.PasswordResetCompleteView.as_view(
              template_name='password_reset_complete.html'),
-         name="password_reset_complete")
+         name="password_reset_complete"),
+    prefix_default_language=False
 
 )
 handler400 = 'error_handlers.views.custom_bad_request_view'

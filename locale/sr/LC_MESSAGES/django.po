@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-10 22:19+0100\n"
+"POT-Creation-Date: 2022-02-11 13:50+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,6 +18,14 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: .\account\forms.py:8
+msgid "Email je vec registrovan"
+msgstr ""
+
+#: .\account\forms.py:15
+msgid "Dva polja za lozinku se ne poklapaju."
+msgstr ""
 
 #: .\account\templates\account\already_verified.html:4
 msgid "Email već verifikovan"
@@ -226,19 +234,19 @@ msgstr ""
 msgid "Ako poruke nema u inboxu-u, obavezno proverite spam"
 msgstr ""
 
-#: .\account\views.py:73
+#: .\account\views.py:74
 msgid "Vaš email je već verifikovan."
 msgstr ""
 
-#: .\account\views.py:77
+#: .\account\views.py:78
 msgid "Uspešno ste se registrovali!"
 msgstr ""
 
-#: .\account\views.py:91
+#: .\account\views.py:92
 msgid "Vaš nalog mora biti verifikovan"
 msgstr ""
 
-#: .\account\views.py:132
+#: .\account\views.py:137
 msgid "Nepostojeći email ili netačna lozinka"
 msgstr ""
 

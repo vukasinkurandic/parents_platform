@@ -14,6 +14,7 @@ from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 from django.utils.translation import gettext_lazy as _
+from django.utils.translation import get_language
 
 
 def register_family(request):
@@ -30,7 +31,7 @@ def register_family(request):
             user.save()
            # messages.success(request, ('Uspešno ste se registrovali!'))
             send_mail_after_registration(email, token)
-            return redirect('/token')
+            return redirect('account:token_send')
     else:
         form = UserAdminCreationForm()
     return render(request, 'account/register_family.html', {'form': form})
@@ -49,7 +50,7 @@ def register_babysitter(request):
                 'is_terms_confirmed')
             user.save()
             send_mail_after_registration(email, token)
-            return redirect('/token')
+            return redirect('account:token_send')
 
     else:
         form = UserAdminCreationForm()
@@ -77,7 +78,7 @@ def verify(request, auth_token):
             messages.success(request, _('Uspešno ste se registrovali!'))
             return render(request, 'account/success.html')
         else:
-            return redirect('/error')
+            return redirect('account:error')
     except Exception as e:
         print(e)
         return redirect('account:login')
@@ -89,7 +90,11 @@ def error_page(request):
 
 def send_mail_after_registration(email, token):
     subject = _('Vaš nalog mora biti verifikovan')
-    message = f'Link => https://parentstime.rs/verify/{token}'
+    language = get_language()
+    if language == 'sr':
+        message = f'Link => https://parentstime.rs/verify/{token}'
+    else:
+        message = f'Link => https://parentstime.rs/en/verify/{token}'
     email_from = settings.EMAIL_HOST_USER
     recipient_list = [email]
     html_content = render_to_string(
@@ -127,7 +132,7 @@ def login(request):
                 user.auth_token = token
                 user.save()
                 send_mail_after_registration(email, token)
-                return redirect('/token')
+                return redirect('account:token_send')
         else:
             messages.error(request, _('Nepostojeći email ili netačna lozinka'))
             return redirect('account:login')
