@@ -10,6 +10,7 @@ from django.db.models import Q
 from reviews .models import Commentary, Rate, Report
 from django.db.models import Avg
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.utils.translation import gettext_lazy as _
 
 
 @login_required
@@ -339,14 +340,14 @@ def send_match(request):
                     connection.is_matched = None
                     connection.save()
                     messages.success(
-                        request, (f'Ponovo ste ste rezervisali {babysiter_for_match.work_type} {babysiter_for_match.first_name} {babysiter_for_match.last_name}'))
+                        request, _('Ponovo ste ste rezervisali korisnika'))
                 else:
                     messages.success(
-                        request, (f'Već ste rezervisali {babysiter_for_match.work_type} {babysiter_for_match.first_name} {babysiter_for_match.last_name}'))
+                        request, _('Već ste rezervisali korisnika'))
         else:
             connection.save()
             messages.success(
-                request, (f'Uspešno ste rezervisali {babysiter_for_match.work_type} {babysiter_for_match.first_name} {babysiter_for_match.last_name}'))
+                request, _('Uspešno ste rezervisali korisnika'))
     return redirect('family:profil')
 
 
@@ -405,7 +406,7 @@ def matched_babysitter_profil(request, slug):
                         commentary_model.published = True
                         commentary_model.save()
                         messages.success(
-                            request, ('Uspešno ste ostavili komentar!'))
+                            request, _('Uspešno ste ostavili komentar!'))
                     except Commentary.DoesNotExist:
                         commentary_model = Commentary.objects.create(
                             author_of_commentary_id=author_id,
@@ -414,7 +415,7 @@ def matched_babysitter_profil(request, slug):
                             published=True
                         )
                         messages.success(
-                            request, ('Uspešno ste ostavili komentar!'))
+                            request, _('Uspešno ste ostavili komentar!'))
                 # Rate section
                 if 'rate_submit' in request.POST and request.POST.get('rate'):
                     score = request.POST['rate']
@@ -424,7 +425,7 @@ def matched_babysitter_profil(request, slug):
                         rate_model.score = score
                         rate_model.save()
                         messages.success(
-                            request, ('Uspešno ste ocenili korisnika!'))
+                            request, _('Uspešno ste ocenili korisnika!'))
                     except Rate.DoesNotExist:
                         rate_model = Rate.objects.create(
                             author_of_rate_id=author_id,
@@ -432,10 +433,10 @@ def matched_babysitter_profil(request, slug):
                             score=score
                         )
                         messages.success(
-                            request, ('Uspešno ste ocenili korisnika!'))
+                            request, _('Uspešno ste ocenili korisnika!'))
                 elif 'rate_submit' in request.POST:
                     messages.error(
-                        request, ('Morate izabrati željenu ocenu!'))
+                        request, _('Morate izabrati željenu ocenu!'))
                 # Report section
                 if 'report_submit' in request.POST:
                     report = request.POST['user_report']
@@ -445,7 +446,7 @@ def matched_babysitter_profil(request, slug):
                         report_model.report_body = report
                         report_model.save()
                         messages.success(
-                            request, ('Uspešno ste prijavili korisnika!'))
+                            request, _('Uspešno ste prijavili korisnika!'))
                     except Report.DoesNotExist:
                         report_model = Report.objects.create(
                             author_of_report_id=author_id,
@@ -453,7 +454,7 @@ def matched_babysitter_profil(request, slug):
                             report_body=report
                         )
                         messages.success(
-                            request, ('Uspešno ste prijavili korisnika!'))
+                            request, _('Uspešno ste prijavili korisnika!'))
 
             # END OF COMENNTARY, RATE and REPORT
 
@@ -579,7 +580,7 @@ def matched_family_profil(request, slug):
                         commentary_model.published = True
                         commentary_model.save()
                         messages.success(
-                            request, ('Uspešno ste ostavili komentar!'))
+                            request, _('Uspešno ste ostavili komentar!'))
                     except Commentary.DoesNotExist:
                         commentary_model = Commentary.objects.create(
                             author_of_commentary_id=author_id,
@@ -588,7 +589,7 @@ def matched_family_profil(request, slug):
                             published=True
                         )
                         messages.success(
-                            request, ('Uspešno ste ostavili komentar!'))
+                            request, _('Uspešno ste ostavili komentar!'))
                 # Rate section
                 if 'rate_submit' in request.POST and request.POST.get('rate'):
                     score = request.POST['rate']
@@ -598,7 +599,7 @@ def matched_family_profil(request, slug):
                         rate_model.score = score
                         rate_model.save()
                         messages.success(
-                            request, ('Uspešno ste ocenili korisnika!'))
+                            request, _('Uspešno ste ocenili korisnika!'))
                     except Rate.DoesNotExist:
                         rate_model = Rate.objects.create(
                             author_of_rate_id=author_id,
@@ -606,10 +607,10 @@ def matched_family_profil(request, slug):
                             score=score
                         )
                         messages.success(
-                            request, ('Uspešno ste ocenili korisnika!'))
+                            request, _('Uspešno ste ocenili korisnika!'))
                 elif 'rate_submit' in request.POST:
                     messages.error(
-                        request, ('Morate izabrati željenu ocenu!'))
+                        request, _('Morate izabrati željenu ocenu!'))
                 # Report section
                 if 'report_submit' in request.POST:
                     report = request.POST['user_report']
@@ -619,7 +620,7 @@ def matched_family_profil(request, slug):
                         report_model.report_body = report
                         report_model.save()
                         messages.success(
-                            request, ('Uspešno ste prijavili korisnika!'))
+                            request, _('Uspešno ste prijavili korisnika!'))
                     except Report.DoesNotExist:
                         report_model = Report.objects.create(
                             author_of_report_id=author_id,
@@ -627,7 +628,7 @@ def matched_family_profil(request, slug):
                             report_body=report
                         )
                         messages.success(
-                            request, ('Uspešno ste prijavili korisnika!'))
+                            request, _('Uspešno ste prijavili korisnika!'))
 
             # END OF COMENNTARY, RATE and REPORT
 
@@ -648,7 +649,7 @@ def deny_connection(request):
         connection.is_matched = False
         connection.save()
         messages.success(
-            request, ('Uspešno ste odbili zahtev!'))
+            request, _('Uspešno ste odbili zahtev!'))
         context = {'connection': connection}
         return redirect('babysitter:profil')
 
@@ -660,6 +661,6 @@ def delete_connection(request):
         connection = Connection.objects.get(id=connection_id)
         connection.delete()
         messages.success(
-            request, ('Uspešno ste obrisali zahtev!'))
+            request, _('Uspešno ste obrisali zahtev!'))
         context = {'connection': connection}
         return redirect('family:profil')

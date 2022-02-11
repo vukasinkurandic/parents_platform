@@ -1,4 +1,5 @@
 {% extends "layout/base_contact.html" %}
+{% load i18n %}
 {% load static %}
 {% block title %} All Babysitters {% endblock %}
 
@@ -11,46 +12,46 @@
    <div class="container add-fluid-div2">
       <div class="insade-profil-wrapper onsmallfil">
          <div class="user-title">
-            <h1 class="extrasmalldev-filter" >Pretražite bazu prema Vama važnim kriterijumima</h1>
+            <h1 class="extrasmalldev-filter">{% trans "Pretražite bazu prema Vama važnim kriterijumima" %}</h1>
          </div>
-         <button value="dodaj" class="dugmic btn-pag-current btn" >prikaži filter</button>
+         <button value="dodaj" class="dugmic btn-pag-current btn" >{% trans "prikaži filter" %}</button>
          <div class="profile_edit">
             <div class="row">
                <div class="col-lg-3 col-md-4">
                   <div class="filter-right">
                      <form action="{% url 'connection:all_babysitters' %}" method="post">
                         {% csrf_token %}
-                        <label for="city" class="form-label">Pretraga po gradu</label>
+                        <label for="city" class="form-label">{% trans "Pretraga po gradu" %}</label>
                         <select name="city" id="city" class="form-select" aria-label="Default select example">
-                           <option selected="" value="">Izaberite lokaciju</option>
+                           <option selected="" value="">{% trans "Izaberite lokaciju" %}</option>
                             {% for city in city_list %}
                             <option value="{{city}}">{{city}}</option>
                             {% endfor%}
                         </select>
-                        <label for="age_children" class="form-label">Uzrast dece koju je potrebno čuvati</label>
+                        <label for="age_children" class="form-label">{% trans "Uzrast dece koju je potrebno čuvati" %}</label>
                         <select name="age_children" id="age_children" class="form-select" aria-label="Default select example">
-                            <option selected="" value="">Uzrast dece</option>
-                            <option value="0-1">Beba 0-1</option>
+                            <option selected="" value="">{% trans "Uzrast dece" %}</option>
+                            <option value="0-1">{% trans "Beba 0-1" %}</option>
                             <option value="1-3">1-3</option>
                             <option value="3-5">3-5</option>
                             <option value="5-12">5-12</option>
                             <option value="12-18">12-18</option>
                         </select>
-                        <label for="work_type" class="form-label">Tražite (bebisiterku/dadilju)</label>
+                        <label for="work_type" class="form-label">{% trans "Tražite (bebisiterku/dadilju)" %}</label>
                         <select name="work_type" id="work_type" class="form-select" aria-label="Default select example">
-                           <option selected="" value="">Izaberite</option>
+                           <option selected="" value="">{% trans "Izaberite" %}</option>
                             {% for work in work_role_list %}
                             <option value="{{work}}">{{work}}</option>
                             {% endfor%}
                         </select>
-                        <label for="experience_number" class="form-label">Godine iskustva</label>
+                        <label for="experience_number" class="form-label">{% trans "Godine iskustva" %}</label>
                         <select name="experience_number" id="experience_number" class="form-select" aria-label="Default select example">
-                           <option selected="" value="">Izaberite</option>
+                           <option selected="" value="">{% trans "Izaberite" %}</option>
                             {% for experience in experience_number_list %}
                             <option value="{{experience}}">{{experience}}</option>
                             {% endfor%}
                         </select>
-                        <label for="hourly_rate" class="form-label">Cena po satu</label>  
+                        <label for="hourly_rate" class="form-label">{% trans "Cena po satu" %}</label>  
                         <div class="price-wrapper">
                            <div class="values">
                               <span id="range1">
@@ -71,7 +72,7 @@
                                  <div class="accordion-item">
                                     <h2 class="accordion-header" id="headingThree">
                                        <button  class="accordion-button collapsed mika" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                       Napredni filteri
+                                       {% trans "Napredni filteri" %}
                                        </button>
                                     </h2>
                                     <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
@@ -79,50 +80,50 @@
                                           
                                           <ul class="ks-cboxtags">
                                              <li><input type="checkbox" id="checkboxOne" value="True" name="children_with_special_needs" class="filter_chb_c">
-                                                <label for="checkboxOne">Čuva decu sa <span class="only-on-mob-one-filter" > posebnim potrebama</span></label>
+                                                <label for="checkboxOne">{% trans "Čuva decu sa" %} <span class="only-on-mob-one-filter" >{% trans "posebnim potrebama" %} </span></label>
                                              </li>
 
                                              <li><input type="checkbox" id="checkboxTwo" value="True" name="home_job">
-                                                <label for="checkboxTwo">Radi lakse kućne poslove</label>
+                                                <label for="checkboxTwo">{% trans "Radi lakse kućne poslove" %}</label>
                                              </li>
 
                                              <li><input type="checkbox" id="checkboxThree" value="True" name="pets" class="filter_chb_c">
-                                                <label for="checkboxThree">Ne smetaju joj kućni ljubimci</label>
+                                                <label for="checkboxThree">{% trans "Ne smetaju joj kućni ljubimci" %}</label>
                                              </li>
 
                                              <li><input type="checkbox" id="checkboxFour" value="True" name="house" class="filter_chb_c">
-                                                <label for="checkboxFour">Čuva decu kod svoje kuće</label>
+                                                <label for="checkboxFour">{% trans "Čuva decu kod svoje kuće" %}</label>
                                              </li>
 
                                              <li><input type="checkbox" id="checkboxFive" value="True" name="own_children" class="filter_chb_c">
-                                                <label for="checkboxFive">Ima svoju decu</label>
+                                                <label for="checkboxFive">{% trans "Ima svoju decu" %}</label>
                                              </li>
 
                                              <li class="ks-selected"><input type="checkbox" id="checkboxSix" value="True" name="cooking" class="filter_chb_c">
-                                                <label for="checkboxSix">Kuva deci hranu</label>
+                                                <label for="checkboxSix">{% trans "Kuva deci hranu" %}</label>
                                              </li>
 
                                              <li><input type="checkbox" id="checkboxSeven" value="True" name="sick_child" class="filter_chb_c">
-                                                <label for="checkboxSeven">Čuva decu dok su bolesna</label>
+                                                <label for="checkboxSeven">{% trans "Čuva decu dok su bolesna" %}</label>
                                              </li>
 
                                              <li><input type="checkbox" id="checkboxEight" value="True" name="car" class="filter_chb_c">
-                                                <label for="checkboxEight">Ima kola</label>
+                                                <label for="checkboxEight">{% trans "Ima automobil" %}</label>
                                              </li>
 
                                              <li><input type="checkbox" id="checkboxNine" value="True" name="school_activities" class="filter_chb_c">
-                                                <label for="checkboxNine">Radi školske aktivnosti</label>
+                                                <label for="checkboxNine">{% trans "Radi školske aktivnosti" %}</label>
                                              </li>
 
                                              <li><input type="checkbox" id="checkboxTen" value="True" name="travel" class="filter_chb_c">
-                                                <label for="checkboxTen">Putuje sa porodicom</label>
+                                                <label for="checkboxTen">{% trans "Putuje sa porodicom" %}</label>
                                              </li>
                                           </ul>
                                        </div>
                                     </div>
                                  </div>
                               </div>
-                        <input type="submit" name="nums" value="Filtriraj" class="btn btn-filter-btn">
+                        <input type="submit" name="nums" value="{% blocktrans %} Filtriraj {% endblocktrans %}" class="btn btn-filter-btn">
                      </form>
                   </div>
                </div>
@@ -134,16 +135,20 @@
                         <div class="col-lg-6">
                            <a href="{% url 'connection:babysitter_profil' babysitter.slug %}">
                               <div class="babsit-box filter-box-main">
-                                 <div class="babsit-box-ocupation filter-ocupation"><span>Rezerviši</span></div>
+                                 <div class="babsit-box-ocupation filter-ocupation"><span>{% trans "Rezerviši" %}</span></div>
                                  <div class="babsit-img filter-img-main"><img src="{{babysitter.picture.url}}" class="img-fluid"></div>
                                  <div class="babsit-info filter-text">
                                     <h4>{{babysitter.first_name}} <br> {{babysitter.last_name}}</h4>
                                     {% if babysitter.sity == None%}
-                                    <p class="baby-p-first filter-p-first"><i class="fas fa-map-marker-alt"></i>&nbsp;Nema lokacije</p>
+                                    <p class="baby-p-first filter-p-first"><i class="fas fa-map-marker-alt"></i>&nbsp;{% trans "Nema lokacije" %}</p>
                                     {%else%}
                                     <p class="baby-p-first filter-p-first"><i class="fas fa-map-marker-alt"></i>&nbsp;{{babysitter.sity}}</p>
                                     {%endif%}
-                                    <p class="baby-p-second filter-page-h">Satnica: 450 RSD</p>
+                                    {% if babysitter.hourly_rate == None%}
+                                    <p class="baby-p-second filter-page-h">{% trans "Nema cene:" %}</p>
+                                    {%else%}
+                                    <p class="baby-p-second filter-page-h">{% trans "Satnica:" %} {{babysitter.hourly_rate}}</p>
+                                    {%endif%}
                                     <div class="baby-rew baby-rew-on-filter">
                                     {% if babysitter.work_type == None%}
                                     <p></p>
@@ -163,7 +168,7 @@
                         {% else%}
                      
                      <div class="no-data-filter">
-                        <h6>Za zadate filtere nema rezultata pretrage. Pokušajte ponovo sa nekim izmenama u selektovanim filterima.</h6>
+                        <h6>{% trans "Za zadate filtere nema rezultata pretrage. Pokušajte ponovo sa nekim izmenama u selektovanim filterima." %}</h6>
                      </div>
                         {% endif%}
 

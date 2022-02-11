@@ -1,6 +1,7 @@
 {% extends "layout/base_contact.html" %}
+{% load i18n %}
 {% load static %}
-{% block title %} Matched Babysitter Profil {% endblock %}
+{% block title %} {% trans "Bebisiter Profil" %} {% endblock %}
 
 {% block content %}
 <div class="slid insade-slid">
@@ -17,10 +18,13 @@
             <ul class="vertical-ul">
               <li><i class="fas fa-info"></i>
                 <div class="content">
-                      <h2>Kontaktirani korisnik</h2>
-                      <p>Ovaj korisnik je prihvatio vaš zahtev za rezervaciju. 
+                      <h2>{% trans "Kontaktirani korisnik" %}</h2>
+                      <p>
+                         {% blocktrans %} 
+                         Ovaj korisnik je prihvatio vaš zahtev za rezervaciju. 
                          Možete ga kontaktirati putem telefona ili mejla za dalji dogovor.
                          Hvala što koristite platformu Parent's Time
+                         {% endblocktrans %}
                       </p>
                   </div>
                 </li>    
@@ -55,16 +59,16 @@
                       </span></li>                      
                      {% if babysitter.social_network == None %}
                         <li>
-                           <span class="user-year">Nema Društvene mreže</span>
+                           <span class="user-year">{% trans "Nema Društvene mreže" %}</span>
                         </li>       
                      {%else%}
                         <li>
-                            <span class="user-year">Društvene mreže</span>
-                           <a href="{{babysitter.social_network}}"><span class="user-year-num">Klikni ovde</span></a>
+                            <span class="user-year">{% trans "Društvene mreže" %}</span>
+                           <a href="{{babysitter.social_network}}"><span class="user-year-num">{% trans "Klikni ovde" %}</span></a>
                         </li> 
                      {%endif%}
                         <li>
-                           <span class="user-year">Godine</span>
+                           <span class="user-year">{% trans "Godine" %}</span>
                         {%if babysitter.age == None %}
                         {%else%}
                            <span class="user-year-num">
@@ -73,9 +77,9 @@
                         {%endif%}
                         </li> 
                       <li>
-                         <span class="user-year">Satnica</span>
+                         <span class="user-year">{% trans "Satnica" %}</span>
                          {%if babysitter.hourly_rate == None %}
-                           <span class="user-year-num">Nije uneto</span>
+                           <span class="user-year-num">{% trans "Nije uneto" %}</span>
                         {%else%}
                            <span class="user-year-num">
                               {{babysitter.hourly_rate}} RSD 
@@ -83,10 +87,10 @@
                         {%endif%}
                       </li>
                       <li>
-                         <span class="user-year">Grad u kojem bi <span class="only-on-mob-one"> radio/la </span> </span>
+                          <span class="user-year">{% trans "Grad u kojem bi" %} <span class="only-on-mob-one">{% trans "radio/la" %}  </span> </span>
                          {% if babysitter.sity == None %}
                            <span class="user-year-num only-on-mob-two">
-                           Nije uneto
+                           {% trans "Nije uneto" %}
                          </span>
                          {%else%}
                          <span class="user-year-num only-on-mob-two">
@@ -95,33 +99,46 @@
                          {%endif%}
                       </li>
                       <li>
-                         <span class="user-year">Da li bi čuvala decu <span class="only-on-mob-one" > kod svoje kuće</span></span>
+                         <span class="user-year">{% trans "Da li bi čuvala decu" %} <span class="only-on-mob-one" > {% trans "kod svoje kuće" %}</span></span>
                          {% if babysitter.house == None %}
                          {%else%}
                          <span class="user-year-num only-on-mob-two">
-                            {{babysitter.house}}
+                           {% if babysitter.house == "Ne" %}
+                              {% trans "Ne" %}
+                           {%else%}
+                              {% trans "Da" %}
+                           {%endif%}
                            </span>
                          {%endif%}
                       </li>
                       <li>
-                         <span class="user-year">Da li ima dece</span>
+                         <span class="user-year">{% trans "Da li ima dece" %}</span>
                          {% if babysitter.own_children == None %}
                          {%else%}
                          <span class="user-year-num">
-                            {{babysitter.own_children}}
+                           {% if babysitter.own_children == "Ne" %}
+                              {% trans "Ne" %}
+                           {%else%}
+                              {% trans "Da" %}
+                           {%endif%}
                            </span>
                          {%endif%}
                       </li>
                       <li>
-                         <span class="user-year">Da li bi kuvala</span>
+                         <span class="user-year">{% trans "Da li bi kuvala" %}</span>
                          {% if babysitter.cooking == None %}
                          {%else%}
                          <span class="user-year-num">
-                            {{babysitter.cooking}}
+                            {% if babysitter.cooking == "Ne" %}
+                              {% trans "Ne" %}
+                           {%else%}
+                              {% trans "Da" %}
+                           {%endif%}
                            </span>
                          {%endif%}
                       </li>
-                         <span class="user-year">Uzrast dece <span class="only-on-mob-one" > koju bi čuvala</span></span>
+                     <li>
+                         <span class="user-year">{% trans "Uzrast dece" %}<span class="only-on-mob-one" > {% trans "koju bi čuvala" %}</span></span>
                          {% if babysitter.age_children == None %}
                          {%else%}
                          <span class="user-year-num only-on-mob-two">
@@ -134,89 +151,129 @@
                 <div class="user-short-info">
                    <ul>
                       <li>
-                         <span class="user-year">Da li joj smetaju <span class="only-on-mob-one" >kućni ljubimci</span> </span>
+                         <span class="user-year">{% trans "Da li joj smetaju " %}<span class="only-on-mob-one" >{% trans "kućni ljubimci" %}</span> </span>
                          {% if babysitter.pets == None %}
                          {%else%}
                          <span class="user-year-num only-on-mob-two">
-                            {{babysitter.pets}}
+                            {% if babysitter.pets == "Ne" %}
+                              {% trans "Ne" %}
+                           {%else%}
+                              {% trans "Da" %}
+                           {%endif%}
                            </span>
                            {%endif%}
                       </li>
                       <li>
-                         <span class="user-year">Da li bi radila <span class="only-on-mob-one"> lakše kućne poslove </span> </span>
+                         <span class="user-year">{% trans "Da li bi radila" %} <span class="only-on-mob-one"> {% trans "lakše kućne poslove" %} </span> </span>
                          {% if babysitter.home_job == None %}
                          {%else%}
                          <span class="user-year-num only-on-mob-two">
-                            {{babysitter.home_job}}
+                            {% if babysitter.home_job == "Ne" %}
+                              {% trans "Ne" %}
+                           {%else%}
+                              {% trans "Da" %}
+                           {%endif%}
                            </span>
                            {%endif%}
                       </li>
                       <li>
-                         <span class="user-year">Da li bi radila <span class="only-on-mob-one" >školske aktivnosti</span></span> 
+                         <span class="user-year">{% trans "Da li bi radila " %}<span class="only-on-mob-one" >{% trans "školske aktivnosti" %}</span></span> 
                          {% if babysitter.school_activities == None %}
                          {%else%}
                          <span class="user-year-num only-on-mob-two">
-                            {{babysitter.school_activities}}
+                            {% if babysitter.school_activities == "Ne" %}
+                              {% trans "Ne" %}
+                           {%else%}
+                              {% trans "Da" %}
+                           {%endif%}
                            </span>
                            {%endif%}
                       </li>
                       <li>
-                         <span class="user-year">Čuvanje dece  <span class="only-on-mob-one" > sa posebnim potrebama</span></span>
+                         <span class="user-year">{% trans "Čuvanje dece " %} <span class="only-on-mob-one" > {% trans "sa posebnim potrebama" %}</span></span>
                          {% if babysitter.children_with_special_needs == None %}
                          {%else%}
                          <span class="user-year-num only-on-mob-two">
-                            {{babysitter.children_with_special_needs}}
+                            {% if babysitter.children_with_special_needs == "Ne" %}
+                              {% trans "Ne" %}
+                           {%else%}
+                              {% trans "Da" %}
+                           {%endif%}
                            </span>
                            {%endif%}
                       </li>
                         <li>
-                         <span class="user-year">Iskustvo <span class="only-on-mob-one" > u čuvanju dece</span></span>
+                         <span class="user-year">{% trans "Iskustvo" %} <span class="only-on-mob-one" > {% trans "u čuvanju dece" %}</span></span>
                          {% if babysitter.years_care_experience == None %}
                          <span class="user-year-num only-on-mob-two">
-                            Nije uneto
+                            {% trans "Nije uneto" %}
                            </span>
                          {%else%}
                          <span class="user-year-num only-on-mob-two">
-                            {{babysitter.years_care_experience}}
+                            {% if babysitter.years_care_experience == 'Nemam iskustva' %}
+                              {% trans "Nemam iskustva" %}
+                            {% elif babysitter.years_care_experience == 'Do godinu dana' %}
+                              {% trans "Do godinu dana" %}
+                            {% elif babysitter.years_care_experience == 'Više od godinu dana' %}
+                              {% trans "Više od godinu dana" %}
+                               {%endif%}
                            </span>
                            {%endif%}
                       </li>
                       <li>
-                         <span class="user-year">Posao traži kao?</span>
+                         <span class="user-year">{% trans "Posao traži kao?" %}</span>
                          {% if babysitter.work_type == None %}
                          <span class="user-year-num">
-                            Nije uneto
+                            {% trans "Nije uneto" %}
                          </span>
                          {%else%}
-                         <span class="user-year-num">
-                            {{babysitter.work_type}}
+                         <span class="user-year-num ">
+                            {% if babysitter.work_type == 'Bebisiterka' %}
+                              {% trans "Bebisiterka" %}
+                            {% elif babysitter.work_type == 'Dadilja' %}
+                              {% trans "Dadilja" %}
+                            {% elif babysitter.work_type == 'Bebisiterka i Dadilja' %}
+                              {% trans "Bebisiterka i Dadilja" %}
+                              {%endif%}
                            </span>
                            {%endif%}
                       </li>
                       <li>
-                         <span class="user-year">Da li čuvate decu <span class="only-on-mob-one" >dok su bolesna?</span></span>
+                         <span class="user-year">{% trans "Da li čuvate decu" %} <span class="only-on-mob-one" > {% trans "dok su bolesna?" %} </span></span>
                          {% if babysitter.sick_child == None %}
                          {%else%}
                          <span class="user-year-num only-on-mob-two">
-                            {{babysitter.sick_child}}
+                            {% if babysitter.sick_child == "Ne" %}
+                              {% trans "Ne" %}
+                           {%else%}
+                              {% trans "Da" %}
+                           {%endif%}
                            </span>
                            {%endif%}
                       </li>
                       <li>
-                         <span class="user-year">Da li bi vozili decu <span class="only-on-mob-one" > svojim autom?</span></span>
+                         <span class="user-year">{% trans "Da li bi vozili" %} <span class="only-on-mob-one" >{% trans "decu svojim autom?" %} </span></span>
                          {% if babysitter.car == None %}
                          {%else%}
                          <span class="user-year-num only-on-mob-two">
-                            {{babysitter.car}}
+                            {% if babysitter.car == "Ne" %}
+                              {% trans "Ne" %}
+                           {%else%}
+                              {% trans "Da" %}
+                           {%endif%}
                            </span>
                            {%endif%}
                       </li>
                       <li>
-                         <span class="user-year">Da li bi putovali <span class="only-on-mob-one" >sa Porodicom?</span></span>
+                         <span class="user-year">{% trans "Da li bi putovali" %} <span class="only-on-mob-one" > {% trans "sa Porodicom?" %}</span></span>
                          {% if babysitter.travel == None %}
                          {%else%}
                          <span class="user-year-num only-on-mob-two">
-                            {{babysitter.travel}}
+                            {% if babysitter.travel == "Ne" %}
+                              {% trans "Ne" %}
+                           {%else%}
+                              {% trans "Da" %}
+                           {%endif%}
                            </span>
                            {%endif%}
                       </li>
@@ -225,9 +282,9 @@
                 <div class="user-short-info">
                    <ul>
                      <li>
-                        <span class="user-year">Ocena korisnika</span>
+                        <span class="user-year">{% trans "Ocena korisnika" %}</span>
                         {%if rate_average == None %}
-                        <span class="user-year-num">Nema ocene</span>
+                        <span class="user-year-num">{% trans "Nema ocene" %}</span>
                         {%else%}
                         <span class="user-year-num rat-num">{{rate_average}}</span>
                         {%endif%}
@@ -238,7 +295,7 @@
                    <div class="accordion-item">
                       <h2 class="accordion-header" id="headingThree">
                          <button  class="accordion-button collapsed mika" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                         Prijavi korisnika
+                         {% trans "Prijavi korisnika" %}
                          </button>
                       </h2>
                       <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
@@ -246,7 +303,7 @@
                             <form action="" method="post">
                                {% csrf_token%}
                                <textarea class="form-control"  id="user_report" name="user_report" required></textarea>
-                               <input type="submit" name="report_submit" class="btn btn-log-reg" value="Pošalji">
+                               <input type="submit" name="report_submit" class="btn btn-log-reg" value="{% blocktrans %} Pošalji {% endblocktrans %} ">
                             </form>
                          </div>
                       </div>
@@ -255,7 +312,7 @@
              </div>
              <div class="col-xxl-8 col-xl-7 col-lg-7">
                 <div class="user-main-info">
-                   <h3>O sebi</h3>
+                   <h3>{% trans "O sebi" %}</h3>
                    <div class="about-area">
                      <p>       
                         {% if babysitter.about_me == "" %}
@@ -272,40 +329,48 @@
                             {% if babysitter.sex == None %}
                             {%else%}
                            <span>
-                              {{babysitter.sex}}
+                              {% if babysitter.sex == "Žensko" %}
+                              {% trans "Žensko" %}
+                              {%else%}
+                              {% trans "Muško" %}
+                              {%endif%}
                            </span>
                            {%endif%}
                          </div>
                       </div>
                       <div class="usual-box">
-                         <h4>Državljanstvo</h4>
+                         <h4>{% trans "Državljanstvo" %}</h4>
                         <div class="usual-box-info">
                            {% if babysitter.citizenship == None %}
                            {%else%}
                            <span>
-                              {{babysitter.citizenship}}
+                              {% if babysitter.citizenship == "Strani Drzavljanin" %}
+                              {% trans "Strani Drzavljanin" %}
+                              {%else%}
+                              {% trans "Srpski Drzavljanin" %}
+                              {%endif%}
                            </span>
                            {%endif%}
                          </div>
                       </div>
                    </div>
-                   <h3 class="mt-4">Dostupnost korisnika</h3>
+                   <h3 class="mt-4">{% trans "Dostupnost korisnika" %}</h3>
                             <div class="user-table table-responsive table-sm">
                                        <table class="table table-striped table-hover">
                                   <thead>
                                      <tr><th></th>
-                                        <th scope="col">Ponedeljak</th>
-                                        <th scope="col">Utorak</th>
-                                        <th scope="col">Sreda</th>
-                                        <th scope="col">Četvrtak</th>
-                                        <th scope="col">Petak</th>
-                                        <th scope="col">Subota</th>
-                                        <th scope="col">Nedelja</th>
+                                        <th scope="col">{% trans "Ponedeljak" %}</th>
+                                        <th scope="col">{% trans "Utorak" %}</th>
+                                        <th scope="col">{% trans "Sreda" %}</th>
+                                        <th scope="col">{% trans "Četvrtak" %}</th>
+                                        <th scope="col">{% trans "Petak" %}</th>
+                                        <th scope="col">{% trans "Subota" %}</th>
+                                        <th scope="col">{% trans "Nedelja" %}</th>
                                      </tr>
                                   </thead>
                                   <tbody>
                                      <tr>
-                                        <th scope="row">Jutro</th>
+                                        <th scope="row">{% trans "Jutro" %}</th>
                                         <td>
                                             {%if calendar.morning_monday%}
                                             <i class="fas fa-check"></i>
@@ -343,7 +408,7 @@
                                         </td>
                                      </tr>
                                      <tr>
-                                        <th scope="row">Popodne</th>
+                                        <th scope="row">{% trans "Popodne" %}</th>
                                         <td>
                                             {%if calendar.afternoon_monday%}
                                             <i class="fas fa-check"></i>
@@ -381,7 +446,7 @@
                                         </td>
                                      </tr>
                                      <tr>
-                                        <th scope="row">Veče</th>
+                                        <th scope="row">{% trans "Veče" %}</th>
                                         <td>
                                             {%if calendar.evening_monday%}
                                             <i class="fas fa-check"></i>
@@ -418,7 +483,7 @@
                                             {%endif%}
                                         </td>
                                      <tr>
-                                        <th scope="row">Noć</th>
+                                        <th scope="row">{% trans "Noć" %}</th>
                                         <td>
                                             {%if calendar.night_monday%}
                                             <i class="fas fa-check"></i>
@@ -460,7 +525,7 @@
                             </div>
                    <div class="rate-modal-wrapper">
                       <div class="rate-wrapper">
-                         <h5>Ocenite korisnika</h5>
+                         <h5>{% trans "Ocenite korisnika" %}</h5>
                          <form action="" method="post">
                             {% csrf_token %}
                             <div class="rate">
@@ -475,17 +540,17 @@
                                <input type="radio" id="star1" name="rate" value="1" class="star">
                                <label for="star1" title="1 zvezdica">1 star</label>
                             </div>
-                            <input type="submit" name="rate_submit" class="btn btn-rating-star" value="Oceni">
+                            <input type="submit" name="rate_submit" class="btn btn-rating-star" value="{% blocktrans %} Oceni {% endblocktrans %}">
                          </form>
                       </div>                      
                    </div>
                            <div class="comment-area">
                               <div class="comment-area-field">
-                                 <h5>Ostavite komentar</h5>
+                                 <h5>{% trans "Ostavite komentar" %}</h5>
                                  <form action="" method="post">
                                     {% csrf_token %}
                                     <textarea class="form-control" name="comment_area" id="comment_area" required></textarea>
-                                    <input type="submit" name="commentary_submit"  class="btn btn-log-reg" value="Pošalji">
+                                    <input type="submit" name="commentary_submit"  class="btn btn-log-reg" value="{% blocktrans %} Pošalji {% endblocktrans %}">
                                  </form>
                               </div>
                               {% if commentary_list != None %}
@@ -499,7 +564,7 @@
                                {% endfor %}
                                {%else%}
                                <div class="comment-preview">
-                                  <h6> <b> Nema komentara</b></h6>
+                                  <h6> <b> {% trans "Nema komentara" %}</b></h6>
                                   <p class="com-dat"></p>
                                   <p></p>
                                </div>
