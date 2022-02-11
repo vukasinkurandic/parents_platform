@@ -81,7 +81,7 @@
                            <!--USER IS AUTHENTICATED-->
                            {% if user.is_authenticated %}
                            <div class="login-user">
-                              {%if user.user_type == 1%}
+                              {%if user.user_type == 1 and user.is_email_verified %}
                                  <a href="{% url 'family:profil' %}">
                                  {%if request.user.family.picture.url == '' %}
                                  <img src="{% static 'layout/img/zena02.jpg' %}" class="img-fluid" />
@@ -89,7 +89,7 @@
                                   <img src="{{request.user.family.picture.url}}" class="img-fluid" />
                                   {%endif%}
                                  </a>
-                              {%else%}
+                              {%elif user.user_type == 2 and user.is_email_verified%}
                               <a href="{% url 'babysitter:profil' %}">
                                  {%if request.user.babysitter.picture.url == '' %}
                                  <img src="{% static 'layout/img/zena02.jpg' %}" class="img-fluid" />
