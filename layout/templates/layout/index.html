@@ -69,6 +69,12 @@
                      <img src="{% static 'layout/img/logo6.png' %}" />
                   </div>
                   <nav>
+                     <div class="top-lang-on-mob">
+                        <ul class="lang-circle">
+                          <li><a href=""><img src="{% static 'layout/img/eng-mob.jpg' %}" /></a></li>
+                          <li><a href=""><img src="{% static 'layout/img/srb-mob.jpg' %}" /></a></li>
+                          </ul>
+                        </div>
                      <div class="logo-for-mob-on-menu">
                         <img src="{% static 'layout/img/logo4.png' %}" class="img-fluid" />
                      </div>
@@ -111,7 +117,7 @@
                              <!--USER IS NOT AUTHENTICATED-->
                            {%else%}
                            <div class="no-login-select">
-                              <button class="dropbtn btn"><i class="far fa-user"></i>{% trans "Registruj se/prijavi se" %} </button>
+                              <button class="dropbtn btn"><i class="far fa-user"></i> {% trans "Registruj se/prijavi se" %} </button>
                               <div class="dropdown-content">
                                  <a href="{% url 'account:register_babysitter' %}">{% trans "Kao Bebisiter/Dadilja" %}</a>
                                  <a href="{% url 'account:register_family' %}">{% trans "Kao Porodica" %}</a>
@@ -176,6 +182,7 @@
                   <br>
                   <!-- MESSAGES-->
                   <p>{% blocktrans %}Porodicu ne čine samo oni sa kojima smo u krvnom srodstvu. Čine je i oni koji nas drže za ruku kada nam je to najpotrebnije {% endblocktrans %}</p>             
+                  <h5 class="index-h-5" ><a  class="btn btn-inst-href" href="">Uputstvo za korišćenje platforme</a></h5>
                </div>
             </div>
          </div>
@@ -417,6 +424,9 @@
                         {%endif%}
                          <li>
                            <a href="">{% trans "Novosti iz dečijeg sveta" %}</a>
+                         </li>
+                         <li>
+                           <a href="">{% trans "Uputstvo za korišćenje platforme" %}</a>
                          </li>
                          <li>
                            <a href="{% url 'layout:contact' %}">{% trans "Kontakt" %}</a>
