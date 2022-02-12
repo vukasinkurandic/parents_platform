@@ -159,7 +159,7 @@
                     <h4>Brzi linkovi</h4>
                     <ul>
                       <li>
-                        <a href="">{% trans "Ko smo mi" %}</a>
+                        <a href="{% url 'layout:home' %}">{% trans "Naslovna" %}</a>
                       </li>
                       {% if user.is_authenticated and user.user_type == 1 %}
                       <li><a href="{% url 'connection:all_babysitters' %}">{% trans "Baza bebisitera/dadilja" %}</a></li>
@@ -167,6 +167,9 @@
                       <li>
                         <a href="">{% trans "Novosti iz dečijeg sveta" %}</a>
                       </li>
+                      <li>
+                           <a href="{% url 'layout:instruction_page' %}">{% trans "Uputstvo za korišćenje platforme" %}</a>
+                         </li>
                       <li>
                         <a href="{% url 'layout:contact' %}">{% trans "Kontakt" %}</a>
                       </li>
