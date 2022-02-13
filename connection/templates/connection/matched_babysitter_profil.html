@@ -1,5 +1,6 @@
 {% extends "layout/base_contact.html" %}
 {% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
 {% load static %}
 {% block title %} {% trans "Bebisiter Profil" %} {% endblock %}
 
@@ -314,13 +315,25 @@
                 <div class="user-main-info">
                    <h3>{% trans "O sebi" %}</h3>
                    <div class="about-area">
-                     <p>       
+                     <p>
+                     {% if LANGUAGE_CODE == 'sr'%}
                         {% if babysitter.about_me == "" %}
-                           
+                           Bebisiterka/Dadilja nije napisala ništa o sebi...
                         {%else%}
                            {{babysitter.about_me}}
                         {%endif%}
-                     </p>
+                     {% elif LANGUAGE_CODE == 'en'%}
+                        {% if babysitter.about_me_eng == "" %}
+                           {% if babysitter.about_me == "" %}
+                              The babysitter / nanny didn't write anything about herself ...
+                           {%else%}
+                              {{babysitter.about_me}}
+                           {%endif%}
+                           {%else%}
+                              {{babysitter.about_me_eng}}
+                           {% endif %}
+                        {% endif %}
+                  </p>
                    </div>
                    <div class="usual-info">
                       <div class="usual-box">

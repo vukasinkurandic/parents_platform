@@ -1,4 +1,5 @@
 {% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
 {% load static%}
 <!DOCTYPE html>
 <html lang="en">
@@ -54,10 +55,7 @@
                         </div>
                      </div>
                      <div class="col-md-8">
-                        <div class="top-lang">
-                           {% get_current_language as LANGUAGE_CODE %}
-                           {% get_available_languages as LANGUAGES %}
-                           
+                        <div class="top-lang">                           
                            <a href="/en/"><img src="{% static 'layout/img/eng.png' %}" /></a>
                            <a href="/"><img src="{% static 'layout/img/srb.jpg' %}" /></a>
                         </div>
@@ -71,8 +69,8 @@
                   <nav>
                      <div class="top-lang-on-mob">
                         <ul class="lang-circle">
-                          <li><a href=""><img src="{% static 'layout/img/eng-mob.jpg' %}" /></a></li>
-                          <li><a href=""><img src="{% static 'layout/img/srb-mob.jpg' %}" /></a></li>
+                          <li><a href="/en/"><img src="{% static 'layout/img/eng-mob.jpg' %}" /></a></li>
+                          <li><a href="/"><img src="{% static 'layout/img/srb-mob.jpg' %}" /></a></li>
                           </ul>
                         </div>
                      <div class="logo-for-mob-on-menu">
@@ -82,7 +80,11 @@
                         <div class="col-md-8">
                            <ul class="mob-mar">
                               <li><a href="{% url 'layout:home' %}">{% trans "naslovna" %}</a></li>
+                              {% if LANGUAGE_CODE == 'sr'%}
                               <li><a href="">blog</a></li>
+                              {% elif LANGUAGE_CODE == 'en'%}
+                              <li><a href="">blog</a></li>
+                              {% endif%}
                               <li><a href="{% url 'layout:contact' %}">{% trans "kontakt" %}</a></li>
                               {% if user.is_authenticated and user.user_type == 1 %}
                               <li><a href="{% url 'connection:all_babysitters' %}">{% trans "baza bebisitera/dadilja" %}</a></li>
@@ -132,32 +134,11 @@
             </div>
          </header>
       </div>
-      <!-- nav -->
-      
-<!-- ODAVDE PA NA GORE SVE JE ISTO -->
-
-
-<!-- SAD OVDE IMA ZAČKOLJICA U FAJLU HEADER TI JE I DIV 
-  <div class="slid insade-slid">
-      <div class="container-wrap-gradient"></div>
-      <img src="img/naslovna3.jpg" />
-    </div>
-
-    ON JE ISTI ZA SVE FAJLOVE OSIM ZA INDEX ALI ĆE TI GA VUĆI JER JE SPAKOVAN U HEADER FAJL TEMPLEJTA
-     ILI KAKO SI VEĆ NAZVAO TAJ FAJL.
-     JEDNO REŠENJE JE DA DA IZVUČEMO IZ HEADER FAJLA I DA BUDE NA SVAKOJ STRANI ILI DA INDEX IDE OVAKO 
-     ČIST BEZ HEADER TEMPLEJTA, DA SE SAMO FOOTER UBACI KAO TEMPLEJT
- --> 
-
-
-<!--  -->
-
-
       <div class="slid">
          <div class="lop-for-cont">
             <div class="container position-relative">
                <div class="slid-title">
-                  <h1>Parent's Time</h1>
+                  <h1>Parent's Time</h1> 
                   <br />
                   <!-- MESSAGES-->
                   {% if messages %}
@@ -422,9 +403,11 @@
                         {% if user.is_authenticated and user.user_type == 1 %}
                         <li><a href="{% url 'connection:all_babysitters' %}">{% trans "Baza bebisitera/dadilja" %}</a></li>
                         {%endif%}
-                         <li>
-                           <a href="">{% trans "Novosti iz dečijeg sveta" %}</a>
-                         </li>
+                         {% if LANGUAGE_CODE == 'sr'%}
+                         <li><a href="">Novosti iz dečijeg sveta</a></li>
+                        {% elif LANGUAGE_CODE == 'en'%}
+                        <li><a href="">News from the children's world</a></li>
+                        {% endif%}
                          <li>
                            <a href="{% url 'layout:instruction_page' %}">{% trans "Uputstvo za korišćenje platforme" %}</a>
                          </li>

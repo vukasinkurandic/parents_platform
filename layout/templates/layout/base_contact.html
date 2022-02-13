@@ -1,5 +1,6 @@
 <!-- HEADER POČETAK  -->
 {% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -68,8 +69,8 @@
             <nav>
               <div class="top-lang-on-mob">
                 <ul class="lang-circle">
-                  <li><a href=""><img src="{% static 'layout/img/eng-mob.jpg' %}" /></a></li>
-                  <li><a href=""><img src="{% static 'layout/img/srb-mob.jpg' %}" /></a></li>
+                  <li><a href="/en/"><img src="{% static 'layout/img/eng-mob.jpg' %}" /></a></li>
+                  <li><a href="/"><img src="{% static 'layout/img/srb-mob.jpg' %}" /></a></li>
                   </ul>
                 </div>
               <div class="logo-for-mob-on-menu">
@@ -79,7 +80,11 @@
                 <div class="col-md-8">
                   <ul class="mob-mar">
                     <li><a href="{% url 'layout:home' %}">{% trans "naslovna" %}</a></li>
+                    {% if LANGUAGE_CODE == 'sr'%}
                     <li><a href="">blog</a></li>
+                    {% elif LANGUAGE_CODE == 'en'%}
+                    <li><a href="">blog</a></li>
+                    {% endif%}
                     <li><a href="{% url 'layout:contact' %}">{% trans "kontakt" %}</a></li>
                     {% if user.is_authenticated and user.user_type == 1 %}
                      <li><a href="{% url 'connection:all_babysitters' %}">{% trans "baza bebisitera/dadilja" %}</a></li>
@@ -156,7 +161,7 @@
               <div class="col-lg-6 col-xl-3 col-md-6">
                 <div class="footer-wrapper">
                   <div class="footer-main-link">
-                    <h4>Brzi linkovi</h4>
+                    <h4>{% trans "Brzi linkovi" %}</h4>
                     <ul>
                       <li>
                         <a href="{% url 'layout:home' %}">{% trans "Naslovna" %}</a>
@@ -164,9 +169,11 @@
                       {% if user.is_authenticated and user.user_type == 1 %}
                       <li><a href="{% url 'connection:all_babysitters' %}">{% trans "Baza bebisitera/dadilja" %}</a></li>
                       {%endif%}
-                      <li>
-                        <a href="">{% trans "Novosti iz dečijeg sveta" %}</a>
-                      </li>
+                      {% if LANGUAGE_CODE == 'sr'%}
+                         <li><a href="">Novosti iz dečijeg sveta</a></li>
+                        {% elif LANGUAGE_CODE == 'en'%}
+                        <li><a href="">News from the children's world</a></li>
+                        {% endif%}
                       <li>
                            <a href="{% url 'layout:instruction_page' %}">{% trans "Uputstvo za korišćenje platforme" %}</a>
                          </li>

@@ -1,5 +1,6 @@
 {% extends "layout/base_contact.html" %}
 {% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
 {% load static %}
 {% load crispy_forms_tags %}
 {% block title%} {% trans "Porodični Profil" %} {% endblock %}
@@ -215,14 +216,26 @@
                       </div>
                       <div class="col-xxl-8 col-xl-7 col-lg-7">
                          <div class="user-main-info">
-                            <h3>O sebi</h3>
+                            <h3>{% trans "O sebi" %}</h3>
                             <div class="about-area">
-                               <p>       
-                                 {% if profil.about_me == "" %}
-                                    {% trans "Napišite nešto o sebi, kako bi bebisiteri što bolje informisali..." %}
-                                 {%else%}
-                                    {{profil.about_me}}
-                                 {%endif%}
+                               <p>
+                                  {% if LANGUAGE_CODE == 'sr'%}
+                                    {% if profil.about_me == "" %}
+                                       {% trans "Napišite nešto o sebi, kako bi bebisiteri što bolje informisali..." %}
+                                    {%else%}
+                                       {{profil.about_me}}
+                                    {%endif%}
+                                  {% elif LANGUAGE_CODE == 'en'%}
+                                    {% if profil.about_me_eng == "" %}
+                                          {% if profil.about_me == "" %}
+                                             Write something about yourself, so that babysitters can be better informed about your family...
+                                          {%else%}
+                                             {{profil.about_me}}
+                                          {%endif%}
+                                    {%else%}
+                                       {{profil.about_me_eng}}
+                                    {% endif %}
+                                  {% endif %}
                                </p>
                             </div>
                             <div class="usual-info">

@@ -1,5 +1,6 @@
 {% extends "layout/base_contact.html" %}
 {% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
 {% load static %}
 {% block title%} {% trans "Bebisitter Profil" %} {% endblock %}
 {{profil.age_children}}
@@ -395,13 +396,25 @@
                 <div class="user-main-info">
                    <h3>{% trans "O sebi" %}</h3>
                    <div class="about-area">
-                     <p>       
+                   <p>
+                     {% if LANGUAGE_CODE == 'sr'%}
                         {% if profil.about_me == "" %}
-                           Napišite nešto o sebi, kako bi se porodice što bolje informisale o vama...
+                           Napišite nešto o sebi, kako bi se porodice bolje informisale o Vama...
                         {%else%}
                            {{profil.about_me}}
                         {%endif%}
-                     </p>
+                     {% elif LANGUAGE_CODE == 'en'%}
+                        {% if profil.about_me_eng == "" %}
+                           {% if profil.about_me == "" %}
+                               Write something about yourself, so that families can get better information about you ...
+                           {%else%}
+                              {{profil.about_me}}
+                           {%endif%}
+                           {%else%}
+                              {{profil.about_me_eng}}
+                           {% endif %}
+                        {% endif %}
+                  </p>
                    </div>
                    <div class="usual-info">
                       <div class="usual-box">

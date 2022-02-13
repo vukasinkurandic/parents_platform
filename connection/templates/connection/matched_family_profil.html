@@ -1,5 +1,6 @@
 {% extends "layout/base_contact.html" %}
 {% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
 {% load static %}
 {% load crispy_forms_tags %}
 {% block title%} {% trans "Porodični Profil" %} {% endblock %}
@@ -170,12 +171,24 @@
                          <div class="user-main-info">
                             <h3>{% trans "O sebi" %}</h3>
                             <div class="about-area">
-                               <p>       
-                                 {% if profil.about_me == "" %}
-                                   {% trans "Nema informacija..." %} 
-                                 {%else%}
-                                    {{profil.about_me}}
-                                 {%endif%}
+                               <p>
+                                  {% if LANGUAGE_CODE == 'sr'%}
+                                    {% if profil.about_me == "" %}
+                                       Porodica nije napisala ništa o sebi...
+                                    {%else%}
+                                       {{profil.about_me}}
+                                    {%endif%}
+                                  {% elif LANGUAGE_CODE == 'en'%}
+                                    {% if profil.about_me_eng == "" %}
+                                          {% if profil.about_me == "" %}
+                                             The family did not write anything about themselves ...
+                                          {%else%}
+                                             {{profil.about_me}}
+                                          {%endif%}
+                                    {%else%}
+                                       {{profil.about_me_eng}}
+                                    {% endif %}
+                                  {% endif %}
                                </p>
                             </div>
                             <div class="usual-info">
