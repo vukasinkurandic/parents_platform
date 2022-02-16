@@ -138,3 +138,7 @@ class BabysitterCalendar(models.Model):
     night_sunday = models.BooleanField(default=False)
 
     date_added = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        pk = self.babysitter.user_id
+        return f'{CustomUser.objects.get(id=pk).email}-{self.date_added}'
