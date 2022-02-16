@@ -1,15 +1,144 @@
-{% extends "layout/base_contact.html" %}
+<!-- HEADER POČETAK  -->
 {% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
 {% load static %}
 {% load crispy_forms_tags %}
-{% block title%} {% trans "Kreiraj profil" %} {% endblock %}
-
-{% block content%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+      integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" type="text/css" href="{% static 'layout/css/style.css' %}" /> 
+    <link rel="stylesheet" type="text/css" href="{% static 'layout/css/responsive.css' %}" />
+    <title>{% trans "Kreiraj Profil" %} </title>
+  </head>
+  <body>
+    <div class="menu">
+      <span class="bar"></span>
+    </div>
+    <!-- menu -->
+    <div class="slid-wrap-nav">
+      <div class="logo-mob-on-top">
+        <img src="{% static 'layout/img/logo4.png' %}" />
+      </div>
+      <header>
+        <div class="container rem-onmobile add-fluid-div">
+          <div class="top-info">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="top-logo">
+                  <a href="{% url 'layout:home' %}">
+                    <img src="{% static 'layout/img/logo5.png' %}" />
+                  </a>
+                </div>
+              </div>
+              <div class="col-md-8">
+                <div class="top-lang">
+                  <a href="/en/"><img src="{% static 'layout/img/eng.png' %}" /></a>
+                  <a href="/"><img src="{% static 'layout/img/srb.jpg' %}" /></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="nav-top">
+            <div class="circle-logo">
+              <img src="{% static 'layout/img/logo6.png' %}" />
+            </div>
+            <nav>
+              <div class="top-lang-on-mob">
+                <ul class="lang-circle">
+                  <li><a href="/en/"><img src="{% static 'layout/img/eng-mob.jpg' %}" /></a></li>
+                  <li><a href="/"><img src="{% static 'layout/img/srb-mob.jpg' %}" /></a></li>
+                  </ul>
+                </div>
+              <div class="logo-for-mob-on-menu">
+                <img src="{% static 'layout/img/logo4.png' %}" class="img-fluid" />
+              </div>
+              <div class="row">
+                <div class="col-md-8">
+                  <ul class="mob-mar">
+                    <li><a href="{% url 'layout:home' %}">{% trans "naslovna" %}</a></li>
+                    {% if LANGUAGE_CODE == 'sr'%}
+                    <li><a href="https://blog.parentstime.rs/">blog</a></li>
+                    {% elif LANGUAGE_CODE == 'en'%}
+                    <li><a href="https://blog.parentstime.rs/">blog</a></li>
+                    {% endif%}
+                    <li><a href="{% url 'layout:contact' %}">{% trans "kontakt" %}</a></li>
+                    {% if user.is_authenticated and user.user_type == 1 %}
+                     <li><a href="{% url 'connection:all_babysitters' %}">{% trans "baza bebisitera/dadilja" %}</a></li>
+                    {%endif%}
+                  </ul>
+                </div>
+                <div class="col-md-4">
+                           <!--USER IS AUTHENTICATED-->
+                           {% if user.is_authenticated %}
+                           <div class="logout">
+                            <a class="btn btn-logout" href="{% url 'account:logout' %}">{% trans "Odjavi se" %}</a>
+                          </div>
+                              {%if user.user_type == 1%}
+                                 {%if request.user.family.picture.url == '' %}                               
+                                 {%else%}
+                                 <div class="login-user">
+                                 <a href="{% url 'family:profil' %}">
+                                  <img src="{{request.user.family.picture.url}}" class="img-fluid" /></a>
+                                  </div>
+                                  {%endif%}
+                              {%else%}
+                                 {%if request.user.babysitter.picture.url == '' %}
+                                 {%else%}
+                                 <div class="login-user">
+                                 <a href="{% url 'babysitter:profil' %}">
+                                 <img src="{{request.user.babysitter.picture.url}}" class="img-fluid" /></a>
+                                 </div>
+                                 {%endif%}
+                              {%endif%}
+                             <!--USER IS NOT AUTHENTICATED-->
+                        {%else%}
+                      <div class="no-login-select">
+                        <button class="dropbtn btn"><i class="far fa-user"></i> {% trans "Registruj se/prijavi se" %} </button>
+                        <div class="dropdown-content">
+                          <a href="{% url 'account:register_babysitter' %}">{% trans "Kao Bebisiter/Dadilja" %}</a>
+                          <a href="{% url 'account:register_family' %}">{% trans "Kao Porodica" %}</a>
+                          <a href="{% url 'account:login' %}">{% trans "Prijavi se" %}</a>       
+                        </div>
+                      </div> 
+                    {%endif%}
+                </div>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </header>
+    </div>
+    <!-- nav -->
+    <!-- HEADER KRAJ -->
     <div class="slid insade-slid">
     <div class="container-wrap-gradient"></div>
     <img src="{% static 'layout/img/naslovna3.jpg' %}" />  
  </div>
- 
+
  <section class="profil-wrapper">
     <div class="container add-fluid-div">
        <div class="insade-profil-wrapper insade-profil-wrapper-bebisit">
@@ -43,17 +172,10 @@
                  Na kraju samo kliknite na dugme kreiraj profil i to je to.
                    Srećno u pronalaženju odgovarajuće bebisiterke/dadilje.
                {% endblocktrans %} 
-               
                   </p>
             <div class="edit-circle crea-parents">1</div>
              <form method="POST" action="" enctype="multipart/form-data" >
                 {% csrf_token %}
-                   <!--  {{ form_family|crispy }}
-                      {{ form.email|as_crispy_field }}
-                     FORM-->
-                  
-                   
-                      
                          <div class="row">
                             <div class="col-lg-6">
                                <div class="mb-3">
@@ -112,8 +234,6 @@
                                   {{ form_family.sity}}
                               </div>
                            </div>
-                            
-
                             <div class="col-lg-6">
                               <div class="mb-3">
                                  <label for="user_municipality" class="form-label">{% trans "Da li je državljanin RS ili inostrani državljanin" %}</label>
@@ -140,8 +260,7 @@
                         </div>                 
                          <div class="col-lg-12"></div>
                          <div class="edit-circle2 crea-parents2">2</div> 
-                         <div class="col-lg-12">
-                           
+                         <div class="col-lg-12">     
                          <div class="mb-3">
                             <label for="user_image" class="form-label">{% trans "Slika" %}</label>
                             <span class="small_info" >{% trans "mora biti manja od 2MB" %}</span>
@@ -149,7 +268,6 @@
                          </div>
                         </div>
                         </div>
-                
                      <!--FORM-->
                 <input type="submit" name="send_msg" value="Kreiraj profil" class="btn btn-log-reg">
              </form>
@@ -157,5 +275,14 @@
        </div>
     </div>
  </section>
+ <!-- FOOTER POČETAK -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript" src="{% static 'layout/js/custom.js' %}"></script>
+  </body>
+</html>
 
-{% endblock %}
+<!-- FOOTER KRAJ -->
