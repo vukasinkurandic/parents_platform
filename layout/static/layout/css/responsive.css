@@ -2313,3 +2313,18 @@ height: 1724px;
 }
 
 }
+
+
+@media (max-height: 760px) {
+  .slid, .slid img {
+    
+    height: 92vh;
+  }
+
+
+.slid-grad {
+
+  height: 92vh;
+
+}
+}
