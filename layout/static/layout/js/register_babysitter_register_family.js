@@ -1,8 +1,9 @@
-// ovo ide u register_babysitter
-// register_family
 
+//Input with dynamic ID, depends on the language
+let hidden = document.getElementById('input-sr')
 
-  /*register family and babysiter error*/
+/*register family and babysiter error if language is Serbian*/
+if (hidden != null) {
   let error66 = document.getElementById('66')
   let error28 = document.getElementById('28')
   let error34 = document.getElementById('34')
@@ -19,3 +20,5 @@
   if (error49) {
     error49.innerHTML = '<strong>Lozinka ne sme biti slična email adresi</strong>';
   }
+}
+
