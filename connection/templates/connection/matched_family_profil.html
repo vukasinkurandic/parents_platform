@@ -82,10 +82,10 @@
                          </div>
                          <div class="user-short-info">
                             <ul>
-                              <li class="email-center" ><span class="user-year">
+                              <li class="email-center no-link" ><span class="user-year">
                                  {%if profil.email == None %}
                                  {%else%}
-                                 {{profil.email}}
+                                 <a href="mailto:{{profil.email}}"> {{profil.email}}</a>
                                  {%endif%}
                                </span></li>
                               {% if profil.social_network == None %}
