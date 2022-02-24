@@ -22,13 +22,22 @@
                 </div>
                 <div class="user-social">
                    <ul>
-                      <li> <span class="icon-user" ><i class="fas fa-phone"></i></span> <span class="user-phone" >  {{babysitter.mobile_number}}</span></li>                      
+                      <li class="no-link" > <a href="tel:{{babysitter.mobile_number}}"> <span class="icon-user" ><i class="fas fa-phone"></i></span> <span class="user-phone" >  {{babysitter.mobile_number}}</span></a></li>                      
                    </ul>
                 </div>
+
+                  <div class="user-short-info">
+                   <form action="{% url 'connection:send_match' %}" method="post">
+                      {% csrf_token%}
+                      <input type="hidden" name="babysitter_slug" value="{{babysitter.slug}}" />
+                     <button class="btn reserve-btn" type="submit">{% trans "Rezerviši" %}</button> 
+                   </form>                   
+                </div>
+
                 <div class="user-short-info">
                    <ul>
-                     <li class="email-center"><span class="user-year">
-                        {{babysitter.email}}
+                     <li class="email-center"><span class="user-year no-link"">
+                        <a href="mailto:{{babysitter.email}}"> {{babysitter.email}}</a>
                  </span>
                </li>
                      {% if babysitter.social_network == None %}

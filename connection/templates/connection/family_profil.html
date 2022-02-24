@@ -68,17 +68,19 @@
                                       {{profil.mobile_number}}
                                     </span></a>
                                    
-                             </li> {%endif%}
-                               <li> <span class="icon-user" > <i class="far fa-envelope"></i></span>  <span class="user-phone" >
-                                      {%if profil.email == None %}
-                                      {%else%}
-                                      {{profil.email}}
-                                      {%endif%}
-                               </span></li>
+                             </li> {%endif%}                               
                             </ul>
                          </div>
                          <div class="user-short-info">
                             <ul>
+                               <li class="email-center no-link" >
+                                  <span class="user-year" >
+                                     {%if profil.email == None %}
+                                 {%else%}
+                                  <a href="mailto:{{profil.email}}"> {{profil.email}}</a>
+                                 {%endif%}</span>
+                              </li>
+
                               {% if profil.social_network == None %}
                               <li>
                                  <span class="user-year">{% trans "Nema Društvene mreže" %}</span>

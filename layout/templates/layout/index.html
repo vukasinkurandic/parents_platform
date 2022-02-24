@@ -174,7 +174,7 @@
             </div>
          </div>
          <div class="slid-grad"></div>
-         <img src="{% static 'layout/img/naslovna3.jpg' %}" />
+         <img src="{% static 'layout/img/naslovna3.webp' %}" />
          <div class="slid-bottom"></div>
       </div>
 
@@ -194,11 +194,11 @@
                </div>
                <div class="col-lg-8">
                   <div class="box-small-text">
-                     <p>{% blocktrans %} "Parent's time je platforma koja je tu da izadje u susret svakom
+                     <p>{% blocktrans %} "Parent's time je platforma koja je tu da izađe u susret svakom
                         roditelju kome je potrebna pomoć prilikom traženja idealne osobe
                         koja bi čuvala njihovo dete kada oni to nisu u mogućnosti. U
                         samo par koraka i potpuno <b> besplatno</b> u promo periodu moguće je
-                        pronaći bebisetera/dadilju koji odgovaraju baš Vašim
+                        pronaći bebisitera/dadilju koji odgovaraju baš Vašim
                         kriterijumima." {% endblocktrans %}
 
                      </p>
@@ -219,7 +219,7 @@
             <div class="col-lg-5">
                <div class="mission-img">
                   <div class="mission-img-text"><span> {% trans "SVE U TRI KORAKA" %}</span></div>
-                  <img src="{% static 'layout/img/pitanja2.jfif' %}" class="img-fluid">
+                  <img src="{% static 'layout/img/pitanja2.webp' %}" class="img-fluid">
                </div>
             </div>
             <div class="col-lg-7">
@@ -275,7 +275,7 @@
          {% if user.is_authenticated and user.user_type == 1 %}
          <div class="container text-center">
             <div class="baby-title">
-               <h2>{% trans "Bebisiterke/Dadije" %}</h2>
+               <h2>{% trans "Bebisiterke/Dadilje" %}</h2>
             </div>
          </div>
          <div class="container">
@@ -389,8 +389,10 @@
                <div class="row">
                  <div class="col-lg-6 col-xl-3 col-md-6">
                    <div class="footer-wrapper">
-                     <img src="{% static 'layout/img/logo4.png' %}" class="img-fluid footer-logo-img" />
-                     <p class="footer-logo-info">{% blocktrans %} "Parent's time je platforma koja je tu da izadje u susret
+                     <a href="{% url 'layout:home' %}">
+    <img src="{% static 'layout/img/logo4.png' %}" class="img-fluid footer-logo-img" />
+    </a>
+                     <p class="footer-logo-info">{% blocktrans %} "Parent's time je platforma koja je tu da izađe u susret
                        svakom roditelju kome je potrebna pomoć prilikom traženja
                        idealne osobe koja bi čuvala njihovo dete kada oni to nisu u
                        mogućnosti." {% endblocktrans %}
@@ -433,6 +435,14 @@
                            
                          </p>
                          <p>{% trans "U promo periodu besplatna i uvek dostupna baza bebisitera/dadilja" %}</p>
+                         <div class="no-login-select">
+                           <button class="dropbtn btn"><i class="far fa-user"></i> {% trans "Registruj se/prijavi se" %} </button>
+                           <div class="dropdown-content">
+                              <a href="{% url 'account:register_babysitter' %}">{% trans "Kao Bebisiter/Dadilja" %}</a>
+                              <a href="{% url 'account:register_family' %}">{% trans "Kao Porodica" %}</a>
+                              <a href="{% url 'account:login' %}">{% trans "Prijavi se" %}</a>       
+                           </div>
+                           </div> 
                        </div>
                        <div class="foter-map">
                          <img src="{% static 'layout/img/mapa.png' %}" class="img-fluid" />
