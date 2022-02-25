@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-25 20:34+0100\n"
-"PO-Revision-Date: 2022-02-25 20:43+0000\n"
+"POT-Creation-Date: 2022-02-26 00:15+0100\n"
+"PO-Revision-Date: 2022-02-26 00:17+0000\n"
 "Last-Translator:   <natasa@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -1113,7 +1113,7 @@ msgid "Čestitamo, upravo ste kreirali profil na Parent's time platformi."
 msgstr ""
 "Congratulations, you just created a profile on Parent's time platform."
 
-#: .\babysitter\views.py:38 .\babysitter\views.py:61 .\babysitter\views.py:145
+#: .\babysitter\views.py:38 .\babysitter\views.py:61 .\babysitter\views.py:147
 msgid ""
 "Proverite raspone cene, format broja telefona, društvene mreže ili slike "
 "(jpg, png ili jpeg)"
@@ -1125,11 +1125,11 @@ msgstr ""
 msgid "Uspesno ste azurirali profil"
 msgstr "You have successfully updated your profile"
 
-#: .\babysitter\views.py:141
+#: .\babysitter\views.py:143
 msgid "Uspesno ste azurirali vreme kada možete da čuvate decu"
 msgstr "You have successfully updated the time when you babysitting"
 
-#: .\babysitter\views.py:155 .\family\views.py:148
+#: .\babysitter\views.py:157 .\family\views.py:150
 msgid "Uspešno ste obrisali profil!!!"
 msgstr "You have successfully deleted your profile !!!"
 
@@ -1299,7 +1299,6 @@ msgstr "Babysitting children "
 
 #: .\connection\templates\connection\babysitter_profil.html:343
 #: .\connection\templates\connection\matched_babysitter_profil.html:370
-#| msgid "Vreme kada čuvate decu"
 msgid "Vreme tokom nedelje kada čuva decu"
 msgstr "Weekly babysitting schedule"
 
@@ -1473,42 +1472,46 @@ msgstr "The family did not enter their address"
 msgid "  Pošalji"
 msgstr "Send"
 
-#: .\connection\views.py:343
+#: .\connection\views.py:350
 msgid "Ponovo ste ste rezervisali korisnika"
 msgstr "You have booked a user again"
 
-#: .\connection\views.py:346
+#: .\connection\views.py:353
 msgid "Već ste rezervisali korisnika"
 msgstr "You have already booked a user"
 
-#: .\connection\views.py:350
+#: .\connection\views.py:357
 msgid "Uspešno ste rezervisali korisnika"
 msgstr "You have successfully booked a user"
 
-#: .\connection\views.py:409 .\connection\views.py:418
-#: .\connection\views.py:583 .\connection\views.py:592
+#: .\connection\views.py:361
+msgid "Kontaktirani ste od strane porodice"
+msgstr "You have been contacted by family"
+
+#: .\connection\views.py:439 .\connection\views.py:448
+#: .\connection\views.py:617 .\connection\views.py:626
 msgid "Uspešno ste ostavili komentar!"
 msgstr "You have successfully left a comment!"
 
-#: .\connection\views.py:428 .\connection\views.py:436
-#: .\connection\views.py:602 .\connection\views.py:610
+#: .\connection\views.py:458 .\connection\views.py:466
+#: .\connection\views.py:636 .\connection\views.py:644
 msgid "Uspešno ste ocenili korisnika!"
 msgstr "You have successfully rated the user!"
 
-#: .\connection\views.py:439 .\connection\views.py:613
+#: .\connection\views.py:469 .\connection\views.py:647
 msgid "Morate izabrati željenu ocenu!"
 msgstr "You must select the desired rating!"
 
-#: .\connection\views.py:449 .\connection\views.py:457
-#: .\connection\views.py:623 .\connection\views.py:631
+#: .\connection\views.py:479 .\connection\views.py:487
+#: .\connection\views.py:657 .\connection\views.py:665
 msgid "Uspešno ste prijavili korisnika!"
 msgstr "You have successfully reported the user!"
 
-#: .\connection\views.py:652
+#: .\connection\views.py:686
 msgid "Uspešno ste odbili zahtev!"
 msgstr "You have successfully declined the request!"
 
-#: .\connection\views.py:664
+#: .\connection\views.py:698
 msgid "Uspešno ste obrisali zahtev!"
 msgstr "You have successfully deleted the request!"
 
@@ -1661,14 +1664,14 @@ msgstr "You have not updated your location"
 msgid "Kada Vam je potrebno čuvanje"
 msgstr "When you need babysitting"
 
-#: .\family\views.py:40 .\family\views.py:61 .\family\views.py:138
+#: .\family\views.py:40 .\family\views.py:61 .\family\views.py:140
 msgid ""
 "Proverite format broja telefona, društvene mreže ili slike (jpg, png ili "
 "jpeg)"
 msgstr ""
 "Check the format of phone, social network, and image  (jpg, png, or jpeg)"
 
-#: .\family\views.py:134
+#: .\family\views.py:136
 msgid "Uspesno ste azurirali vreme kada Vam je potrebno čuvanje dece"
 msgstr "You have successfully updated the time when you need babysitting"
 
@@ -2221,15 +2224,15 @@ msgstr ""
 msgid "Srećno u pronalaženju posla :)"
 msgstr "Good luck in finding a job :)"
 
-#: .\layout\views.py:45
+#: .\layout\views.py:49
 msgid "Hvala, Uspešno ste poslali email!"
 msgstr "Thank you, You have successfully sent an email!"
 
-#: .\layout\views.py:48
+#: .\layout\views.py:52
 msgid "Vec ste se prijavili ili je email neispravan!"
 msgstr "You are already signed in or the email is invalid!"
 
-#: .\layout\views.py:57
+#: .\layout\views.py:61
 msgid "Hvala, Uspešno ste poslali poruku!"
 msgstr "Thanks, You have successfully sent a message!"
 
@@ -2264,6 +2267,40 @@ msgstr ""
 #: .\templates\base_reset.html:187
 msgid "Besplatna i uvek dostupna baza bebisitera/dadilja"
 msgstr "Free and always available babysitter/nanny base"
+
+#: .\templates\email_connection.html:33
+#: .\templates\password_reset_email.html:33
+msgid "Poštovani/a "
+msgstr "Dear"
+
+#: .\templates\email_connection.html:46
+#, python-format
+msgid ""
+"\n"
+"                           Roditelj %(name)s %(surname)s Vas je kontaktirao. Neki tekst objasnjenja rada.\n"
+"                           "
+msgstr ""
+"\n"
+"The parent %(name)s  %(surname)s has contacted you. Some text explaining the work."
+
+#: .\templates\email_connection.html:50
+msgid "Da bi ste videli profil porodice kliknite na dugme"
+msgstr "To see the family profile click on the button"
+
+#: .\templates\email_connection.html:61
+#| msgid "Vidi profil"
+msgid " Vidi profil "
+msgstr "View profile"
+
+#: .\templates\email_connection.html:73
+#: .\templates\password_reset_email.html:85
+msgid "Ukoliko imate problema možete nam pisati na contact@parentstime.rs"
+msgstr "If you have problems you can write to us at contact@parentstime.rs"
+
+#: .\templates\email_connection.html:75
+#: .\templates\password_reset_email.html:87
+msgid "S poštovanjem"
+msgstr "Sincerely"
 
 #: .\templates\password_reset.html:4 .\templates\password_reset_done.html:4
 msgid "Reset lozinke"
@@ -2348,14 +2385,6 @@ msgid ""
 msgstr ""
 "\n"
 "Your username, in case you forgot is:"
-
-#: .\templates\password_reset_email.html:85
-msgid "Ukoliko imate problema možete nam pisati na contct@parentstime.rs"
-msgstr "If you have problems you can write to us at contct@parentstime.rs"
-
-#: .\templates\password_reset_email.html:87
-msgid "S poštovanjem"
-msgstr "Sincerely"
 
 #~ msgid "Dostupnost korisnika"
 #~ msgstr "User availability"

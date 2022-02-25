@@ -11,6 +11,12 @@ from reviews .models import Commentary, Rate, Report
 from django.db.models import Avg
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.utils.translation import gettext_lazy as _
+from django.conf import settings
+from django.core.mail import send_mail
+from django.core.mail import EmailMultiAlternatives
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
+from django.utils.translation import get_language
 
 
 @login_required
@@ -349,6 +355,28 @@ def send_match(request):
             connection.save()
             messages.success(
                 request, _('Uspešno ste rezervisali korisnika'))
+            # SEND EMAIL TO BABYSITTER
+            babysitter_email = babysiter_for_match.user.email
+            babysitter_name = babysiter_for_match.first_name
+            subject = _('Kontaktirani ste od strane porodice')
+            family = Family.objects.get(id=family_id)
+            language = get_language()
+            if language == 'sr':
+                link = (
+                    f'https://www.parentstime.rs/connection/family_profil/{family.slug}')
+            else:
+                link = (
+                    f'https://www.parentstime.rs/en/connection/family_profil/{family.slug}')
+            email_from = settings.EMAIL_HOST_USER
+            recipient_list = [babysitter_email]
+            html_content = render_to_string(
+                "email_connection.html", {'title': subject, 'name': family.first_name, 'surname': family.last_name, 'babysitter_name': babysitter_name, 'link': link})
+            text_content = strip_tags(html_content)
+            email = EmailMultiAlternatives(
+                subject, text_content, email_from, recipient_list)
+            email.attach_alternative(html_content, 'text/html')
+            email.send()
+
     return redirect('family:profil')
 
 
