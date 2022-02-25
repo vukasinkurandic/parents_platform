@@ -282,7 +282,7 @@
             <div class="swiper mySwiper">
                <div class="swiper-wrapper">
                   {% if babysitter_list %}
-                  {% for babysitter,number_of_comment, rate in babysitter_list%}
+                  {% for babysitter,number_of_comment, rate, rate_number  in babysitter_list%}
                  <div class="swiper-slide">
                     <a href="{% url 'connection:babysitter_profil' babysitter.slug %}">
                               <div class="babsit-box">
@@ -304,7 +304,7 @@
                                        {% if rate == None%}
                                        <div class="baby-he"><i class="fas fa-star"></i><span> {% trans "Neocenjen" %}</span></div>
                                        {%else%}
-                                       <div class="baby-he"><i class="fas fa-star"></i><span>{{rate}}</span></div>
+                                       <div class="baby-he"><i class="fas fa-star"></i><span>{{rate}} ({{rate_number}})</span></div>
                                        {%endif%}
                                        
                                        <div class="baby-com"><i class="fas fa-comment"></i><span> {{number_of_comment}} {% trans "Komentar" %} </span></div>

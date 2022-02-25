@@ -312,11 +312,12 @@ def babysitter_profil(request, slug):
     # RATE FOR BABYSITTER
     rate_average = Rate.objects.filter(
         rated_person_id=babysitter.user_id).aggregate(Avg('score')).get('score__avg', 0.00)
-
+    rate_number = Rate.objects.filter(
+        rated_person_id=babysitter.user_id).count()
     newsletter_form = NewsletterForm()
     context = {'babysitter': babysitter,
                'calendar': calendar, 'form': newsletter_form,
-               'commentary_list': commentary_list, 'rate_average': rate_average}
+               'commentary_list': commentary_list, 'rate_average': rate_average, 'rate_number': rate_number}
     return render(request, 'connection/babysitter_profil.html', context)
 
 
@@ -388,7 +389,8 @@ def matched_babysitter_profil(request, slug):
             # RATE FOR BABYSITTER
             rate_average = Rate.objects.filter(
                 rated_person_id=babysitter.user_id).aggregate(Avg('score')).get('score__avg', 0.00)
-
+            rate_number = Rate.objects.filter(
+                rated_person_id=babysitter.user_id).count()
             # COMENNTARY, RATE and REPORT FORM
             author_id = request.user.id
             person_id = babysitter.user_id
@@ -461,7 +463,7 @@ def matched_babysitter_profil(request, slug):
             newsletter_form = NewsletterForm()
             context = {'babysitter': babysitter,
                        'calendar': calendar, 'form': newsletter_form,
-                       'commentary_list': commentary_list, 'rate_average': rate_average}
+                       'commentary_list': commentary_list, 'rate_average': rate_average, 'rate_number': rate_number}
             return render(request, 'connection/matched_babysitter_profil.html', context)
     else:
         return redirect('family:profil')
@@ -513,11 +515,13 @@ def family_profil(request, slug):
     # RATE FOR FAMILY
     rate_average = Rate.objects.filter(
         rated_person_id=profil.user_id).aggregate(Avg('score')).get('score__avg', 0.00)
+    rate_number = Rate.objects.filter(
+        rated_person_id=profil.user_id).count()
 
     newsletter_form = NewsletterForm()
     context = {'profil': profil, 'connection_list': connection_list,
                'calendar': calendar, 'form': newsletter_form,
-               'commentary_list': commentary_list, 'rate_average': rate_average}
+               'commentary_list': commentary_list, 'rate_average': rate_average, 'rate_number': rate_number}
     return render(request, 'connection/family_profil.html', context)
 
 
@@ -559,6 +563,8 @@ def matched_family_profil(request, slug):
             # RATE FOR FAMILY
             rate_average = Rate.objects.filter(
                 rated_person_id=profil.user_id).aggregate(Avg('score')).get('score__avg', 0.00)
+            rate_number = Rate.objects.filter(
+                rated_person_id=profil.user_id).count()
             # Change is matched in TRUE
             for connection in connection_queryset:
                 connection.is_matched = True
@@ -635,7 +641,7 @@ def matched_family_profil(request, slug):
             newsletter_form = NewsletterForm()
             context = {'profil': profil,
                        'calendar': calendar, 'form': newsletter_form,
-                       'commentary_list': commentary_list, 'rate_average': rate_average}
+                       'commentary_list': commentary_list, 'rate_average': rate_average, 'rate_number': rate_number}
             return render(request, 'connection/matched_family_profil.html', context)
     else:
         return redirect('babysitter:profil')

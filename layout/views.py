@@ -13,6 +13,7 @@ def home(request):
     babysitters = Babysitter.objects.all().order_by('-id')[:4]
     number_of_comment_list = []
     rate_list = []
+    rate_number_list = []
     if babysitters:
         for babysitter in babysitters:
             number_of_comment = Commentary.objects.filter(
@@ -21,9 +22,12 @@ def home(request):
             babysitter_rate = Rate.objects.filter(
                 rated_person_id=babysitter.user_id).aggregate(Avg('score')).get('score__avg', 0.00)
             rate_list.append(babysitter_rate)
+            babysitter_rate_number = Rate.objects.filter(
+                rated_person_id=babysitter.user_id).count()
+            rate_number_list.append(babysitter_rate_number)
             # Put 3 list in one list for context
         babysitter_list = zip(
-            babysitters, number_of_comment_list, rate_list)
+            babysitters, number_of_comment_list, rate_list, rate_number_list)
     else:
         babysitter_list = False
     form = NewsletterForm()

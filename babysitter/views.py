@@ -111,11 +111,13 @@ def profil(request):
     # RATE FOR BABYSITTER
     rate_average = Rate.objects.filter(
         rated_person_id=request.user.id).aggregate(Avg('score')).get('score__avg', 0.00)
+    rate_number = Rate.objects.filter(
+        rated_person_id=request.user.id).count()
 
     newsletter_form = NewsletterForm()
     context = {'profil': profil, 'calendar': calendar,
                'form': newsletter_form, 'send_list': send_list,
-               'commentary_list': commentary_list, 'rate_average': rate_average}
+               'commentary_list': commentary_list, 'rate_average': rate_average, 'rate_number': rate_number}
     return render(request, 'babysitter/profil_babysitter.html', context)
 
 
