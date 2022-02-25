@@ -35,7 +35,7 @@ def create_profil(request):
                 return redirect('babysitter:edit_calendar')
             else:
                 messages.error(
-                    request, _('Proverite format broja telefona, društvene mreže ili slike (jpg, png ili jpeg)'))
+                    request, _('Proverite raspone cene, format broja telefona, društvene mreže ili slike (jpg, png ili jpeg)'))
         newsletter_form = NewsletterForm()
         context = {'form_babysitter': form_babysitter, 'form': newsletter_form}
         return render(request, 'babysitter/create_profil_babysitter.html', context)
@@ -58,7 +58,7 @@ def edit_profil(request):
             return redirect('babysitter:profil')
         else:
             messages.error(
-                request, _('Proverite format broja telefona, društvene mreže ili slike (jpg, png ili jpeg)'))
+                request, _('Proverite raspone cene, format broja telefona, društvene mreže ili slike (jpg, png ili jpeg)'))
     newsletter_form = NewsletterForm()
     context = {'form_babysitter': form_babysitter, 'form': newsletter_form}
     return render(request, 'babysitter/edit_profil_babysitter.html', context)
@@ -142,7 +142,7 @@ def edit_calendar(request):
             return redirect('babysitter:profil')
         else:
             messages.error(
-                request, _('Proverite format broja telefona, društvene mreže ili slike (jpg, png ili jpeg)'))
+                request, _('Proverite raspone cene, format broja telefona, društvene mreže ili slike (jpg, png ili jpeg)'))
 
     context = {'babysitter_calendar_form': babysitter_calendar_form}
     return render(request, 'babysitter/edit_calendar.html', context)

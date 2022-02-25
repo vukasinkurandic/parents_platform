@@ -9,7 +9,7 @@ from django.conf.urls.i18n import i18n_patterns
 urlpatterns = []
 
 urlpatterns += i18n_patterns(
-    path('admin/', admin.site.urls),
+    path('director/', admin.site.urls),
     path('', include('layout.urls', namespace='layout')),
     path('', include('account.urls', namespace='account')),
     path('family/', include('family.urls', namespace='family')),

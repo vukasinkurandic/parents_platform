@@ -171,11 +171,12 @@ AGE_CHOICES = (
     ('12-18', '12-18'),
 )
 CITIZENSHIP_CHOICES = (
-    ('Srpski Drzavljanin', _('Srpski Drzavljanin')),
-    ('Strani Drzavljanin', _('Strani Drzavljanin')),
+    ('Srpski Državljanin', _('Srpski Državljanin')),
+    ('Strani Državljanin', _('Strani Državljanin')),
 )
 
 CHILDCARE_PERIOD_CHOICES = (
+    ('Povremeno', _('Povremeno')),
     ('Manje od mesec dana', _('Manje od mesec dana')),
     ('Mesec dana', _('Mesec dana')),
     ('Par meseci', _('Par meseci')),

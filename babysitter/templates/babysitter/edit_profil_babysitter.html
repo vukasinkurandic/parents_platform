@@ -76,6 +76,7 @@
                             <div class="col-lg-6">
                               <div class="mb-3">
                                  <label for="siter_money" class="form-label">{% trans "Satnica/RSD" %}</label>
+                                 <span class="small_info" >{% trans "min 0 max 3000" %}</span>
                                  {{ form_babysitter.hourly_rate}}
                               </div>
                            </div>
@@ -231,7 +232,7 @@
                    
                    
                 
-                <input type="submit" name="send_msg" value="Ažuriraj profil" class="btn btn-log-reg">
+                <input type="submit" name="send_msg" value="{% blocktrans %} Ažuriraj profil {% endblocktrans %}  " class="btn btn-log-reg">
              </form>
           </div>
        </div>
