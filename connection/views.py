@@ -396,29 +396,6 @@ def matched_babysitter_profil(request, slug):
         if connection_queryset[0].is_matched == False:
             return redirect('family:profil')
         else:
-            # COMMENTARY FOR BABYSITTER
-            comment_list = []
-            author_of_commentary_list = []
-            comentary_queryset = Commentary.objects.filter(
-                commentated_person_id=babysitter.user_id)
-
-            if comentary_queryset.exists():
-                for comment in comentary_queryset:
-                    comment_list.append(comment)
-
-                    author_of_commentary = Family.objects.get(
-                        user_id=comment.author_of_commentary_id)
-
-                    author_of_commentary_list.append(author_of_commentary)
-                # MAKING ONE LIST FROM COMMENT LIST AND AUTHOR OF COMMENTARY_LIST
-                commentary_list = zip(comment_list, author_of_commentary_list)
-            else:
-                commentary_list = None
-            # RATE FOR BABYSITTER
-            rate_average = Rate.objects.filter(
-                rated_person_id=babysitter.user_id).aggregate(Avg('score')).get('score__avg', 0.00)
-            rate_number = Rate.objects.filter(
-                rated_person_id=babysitter.user_id).count()
             # COMENNTARY, RATE and REPORT FORM
             author_id = request.user.id
             person_id = babysitter.user_id
@@ -487,6 +464,29 @@ def matched_babysitter_profil(request, slug):
                             request, _('Uspešno ste prijavili korisnika!'))
 
             # END OF COMENNTARY, RATE and REPORT
+            # COMMENTARY FOR BABYSITTER
+            comment_list = []
+            author_of_commentary_list = []
+            comentary_queryset = Commentary.objects.filter(
+                commentated_person_id=babysitter.user_id)
+
+            if comentary_queryset.exists():
+                for comment in comentary_queryset:
+                    comment_list.append(comment)
+
+                    author_of_commentary = Family.objects.get(
+                        user_id=comment.author_of_commentary_id)
+
+                    author_of_commentary_list.append(author_of_commentary)
+                # MAKING ONE LIST FROM COMMENT LIST AND AUTHOR OF COMMENTARY_LIST
+                commentary_list = zip(comment_list, author_of_commentary_list)
+            else:
+                commentary_list = None
+            # RATE FOR BABYSITTER
+            rate_average = Rate.objects.filter(
+                rated_person_id=babysitter.user_id).aggregate(Avg('score')).get('score__avg', 0.00)
+            rate_number = Rate.objects.filter(
+                rated_person_id=babysitter.user_id).count()
 
             newsletter_form = NewsletterForm()
             context = {'babysitter': babysitter,
@@ -576,23 +576,6 @@ def matched_family_profil(request, slug):
             comentary_queryset = Commentary.objects.filter(
                 commentated_person_id=profil.user_id)
 
-            if comentary_queryset.exists():
-                for comment in comentary_queryset:
-                    comment_list.append(comment)
-
-                    author_of_commentary = Babysitter.objects.get(
-                        user_id=comment.author_of_commentary_id)
-
-                    author_of_commentary_list.append(author_of_commentary)
-                # MAKING ONE LIST FROM COMMENT LIST AND AUTHOR OF COMMENTARY_LIST
-                commentary_list = zip(comment_list, author_of_commentary_list)
-            else:
-                commentary_list = None
-            # RATE FOR FAMILY
-            rate_average = Rate.objects.filter(
-                rated_person_id=profil.user_id).aggregate(Avg('score')).get('score__avg', 0.00)
-            rate_number = Rate.objects.filter(
-                rated_person_id=profil.user_id).count()
             # Change is matched in TRUE
             for connection in connection_queryset:
                 connection.is_matched = True
@@ -665,7 +648,23 @@ def matched_family_profil(request, slug):
                             request, _('Uspešno ste prijavili korisnika!'))
 
             # END OF COMENNTARY, RATE and REPORT
+            if comentary_queryset.exists():
+                for comment in comentary_queryset:
+                    comment_list.append(comment)
 
+                    author_of_commentary = Babysitter.objects.get(
+                        user_id=comment.author_of_commentary_id)
+
+                    author_of_commentary_list.append(author_of_commentary)
+                # MAKING ONE LIST FROM COMMENT LIST AND AUTHOR OF COMMENTARY_LIST
+                commentary_list = zip(comment_list, author_of_commentary_list)
+            else:
+                commentary_list = None
+            # RATE FOR FAMILY
+            rate_average = Rate.objects.filter(
+                rated_person_id=profil.user_id).aggregate(Avg('score')).get('score__avg', 0.00)
+            rate_number = Rate.objects.filter(
+                rated_person_id=profil.user_id).count()
             newsletter_form = NewsletterForm()
             context = {'profil': profil,
                        'calendar': calendar, 'form': newsletter_form,
