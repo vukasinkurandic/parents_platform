@@ -17,7 +17,28 @@
           </div>
           <div class="row">
              <div class="col-xxl-4 col-xl-5 col-lg-5">
+               <div class="user-short-info only-on-small">
+                  <ul>
+                    <li>
+                       <span class="user-year">{% trans "Ocena korisnika" %}</span>
+                       {%if rate_average == None %}
+                       <span class="user-year-num">{% trans "Nema ocene" %}</span>
+                       {%else%}
+                       <span class="user-year-num rat-num">{{rate_average}} ({{rate_number}})</span>
+                       {%endif%}
+                       </li>
+                  </ul>
+               </div>
                 <div class="user-image">
+                  <div class="favorites" >
+                     <!-- ovo je kada nije rezervisan -->
+                     <span class="tooltiptext">Dodajte u omiljene</span>
+                      <a href=""><i class="far fa-heart"></i></a> 
+                      
+                     <!-- ovo je kada jeste rezervisan -->    
+                     <!-- <span class="tooltiptext">Ukloni iz omiljenih</span>                                                                     -->
+                     <!-- <a href=""><i class="fas fa-heart"></i></a>  -->
+                  </div>
                    <img src="{{babysitter.picture.url}}" class="img-fluid">
                 </div>
                 <div class="user-social">
@@ -262,18 +283,7 @@
                       </li>
                    </ul>
                 </div>
-                <div class="user-short-info">
-                   <ul>
-                     <li>
-                        <span class="user-year">{% trans "Ocena korisnika" %}</span>
-                        {%if rate_average == None %}
-                        <span class="user-year-num">{% trans "Nema ocene" %}</span>
-                        {%else%}
-                        <span class="user-year-num rat-num">{{rate_average}} ({{rate_number}})</span>
-                        {%endif%}
-                        </li>
-                   </ul>
-                </div>
+             
 
                 <div class="user-short-info">
                    <form action="{% url 'connection:send_match' %}" method="post">
@@ -339,6 +349,25 @@
                            {%endif%}
                          </div>
                       </div>
+
+
+                      <div class="usual-box">
+                        <h4 class="only-on-big-d" >{% trans "Ocena korisnika" %}</h4>
+                       <div class="usual-box-info only-on-big-d">                          
+                        <ul>
+                             <li>
+                                
+                                {%if rate_average == None %}
+                                <span class="user-year-num">{% trans "Nema ocene" %}</span>
+                                {%else%}
+                                <span class="user-year-num rat-num">{{rate_average}} ({{rate_number}})</span>
+                                {%endif%}
+                                </li>
+                           </ul>
+                        </div>
+                     </div>
+
+                      
                    </div>
                    <h3 class="mt-4">{% trans "Vreme tokom nedelje kada čuva decu" %}</h3>
                             <div class="user-table table-responsive table-sm">
