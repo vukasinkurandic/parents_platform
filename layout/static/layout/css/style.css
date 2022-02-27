@@ -608,6 +608,20 @@ text-shadow: 1px 1px rgb(0 0 0 / 20%);
   font-size: 27px;
 }
 
+.mission-box a{
+text-decoration: none;  
+font-size: 27px;
+font-weight: 600;
+color: #46b2f0;
+line-height: 35px;
+transition: .2s ease-in-out;
+text-shadow: 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+.mission-box a:hover{
+color: #000;  
+}
+
 .mission-box p {
   font-size: 20px;
   font-weight: 500;
@@ -1602,11 +1616,29 @@ span.user-year-num {
   text-shadow: 2px 2px rgb(0 0 0 / 20%);
 }
 
+
+
+.favorite-btn {
+  border-radius: 0;
+  background: #5796bd;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  width: 100%;
+  letter-spacing: 1px;
+  
+}
+
 .reserve-btn:hover{
   background-color: #84bad9;  
   color: #fff;
   }
 
+
+  .favorite-btn:hover{
+    background-color: #84bad9;  
+    color: #fff;
+  }  
 
 
 .btn-rating-star {
@@ -2439,6 +2471,9 @@ line-height: 23px;
 background-color: #73c4f4;
 color: #fff;
 }
+
+
+
 
 
 .select-btn{

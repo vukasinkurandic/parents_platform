@@ -2121,6 +2121,14 @@ margin-top: -19px;
 }
 
 
+
+h1.extrasmalldev-favorites {
+  font-size: 22px;
+line-height: 29px;
+margin-top: 12px;
+}
+
+
 /* filter page main title */
 
 
@@ -2135,13 +2143,13 @@ margin-top: -19px;
 
 .filter-right{
   position: relative;  
-  margin-top: -750px;
-  transition: .5s ease-in;
+  margin-top: -950px;
+  transition: .4s ease-in;
   opacity: 0;
   z-index: 10;
   width: 100%;
   z-index: 0;
-  background-color: #d9d9d9;
+  background-color:rgba(99, 190, 242, .4);
   padding: 10px;
   }
   
