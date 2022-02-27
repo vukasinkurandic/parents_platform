@@ -1,0 +1,78 @@
+{% extends "layout/base_contact.html" %}
+{% load i18n %}
+{% load static %}
+{% block title %} {% trans "Omiljene Bebisiterke/Dadilje" %} {% endblock %}
+
+{% block content %}
+<div class="slid insade-slid">
+  <div class="container-wrap-gradient"></div>
+  <img src="{% static 'layout/img/naslovna3.jpg' %}" />
+</div>
+<section class="profil-wrapper">
+   <div class="container add-fluid-div2">
+      <div class="insade-profil-wrapper onsmallfil">
+         <div class="user-title">
+            <h1 class="extrasmalldev-filter">{% trans "Vaše omiljene bebisiterke i dadilje" %}</h1>
+         </div>
+         <div class="profile_edit">
+            <div class="row">
+
+               <div class="col-lg-9 col-md-8">
+                  <div class="filter-left">
+                     {% if babysitters %}
+                     <div class="row">    
+                         {% for babysitter in babysitters%}
+                        <div class="col-lg-6">
+                           <a href="{% url 'connection:babysitter_profil' babysitter.slug %}">
+                              <div class="babsit-box filter-box-main">
+                                 <div class="babsit-box-ocupation filter-ocupation"><span>{% trans "Rezerviši" %}</span></div>
+                                 <div class="babsit-img filter-img-main"><img src="{{babysitter.picture.url}}" class="img-fluid"></div>
+                                 <div class="babsit-info filter-text">
+                                    <h4>{{babysitter.first_name}} <br> {{babysitter.last_name}}</h4>
+                                    {% if babysitter.sity == None%}
+                                    <p class="baby-p-first filter-p-first"><i class="fas fa-map-marker-alt"></i>&nbsp;{% trans "Nema lokacije" %}</p>
+                                    {%else%}
+                                    <p class="baby-p-first filter-p-first"><i class="fas fa-map-marker-alt"></i>&nbsp;{{babysitter.sity}}</p>
+                                    {%endif%}
+                                    {% if babysitter.hourly_rate == None%}
+                                    <p class="baby-p-second filter-page-h">{% trans "Nema cene:" %}</p>
+                                    {%else%}
+                                    <p class="baby-p-second filter-page-h">{% trans "Satnica:" %} {{babysitter.hourly_rate}}</p>
+                                    {%endif%}
+                                    <div class="baby-rew baby-rew-on-filter">
+                                    {% if babysitter.work_type == None%}
+                                    <p></p>
+                                    {%else%}
+                                    <p>{{babysitter.work_type}}</p>
+                                    {%endif%}
+                                       <div class="baby-link">
+                                          <div class="baby-link-circle"><i class="fas fa-chevron-right"></i></div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </a>                           
+                        </div>
+                        {%endfor%}
+                        </div>
+                        {% else%}
+                     
+                     <div class="no-data-filter">
+                        <h6>{% trans "Nemate omiljne bebisiterke ni dadilje." %}</h6>
+                     </div>
+                        {% endif%}
+
+                  </div>
+               </div>
+            </div>
+         </div>
+
+
+
+      </div>
+     
+   </div>
+   
+</section>
+<script type="text/javascript" src="{% static 'layout/js/connection_all_babysitter.js' %}"></script>
+{% endblock%}

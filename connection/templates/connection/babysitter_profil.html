@@ -31,13 +31,15 @@
                </div>
                 <div class="user-image">
                   <div class="favorites" >
-                     <!-- ovo je kada nije rezervisan -->
-                     <span class="tooltiptext">Dodajte u omiljene</span>
-                      <a href=""><i class="far fa-heart"></i></a> 
-                      
-                     <!-- ovo je kada jeste rezervisan -->    
-                     <!-- <span class="tooltiptext">Ukloni iz omiljenih</span>                                                                     -->
-                     <!-- <a href=""><i class="fas fa-heart"></i></a>  -->
+                     {% if favorite %}
+                     <!-- ovo je kada jeste rezervisan  --> 
+                     <span class="tooltiptext">{% trans "Ukloni iz omiljenih" %}</span>                                                                    
+                      <a href="{% url 'favorite:remove_favorite' babysitter.slug %}"><i class="fas fa-heart"></i></a>
+                      {% else%}
+                      <!-- ovo je kada nije rezervisan -->
+                     <span class="tooltiptext">{% trans "Dodajte u omiljene" %}</span>
+                      <a href="{% url 'favorite:add_favorite' babysitter.slug %}"><i class="far fa-heart"></i></a>
+                     {%endif%}  
                   </div>
                    <img src="{{babysitter.picture.url}}" class="img-fluid">
                 </div>

@@ -17,6 +17,7 @@ from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 from django.utils.translation import get_language
+from favorite .models import Favorite
 
 
 @login_required
@@ -320,10 +321,19 @@ def babysitter_profil(request, slug):
         rated_person_id=babysitter.user_id).aggregate(Avg('score')).get('score__avg', 0.00)
     rate_number = Rate.objects.filter(
         rated_person_id=babysitter.user_id).count()
+    # FAVORITE
+    favorite_babysitter_id = babysitter.id
+    favorite_family_id = request.user.family.id
+    favorite = False
+    favorite_queryset = Favorite.objects.filter(
+        family_id=request.user.family.id, babysitter_id=babysitter.id)
+    if favorite_queryset.exists():
+        favorite = True
     newsletter_form = NewsletterForm()
     context = {'babysitter': babysitter,
                'calendar': calendar, 'form': newsletter_form,
-               'commentary_list': commentary_list, 'rate_average': rate_average, 'rate_number': rate_number}
+               'commentary_list': commentary_list, 'rate_average': rate_average,
+               'rate_number': rate_number, 'favorite': favorite}
     return render(request, 'connection/babysitter_profil.html', context)
 
 

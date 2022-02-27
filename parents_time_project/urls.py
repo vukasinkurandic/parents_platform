@@ -16,6 +16,8 @@ urlpatterns += i18n_patterns(
     path('babysitter/', include('babysitter.urls', namespace='babysitter')),
     path('connection/', include('connection.urls', namespace='connection')),
     path('reviews/', include('reviews.urls', namespace='reviews')),
+    path('favorite/', include('favorite.urls', namespace='favorite')),
+
 
     path('rosetta/', include('rosetta.urls')),
 

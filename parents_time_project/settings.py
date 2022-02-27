@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'connection.apps.ConnectionConfig',
     'reviews.apps.ReviewsConfig',
     'error_handlers.apps.ErrorHandlersConfig',
+    'favorite.apps.FavoriteConfig',
+
 
     # Django app
     'crispy_forms',
