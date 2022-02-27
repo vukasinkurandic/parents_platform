@@ -225,7 +225,18 @@
             <div class="col-lg-7">
                <div class="mission-box-wrapper">
                <div class="mission-box">
-                  <h3>{% trans "Pretražite bazu dostupnih bebisitera/dadilja" %}</h3>
+                  {% if user.is_authenticated %}
+                     {%if user.user_type == 1 %}
+                        <a href="{% url 'connection:all_babysitters' %}">
+                     {%endif%}
+                     {%if user.user_type == 2 %}
+                        <a href="{% url 'babysitter:profil' %}"> 
+                     {%endif%}
+                  {% else %}
+                  <a href="{% url 'account:login' %}">
+                  {%endif%}
+                      <h3>{% trans "Pretražite bazu dostupnih bebisitera/dadilja" %}</h3>
+                  </a>
                   <div class="mission-icon">
                      <i class="fas fa-search"></i>
                   </div>
