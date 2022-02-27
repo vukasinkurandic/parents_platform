@@ -47,10 +47,11 @@ def newsletter(request):
         if form.is_valid():
             form.save()
             messages.success(request, _('Hvala, Uspešno ste poslali email!'))
+            return redirect('https://blog.parentstime.rs/')
         else:
             messages.error(
                 request, _('Vec ste se prijavili ili je email neispravan!'))
-        return redirect('layout:home')
+            return redirect('https://blog.parentstime.rs/')
 
 
 def contact_message(request):
