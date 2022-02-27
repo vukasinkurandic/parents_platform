@@ -814,6 +814,22 @@ font-size: 32px;
   /* instruction======= */
 }
 
+
+/* show hide rate on bybsitter profil page and matched page baby */
+.only-on-small{
+  display: block; 
+  margin-top: 0; 
+  }
+.only-on-big-d{
+display: none;  
+}
+/* show hide rate on bybsitter profil page and matched page baby */
+
+/* only on matched babysitter nad family profile in connection */
+.move-on-small{
+top: 300px;  
+}
+/* only on matched babysitter nad family profile in connection */
 }
 
 @media (min-width: 576px) and (max-width: 767px) {
@@ -1410,6 +1426,20 @@ left: -1px;
   /* instruction======= */
 }
 
+/* show hide rate on bybsitter profil page and matched page baby */
+.only-on-small{
+  display: block; 
+  margin-top: 0; 
+  }
+.only-on-big-d{
+display: none;  
+}
+/* show hide rate on bybsitter profil page and matched page baby */
+/* only on matched babysitter nad family profile in connection */
+.move-on-small{
+  top: 300px;  
+  }
+  /* only on matched babysitter nad family profile in connection */
 
   /*==========================*/
 }
@@ -2337,20 +2367,34 @@ height: 1724px;
 }
 
 
+/* show hide rate on bybsitter profil page and matched page baby */
+.only-on-small{
+  display: block; 
+  margin-top: 0; 
+  }
+.only-on-big-d{
+display: none;  
+}
+/* show hide rate on bybsitter profil page and matched page baby */
+
+/* only on matched babysitter nad family profile in connection */
+.move-on-small{
+  top: 255px;  
+  }
+  /* only on matched babysitter nad family profile in connection */
 
 }
 
 
 @media (max-height: 760px) {
+/* ================== */
   .slid, .slid img {
     
     height: 92vh;
   }
 
-
 .slid-grad {
-
-  height: 92vh;
-
+height: 92vh;
 }
+/* ================== */
 }

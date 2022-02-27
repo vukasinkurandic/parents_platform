@@ -46,6 +46,18 @@
                   <!-- MESSAGES-->
                    <div class="row">
                       <div class="col-xxl-4 col-xl-5 col-lg-5">
+                        <div class="user-short-info only-on-small">
+                           <ul>
+                              <li>
+                                 <span class="user-year">{% trans "Ocena korisnika" %}</span>
+                                 {%if rate_average == None %}
+                                 <span class="user-year-num">{% trans "Nema ocene" %}</span>
+                                 {%else%}
+                                 <span class="user-year-num rat-num">{{rate_average}} ({{rate_number}})</span>
+                                 {%endif%}
+                              </li>
+                           </ul>
+                        </div>
                          <div class="user-image">
                                 {%if profil.picture == None %}
                                 <img src="{% static 'layout/img/zena02.jpg' %}" class="img-fluid">
@@ -129,20 +141,8 @@
                                   </span>
                                </li>
                             </ul>
-                         </div>
-                 
-                         <div class="user-short-info">
-                            <ul>
-                               <li>
-                                  <span class="user-year">{% trans "Ocena korisnika" %}</span>
-                                  {%if rate_average == None %}
-                                  <span class="user-year-num">{% trans "Nema ocene" %}</span>
-                                  {%else%}
-                                  <span class="user-year-num rat-num">{{rate_average}} ({{rate_number}})</span>
-                                  {%endif%}
-                               </li>
-                            </ul>
-                         </div>
+                         </div>                 
+                      
                     <div class="user-short-info">
                      <a href="{% url 'connection:matched_family_profil' profil.slug %}"><button class="btn btn-success">{% trans "Prihvati zahtev" %}</button></a>
                 </div>
@@ -209,6 +209,22 @@
                                      </span>
                                   </div>
                                </div>
+
+                               <div class="usual-box">
+                                 <h4 class="only-on-big-d" >{% trans "Ocena korisnika" %}</h4>
+                                <div class="usual-box-info only-on-big-d">                          
+                                 <ul>
+                                     <li>          
+                                        {%if rate_average == None %}
+                                        <span class="user-year-num">{% trans "Nema ocene" %}</span>
+                                        {%else%}
+                                        <span class="user-year-num rat-num">{{rate_average}} ({{rate_number}})</span>
+                                        {%endif%}
+                                     </li>
+                                  </ul>
+                                 </div>
+                              </div>
+
                             </div>
                             <h3 class="mt-4 only-on-mob-title">{% trans "Kada je u toku nedelje potrebno čuvanje dece" %}</h3>
                             <div class="user-table table-responsive table-sm">

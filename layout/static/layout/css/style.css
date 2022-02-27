@@ -1428,6 +1428,34 @@ ul.vertical-ul li .content p {
   height: 350px;
   overflow: hidden;
   border-radius: 10px;
+  position: relative;
+}
+
+
+.favorites .tooltiptext {
+  opacity: 0;
+  display: inline-block;
+  background-color: #68b0dc;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 5px;
+top: 10px;
+right: -130px;
+  
+  position: absolute;
+  z-index: 1;
+  transition: 1s ease;
+  font-size: 17px;
+ width: 140px;
+ pointer-events: none;
+}
+
+.favorites:hover .tooltiptext {
+  opacity: 1;
+  right: -150px;
+  
+  
 }
 
 
@@ -1540,6 +1568,8 @@ text-align: center;
   clear: both;
   content: "";
 }
+
+
 
 span.user-year-num {
   float: right;
@@ -1862,6 +1892,7 @@ table.table thead {
   display: flex;
   margin-top: 55px;
   position: relative;
+  justify-content: space-around;
 }
 
 .usual-info:before,
@@ -1875,6 +1906,10 @@ table.table thead {
   height: 2px;
 }
 
+
+.only-on-small{
+  display: none;  
+  }
 .usual-info:before {
   top: -20px;
   border-top: 1px dashed #68b0dc;
@@ -2606,6 +2641,38 @@ margin:0 auto 35px auto;
   margin: 0px auto 60px auto;
   border-top-right-radius: 50px;
   border-bottom-left-radius: 50px;
+}
+
+.filter-wrapper-main{
+position: relative;  
+/* border: 2px solid red; */
+}
+
+.favorites{
+position: absolute;  
+left: 10px;
+top: 10px;
+z-index: 5;
+
+text-align: center;
+
+}
+
+.favorites a{
+color: #fff;  
+width: 50px;
+height: 50px;
+background-color: rgba(99, 190, 242, .7);
+display: block;
+border-radius: 50%;
+line-height: 50px;
+border: 2px solid rgba(255,255,255,.7);
+box-sizing: content-box;
+}
+
+.favorites a i{
+font-size: 25px; 
+line-height: 50px;; 
 }
 
 .filter-img-main {
