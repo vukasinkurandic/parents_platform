@@ -39,7 +39,7 @@ def all_babysitters(request):
             filter_babysitter = filter_babysitter.filter(sity=city)
 
         if 'age_children' in request.session:
-            city = request.session['age_children']
+            age_children = request.session['age_children']
             filter_babysitter = filter_babysitter.filter(
                 Q(age_children=age_children) | Q(age_children__contains=age_children))
 
