@@ -102,6 +102,7 @@
                            {% if user.is_authenticated %}
                            <div class="logout">
                               <a class="btn btn-logout" href="{% url 'account:logout' %}">{% trans "Odjavi se" %}</a>
+                              <a class="btn btn-logout" href="">{% trans "Profil" %}</a>
                             </div>
                            <div class="login-user">
                               {%if user.user_type == 1%}
@@ -446,7 +447,7 @@
                            
                          </p>
                          <p>{% trans "U promo periodu besplatna i uvek dostupna baza bebisitera/dadilja" %}</p>
-                         <div class="no-login-select">
+                         <div class="no-login-select btn-on-small">
                            <button class="dropbtn btn"><i class="far fa-user"></i> {% trans "Registruj se/prijavi se" %} </button>
                            <div class="dropdown-content">
                               <a href="{% url 'account:register_babysitter' %}">{% trans "Kao Bebisiter/Dadilja" %}</a>
@@ -455,14 +456,14 @@
                            </div>
                            </div> 
                        </div>
-                       <div class="foter-map">
+                       <!-- <div class="foter-map">
                          <img src="{% static 'layout/img/mapa.png' %}" class="img-fluid" />
-                       </div>
+                       </div> -->
                      </div>
                    </div>
                  </div>
                  <div class="col-lg-6 col-xl-4 col-md-12">
-                   <div class="footer-wrapper sub-mar" id="proba">
+                   <div class="footer-wrapper" id="proba">
                      <h4>{% trans "Pretplatite se na naš blog" %}</h4>              
                      <form action="{% url 'layout:newsletter' %}" method="post">
                         {% csrf_token%}

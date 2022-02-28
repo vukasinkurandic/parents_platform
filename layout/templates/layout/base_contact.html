@@ -103,6 +103,7 @@
                            {% if user.is_authenticated %}
                            <div class="logout">
                             <a class="btn btn-logout" href="{% url 'account:logout' %}">{% trans "Odjavi se" %}</a>
+                            <a class="btn btn-logout" href="">{% trans "Profil" %}</a>
                           </div>
                               {%if user.user_type == 1%}
                                  {%if request.user.family.picture.url == '' %}                               
@@ -210,10 +211,7 @@
                            <a href="{% url 'account:login' %}">{% trans "Prijavi se" %}</a>       
                         </div>
                         </div> 
-                    </div>
-                    <div class="foter-map">
-                      <img src="{% static 'layout/img/mapa.png' %}" class="img-fluid" />
-                    </div>
+                    </div>                    
                   </div>
                 </div>
               </div>
