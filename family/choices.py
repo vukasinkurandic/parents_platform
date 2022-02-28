@@ -158,7 +158,7 @@ NUMBER_CHOICES = (
 
 )
 NUMBER_EXPERIENCE_CHOICES = (
-    ('Nemam iskustva', _('Nemam iskustva')),
+    ('Nema iskustva', _('Nema iskustva')),
     ('Do godinu dana', _('Do godinu dana')),
     ('Više od godinu dana', _('Više od godinu dana')),
 

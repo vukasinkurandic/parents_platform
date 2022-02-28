@@ -273,7 +273,7 @@ def all_babysitters(request):
                 rated_person_id=babysitter.user_id).aggregate(Avg('score')).get('score__avg', 0.00)
             rate_list.append(babysitter_rate)
 
-        paginator = Paginator(babysitters, 2)  # 10 babysitters in page
+        paginator = Paginator(babysitters, 10)  # 10 babysitters in page
         page = request.GET.get('page')
         venues = paginator.get_page(page)
 

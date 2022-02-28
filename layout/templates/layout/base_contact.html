@@ -103,7 +103,11 @@
                            {% if user.is_authenticated %}
                            <div class="logout">
                             <a class="btn btn-logout" href="{% url 'account:logout' %}">{% trans "Odjavi se" %}</a>
-                            <a class="btn btn-logout" href="">{% trans "Profil" %}</a>
+                              {%if user.user_type == 1%}
+                              <a class="btn btn-logout" href="{% url 'family:profil' %}">{% trans "Profil" %}</a>
+                              {%else%}
+                              <a class="btn btn-logout" href="{% url 'babysitter:profil' %}">{% trans "Profil" %}</a>
+                              {%endif%}
                           </div>
                               {%if user.user_type == 1%}
                                  {%if request.user.family.picture.url == '' %}                               
@@ -203,6 +207,8 @@
                         
                       </p>
                       <p>{% trans "U promo periodu besplatna i uvek dostupna baza bebisitera/dadilja" %}</p>
+                      {% if user.is_authenticated %}
+                      {%else%}
                       <div class="no-login-select">
                         <button class="dropbtn btn"><i class="far fa-user"></i> {% trans "Registruj se/prijavi se" %} </button>
                         <div class="dropdown-content">
@@ -211,6 +217,7 @@
                            <a href="{% url 'account:login' %}">{% trans "Prijavi se" %}</a>       
                         </div>
                         </div> 
+                        {%endif%}
                     </div>                    
                   </div>
                 </div>

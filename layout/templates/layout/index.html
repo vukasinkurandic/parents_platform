@@ -102,7 +102,11 @@
                            {% if user.is_authenticated %}
                            <div class="logout">
                               <a class="btn btn-logout" href="{% url 'account:logout' %}">{% trans "Odjavi se" %}</a>
-                              <a class="btn btn-logout" href="">{% trans "Profil" %}</a>
+                              {%if user.user_type == 1%}
+                              <a class="btn btn-logout" href="{% url 'family:profil' %}">{% trans "Profil" %}</a>
+                              {%else%}
+                              <a class="btn btn-logout" href="{% url 'babysitter:profil' %}">{% trans "Profil" %}</a>
+                              {%endif%}
                             </div>
                            <div class="login-user">
                               {%if user.user_type == 1%}
@@ -263,6 +267,8 @@
          <div class="babisit-divider"></div>
       </section>
       <section class="babysitter">
+<!-- VELIKA DUGMAD KADA JE ULOGOVAN NEKO POSTAJU REKLAMA -->
+         {% if user.is_authenticated %}
          <div class="container add-fluid-div">
             <div class="reg-log-all">               
                <div class="circle-logo-btn">
@@ -280,8 +286,26 @@
                </a>
             </div>
          </div>
-
-
+<!-- VELIKA DUGMAD KADA NIJE ULOGOVAN NIKO-->
+         {% else %}
+         <div class="container add-fluid-div">
+            <div class="reg-log-all">               
+               <div class="circle-logo-btn">
+                  <img src="{% static 'layout/img/logo6.png' %}" />
+               </div>
+               <a class="zigzag-link"  href="{% url 'account:register_family' %}">
+                  <div class="first-large-btn">
+                     {% trans "REGISTRUJ SE/PRIJAVI SE " %}<br>{% trans "KAO  RODITELJ" %}
+                  </div>
+               </a>
+               <a class="zigzag-link" href="{% url 'account:register_babysitter' %}">
+                  <div class="second-large-btn">
+                     {% trans "REGISTRUJ SE/PRIJAVI SE " %}<br>{% trans "KAO  BEBISITER/DADILJA" %}  
+                  </div>
+               </a>
+            </div>
+         </div>
+         {%endif%}
 
 <!-- OVDE ĆE DA IDE CAROUSEL START -->
          {% if user.is_authenticated and user.user_type == 1 %}
@@ -447,6 +471,8 @@
                            
                          </p>
                          <p>{% trans "U promo periodu besplatna i uvek dostupna baza bebisitera/dadilja" %}</p>
+                         {% if user.is_authenticated %}
+                         {%else%}
                          <div class="no-login-select btn-on-small">
                            <button class="dropbtn btn"><i class="far fa-user"></i> {% trans "Registruj se/prijavi se" %} </button>
                            <div class="dropdown-content">
@@ -455,6 +481,7 @@
                               <a href="{% url 'account:login' %}">{% trans "Prijavi se" %}</a>       
                            </div>
                            </div> 
+                           {%endif%}
                        </div>
                        <!-- <div class="foter-map">
                          <img src="{% static 'layout/img/mapa.png' %}" class="img-fluid" />
