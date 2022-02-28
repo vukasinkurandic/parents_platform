@@ -337,7 +337,9 @@ nav ul li a:hover {
   background: #f2cfd1;
   border-bottom: 4px solid #efc3c5;
   border-radius: 10px;
+  margin-right: 15px;
 }
+
 
 
 
@@ -1271,6 +1273,9 @@ ul.soc-bot-link li {
 ul.soc-bot-link li a {
   color: #fff;
   font-size: 20px;
+  width: 40px;
+  height: 40px;
+  display: inline-block;
 }
 
 .fot-map-info-main {
@@ -1278,9 +1283,7 @@ ul.soc-bot-link li a {
   margin-left: 25px;
 }
 
-.sub-mar {
-  margin-top: -120px;
-}
+
 
 .fot-map-text {
   width: 50%;
@@ -1294,19 +1297,7 @@ ul.soc-bot-link li a {
   font-size: 18px;
 }
 
-.foter-map {
-  width: 50%;
-  height: 350px;
-  overflow: hidden;
-  margin-left: 25px;
-}
 
-.foter-map img {
-  height: 350px;
-  width: auto;
-  object-fit: cover;
-  object-position: center;
-}
 
 
 
@@ -1703,6 +1694,20 @@ a span.user-year-num:hover{
 
 .login-div p {
   font-size: 22px;
+}
+
+a.reg-log-a{
+display: block; 
+color: #63bef2;
+font-weight: 700; 
+font-size: 18px;
+}
+
+span.reg-log-s{
+font-size: 19px;  
+border-top: 1px dashed #63bef2;
+margin-top: 15px;
+display: inline-block;
 }
 
 .register-form h4 {
@@ -3055,6 +3060,12 @@ font-size: 22px;;
 
 p.inst-scd-p{
 font-size: 19px;  
+}
+
+p.inst-scd-p a{
+color: #63bef2;  
+font-weight: 700;
+font-size: 20px;
 }
 
 .instructional-page .accordion-item{

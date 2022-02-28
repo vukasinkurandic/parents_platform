@@ -262,6 +262,19 @@ margin-right: 10px;
   /* instruction======= */
 }
 
+
+.fot-map-text {
+  width: 56%;
+    
+}
+
+
+.logout{
+width: 80%;
+margin-left: -80px;
+}
+
+
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -505,6 +518,20 @@ height: 862px;
 }
 
 
+.fot-map-text {
+  width: 78%;
+  margin-top: -50px;
+  margin-bottom: 50px;
+  
+
+}
+
+
+.logout{
+width: 80%;
+margin-left: -90px;
+}
+
   /*==========================*/
 }
 
@@ -584,18 +611,10 @@ height: 862px;
     margin-bottom: 50px;
   }
 
-  .sub-mar {
-    margin-top: 30px;
-  }
+  
 
-  .fot-map-info-main {
-    margin-top: 55px;
-  }
-
-  .foter-map {
-    margin-top: -45px;
-  }
-
+  
+  
   ul.agree-ul-f li {
     list-style: none;
     display: block;
@@ -756,12 +775,15 @@ nav ul li {
 
 
 .logout a {
- margin-left: -29px;
- margin-top: -155px;
  background-color: #fff;
+ margin-right: 10px;
 }
 
-
+.logout{
+width: 100%;
+margin-left: -76px;
+margin-top: -77px;
+}
 
 /* navigation circle logo end*/  
 
@@ -830,6 +852,27 @@ display: none;
 top: 300px;  
 }
 /* only on matched babysitter nad family profile in connection */
+
+
+.fot-map-text {
+  width: 50%;
+  position: relative;
+  height: 250px;
+  margin-bottom: 30px;
+}
+
+.btn-on-small{
+  position: relative;
+  
+  margin-right: 0px;
+  line-height: 0;
+  margin-top: 20px;
+  margin-left: 0px;  
+  float: left;
+  display: block;
+  margin-bottom: 40px;
+}
+
 }
 
 @media (min-width: 576px) and (max-width: 767px) {
@@ -1177,19 +1220,15 @@ top: 300px;
   }
 
   .footer-main-link {
-    margin-bottom: 105px;
+    margin-bottom: 40px;
   }
 
-  .foter-map {
-    margin-top: -45px;
-  }
+  
 
   .fot-map-info-main {
     margin-left: 0px;
   }
-  .fot-map-text {
-    padding-top: 45px;
-  }
+  
 
   .sub-mar {
     margin-top: 50px;
@@ -1440,6 +1479,33 @@ display: none;
   top: 300px;  
   }
   /* only on matched babysitter nad family profile in connection */
+
+
+  .fot-map-text {
+    width: 50%;
+    position: relative;
+    height: 250px;
+    margin-bottom: 30px;
+    padding-top: 0;
+  }
+  
+  .btn-on-small{
+    position: relative;
+    
+    margin-right: 0px;
+    line-height: 0;
+    margin-top: 20px;
+    margin-left: 0px;  
+    float: left;
+    display: block;
+    margin-bottom: 40px;
+  }
+
+  .logout a{
+display: block;    
+width: 60%;
+margin: 10px auto;
+  }
 
   /*==========================*/
 }
@@ -2390,7 +2456,11 @@ display: none;
   top: 255px;  
   }
   /* only on matched babysitter nad family profile in connection */
-
+  .logout a{
+    display: block;    
+    width: 60%;
+    margin: 10px auto;
+      }
 }
 
 
@@ -2404,5 +2474,7 @@ display: none;
 .slid-grad {
 height: 92vh;
 }
+
+
 /* ================== */
 }
