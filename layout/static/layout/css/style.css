@@ -327,6 +327,21 @@ nav ul li a:hover {
   border: 2px solid #73c4f4;
 }
 
+.reserve-info{
+  position: absolute;
+  left: 8px;
+  bottom: 18px;
+  width: 30px;
+  height: 30px;
+  background-color: red;  
+  border-radius: 50%;
+  font-size: 20px;
+  color: #fff;
+  text-align: center;
+  line-height: 30px;
+  font-weight: 700;
+  }
+
 
 .logout a {
   text-decoration: none;
@@ -1874,7 +1889,7 @@ p.pull-insd {
   position: absolute;
   left: 0;
   width: 100%;
-  height: 650px;
+  height: 100%;
   top: 0;
   background: rgba(0, 0, 0, 0.2);
 }
@@ -2166,6 +2181,18 @@ text-shadow: 2px 2px rgb(0 0 0 / 20%);
 color: #fff;
 }
 
+.verify-btn{
+border-radius: 0;
+background: #f2cfd1;
+border-bottom: 4px solid #efc3c5;
+border-radius: 10px;
+color: #000;
+font-size: 18px;
+font-weight: 600;
+margin-top: 25px;
+}
+
+
 /*modal for signup */
 
 a.matched_family {
@@ -2220,8 +2247,26 @@ background-color: #68b0dc;
 text-shadow: 2px 2px rgb(0 0 0 / 20%);
 color: #fff; 
 font-size: 22px;
+position: relative;
 }
 
+
+
+.reserve-info2{
+  position: absolute;
+  left: 15px;
+  top: -15px;
+  width: 30px;
+  height: 30px;
+  background-color: red;
+  border-radius: 50%;
+  font-size: 20px;
+  color: #fff;
+  text-align: center;
+  line-height: 30px;
+  font-weight: 700;  
+  z-index: 60;
+}
 
 .acc-btn-baby-list:not(.collapsed){
   background: linear-gradient(135deg, #63bef2 25%, transparent 0) -25px 0, linear-gradient(225deg, #63bef2 25%, transparent 25%) -25px 0, linear-gradient(315deg, #63bef2 25%, transparent 25%), linear-gradient(45deg, #63bef2 25%, transparent 25%);
