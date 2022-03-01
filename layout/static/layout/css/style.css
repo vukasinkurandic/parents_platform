@@ -113,6 +113,14 @@ letter-spacing: 1;
   height: 85vh;
 }
 
+.slid .main_message{
+position: absolute;  
+left: 50%;
+top: 50%;
+transform: translate(-50%,-50%);
+width: inherit;
+}
+
 .insade-slid {
   position: relative;
   height: 650px;
@@ -2601,9 +2609,9 @@ font-size: 20px;
 .insade-profil-wrapper .main_message {
   position: absolute;
   top: 20px;
-  left: 0px;
-  z-index: 10;  
-  left: 25px;
+  z-index: 3;  
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 
@@ -2613,7 +2621,7 @@ font-size: 20px;
   color: #fff;
   line-height: 21px;
   text-shadow: 2px 2px rgb(0 0 0 / 20%);
-  padding: 15px 25px;
+  padding: 15px 25px 15px 0
   
 }
 
@@ -2627,6 +2635,8 @@ font-size: 20px;
   background-size: 100px 100px;
   background-color: #73c4f4;
   border-radius: 10px;
+  border: 4px solid #fff;
+  
   
 }
 
