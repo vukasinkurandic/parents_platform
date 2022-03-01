@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-28 23:03+0100\n"
+"POT-Creation-Date: 2022-03-01 19:58+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -150,7 +150,7 @@ msgstr ""
 
 #: .\account\templates\account\register_babysitter.html:89
 #: .\account\templates\account\register_family.html:120
-msgid "Slažem se sa uslovima korišćenja"
+msgid "Imate više od 18 godina i slažete se sa uslovima korišćenja"
 msgstr ""
 
 #: .\account\templates\account\register_babysitter.html:94
@@ -1651,7 +1651,10 @@ msgid "Vaše omiljene bebisiterke i dadilje"
 msgstr ""
 
 #: .\favorite\templates\favorite\babysitters.html:61
-msgid "Nemate omiljne bebisiterke ni dadilje."
+msgid ""
+"Nemate omiljne bebisiterke ni dadilje. Pretražite <a href='https://"
+"parentstime.rs/connection/all_babysitters'>Bazu bebisitera/dadilja</a> prema "
+"Vama važnim kriterijumima"
 msgstr ""
 
 #: .\layout\templates\layout\base_contact.html:89
