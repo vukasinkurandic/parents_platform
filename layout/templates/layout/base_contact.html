@@ -125,7 +125,9 @@
                                  <div class="login-user">
                                  <a href="{% url 'babysitter:profil' %}">
                                  <img src="{{request.user.babysitter.picture.url}}" class="img-fluid" />
-                                 <div class="reserve-info">1</div>
+                                 {% if number_waiting_connections_base%}
+                                   <div class="reserve-info">{{number_waiting_connections_base}}</div>  
+                                 {% endif %} 
                                 </a>
                                  </div>
                                  {%endif%}

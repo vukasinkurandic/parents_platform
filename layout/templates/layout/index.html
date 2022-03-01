@@ -124,7 +124,9 @@
                                  {%else%}
                                  <img src="{{request.user.babysitter.picture.url}}" class="img-fluid" />
                                  {%endif%}
-                                 <div class="reserve-info">1</div>
+                                 {% if number_waiting_connections_base%}
+                                   <div class="reserve-info">{{number_waiting_connections_base}}</div>  
+                                 {% endif %} 
                               </a>
                               {%endif%}
                            </div> 
