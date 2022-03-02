@@ -159,7 +159,14 @@
                             <label for="about_me" class="form-label">O sebi</label>
                             {{ form_family.about_me}}
                          </div>
-                         <div class="col-lg-6">
+                         <div class="col-lg-6 about-me-create">
+                           <div class="about-info-create">
+                              <i class="fas fa-info"></i> 
+                              <div class="content">                              
+                              <p> {% trans                                
+                                 "Ukoliko popunite podatke o sebi i na engleskom jeziku u delu "About me" dobijate mogućnost da Vaš profil bude dostupan i inostranim korisnicima platforme" %}                                        
+                                 </p>
+                              </div></div>
                             <label for="about_me" class="form-label">About me</label>
                             {{ form_family.about_me_eng}}
                          </div>
