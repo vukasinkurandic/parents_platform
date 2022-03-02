@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-01 19:58+0100\n"
+"POT-Creation-Date: 2022-03-02 19:04+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -53,10 +53,10 @@ msgstr ""
 #: .\account\templates\account\register_babysitter.html:37
 #: .\account\templates\account\register_family.html:67
 #: .\account\templates\account\success.html:46
-#: .\layout\templates\layout\base_contact.html:136
-#: .\layout\templates\layout\base_contact.html:217
-#: .\layout\templates\layout\index.html:137
-#: .\layout\templates\layout\index.html:481 .\templates\base_reset.html:119
+#: .\layout\templates\layout\base_contact.html:146
+#: .\layout\templates\layout\base_contact.html:227
+#: .\layout\templates\layout\index.html:144
+#: .\layout\templates\layout\index.html:488 .\templates\base_reset.html:119
 #: .\templates\password_reset_complete.html:24
 msgid "Prijavi se"
 msgstr ""
@@ -328,7 +328,7 @@ msgstr ""
 
 #: .\babysitter\templates\babysitter\create_profil_babysitter.html:123
 #: .\babysitter\templates\babysitter\edit_profil_babysitter.html:92
-#: .\babysitter\templates\babysitter\profil_babysitter.html:415
+#: .\babysitter\templates\babysitter\profil_babysitter.html:419
 #: .\connection\templates\connection\babysitter_profil.html:325
 msgid "Pol"
 msgstr ""
@@ -350,7 +350,7 @@ msgstr ""
 
 #: .\babysitter\templates\babysitter\create_profil_babysitter.html:147
 #: .\babysitter\templates\babysitter\edit_profil_babysitter.html:120
-#: .\babysitter\templates\babysitter\profil_babysitter.html:149
+#: .\babysitter\templates\babysitter\profil_babysitter.html:153
 #: .\connection\templates\connection\babysitter_profil.html:72
 #: .\connection\templates\connection\family_profil.html:103
 #: .\connection\templates\connection\matched_babysitter_profil.html:79
@@ -368,7 +368,7 @@ msgstr ""
 
 #: .\babysitter\templates\babysitter\create_profil_babysitter.html:154
 #: .\babysitter\templates\babysitter\edit_profil_babysitter.html:126
-#: .\babysitter\templates\babysitter\profil_babysitter.html:430
+#: .\babysitter\templates\babysitter\profil_babysitter.html:434
 #: .\connection\templates\connection\babysitter_profil.html:340
 #: .\connection\templates\connection\family_profil.html:199
 #: .\connection\templates\connection\matched_babysitter_profil.html:357
@@ -473,7 +473,7 @@ msgid " Resetuj selektovan "
 msgstr ""
 
 #: .\babysitter\templates\babysitter\edit_calendar.html:36
-#: .\babysitter\templates\babysitter\profil_babysitter.html:450
+#: .\babysitter\templates\babysitter\profil_babysitter.html:454
 #: .\connection\templates\connection\babysitter_profil.html:379
 #: .\connection\templates\connection\family_profil.html:234
 #: .\connection\templates\connection\matched_babysitter_profil.html:394
@@ -484,7 +484,7 @@ msgid "Ponedeljak"
 msgstr ""
 
 #: .\babysitter\templates\babysitter\edit_calendar.html:37
-#: .\babysitter\templates\babysitter\profil_babysitter.html:451
+#: .\babysitter\templates\babysitter\profil_babysitter.html:455
 #: .\connection\templates\connection\babysitter_profil.html:380
 #: .\connection\templates\connection\family_profil.html:235
 #: .\connection\templates\connection\matched_babysitter_profil.html:395
@@ -495,7 +495,7 @@ msgid "Utorak"
 msgstr ""
 
 #: .\babysitter\templates\babysitter\edit_calendar.html:38
-#: .\babysitter\templates\babysitter\profil_babysitter.html:452
+#: .\babysitter\templates\babysitter\profil_babysitter.html:456
 #: .\connection\templates\connection\babysitter_profil.html:381
 #: .\connection\templates\connection\family_profil.html:236
 #: .\connection\templates\connection\matched_babysitter_profil.html:396
@@ -506,7 +506,7 @@ msgid "Sreda"
 msgstr ""
 
 #: .\babysitter\templates\babysitter\edit_calendar.html:39
-#: .\babysitter\templates\babysitter\profil_babysitter.html:453
+#: .\babysitter\templates\babysitter\profil_babysitter.html:457
 #: .\connection\templates\connection\babysitter_profil.html:382
 #: .\connection\templates\connection\family_profil.html:237
 #: .\connection\templates\connection\matched_babysitter_profil.html:397
@@ -517,7 +517,7 @@ msgid "Četvrtak"
 msgstr ""
 
 #: .\babysitter\templates\babysitter\edit_calendar.html:40
-#: .\babysitter\templates\babysitter\profil_babysitter.html:454
+#: .\babysitter\templates\babysitter\profil_babysitter.html:458
 #: .\connection\templates\connection\babysitter_profil.html:383
 #: .\connection\templates\connection\family_profil.html:238
 #: .\connection\templates\connection\matched_babysitter_profil.html:398
@@ -528,7 +528,7 @@ msgid "Petak"
 msgstr ""
 
 #: .\babysitter\templates\babysitter\edit_calendar.html:41
-#: .\babysitter\templates\babysitter\profil_babysitter.html:455
+#: .\babysitter\templates\babysitter\profil_babysitter.html:459
 #: .\connection\templates\connection\babysitter_profil.html:384
 #: .\connection\templates\connection\family_profil.html:239
 #: .\connection\templates\connection\matched_babysitter_profil.html:399
@@ -539,7 +539,7 @@ msgid "Subota"
 msgstr ""
 
 #: .\babysitter\templates\babysitter\edit_calendar.html:42
-#: .\babysitter\templates\babysitter\profil_babysitter.html:456
+#: .\babysitter\templates\babysitter\profil_babysitter.html:460
 #: .\connection\templates\connection\babysitter_profil.html:385
 #: .\connection\templates\connection\family_profil.html:240
 #: .\connection\templates\connection\matched_babysitter_profil.html:400
@@ -550,7 +550,7 @@ msgid "Nedelja"
 msgstr ""
 
 #: .\babysitter\templates\babysitter\edit_calendar.html:47
-#: .\babysitter\templates\babysitter\profil_babysitter.html:461
+#: .\babysitter\templates\babysitter\profil_babysitter.html:465
 #: .\connection\templates\connection\babysitter_profil.html:390
 #: .\connection\templates\connection\family_profil.html:245
 #: .\connection\templates\connection\matched_babysitter_profil.html:405
@@ -561,7 +561,7 @@ msgid "Jutro"
 msgstr ""
 
 #: .\babysitter\templates\babysitter\edit_calendar.html:57
-#: .\babysitter\templates\babysitter\profil_babysitter.html:499
+#: .\babysitter\templates\babysitter\profil_babysitter.html:503
 #: .\connection\templates\connection\babysitter_profil.html:428
 #: .\connection\templates\connection\family_profil.html:283
 #: .\connection\templates\connection\matched_babysitter_profil.html:443
@@ -572,7 +572,7 @@ msgid "Popodne"
 msgstr ""
 
 #: .\babysitter\templates\babysitter\edit_calendar.html:67
-#: .\babysitter\templates\babysitter\profil_babysitter.html:537
+#: .\babysitter\templates\babysitter\profil_babysitter.html:541
 #: .\connection\templates\connection\babysitter_profil.html:466
 #: .\connection\templates\connection\family_profil.html:321
 #: .\connection\templates\connection\matched_babysitter_profil.html:481
@@ -583,7 +583,7 @@ msgid "Veče"
 msgstr ""
 
 #: .\babysitter\templates\babysitter\edit_calendar.html:77
-#: .\babysitter\templates\babysitter\profil_babysitter.html:574
+#: .\babysitter\templates\babysitter\profil_babysitter.html:578
 #: .\connection\templates\connection\babysitter_profil.html:503
 #: .\connection\templates\connection\family_profil.html:358
 #: .\connection\templates\connection\matched_babysitter_profil.html:518
@@ -656,41 +656,41 @@ msgstr ""
 msgid "Ažurirajte vaš broj telefona"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\profil_babysitter.html:93
+#: .\babysitter\templates\babysitter\profil_babysitter.html:94
 msgid "Porodice koje žele kontakt sa Vama"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\profil_babysitter.html:106
+#: .\babysitter\templates\babysitter\profil_babysitter.html:110
 msgid "Prihvati"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\profil_babysitter.html:107
-#: .\babysitter\templates\babysitter\profil_babysitter.html:117
+#: .\babysitter\templates\babysitter\profil_babysitter.html:111
+#: .\babysitter\templates\babysitter\profil_babysitter.html:121
 msgid " Da li ste sigurni da zelite da odbijete zahtev? "
 msgstr ""
 
-#: .\babysitter\templates\babysitter\profil_babysitter.html:110
-#: .\babysitter\templates\babysitter\profil_babysitter.html:120
+#: .\babysitter\templates\babysitter\profil_babysitter.html:114
+#: .\babysitter\templates\babysitter\profil_babysitter.html:124
 #: .\connection\templates\connection\family_profil.html:154
 msgid "Odbij zahtev"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\profil_babysitter.html:114
+#: .\babysitter\templates\babysitter\profil_babysitter.html:118
 #: .\family\templates\family\profil_family.html:111
 msgid "Odbijeno"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\profil_babysitter.html:138
+#: .\babysitter\templates\babysitter\profil_babysitter.html:142
 #: .\family\templates\family\profil_family.html:143
 msgid "Niste uneli Vaš Email"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\profil_babysitter.html:145
+#: .\babysitter\templates\babysitter\profil_babysitter.html:149
 #: .\family\templates\family\profil_family.html:150
 msgid "Nemam Društvene mreže"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\profil_babysitter.html:150
+#: .\babysitter\templates\babysitter\profil_babysitter.html:154
 #: .\connection\templates\connection\babysitter_profil.html:73
 #: .\connection\templates\connection\family_profil.html:104
 #: .\connection\templates\connection\matched_babysitter_profil.html:80
@@ -699,71 +699,71 @@ msgstr ""
 msgid "Klikni ovde"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\profil_babysitter.html:154
+#: .\babysitter\templates\babysitter\profil_babysitter.html:158
 #: .\connection\templates\connection\babysitter_profil.html:77
 #: .\connection\templates\connection\matched_babysitter_profil.html:84
 #: .\family\templates\family\profil_family.html:160
 msgid "Godine"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\profil_babysitter.html:163
+#: .\babysitter\templates\babysitter\profil_babysitter.html:167
 #: .\connection\templates\connection\babysitter_profil.html:86
 #: .\connection\templates\connection\matched_babysitter_profil.html:93
 msgid "Satnica"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\profil_babysitter.html:165
+#: .\babysitter\templates\babysitter\profil_babysitter.html:169
 msgid "Unesite cenu Vaše satnice"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\profil_babysitter.html:173
+#: .\babysitter\templates\babysitter\profil_babysitter.html:177
 #: .\connection\templates\connection\babysitter_profil.html:96
 #: .\connection\templates\connection\matched_babysitter_profil.html:103
 msgid "Grad u kojem bi"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\profil_babysitter.html:173
+#: .\babysitter\templates\babysitter\profil_babysitter.html:177
 #: .\connection\templates\connection\babysitter_profil.html:96
 #: .\connection\templates\connection\matched_babysitter_profil.html:103
 msgid "radio/la"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\profil_babysitter.html:176
+#: .\babysitter\templates\babysitter\profil_babysitter.html:180
 msgid "Unesite Vaš grad"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\profil_babysitter.html:185
+#: .\babysitter\templates\babysitter\profil_babysitter.html:189
 #: .\connection\templates\connection\babysitter_profil.html:230
 #: .\connection\templates\connection\matched_babysitter_profil.html:237
 msgid "Posao traži kao?"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\profil_babysitter.html:188
+#: .\babysitter\templates\babysitter\profil_babysitter.html:192
 msgid "Odaberite vrstu posla"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\profil_babysitter.html:194
+#: .\babysitter\templates\babysitter\profil_babysitter.html:198
 #: .\connection\templates\connection\babysitter_profil.html:238
 #: .\connection\templates\connection\matched_babysitter_profil.html:245
 #: .\family\choices.py:196
 msgid "Bebisiterka"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\profil_babysitter.html:196
+#: .\babysitter\templates\babysitter\profil_babysitter.html:200
 #: .\connection\templates\connection\babysitter_profil.html:240
 #: .\connection\templates\connection\matched_babysitter_profil.html:247
 #: .\family\choices.py:197
 msgid "Dadilja"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\profil_babysitter.html:198
+#: .\babysitter\templates\babysitter\profil_babysitter.html:202
 #: .\connection\templates\connection\babysitter_profil.html:242
 #: .\connection\templates\connection\matched_babysitter_profil.html:249
 #: .\family\choices.py:198
 msgid "Bebisiterka i Dadilja"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\profil_babysitter.html:204
+#: .\babysitter\templates\babysitter\profil_babysitter.html:208
 #: .\connection\templates\connection\all_babysitters.html:33
 #: .\connection\templates\connection\babysitter_profil.html:147
 #: .\connection\templates\connection\matched_babysitter_profil.html:154
@@ -772,42 +772,42 @@ msgstr ""
 msgid "Uzrast dece"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\profil_babysitter.html:204
+#: .\babysitter\templates\babysitter\profil_babysitter.html:208
 #: .\connection\templates\connection\babysitter_profil.html:147
 #: .\connection\templates\connection\matched_babysitter_profil.html:154
 msgid "koju bi čuvala"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\profil_babysitter.html:213
+#: .\babysitter\templates\babysitter\profil_babysitter.html:217
 #: .\connection\templates\connection\babysitter_profil.html:212
 #: .\connection\templates\connection\matched_babysitter_profil.html:219
 msgid "Iskustvo"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\profil_babysitter.html:213
+#: .\babysitter\templates\babysitter\profil_babysitter.html:217
 #: .\connection\templates\connection\babysitter_profil.html:212
 #: .\connection\templates\connection\matched_babysitter_profil.html:219
 msgid "u čuvanju dece"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\profil_babysitter.html:216
+#: .\babysitter\templates\babysitter\profil_babysitter.html:220
 msgid "Niste uneli"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\profil_babysitter.html:221
+#: .\babysitter\templates\babysitter\profil_babysitter.html:225
 #: .\connection\templates\connection\babysitter_profil.html:220
 #: .\connection\templates\connection\matched_babysitter_profil.html:227
 msgid "Nemam iskustva"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\profil_babysitter.html:223
+#: .\babysitter\templates\babysitter\profil_babysitter.html:227
 #: .\connection\templates\connection\babysitter_profil.html:222
 #: .\connection\templates\connection\matched_babysitter_profil.html:229
 #: .\family\choices.py:162
 msgid "Do godinu dana"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\profil_babysitter.html:225
+#: .\babysitter\templates\babysitter\profil_babysitter.html:229
 #: .\connection\templates\connection\babysitter_profil.html:224
 #: .\connection\templates\connection\family_profil.html:137
 #: .\connection\templates\connection\matched_babysitter_profil.html:231
@@ -817,28 +817,28 @@ msgstr ""
 msgid "Više od godinu dana"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\profil_babysitter.html:231
+#: .\babysitter\templates\babysitter\profil_babysitter.html:235
 #: .\connection\templates\connection\babysitter_profil.html:108
 #: .\connection\templates\connection\matched_babysitter_profil.html:115
 msgid "Da li bi čuvala decu"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\profil_babysitter.html:231
+#: .\babysitter\templates\babysitter\profil_babysitter.html:235
 #: .\connection\templates\connection\babysitter_profil.html:108
 #: .\connection\templates\connection\matched_babysitter_profil.html:115
 msgid "kod svoje kuće"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\profil_babysitter.html:236
-#: .\babysitter\templates\babysitter\profil_babysitter.html:249
-#: .\babysitter\templates\babysitter\profil_babysitter.html:266
-#: .\babysitter\templates\babysitter\profil_babysitter.html:279
-#: .\babysitter\templates\babysitter\profil_babysitter.html:292
-#: .\babysitter\templates\babysitter\profil_babysitter.html:305
-#: .\babysitter\templates\babysitter\profil_babysitter.html:318
-#: .\babysitter\templates\babysitter\profil_babysitter.html:331
-#: .\babysitter\templates\babysitter\profil_babysitter.html:345
-#: .\babysitter\templates\babysitter\profil_babysitter.html:358
+#: .\babysitter\templates\babysitter\profil_babysitter.html:240
+#: .\babysitter\templates\babysitter\profil_babysitter.html:253
+#: .\babysitter\templates\babysitter\profil_babysitter.html:270
+#: .\babysitter\templates\babysitter\profil_babysitter.html:283
+#: .\babysitter\templates\babysitter\profil_babysitter.html:296
+#: .\babysitter\templates\babysitter\profil_babysitter.html:309
+#: .\babysitter\templates\babysitter\profil_babysitter.html:322
+#: .\babysitter\templates\babysitter\profil_babysitter.html:335
+#: .\babysitter\templates\babysitter\profil_babysitter.html:349
+#: .\babysitter\templates\babysitter\profil_babysitter.html:362
 #: .\connection\templates\connection\babysitter_profil.html:113
 #: .\connection\templates\connection\babysitter_profil.html:126
 #: .\connection\templates\connection\babysitter_profil.html:139
@@ -863,16 +863,16 @@ msgstr ""
 msgid "Ne"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\profil_babysitter.html:238
-#: .\babysitter\templates\babysitter\profil_babysitter.html:251
-#: .\babysitter\templates\babysitter\profil_babysitter.html:268
-#: .\babysitter\templates\babysitter\profil_babysitter.html:281
-#: .\babysitter\templates\babysitter\profil_babysitter.html:294
-#: .\babysitter\templates\babysitter\profil_babysitter.html:307
-#: .\babysitter\templates\babysitter\profil_babysitter.html:320
-#: .\babysitter\templates\babysitter\profil_babysitter.html:333
-#: .\babysitter\templates\babysitter\profil_babysitter.html:347
-#: .\babysitter\templates\babysitter\profil_babysitter.html:360
+#: .\babysitter\templates\babysitter\profil_babysitter.html:242
+#: .\babysitter\templates\babysitter\profil_babysitter.html:255
+#: .\babysitter\templates\babysitter\profil_babysitter.html:272
+#: .\babysitter\templates\babysitter\profil_babysitter.html:285
+#: .\babysitter\templates\babysitter\profil_babysitter.html:298
+#: .\babysitter\templates\babysitter\profil_babysitter.html:311
+#: .\babysitter\templates\babysitter\profil_babysitter.html:324
+#: .\babysitter\templates\babysitter\profil_babysitter.html:337
+#: .\babysitter\templates\babysitter\profil_babysitter.html:351
+#: .\babysitter\templates\babysitter\profil_babysitter.html:364
 #: .\connection\templates\connection\babysitter_profil.html:115
 #: .\connection\templates\connection\babysitter_profil.html:128
 #: .\connection\templates\connection\babysitter_profil.html:141
@@ -897,92 +897,92 @@ msgstr ""
 msgid "Da"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\profil_babysitter.html:244
+#: .\babysitter\templates\babysitter\profil_babysitter.html:248
 #: .\connection\templates\connection\babysitter_profil.html:121
 #: .\connection\templates\connection\matched_babysitter_profil.html:128
 msgid "Da li ima dece"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\profil_babysitter.html:261
+#: .\babysitter\templates\babysitter\profil_babysitter.html:265
 msgid "Da li joj smetaju"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\profil_babysitter.html:261
+#: .\babysitter\templates\babysitter\profil_babysitter.html:265
 #: .\connection\templates\connection\babysitter_profil.html:160
 #: .\connection\templates\connection\matched_babysitter_profil.html:167
 msgid "kućni ljubimci"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\profil_babysitter.html:274
-#: .\babysitter\templates\babysitter\profil_babysitter.html:287
+#: .\babysitter\templates\babysitter\profil_babysitter.html:278
+#: .\babysitter\templates\babysitter\profil_babysitter.html:291
 #: .\connection\templates\connection\babysitter_profil.html:173
 #: .\connection\templates\connection\matched_babysitter_profil.html:180
 msgid "Da li bi radila"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\profil_babysitter.html:274
+#: .\babysitter\templates\babysitter\profil_babysitter.html:278
 #: .\connection\templates\connection\babysitter_profil.html:173
 #: .\connection\templates\connection\matched_babysitter_profil.html:180
 msgid "lakše kućne poslove"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\profil_babysitter.html:287
+#: .\babysitter\templates\babysitter\profil_babysitter.html:291
 #: .\connection\templates\connection\babysitter_profil.html:186
 #: .\connection\templates\connection\matched_babysitter_profil.html:193
 msgid "školske aktivnosti"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\profil_babysitter.html:300
+#: .\babysitter\templates\babysitter\profil_babysitter.html:304
 msgid "Čuvanje dece"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\profil_babysitter.html:300
+#: .\babysitter\templates\babysitter\profil_babysitter.html:304
 #: .\connection\templates\connection\babysitter_profil.html:199
 #: .\connection\templates\connection\matched_babysitter_profil.html:206
 msgid "sa posebnim potrebama"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\profil_babysitter.html:313
+#: .\babysitter\templates\babysitter\profil_babysitter.html:317
 msgid "Da li bi kuvala?"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\profil_babysitter.html:326
+#: .\babysitter\templates\babysitter\profil_babysitter.html:330
 #: .\connection\templates\connection\babysitter_profil.html:248
 #: .\connection\templates\connection\matched_babysitter_profil.html:255
 msgid "Da li čuvate decu"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\profil_babysitter.html:326
+#: .\babysitter\templates\babysitter\profil_babysitter.html:330
 #: .\connection\templates\connection\babysitter_profil.html:248
 #: .\connection\templates\connection\matched_babysitter_profil.html:255
 msgid "dok su bolesna?"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\profil_babysitter.html:340
+#: .\babysitter\templates\babysitter\profil_babysitter.html:344
 #: .\connection\templates\connection\babysitter_profil.html:261
 #: .\connection\templates\connection\matched_babysitter_profil.html:268
 msgid "Da li bi vozili"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\profil_babysitter.html:340
+#: .\babysitter\templates\babysitter\profil_babysitter.html:344
 #: .\connection\templates\connection\babysitter_profil.html:261
 #: .\connection\templates\connection\matched_babysitter_profil.html:268
 msgid "decu svojim autom?"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\profil_babysitter.html:353
+#: .\babysitter\templates\babysitter\profil_babysitter.html:357
 #: .\connection\templates\connection\babysitter_profil.html:274
 #: .\connection\templates\connection\matched_babysitter_profil.html:281
 msgid "Da li bi putovali"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\profil_babysitter.html:353
+#: .\babysitter\templates\babysitter\profil_babysitter.html:357
 #: .\connection\templates\connection\babysitter_profil.html:274
 #: .\connection\templates\connection\matched_babysitter_profil.html:281
 msgid "sa Porodicom?"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\profil_babysitter.html:370
+#: .\babysitter\templates\babysitter\profil_babysitter.html:374
 #: .\connection\templates\connection\babysitter_profil.html:23
 #: .\connection\templates\connection\babysitter_profil.html:357
 #: .\connection\templates\connection\family_profil.html:52
@@ -995,7 +995,7 @@ msgstr ""
 msgid "Ocena korisnika"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\profil_babysitter.html:372
+#: .\babysitter\templates\babysitter\profil_babysitter.html:376
 #: .\connection\templates\connection\babysitter_profil.html:25
 #: .\connection\templates\connection\babysitter_profil.html:363
 #: .\connection\templates\connection\family_profil.html:54
@@ -1008,17 +1008,17 @@ msgstr ""
 msgid "Nema ocene"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\profil_babysitter.html:382
+#: .\babysitter\templates\babysitter\profil_babysitter.html:386
 #: .\family\templates\family\profil_family.html:218
 msgid " Da li ste sigurni da zelite da obrišete profil? "
 msgstr ""
 
-#: .\babysitter\templates\babysitter\profil_babysitter.html:384
+#: .\babysitter\templates\babysitter\profil_babysitter.html:388
 #: .\family\templates\family\profil_family.html:220
 msgid " Obriši nalog "
 msgstr ""
 
-#: .\babysitter\templates\babysitter\profil_babysitter.html:391
+#: .\babysitter\templates\babysitter\profil_babysitter.html:395
 #: .\connection\templates\connection\babysitter_profil.html:301
 #: .\connection\templates\connection\family_profil.html:161
 #: .\connection\templates\connection\matched_babysitter_profil.html:317
@@ -1027,47 +1027,47 @@ msgstr ""
 msgid "O sebi"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\profil_babysitter.html:421
+#: .\babysitter\templates\babysitter\profil_babysitter.html:425
 #: .\connection\templates\connection\babysitter_profil.html:331
 #: .\connection\templates\connection\matched_babysitter_profil.html:347
 #: .\family\choices.py:189
 msgid "Žensko"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\profil_babysitter.html:423
+#: .\babysitter\templates\babysitter\profil_babysitter.html:427
 #: .\connection\templates\connection\babysitter_profil.html:333
 #: .\connection\templates\connection\matched_babysitter_profil.html:349
 #: .\family\choices.py:188
 msgid "Muško"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\profil_babysitter.html:436
+#: .\babysitter\templates\babysitter\profil_babysitter.html:440
 #: .\connection\templates\connection\babysitter_profil.html:346
 #: .\connection\templates\connection\matched_babysitter_profil.html:363
 msgid "Strani Drzavljanin"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\profil_babysitter.html:438
+#: .\babysitter\templates\babysitter\profil_babysitter.html:442
 #: .\connection\templates\connection\babysitter_profil.html:348
 #: .\connection\templates\connection\matched_babysitter_profil.html:365
 msgid "Srpski Drzavljanin"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\profil_babysitter.html:445
+#: .\babysitter\templates\babysitter\profil_babysitter.html:449
 msgid "Vreme kada čuvate decu"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\profil_babysitter.html:616
+#: .\babysitter\templates\babysitter\profil_babysitter.html:620
 #: .\family\templates\family\profil_family.html:450
 msgid "Ažuriranje vreme čuvanja u toku nedelje"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\profil_babysitter.html:619
+#: .\babysitter\templates\babysitter\profil_babysitter.html:623
 #: .\family\templates\family\profil_family.html:453
 msgid "Ažuriranje profila"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\profil_babysitter.html:633
+#: .\babysitter\templates\babysitter\profil_babysitter.html:637
 #: .\connection\templates\connection\babysitter_profil.html:555
 #: .\connection\templates\connection\family_profil.html:410
 #: .\connection\templates\connection\matched_babysitter_profil.html:599
@@ -1199,8 +1199,8 @@ msgstr ""
 #: .\connection\templates\connection\babysitter_profil.html:56
 #: .\connection\templates\connection\babysitter_profil.html:294
 #: .\favorite\templates\favorite\babysitters.html:28
-#: .\layout\templates\layout\index.html:325
-#: .\layout\templates\layout\index.html:378
+#: .\layout\templates\layout\index.html:332
+#: .\layout\templates\layout\index.html:385
 msgid "Rezerviši"
 msgstr ""
 
@@ -1216,7 +1216,7 @@ msgstr ""
 
 #: .\connection\templates\connection\all_babysitters.html:150
 #: .\favorite\templates\favorite\babysitters.html:40
-#: .\layout\templates\layout\index.html:390
+#: .\layout\templates\layout\index.html:397
 msgid "Satnica:"
 msgstr ""
 
@@ -1657,55 +1657,57 @@ msgid ""
 "Vama važnim kriterijumima"
 msgstr ""
 
-#: .\layout\templates\layout\base_contact.html:89
+#: .\layout\templates\layout\base_contact.html:91
 #: .\layout\templates\layout\index.html:88 .\templates\base_reset.html:81
 msgid "naslovna"
 msgstr ""
 
-#: .\layout\templates\layout\base_contact.html:95
+#: .\layout\templates\layout\base_contact.html:97
 #: .\layout\templates\layout\index.html:94 .\templates\base_reset.html:87
 msgid "kontakt"
 msgstr ""
 
-#: .\layout\templates\layout\base_contact.html:97
+#: .\layout\templates\layout\base_contact.html:99
+#: .\layout\templates\layout\base_contact.html:103
 #: .\layout\templates\layout\index.html:96
+#: .\layout\templates\layout\index.html:100
 msgid "baza bebisitera/dadilja"
 msgstr ""
 
-#: .\layout\templates\layout\base_contact.html:105
-#: .\layout\templates\layout\index.html:104
+#: .\layout\templates\layout\base_contact.html:111
+#: .\layout\templates\layout\index.html:108
 msgid "Odjavi se"
 msgstr ""
 
-#: .\layout\templates\layout\base_contact.html:107
-#: .\layout\templates\layout\base_contact.html:109
-#: .\layout\templates\layout\index.html:106
-#: .\layout\templates\layout\index.html:108
+#: .\layout\templates\layout\base_contact.html:113
+#: .\layout\templates\layout\base_contact.html:115
+#: .\layout\templates\layout\index.html:110
+#: .\layout\templates\layout\index.html:112
 msgid "Profil"
 msgstr ""
 
-#: .\layout\templates\layout\base_contact.html:132
-#: .\layout\templates\layout\base_contact.html:213
-#: .\layout\templates\layout\index.html:133
-#: .\layout\templates\layout\index.html:477 .\templates\base_reset.html:115
+#: .\layout\templates\layout\base_contact.html:142
+#: .\layout\templates\layout\base_contact.html:223
+#: .\layout\templates\layout\index.html:140
+#: .\layout\templates\layout\index.html:484 .\templates\base_reset.html:115
 msgid "Registruj se/prijavi se"
 msgstr ""
 
-#: .\layout\templates\layout\base_contact.html:134
-#: .\layout\templates\layout\base_contact.html:215
-#: .\layout\templates\layout\index.html:135
-#: .\layout\templates\layout\index.html:479 .\templates\base_reset.html:117
+#: .\layout\templates\layout\base_contact.html:144
+#: .\layout\templates\layout\base_contact.html:225
+#: .\layout\templates\layout\index.html:142
+#: .\layout\templates\layout\index.html:486 .\templates\base_reset.html:117
 msgid "Kao Bebisiter/Dadilja"
 msgstr ""
 
-#: .\layout\templates\layout\base_contact.html:135
-#: .\layout\templates\layout\base_contact.html:216
-#: .\layout\templates\layout\index.html:136
-#: .\layout\templates\layout\index.html:480 .\templates\base_reset.html:118
+#: .\layout\templates\layout\base_contact.html:145
+#: .\layout\templates\layout\base_contact.html:226
+#: .\layout\templates\layout\index.html:143
+#: .\layout\templates\layout\index.html:487 .\templates\base_reset.html:118
 msgid "Kao Porodica"
 msgstr ""
 
-#: .\layout\templates\layout\base_contact.html:167
+#: .\layout\templates\layout\base_contact.html:177
 msgid ""
 " \"Parent's time je platforma koja je tu da izađe u susret\n"
 "                    svakom roditelju kome je potrebna pomoć prilikom "
@@ -1715,58 +1717,58 @@ msgid ""
 "                    mogućnosti.\""
 msgstr ""
 
-#: .\layout\templates\layout\base_contact.html:178
-#: .\layout\templates\layout\index.html:442 .\templates\base_reset.html:159
+#: .\layout\templates\layout\base_contact.html:188
+#: .\layout\templates\layout\index.html:449 .\templates\base_reset.html:159
 msgid "Brzi linkovi"
 msgstr ""
 
-#: .\layout\templates\layout\base_contact.html:181
-#: .\layout\templates\layout\index.html:445 .\templates\base_reset.html:162
+#: .\layout\templates\layout\base_contact.html:191
+#: .\layout\templates\layout\index.html:452 .\templates\base_reset.html:162
 msgid "Naslovna"
 msgstr ""
 
-#: .\layout\templates\layout\base_contact.html:184
-#: .\layout\templates\layout\index.html:448
+#: .\layout\templates\layout\base_contact.html:194
+#: .\layout\templates\layout\index.html:455
 #: .\layout\templates\layout\instruction_page.html:79
 msgid "Baza bebisitera/dadilja"
 msgstr ""
 
-#: .\layout\templates\layout\base_contact.html:192
-#: .\layout\templates\layout\index.html:177
-#: .\layout\templates\layout\index.html:456 .\templates\base_reset.html:170
+#: .\layout\templates\layout\base_contact.html:202
+#: .\layout\templates\layout\index.html:184
+#: .\layout\templates\layout\index.html:463 .\templates\base_reset.html:170
 msgid "Uputstvo za korišćenje platforme"
 msgstr ""
 
-#: .\layout\templates\layout\base_contact.html:195
+#: .\layout\templates\layout\base_contact.html:205
 #: .\layout\templates\layout\contact.html:4
 #: .\layout\templates\layout\contact.html:17
-#: .\layout\templates\layout\index.html:459 .\templates\base_reset.html:173
+#: .\layout\templates\layout\index.html:466 .\templates\base_reset.html:173
 msgid "Kontakt"
 msgstr ""
 
-#: .\layout\templates\layout\base_contact.html:205
+#: .\layout\templates\layout\base_contact.html:215
 msgid ""
 "  \"U svakom trenutku pronađite dadilju na teritoriji cele\n"
 "                        Srbije koja odgovara baš Vašoj porodici!\" "
 msgstr ""
 
-#: .\layout\templates\layout\base_contact.html:209
-#: .\layout\templates\layout\index.html:473
+#: .\layout\templates\layout\base_contact.html:219
+#: .\layout\templates\layout\index.html:480
 msgid "U promo periodu besplatna i uvek dostupna baza bebisitera/dadilja"
 msgstr ""
 
-#: .\layout\templates\layout\base_contact.html:227
-#: .\layout\templates\layout\index.html:494
+#: .\layout\templates\layout\base_contact.html:237
+#: .\layout\templates\layout\index.html:501
 msgid "Pretplatite se na naš blog"
 msgstr ""
 
-#: .\layout\templates\layout\base_contact.html:246
-#: .\layout\templates\layout\index.html:513 .\templates\base_reset.html:202
+#: .\layout\templates\layout\base_contact.html:256
+#: .\layout\templates\layout\index.html:520 .\templates\base_reset.html:202
 msgid "Uslovi korišćenja i politika privatnosti"
 msgstr ""
 
-#: .\layout\templates\layout\base_contact.html:249
-#: .\layout\templates\layout\index.html:516 .\templates\base_reset.html:205
+#: .\layout\templates\layout\base_contact.html:259
+#: .\layout\templates\layout\index.html:523 .\templates\base_reset.html:205
 msgid "Mere poverenja i bezbednosti"
 msgstr ""
 
@@ -1784,21 +1786,21 @@ msgstr ""
 msgid "Poruka"
 msgstr ""
 
-#: .\layout\templates\layout\index.html:176
+#: .\layout\templates\layout\index.html:183
 msgid ""
 "Porodicu ne čine samo oni sa kojima smo u krvnom srodstvu. Čine je i oni "
 "koji nas drže za ruku kada nam je to najpotrebnije "
 msgstr ""
 
-#: .\layout\templates\layout\index.html:195
+#: .\layout\templates\layout\index.html:202
 msgid "Pronalaženje bebisitera"
 msgstr ""
 
-#: .\layout\templates\layout\index.html:196
+#: .\layout\templates\layout\index.html:203
 msgid "nikad nije bilo jednostavnije!"
 msgstr ""
 
-#: .\layout\templates\layout\index.html:202
+#: .\layout\templates\layout\index.html:209
 msgid ""
 " \"Parent's time je platforma koja je tu da izađe u susret svakom\n"
 "                        roditelju kome je potrebna pomoć prilikom traženja "
@@ -1812,80 +1814,80 @@ msgid ""
 "                        kriterijumima.\" "
 msgstr ""
 
-#: .\layout\templates\layout\index.html:220
+#: .\layout\templates\layout\index.html:227
 msgid "Kako platforma funkcioniše?"
 msgstr ""
 
-#: .\layout\templates\layout\index.html:226
+#: .\layout\templates\layout\index.html:233
 msgid "SVE U TRI KORAKA"
 msgstr ""
 
-#: .\layout\templates\layout\index.html:243
+#: .\layout\templates\layout\index.html:250
 msgid "Pretražite bazu dostupnih bebisitera/dadilja"
 msgstr ""
 
-#: .\layout\templates\layout\index.html:248
+#: .\layout\templates\layout\index.html:255
 msgid "Pronađite bebisitera/dadilju prema vašim kriterijumima"
 msgstr ""
 
-#: .\layout\templates\layout\index.html:251
+#: .\layout\templates\layout\index.html:258
 msgid "Povežite se"
 msgstr ""
 
-#: .\layout\templates\layout\index.html:255
+#: .\layout\templates\layout\index.html:262
 msgid ""
 "pozovite kandidata telefonom ili putem mejla i izaberite bebisitera/dadilju "
 "koja odgovara vašoj porodici"
 msgstr ""
 
-#: .\layout\templates\layout\index.html:258
+#: .\layout\templates\layout\index.html:265
 msgid "Zakažite upoznavanje"
 msgstr ""
 
-#: .\layout\templates\layout\index.html:262
+#: .\layout\templates\layout\index.html:269
 msgid "Odaberite datum i vreme kako biste se sa kandidatom upoznali uživo"
 msgstr ""
 
-#: .\layout\templates\layout\index.html:279
-#: .\layout\templates\layout\index.html:284
-#: .\layout\templates\layout\index.html:298
-#: .\layout\templates\layout\index.html:303
+#: .\layout\templates\layout\index.html:286
+#: .\layout\templates\layout\index.html:291
+#: .\layout\templates\layout\index.html:305
+#: .\layout\templates\layout\index.html:310
 msgid "REGISTRUJ SE/PRIJAVI SE "
 msgstr ""
 
-#: .\layout\templates\layout\index.html:279
-#: .\layout\templates\layout\index.html:298
+#: .\layout\templates\layout\index.html:286
+#: .\layout\templates\layout\index.html:305
 msgid "KAO  RODITELJ"
 msgstr ""
 
-#: .\layout\templates\layout\index.html:284
-#: .\layout\templates\layout\index.html:303
+#: .\layout\templates\layout\index.html:291
+#: .\layout\templates\layout\index.html:310
 msgid "KAO  BEBISITER/DADILJA"
 msgstr ""
 
-#: .\layout\templates\layout\index.html:314
+#: .\layout\templates\layout\index.html:321
 msgid "Bebisiterke/Dadilje"
 msgstr ""
 
-#: .\layout\templates\layout\index.html:337
+#: .\layout\templates\layout\index.html:344
 msgid "Satnica: "
 msgstr ""
 
-#: .\layout\templates\layout\index.html:341
-#: .\layout\templates\layout\index.html:394
+#: .\layout\templates\layout\index.html:348
+#: .\layout\templates\layout\index.html:401
 msgid "Neocenjen"
 msgstr ""
 
-#: .\layout\templates\layout\index.html:346
-#: .\layout\templates\layout\index.html:399
+#: .\layout\templates\layout\index.html:353
+#: .\layout\templates\layout\index.html:406
 msgid "Komentar"
 msgstr ""
 
-#: .\layout\templates\layout\index.html:367
+#: .\layout\templates\layout\index.html:374
 msgid "Bebisiterke/Dadije"
 msgstr ""
 
-#: .\layout\templates\layout\index.html:431
+#: .\layout\templates\layout\index.html:438
 msgid ""
 " \"Parent's time je platforma koja je tu da izađe u susret\n"
 "                       svakom roditelju kome je potrebna pomoć prilikom "
@@ -1895,7 +1897,7 @@ msgid ""
 "                       mogućnosti.\" "
 msgstr ""
 
-#: .\layout\templates\layout\index.html:469
+#: .\layout\templates\layout\index.html:476
 msgid ""
 " \"U svakom trenutku pronađite dadilju na teritoriji cele\n"
 "                           Srbije koja odgovara baš Vašoj porodici!\" "
@@ -2200,11 +2202,11 @@ msgstr ""
 msgid "Hvala, Uspešno ste poslali poruku!"
 msgstr ""
 
-#: .\parents_time_project\settings.py:147
+#: .\parents_time_project\settings.py:148
 msgid "Srpski"
 msgstr ""
 
-#: .\parents_time_project\settings.py:148
+#: .\parents_time_project\settings.py:149
 msgid "Engleski"
 msgstr ""
 

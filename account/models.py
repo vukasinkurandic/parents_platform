@@ -57,3 +57,13 @@ class CustomUser(AbstractUser):
     REQUIRED_FIELDS = []
 
     objects = CustomUserManager()
+
+# ready for user pass test email_verified_check
+
+# def email_verified_check(user):
+#     return user.is_email_verified
+
+# from account . models import email_verified_check
+# from django.contrib.auth.decorators import login_required, user_passes_test
+
+# @user_passes_test(email_verified_check, login_url='account:login', redirect_field_name=None)
