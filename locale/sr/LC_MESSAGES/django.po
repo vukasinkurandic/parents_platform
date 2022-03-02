@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-02 19:04+0100\n"
+"POT-Creation-Date: 2022-03-02 19:57+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1076,8 +1076,10 @@ msgstr ""
 msgid "Nema komentara"
 msgstr ""
 
-#: .\babysitter\views.py:34 .\family\views.py:36
-msgid "Čestitamo, upravo ste kreirali profil na Parent's time platformi."
+#: .\babysitter\views.py:34
+msgid ""
+"Čestitamo, upravo ste kreirali profil na Parent's time platformi. Ukoliko "
+"neko bude zainteresovan za vaše usluge bićete kontakirani putem platforme"
 msgstr ""
 
 #: .\babysitter\views.py:38 .\babysitter\views.py:61 .\babysitter\views.py:147
@@ -1453,7 +1455,13 @@ msgid "Već ste rezervisali korisnika"
 msgstr ""
 
 #: .\connection\views.py:367
-msgid "Uspešno ste rezervisali korisnika"
+msgid ""
+"Uspešno ste kontaktirali korisnika. Vaša rezervacija može biti prihvaćena "
+"ili odbijena. Ukoliko korisnik prohvati rezervaciju možete oceniti profil "
+"ostaviti komentar. Takođe korisnik  može videti Vaš profil i vaše kontakt "
+"podatke. Ukoliko smatrate da je korisnik odgovarajući kandidat, možete odmah "
+"stupiti u kontakt, upoznati se i započeti saradnju što pre. Dugmići "
+"(ikonice) koji će voditi na poziv na mejl."
 msgstr ""
 
 #: .\connection\views.py:371
@@ -1630,6 +1638,10 @@ msgstr ""
 
 #: .\family\templates\family\profil_family.html:279
 msgid "Kada Vam je potrebno čuvanje"
+msgstr ""
+
+#: .\family\views.py:36
+msgid "Čestitamo, upravo ste kreirali profil na Parent's time platformi."
 msgstr ""
 
 #: .\family\views.py:40 .\family\views.py:61 .\family\views.py:140
@@ -2263,6 +2275,20 @@ msgstr ""
 #: .\templates\email_connection.html:76
 #: .\templates\password_reset_email.html:87
 msgid "S poštovanjem"
+msgstr ""
+
+#: .\templates\email_verified.html:42
+msgid ""
+"Upravo ste kreirali nalog na Parent's time platformi. Molimo vas potvrdite "
+"vašu email adresu klikom na link (dugme) VERIFIKUJ  ispod. Hvala."
+msgstr ""
+
+#: .\templates\email_verified.html:64
+msgid "Ukoliko imate problema pri verifikaciji kopirajte ovaj link u brauser"
+msgstr ""
+
+#: .\templates\email_verified.html:69
+msgid "Pozdrav"
 msgstr ""
 
 #: .\templates\password_reset.html:4 .\templates\password_reset_done.html:4
