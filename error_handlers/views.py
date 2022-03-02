@@ -14,4 +14,4 @@ def custom_page_not_found_view(request, exception):
 
 
 def custom_error_view(request, exception=None):
-    return render(request, "error_handlers/500.html", {})
+    return render(request, "error_handlers/404.html", {})
