@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-02 21:40+0100\n"
+"POT-Creation-Date: 2022-03-02 21:49+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2285,10 +2285,22 @@ msgstr ""
 msgid "S poštovanjem"
 msgstr ""
 
+#: .\templates\email_verified.html:7
+msgid "Verifikacija"
+msgstr ""
+
+#: .\templates\email_verified.html:32
+msgid "Poštovani"
+msgstr ""
+
 #: .\templates\email_verified.html:43
 msgid ""
 "Upravo ste kreirali nalog na Parent's time platformi. Molimo vas potvrdite "
 "vašu email adresu klikom na link (dugme) VERIFIKUJ  ispod. Hvala."
+msgstr ""
+
+#: .\templates\email_verified.html:54
+msgid "VERIFIKUJ"
 msgstr ""
 
 #: .\templates\email_verified.html:65

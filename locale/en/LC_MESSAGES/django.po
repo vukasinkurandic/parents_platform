@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-02 21:40+0100\n"
-"PO-Revision-Date: 2022-03-02 21:42+0000\n"
+"POT-Creation-Date: 2022-03-02 21:49+0100\n"
+"PO-Revision-Date: 2022-03-02 21:51+0000\n"
 "Last-Translator:   <natasa@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -2399,6 +2399,16 @@ msgstr "If you have problems you can write to us at contact@parentstime.rs"
 msgid "S poštovanjem"
 msgstr "Sincerely"
 
+#: .\templates\email_verified.html:7
+#| msgid "Rezervacija"
+msgid "Verifikacija"
+msgstr "Verification"
+
+#: .\templates\email_verified.html:32
+#| msgid "Poštovani/a "
+msgid "Poštovani"
+msgstr "Dear"
+
 #: .\templates\email_verified.html:43
 msgid ""
 "Upravo ste kreirali nalog na Parent's time platformi. Molimo vas potvrdite "
@@ -2406,6 +2416,10 @@ msgid ""
 msgstr ""
 "You have just created an account on Parent's time platform. Please confirm "
 "your email address by clicking the VERIFY link below. Thanks."
+
+#: .\templates\email_verified.html:54
+msgid "VERIFIKUJ"
+msgstr "VERIFY"
 
 #: .\templates\email_verified.html:65
 msgid "Ukoliko imate problema pri verifikaciji kopirajte ovaj link u brauser"
