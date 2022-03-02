@@ -95,9 +95,13 @@
                     <li><a href="https://blog.parentstime.rs/">blog</a></li>
                     {% endif%}
                     <li><a href="{% url 'layout:contact' %}">{% trans "kontakt" %}</a></li>
-                    {% if user.is_authenticated and user.user_type == 1 %}
-                     <li><a href="{% url 'connection:all_babysitters' %}">{% trans "baza bebisitera/dadilja" %}</a></li>
-                    {%endif%}
+                   {% if user.is_authenticated and user.user_type == 1 %}
+                    <li><a href="{% url 'connection:all_babysitters' %}">{% trans "baza bebisitera/dadilja" %}</a></li>
+                   {%elif user.is_authenticated and user.user_type == 2%}
+                               
+                   {% else %}
+                   <li><a href="{% url 'account:login' %}">{% trans "baza bebisitera/dadilja" %}</a></li>
+                   {%endif%}
                   </ul>
                 </div>
                 <div class="col-md-4">
