@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-02 19:57+0100\n"
+"POT-Creation-Date: 2022-03-02 21:40+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -382,69 +382,77 @@ msgstr ""
 msgid "Uzrast dece koju čuvate"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\create_profil_babysitter.html:184
+#: .\babysitter\templates\babysitter\create_profil_babysitter.html:181
+#: .\family\templates\family\create_profil_family.html:166
+msgid ""
+"Ukoliko popunite podatke o sebi i na engleskom jeziku u delu 'About me' "
+"dobijate mogućnost da Vaš profil bude dostupan i inostranim korisnicima "
+"platforme"
+msgstr ""
+
+#: .\babysitter\templates\babysitter\create_profil_babysitter.html:190
 #: .\babysitter\templates\babysitter\edit_profil_babysitter.html:157
-#: .\family\templates\family\create_profil_family.html:176
+#: .\family\templates\family\create_profil_family.html:182
 #: .\family\templates\family\edit_profil_family.html:159
 msgid "Slika"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\create_profil_babysitter.html:185
-#: .\family\templates\family\create_profil_family.html:177
+#: .\babysitter\templates\babysitter\create_profil_babysitter.html:191
+#: .\family\templates\family\create_profil_family.html:183
 msgid "mora biti manja od 2MB"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\create_profil_babysitter.html:192
+#: .\babysitter\templates\babysitter\create_profil_babysitter.html:198
 #: .\babysitter\templates\babysitter\edit_profil_babysitter.html:187
 msgid "Čuvao/la bi decu kod svoje kuće:"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\create_profil_babysitter.html:198
+#: .\babysitter\templates\babysitter\create_profil_babysitter.html:204
 #: .\babysitter\templates\babysitter\edit_profil_babysitter.html:194
 msgid "Pomagao/la bi u školskim aktivnostima:"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\create_profil_babysitter.html:204
+#: .\babysitter\templates\babysitter\create_profil_babysitter.html:210
 #: .\babysitter\templates\babysitter\edit_profil_babysitter.html:200
 msgid "Imam decu:"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\create_profil_babysitter.html:210
+#: .\babysitter\templates\babysitter\create_profil_babysitter.html:216
 #: .\babysitter\templates\babysitter\edit_profil_babysitter.html:208
 msgid "Kuvao/la bi za decu i porodicu:"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\create_profil_babysitter.html:216
+#: .\babysitter\templates\babysitter\create_profil_babysitter.html:222
 #: .\babysitter\templates\babysitter\edit_profil_babysitter.html:214
 msgid "Čuvao/la bi decu dok su bolesna:"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\create_profil_babysitter.html:222
+#: .\babysitter\templates\babysitter\create_profil_babysitter.html:228
 #: .\babysitter\templates\babysitter\edit_profil_babysitter.html:221
 msgid "Putovao/la bi sa porodicom:"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\create_profil_babysitter.html:228
+#: .\babysitter\templates\babysitter\create_profil_babysitter.html:234
 #: .\babysitter\templates\babysitter\edit_profil_babysitter.html:227
 msgid "Vozio/la bi decu svojim autom:"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\create_profil_babysitter.html:234
+#: .\babysitter\templates\babysitter\create_profil_babysitter.html:240
 #: .\babysitter\templates\babysitter\edit_profil_babysitter.html:166
 msgid "Čuvao/la bi decu sa posebnim potrebama:"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\create_profil_babysitter.html:240
+#: .\babysitter\templates\babysitter\create_profil_babysitter.html:246
 #: .\babysitter\templates\babysitter\edit_profil_babysitter.html:172
 msgid "Radio/la bi lakše kućne poslove:"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\create_profil_babysitter.html:246
+#: .\babysitter\templates\babysitter\create_profil_babysitter.html:252
 #: .\babysitter\templates\babysitter\edit_profil_babysitter.html:180
 msgid "Smetaju mi kućni ljubimci:"
 msgstr ""
 
-#: .\babysitter\templates\babysitter\create_profil_babysitter.html:254
+#: .\babysitter\templates\babysitter\create_profil_babysitter.html:260
 msgid " Kreiraj profil "
 msgstr ""
 
@@ -767,7 +775,7 @@ msgstr ""
 #: .\connection\templates\connection\all_babysitters.html:33
 #: .\connection\templates\connection\babysitter_profil.html:147
 #: .\connection\templates\connection\matched_babysitter_profil.html:154
-#: .\family\templates\family\create_profil_family.html:168
+#: .\family\templates\family\create_profil_family.html:174
 #: .\family\templates\family\edit_profil_family.html:151
 msgid "Uzrast dece"
 msgstr ""
@@ -2277,17 +2285,17 @@ msgstr ""
 msgid "S poštovanjem"
 msgstr ""
 
-#: .\templates\email_verified.html:42
+#: .\templates\email_verified.html:43
 msgid ""
 "Upravo ste kreirali nalog na Parent's time platformi. Molimo vas potvrdite "
 "vašu email adresu klikom na link (dugme) VERIFIKUJ  ispod. Hvala."
 msgstr ""
 
-#: .\templates\email_verified.html:64
+#: .\templates\email_verified.html:65
 msgid "Ukoliko imate problema pri verifikaciji kopirajte ovaj link u brauser"
 msgstr ""
 
-#: .\templates\email_verified.html:69
+#: .\templates\email_verified.html:70
 msgid "Pozdrav"
 msgstr ""
 
