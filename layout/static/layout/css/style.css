@@ -422,6 +422,8 @@ text-shadow: 1px 1px rgb(0 0 0 / 20%);
   text-align: center;
   border: 5px solid #fff;
   animation: shadow-pulsee 1.3s infinite;
+  z-index: 50;
+
 }
 
 @keyframes shadow-pulsee {
