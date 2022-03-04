@@ -1,0 +1,2574 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-02 21:49+0100\n"
+"PO-Revision-Date: 2022-03-02 21:51+0000\n"
+"Last-Translator:   <natasa@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Translated-Using: django-rosetta 0.9.8\n"
+
+#: .\account\forms.py:8
+msgid "Email je vec registrovan"
+msgstr "Email already verified"
+
+#: .\account\forms.py:15
+msgid "Dva polja za lozinku se ne poklapaju."
+msgstr "The two password fields do not match."
+
+#: .\account\templates\account\already_verified.html:4
+msgid "Email već verifikovan"
+msgstr "Email already verified"
+
+#: .\account\templates\account\already_verified.html:16
+msgid "Email ste već uspešno verifikovali"
+msgstr "You have already successfully verified your email"
+
+#: .\account\templates\account\already_verified.html:21
+#: .\account\templates\account\success.html:41
+msgid "Čestitamo, Vaš Email je verifikovan"
+msgstr "Congratulations, your Email has been verified"
+
+#: .\account\templates\account\already_verified.html:22
+#: .\account\templates\account\success.html:42
+msgid ""
+"Molimo Vas prijavite se, kako bi ste koristili naš servis u potpunosti."
+msgstr "Please log in to use our service to the fullest."
+
+#: .\account\templates\account\already_verified.html:26
+#: .\account\templates\account\error.html:26
+#: .\account\templates\account\login.html:16
+#: .\account\templates\account\login.html:46
+#: .\account\templates\account\logout.html:26
+#: .\account\templates\account\register_babysitter.html:37
+#: .\account\templates\account\register_family.html:67
+#: .\account\templates\account\success.html:46
+#: .\layout\templates\layout\base_contact.html:146
+#: .\layout\templates\layout\base_contact.html:227
+#: .\layout\templates\layout\index.html:144
+#: .\layout\templates\layout\index.html:488 .\templates\base_reset.html:119
+#: .\templates\password_reset_complete.html:24
+msgid "Prijavi se"
+msgstr "Login"
+
+#: .\account\templates\account\error.html:4
+msgid "Greška pri verifikaciji"
+msgstr "Verification error"
+
+#: .\account\templates\account\error.html:16
+msgid "Link za verifikaciju je nevažeći"
+msgstr "The verification link is invalid"
+
+#: .\account\templates\account\error.html:21
+msgid "Vas link za verifikaciju je istekao"
+msgstr "Your verification link has expired"
+
+#: .\account\templates\account\error.html:22
+msgid ""
+"Kada pokušate da se prijavite automatski cemo vam poslati novi Email sa "
+"važećim linkom."
+msgstr ""
+"When you try to log in we will automatically send you a new Email with a "
+"valid link."
+
+#: .\account\templates\account\login.html:41
+#: .\account\templates\account\register_babysitter.html:69
+#: .\account\templates\account\register_family.html:99
+msgid "Lozinka"
+msgstr "Password"
+
+#: .\account\templates\account\login.html:49
+#: .\templates\password_reset_confirm.html:32
+msgid "Zaboravili ste lozinku"
+msgstr "Forgot your password"
+
+#: .\account\templates\account\login.html:52
+msgid "Ukoliko se još niste registrovali kod nas to možete učiniti kao:"
+msgstr "If you have not registered with us yet, you can do as:"
+
+#: .\account\templates\account\login.html:53
+#: .\account\templates\account\register_family.html:17
+msgid "Registruj se kao roditelj"
+msgstr "Register as a parent"
+
+#: .\account\templates\account\login.html:54
+msgid "Registruj se kao bebisiter"
+msgstr "Register as a babysitter/nanny"
+
+#: .\account\templates\account\logout.html:16
+msgid "Uspešno ste se odjavili"
+msgstr "You have successfully logged out"
+
+#: .\account\templates\account\logout.html:21
+msgid "Hvala što ste koristili naše usluge"
+msgstr "Thank you for using our services"
+
+#: .\account\templates\account\logout.html:22
+msgid "Molimo Vas prijavite se, kako bi ste ponovo koristili naš servis."
+msgstr "Please log in to use our service again."
+
+#: .\account\templates\account\register_babysitter.html:4
+msgid "Registracija Babysitterke"
+msgstr "Babysitter registration"
+
+#: .\account\templates\account\register_babysitter.html:16
+msgid "Registruj se kao bebisiterka/dadilja"
+msgstr "Register as a babysitter/nanny"
+
+#: .\account\templates\account\register_babysitter.html:23
+msgid ""
+"Dragi bebisiteri i svi koji uživate uradu sa decom registrujte se\n"
+"              <b>besplatno u promo periodu</b> na našem sajtu i pronađite\n"
+"              porodicu u kakvoj ste oduvek želeli da radite  "
+msgstr ""
+"Dear babysitters and everyone who enjoys working with children, register\n"
+"<b> free during the promo period </b> on our site and find\n"
+"the family you have always wanted to work for"
+
+#: .\account\templates\account\register_babysitter.html:33
+msgid ""
+" Ukoliko ste već registrovani kod nas kliknite na dugme\n"
+"                  \"Prijavi se\". "
+msgstr ""
+"If you are already registered with us, click on the button\n"
+"\"Login\"."
+
+#: .\account\templates\account\register_babysitter.html:42
+#: .\account\templates\account\register_family.html:72
+#: .\layout\templates\layout\instruction_page.html:106
+#: .\layout\templates\layout\instruction_page.html:190
+msgid "Registruj se"
+msgstr "Register"
+
+#: .\account\templates\account\register_babysitter.html:77
+#: .\account\templates\account\register_family.html:108
+msgid "Ponovi lozinku"
+msgstr "Repeat the password"
+
+#: .\account\templates\account\register_babysitter.html:89
+#: .\account\templates\account\register_family.html:120
+msgid "Imate više od 18 godina i slažete se sa uslovima korišćenja"
+msgstr "You are over 18 years of age and agree to the terms of use"
+
+#: .\account\templates\account\register_babysitter.html:94
+#: .\account\templates\account\register_family.html:126
+msgid "Uslovi korišćenja"
+msgstr "Terms of use and privacy policy"
+
+#: .\account\templates\account\register_babysitter.html:100
+#: .\account\templates\account\register_family.html:132
+msgid "Registracija"
+msgstr "Registration"
+
+#: .\account\templates\account\register_family.html:4
+msgid "Registracija Porodice"
+msgstr "Family Registration"
+
+#: .\account\templates\account\register_family.html:24
+msgid ""
+"\n"
+"               Dragi roditelji, <br />\n"
+"              Koliko puta se desilo da ostanete duže na poslu i ne možete da\n"
+"              stignete da pokupite decu iz vrtića na vreme? Ili želite da izađete\n"
+"              sa partnerom na romantičnu večeru za dvoje? Da se vidite sa\n"
+"              prijateljima koje dugo niste videli? Odete u nabavku i obavite\n"
+"              kućne poslove? Ili jednostavno želite da izdvojite vreme za sebe?\n"
+"              A bake i deke nisu mogle da uskoče i pripomognu u čuvanju unuka?\n"
+"              Mnogo puta, pretpostavljamo.\n"
+"              "
+msgstr ""
+"\n"
+"Dear parents, <br/>\n"
+"How many times have you stayed longer at work and you can't\n"
+"do you manage to pick up the children from kindergarten on time? Or do you want to go out\n"
+"with a partner for a romantic dinner for two? To see each other\n"
+"friends you haven't seen in a long time? Do you go shopping and do your\n"
+"housework? Or do you just want to set aside time for yourself?\n"
+"And the grandparents couldn't jump in and help take care of the grandchildren?\n"
+"Many times, we guess."
+
+#: .\account\templates\account\register_family.html:36
+msgid ""
+" \n"
+"                  Biti roditelj nije lako u današnje vreme kada se brzo živi i\n"
+"                  dan prekratko traje zasve obaveze koje treba obaviti.\n"
+"                "
+msgstr ""
+"Being a parent is not easy nowadays when you live fast and\n"
+"the day is too short for all the obligations that need to be done."
+
+#: .\account\templates\account\register_family.html:43
+msgid ""
+"\n"
+"              Zato smo mi tu za vas, da vam\n"
+"              pomognemo da na najbrži način pronađete idealnu osobu koja će\n"
+"              voditi računa o vašim mališanima, u trenucima kada vi to niste u\n"
+"              mogućnosti.  \n"
+"              "
+msgstr ""
+"\n"
+"That is why we are here for you, to you\n"
+"let's help you find the ideal person who will\n"
+"take care of your little ones, in moments when you are not in it\n"
+"opportunities."
+
+#: .\account\templates\account\register_family.html:50
+msgid ""
+"\n"
+"               Registrujte se\n"
+"              <b> besplatno u promo periodu</b> na našem sajtu i pronađite\n"
+"              osobu koja će čuvati vaše dete/decu u samo par koraka.\n"
+"              "
+msgstr ""
+"\n"
+"Register\n"
+"<b> free during the promo period </b> on our site and find\n"
+"a person who will care for your child/children in just a few steps."
+
+#: .\account\templates\account\register_family.html:62
+msgid ""
+"\n"
+"                  Ukoliko ste već registrovani kod nas kliknite na dugme\n"
+"                  \"Prijavi se\".\n"
+"                  "
+msgstr ""
+"\n"
+"If you are already registered with us, click on the button\n"
+"\"Login\"."
+
+#: .\account\templates\account\success.html:4
+msgid "Uspešno verifikovan email"
+msgstr "Successfully verified email"
+
+#: .\account\templates\account\success.html:16
+msgid "Email je uspešno verifikovan"
+msgstr "Email verified successfully"
+
+#: .\account\templates\account\token_send.html:4
+msgid "Poslat je verifikacioni Email"
+msgstr "Verification Email sent"
+
+#: .\account\templates\account\token_send.html:15
+msgid "Molimo Vas, verifikujte svoj email"
+msgstr "Please verify your email"
+
+#: .\account\templates\account\token_send.html:18
+msgid ""
+"Proverite svoj Email, poslali smo vam instrukcije za verifikaciju istog"
+msgstr ""
+"Check your email, we have sent you instructions to change the password"
+
+#: .\account\templates\account\token_send.html:19
+msgid "Ako poruke nema u inboxu-u, obavezno proverite spam"
+msgstr "If the message is not in the inbox, be sure to check for spam"
+
+#: .\account\views.py:74
+msgid "Vaš email je već verifikovan."
+msgstr "Your email has already been verified."
+
+#: .\account\views.py:78
+msgid "Uspešno ste se registrovali!"
+msgstr "You have successfully registered!"
+
+#: .\account\views.py:92
+msgid "Vaš nalog mora biti verifikovan"
+msgstr "Your accounts need to be verified"
+
+#: .\account\views.py:137
+msgid "Nepostojeći email ili netačna lozinka"
+msgstr "Incorrect email or an incorrect password"
+
+#: .\babysitter\templates\babysitter\create_profil_babysitter.html:39
+#: .\family\templates\family\create_profil_family.html:40
+msgid "Kreiraj Profil"
+msgstr "Create a profile"
+
+#: .\babysitter\templates\babysitter\create_profil_babysitter.html:54
+msgid "Unesite vaše podatke"
+msgstr "Enter your profile information"
+
+#: .\babysitter\templates\babysitter\create_profil_babysitter.html:75
+msgid ""
+"Ovo je strana za kreiranje Vašeg profila. U 4 laka koraka se kreira profil. "
+"Što bolje popunite ovu stranu to Vam olakšava da Vas neko angažuje za posao."
+" Prvi korak popunjavate osnovne informacije o sebi. Drugi korak ubacite Vašu"
+" sliku. Treći korak odgovarate na pitanja da bi Vaš profil na parents-time "
+"platformi bio što bolji. Četvrti korak klikni te na dugme kreiraj profil. "
+"Srećno u pronalaženju posla."
+msgstr ""
+"This is the page for creating your profile. A profile is created in 4 easy "
+"steps. The better you fill out this page, the easier it is for someone to "
+"hire you. The first step is to fill in basic information about yourself. The"
+" second step is to insert your image. The third step is to answer the "
+"questions to make your profile on the parents-time platform as good as "
+"possible. The fourth step is to click and create a profile button. Good luck"
+" finding a job."
+
+#: .\babysitter\templates\babysitter\create_profil_babysitter.html:85
+#: .\babysitter\templates\babysitter\edit_profil_babysitter.html:51
+#: .\family\templates\family\create_profil_family.html:93
+#: .\family\templates\family\edit_profil_family.html:63
+#: .\layout\templates\layout\contact.html:90
+msgid "Ime"
+msgstr "Name"
+
+#: .\babysitter\templates\babysitter\create_profil_babysitter.html:91
+#: .\babysitter\templates\babysitter\edit_profil_babysitter.html:57
+#: .\family\templates\family\create_profil_family.html:99
+#: .\family\templates\family\edit_profil_family.html:69
+msgid "Prezime"
+msgstr "Surname"
+
+#: .\babysitter\templates\babysitter\create_profil_babysitter.html:103
+#: .\babysitter\templates\babysitter\edit_profil_babysitter.html:63
+#: .\family\templates\family\create_profil_family.html:105
+#: .\family\templates\family\edit_profil_family.html:76
+msgid "Telefon"
+msgstr "Phone number"
+
+#: .\babysitter\templates\babysitter\create_profil_babysitter.html:104
+#: .\babysitter\templates\babysitter\edit_profil_babysitter.html:64
+#: .\family\templates\family\create_profil_family.html:106
+#: .\family\templates\family\edit_profil_family.html:77
+msgid "u formi +38163123456"
+msgstr "in the form of +38163123456"
+
+#: .\babysitter\templates\babysitter\create_profil_babysitter.html:110
+#: .\babysitter\templates\babysitter\edit_profil_babysitter.html:78
+msgid "Satnica/RSD"
+msgstr "Price per hour/RSD"
+
+#: .\babysitter\templates\babysitter\create_profil_babysitter.html:111
+#: .\babysitter\templates\babysitter\edit_profil_babysitter.html:79
+msgid "min 0 max 3000"
+msgstr "min 0 max 3000"
+
+#: .\babysitter\templates\babysitter\create_profil_babysitter.html:117
+#: .\babysitter\templates\babysitter\edit_profil_babysitter.html:85
+msgid "Vaše godine starosti"
+msgstr "Your age"
+
+#: .\babysitter\templates\babysitter\create_profil_babysitter.html:123
+#: .\babysitter\templates\babysitter\edit_profil_babysitter.html:92
+#: .\babysitter\templates\babysitter\profil_babysitter.html:419
+#: .\connection\templates\connection\babysitter_profil.html:325
+msgid "Pol"
+msgstr "Gender"
+
+#: .\babysitter\templates\babysitter\create_profil_babysitter.html:129
+#: .\babysitter\templates\babysitter\edit_profil_babysitter.html:98
+msgid "Grad u kojem bi radio/la"
+msgstr "The city where you would work"
+
+#: .\babysitter\templates\babysitter\create_profil_babysitter.html:135
+#: .\babysitter\templates\babysitter\edit_profil_babysitter.html:107
+msgid "Tražim posao kao"
+msgstr "I'm looking for a job like"
+
+#: .\babysitter\templates\babysitter\create_profil_babysitter.html:141
+#: .\babysitter\templates\babysitter\edit_profil_babysitter.html:114
+msgid "Godine iskustva u radu"
+msgstr "Years of work experience"
+
+#: .\babysitter\templates\babysitter\create_profil_babysitter.html:147
+#: .\babysitter\templates\babysitter\edit_profil_babysitter.html:120
+#: .\babysitter\templates\babysitter\profil_babysitter.html:153
+#: .\connection\templates\connection\babysitter_profil.html:72
+#: .\connection\templates\connection\family_profil.html:103
+#: .\connection\templates\connection\matched_babysitter_profil.html:79
+#: .\connection\templates\connection\matched_family_profil.html:110
+#: .\family\templates\family\create_profil_family.html:137
+#: .\family\templates\family\edit_profil_family.html:114
+#: .\family\templates\family\profil_family.html:155
+msgid "Društvene mreže"
+msgstr "The social network"
+
+#: .\babysitter\templates\babysitter\create_profil_babysitter.html:148
+#: .\family\templates\family\create_profil_family.html:138
+msgid "u formi https://www.instagram.com/..."
+msgstr "in the form https: //www.instagram.com / ..."
+
+#: .\babysitter\templates\babysitter\create_profil_babysitter.html:154
+#: .\babysitter\templates\babysitter\edit_profil_babysitter.html:126
+#: .\babysitter\templates\babysitter\profil_babysitter.html:434
+#: .\connection\templates\connection\babysitter_profil.html:340
+#: .\connection\templates\connection\family_profil.html:199
+#: .\connection\templates\connection\matched_babysitter_profil.html:357
+#: .\connection\templates\connection\matched_family_profil.html:212
+#: .\family\templates\family\profil_family.html:265
+msgid "Državljanstvo"
+msgstr "Citizenship"
+
+#: .\babysitter\templates\babysitter\create_profil_babysitter.html:160
+#: .\babysitter\templates\babysitter\edit_profil_babysitter.html:133
+msgid "Uzrast dece koju čuvate"
+msgstr "The age of the children to be cared for"
+
+#: .\babysitter\templates\babysitter\create_profil_babysitter.html:181
+#: .\family\templates\family\create_profil_family.html:166
+msgid ""
+"Ukoliko popunite podatke o sebi i na engleskom jeziku u delu 'About me' "
+"dobijate mogućnost da Vaš profil bude dostupan i inostranim korisnicima "
+"platforme"
+msgstr ""
+"If you fill in the information about yourself in English in the  'About me' "
+"section, you get the opportunity to make your profile available to foreign "
+"users of the platform."
+
+#: .\babysitter\templates\babysitter\create_profil_babysitter.html:190
+#: .\babysitter\templates\babysitter\edit_profil_babysitter.html:157
+#: .\family\templates\family\create_profil_family.html:182
+#: .\family\templates\family\edit_profil_family.html:159
+msgid "Slika"
+msgstr "Profile picture"
+
+#: .\babysitter\templates\babysitter\create_profil_babysitter.html:191
+#: .\family\templates\family\create_profil_family.html:183
+msgid "mora biti manja od 2MB"
+msgstr "must be less than 2MB"
+
+#: .\babysitter\templates\babysitter\create_profil_babysitter.html:198
+#: .\babysitter\templates\babysitter\edit_profil_babysitter.html:187
+msgid "Čuvao/la bi decu kod svoje kuće:"
+msgstr "I would take care of the children at home:"
+
+#: .\babysitter\templates\babysitter\create_profil_babysitter.html:204
+#: .\babysitter\templates\babysitter\edit_profil_babysitter.html:194
+msgid "Pomagao/la bi u školskim aktivnostima:"
+msgstr "I would help with school activities:"
+
+#: .\babysitter\templates\babysitter\create_profil_babysitter.html:210
+#: .\babysitter\templates\babysitter\edit_profil_babysitter.html:200
+msgid "Imam decu:"
+msgstr "I have children:"
+
+#: .\babysitter\templates\babysitter\create_profil_babysitter.html:216
+#: .\babysitter\templates\babysitter\edit_profil_babysitter.html:208
+msgid "Kuvao/la bi za decu i porodicu:"
+msgstr "I would cook for children/family:"
+
+#: .\babysitter\templates\babysitter\create_profil_babysitter.html:222
+#: .\babysitter\templates\babysitter\edit_profil_babysitter.html:214
+msgid "Čuvao/la bi decu dok su bolesna:"
+msgstr "Takes care of the children while they are sick:"
+
+#: .\babysitter\templates\babysitter\create_profil_babysitter.html:228
+#: .\babysitter\templates\babysitter\edit_profil_babysitter.html:221
+msgid "Putovao/la bi sa porodicom:"
+msgstr "I would travel with family:"
+
+#: .\babysitter\templates\babysitter\create_profil_babysitter.html:234
+#: .\babysitter\templates\babysitter\edit_profil_babysitter.html:227
+msgid "Vozio/la bi decu svojim autom:"
+msgstr "I would drive the children in my car:"
+
+#: .\babysitter\templates\babysitter\create_profil_babysitter.html:240
+#: .\babysitter\templates\babysitter\edit_profil_babysitter.html:166
+msgid "Čuvao/la bi decu sa posebnim potrebama:"
+msgstr "I would babysit children with special needs:"
+
+#: .\babysitter\templates\babysitter\create_profil_babysitter.html:246
+#: .\babysitter\templates\babysitter\edit_profil_babysitter.html:172
+msgid "Radio/la bi lakše kućne poslove:"
+msgstr "I would do easier housework:"
+
+#: .\babysitter\templates\babysitter\create_profil_babysitter.html:252
+#: .\babysitter\templates\babysitter\edit_profil_babysitter.html:180
+msgid "Smetaju mi kućni ljubimci:"
+msgstr "Pets bother me:"
+
+#: .\babysitter\templates\babysitter\create_profil_babysitter.html:260
+msgid " Kreiraj profil "
+msgstr "Create a profile"
+
+#: .\babysitter\templates\babysitter\edit_calendar.html:4
+msgid "Kalendar "
+msgstr "Calendar"
+
+#: .\babysitter\templates\babysitter\edit_calendar.html:16
+msgid "Vreme kada možete"
+msgstr "A time when you "
+
+#: .\babysitter\templates\babysitter\edit_calendar.html:16
+msgid "da čuvate decu"
+msgstr "can babysit"
+
+#: .\babysitter\templates\babysitter\edit_calendar.html:25
+msgid "Vreme vaše dostupnosti"
+msgstr "Your availability time"
+
+#: .\babysitter\templates\babysitter\edit_calendar.html:27
+msgid " Selektuj sve "
+msgstr "Select all"
+
+#: .\babysitter\templates\babysitter\edit_calendar.html:28
+msgid " Resetuj selektovan "
+msgstr "Reset selected"
+
+#: .\babysitter\templates\babysitter\edit_calendar.html:36
+#: .\babysitter\templates\babysitter\profil_babysitter.html:454
+#: .\connection\templates\connection\babysitter_profil.html:379
+#: .\connection\templates\connection\family_profil.html:234
+#: .\connection\templates\connection\matched_babysitter_profil.html:394
+#: .\connection\templates\connection\matched_family_profil.html:245
+#: .\family\templates\family\edit_calendar.html:36
+#: .\family\templates\family\profil_family.html:284
+msgid "Ponedeljak"
+msgstr "Monday"
+
+#: .\babysitter\templates\babysitter\edit_calendar.html:37
+#: .\babysitter\templates\babysitter\profil_babysitter.html:455
+#: .\connection\templates\connection\babysitter_profil.html:380
+#: .\connection\templates\connection\family_profil.html:235
+#: .\connection\templates\connection\matched_babysitter_profil.html:395
+#: .\connection\templates\connection\matched_family_profil.html:246
+#: .\family\templates\family\edit_calendar.html:37
+#: .\family\templates\family\profil_family.html:285
+msgid "Utorak"
+msgstr "Tuesday"
+
+#: .\babysitter\templates\babysitter\edit_calendar.html:38
+#: .\babysitter\templates\babysitter\profil_babysitter.html:456
+#: .\connection\templates\connection\babysitter_profil.html:381
+#: .\connection\templates\connection\family_profil.html:236
+#: .\connection\templates\connection\matched_babysitter_profil.html:396
+#: .\connection\templates\connection\matched_family_profil.html:247
+#: .\family\templates\family\edit_calendar.html:38
+#: .\family\templates\family\profil_family.html:286
+msgid "Sreda"
+msgstr "Wednesday"
+
+#: .\babysitter\templates\babysitter\edit_calendar.html:39
+#: .\babysitter\templates\babysitter\profil_babysitter.html:457
+#: .\connection\templates\connection\babysitter_profil.html:382
+#: .\connection\templates\connection\family_profil.html:237
+#: .\connection\templates\connection\matched_babysitter_profil.html:397
+#: .\connection\templates\connection\matched_family_profil.html:248
+#: .\family\templates\family\edit_calendar.html:39
+#: .\family\templates\family\profil_family.html:287
+msgid "Četvrtak"
+msgstr "Thursday"
+
+#: .\babysitter\templates\babysitter\edit_calendar.html:40
+#: .\babysitter\templates\babysitter\profil_babysitter.html:458
+#: .\connection\templates\connection\babysitter_profil.html:383
+#: .\connection\templates\connection\family_profil.html:238
+#: .\connection\templates\connection\matched_babysitter_profil.html:398
+#: .\connection\templates\connection\matched_family_profil.html:249
+#: .\family\templates\family\edit_calendar.html:40
+#: .\family\templates\family\profil_family.html:288
+msgid "Petak"
+msgstr "Friday"
+
+#: .\babysitter\templates\babysitter\edit_calendar.html:41
+#: .\babysitter\templates\babysitter\profil_babysitter.html:459
+#: .\connection\templates\connection\babysitter_profil.html:384
+#: .\connection\templates\connection\family_profil.html:239
+#: .\connection\templates\connection\matched_babysitter_profil.html:399
+#: .\connection\templates\connection\matched_family_profil.html:250
+#: .\family\templates\family\edit_calendar.html:41
+#: .\family\templates\family\profil_family.html:289
+msgid "Subota"
+msgstr "Saturday"
+
+#: .\babysitter\templates\babysitter\edit_calendar.html:42
+#: .\babysitter\templates\babysitter\profil_babysitter.html:460
+#: .\connection\templates\connection\babysitter_profil.html:385
+#: .\connection\templates\connection\family_profil.html:240
+#: .\connection\templates\connection\matched_babysitter_profil.html:400
+#: .\connection\templates\connection\matched_family_profil.html:251
+#: .\family\templates\family\edit_calendar.html:42
+#: .\family\templates\family\profil_family.html:290
+msgid "Nedelja"
+msgstr "Sunday"
+
+#: .\babysitter\templates\babysitter\edit_calendar.html:47
+#: .\babysitter\templates\babysitter\profil_babysitter.html:465
+#: .\connection\templates\connection\babysitter_profil.html:390
+#: .\connection\templates\connection\family_profil.html:245
+#: .\connection\templates\connection\matched_babysitter_profil.html:405
+#: .\connection\templates\connection\matched_family_profil.html:256
+#: .\family\templates\family\edit_calendar.html:47
+#: .\family\templates\family\profil_family.html:295
+msgid "Jutro"
+msgstr "Morning"
+
+#: .\babysitter\templates\babysitter\edit_calendar.html:57
+#: .\babysitter\templates\babysitter\profil_babysitter.html:503
+#: .\connection\templates\connection\babysitter_profil.html:428
+#: .\connection\templates\connection\family_profil.html:283
+#: .\connection\templates\connection\matched_babysitter_profil.html:443
+#: .\connection\templates\connection\matched_family_profil.html:294
+#: .\family\templates\family\edit_calendar.html:57
+#: .\family\templates\family\profil_family.html:333
+msgid "Popodne"
+msgstr "Afternoon"
+
+#: .\babysitter\templates\babysitter\edit_calendar.html:67
+#: .\babysitter\templates\babysitter\profil_babysitter.html:541
+#: .\connection\templates\connection\babysitter_profil.html:466
+#: .\connection\templates\connection\family_profil.html:321
+#: .\connection\templates\connection\matched_babysitter_profil.html:481
+#: .\connection\templates\connection\matched_family_profil.html:332
+#: .\family\templates\family\edit_calendar.html:67
+#: .\family\templates\family\profil_family.html:371
+msgid "Veče"
+msgstr "Evening"
+
+#: .\babysitter\templates\babysitter\edit_calendar.html:77
+#: .\babysitter\templates\babysitter\profil_babysitter.html:578
+#: .\connection\templates\connection\babysitter_profil.html:503
+#: .\connection\templates\connection\family_profil.html:358
+#: .\connection\templates\connection\matched_babysitter_profil.html:518
+#: .\connection\templates\connection\matched_family_profil.html:369
+#: .\family\templates\family\edit_calendar.html:77
+#: .\family\templates\family\profil_family.html:408
+msgid "Noć"
+msgstr "Night"
+
+#: .\babysitter\templates\babysitter\edit_calendar.html:92
+#: .\family\templates\family\edit_calendar.html:92
+msgid " Ažuriraj kalendar "
+msgstr "Update your calendar"
+
+#: .\babysitter\templates\babysitter\edit_profil_babysitter.html:6
+#: .\family\templates\family\edit_profil_family.html:5
+#: .\family\templates\family\edit_profil_family.html:165
+msgid "Ažuriraj Profil"
+msgstr "Update Profile"
+
+#: .\babysitter\templates\babysitter\edit_profil_babysitter.html:18
+msgid "Ažurirajte Vaš Profil "
+msgstr "Update Profile"
+
+#: .\babysitter\templates\babysitter\edit_profil_babysitter.html:39
+msgid ""
+"Ovo je strana za ažuriranje vašeg profila. U 4 laka koraka se kreira profil."
+" Što bolje popunite ovu stranu to vam olakšava da vas neko angažuje za "
+"posao. Prvi korak popunjavate osnovne informacije o sebi. Dugi korak ubacite"
+" vašu sliku. Treći korak odgovarate na pitanja da bi vaš profil na parents-"
+"time platformi bio što bolji. Četvrti korak klikni na dugme kreiraj profil. "
+"Srećno u pronalaženju posla."
+msgstr ""
+"This is the page for updating your profile. A profile is created in 4 easy "
+"steps. The better you fill in this page, the easier it is for someone to "
+"hire you for a job. The first step is to fill in basic information about "
+"yourself. Take a long step to insert your image. The third step answers the "
+"questions to make your profile on the parenting time platform as good as "
+"possible. The fourth step is to click on the button to create a profile. "
+"Good luck finding a job."
+
+#: .\babysitter\templates\babysitter\edit_profil_babysitter.html:235
+msgid " Ažuriraj profil "
+msgstr "Update Profile"
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:5
+#: .\connection\templates\connection\babysitter_profil.html:5
+msgid "Bebisitter Profil"
+msgstr "Babysitter Profile"
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:19
+#: .\connection\templates\connection\family_profil.html:19
+#: .\connection\templates\connection\matched_family_profil.html:19
+#: .\family\templates\family\profil_family.html:19
+msgid "Ime i prezime"
+msgstr "Name and Surname"
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:46
+msgid ""
+"\n"
+"                                 Ovo je vaš profil  \n"
+"                              "
+msgstr ""
+"\n"
+"This is your profile"
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:51
+msgid ""
+"\n"
+"                                 Ovde možete da vidite porodice koji su vas kontaktirale.\n"
+"                                 Možete da ažurirate profil i da ažurirate\n"
+"                                 vreme kada čuvate decu u toku nedelje.\n"
+"                              "
+msgstr ""
+"\n"
+"Here you can see the families who contacted you.\n"
+"You can update the profile and update\n"
+"the time when you babysit during the week."
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:75
+#: .\family\templates\family\profil_family.html:71
+msgid "Ažurirajte vaš broj telefona"
+msgstr "Update your phone number"
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:94
+msgid "Porodice koje žele kontakt sa Vama"
+msgstr "Families who want contact with you"
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:110
+msgid "Prihvati"
+msgstr "Accept"
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:111
+#: .\babysitter\templates\babysitter\profil_babysitter.html:121
+msgid " Da li ste sigurni da zelite da odbijete zahtev? "
+msgstr "Are you sure you want to decline the request?"
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:114
+#: .\babysitter\templates\babysitter\profil_babysitter.html:124
+#: .\connection\templates\connection\family_profil.html:154
+msgid "Odbij zahtev"
+msgstr "Decline the request"
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:118
+#: .\family\templates\family\profil_family.html:111
+msgid "Odbijeno"
+msgstr "Rejected"
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:142
+#: .\family\templates\family\profil_family.html:143
+msgid "Niste uneli Vaš Email"
+msgstr "You have not entered your Email"
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:149
+#: .\family\templates\family\profil_family.html:150
+msgid "Nemam Društvene mreže"
+msgstr "I don't have a social network"
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:154
+#: .\connection\templates\connection\babysitter_profil.html:73
+#: .\connection\templates\connection\family_profil.html:104
+#: .\connection\templates\connection\matched_babysitter_profil.html:80
+#: .\connection\templates\connection\matched_family_profil.html:111
+#: .\family\templates\family\profil_family.html:156
+msgid "Klikni ovde"
+msgstr "Click here"
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:158
+#: .\connection\templates\connection\babysitter_profil.html:77
+#: .\connection\templates\connection\matched_babysitter_profil.html:84
+#: .\family\templates\family\profil_family.html:160
+msgid "Godine"
+msgstr "Years"
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:167
+#: .\connection\templates\connection\babysitter_profil.html:86
+#: .\connection\templates\connection\matched_babysitter_profil.html:93
+msgid "Satnica"
+msgstr "Price per hour"
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:169
+msgid "Unesite cenu Vaše satnice"
+msgstr "Enter the price of your hourly rate"
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:177
+#: .\connection\templates\connection\babysitter_profil.html:96
+#: .\connection\templates\connection\matched_babysitter_profil.html:103
+msgid "Grad u kojem bi"
+msgstr "A city where you "
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:177
+#: .\connection\templates\connection\babysitter_profil.html:96
+#: .\connection\templates\connection\matched_babysitter_profil.html:103
+msgid "radio/la"
+msgstr "would work"
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:180
+msgid "Unesite Vaš grad"
+msgstr "Enter your city"
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:189
+#: .\connection\templates\connection\babysitter_profil.html:230
+#: .\connection\templates\connection\matched_babysitter_profil.html:237
+msgid "Posao traži kao?"
+msgstr "Looking for a job like?"
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:192
+msgid "Odaberite vrstu posla"
+msgstr "Select the type of job"
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:198
+#: .\connection\templates\connection\babysitter_profil.html:238
+#: .\connection\templates\connection\matched_babysitter_profil.html:245
+#: .\family\choices.py:196
+msgid "Bebisiterka"
+msgstr "Babysitter"
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:200
+#: .\connection\templates\connection\babysitter_profil.html:240
+#: .\connection\templates\connection\matched_babysitter_profil.html:247
+#: .\family\choices.py:197
+msgid "Dadilja"
+msgstr "Nanny"
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:202
+#: .\connection\templates\connection\babysitter_profil.html:242
+#: .\connection\templates\connection\matched_babysitter_profil.html:249
+#: .\family\choices.py:198
+msgid "Bebisiterka i Dadilja"
+msgstr "Babysitter/Nanny"
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:208
+#: .\connection\templates\connection\all_babysitters.html:33
+#: .\connection\templates\connection\babysitter_profil.html:147
+#: .\connection\templates\connection\matched_babysitter_profil.html:154
+#: .\family\templates\family\create_profil_family.html:174
+#: .\family\templates\family\edit_profil_family.html:151
+msgid "Uzrast dece"
+msgstr "Age of children"
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:208
+#: .\connection\templates\connection\babysitter_profil.html:147
+#: .\connection\templates\connection\matched_babysitter_profil.html:154
+msgid "koju bi čuvala"
+msgstr "you would look after"
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:217
+#: .\connection\templates\connection\babysitter_profil.html:212
+#: .\connection\templates\connection\matched_babysitter_profil.html:219
+msgid "Iskustvo"
+msgstr "Childcare "
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:217
+#: .\connection\templates\connection\babysitter_profil.html:212
+#: .\connection\templates\connection\matched_babysitter_profil.html:219
+msgid "u čuvanju dece"
+msgstr "experience"
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:220
+msgid "Niste uneli"
+msgstr "You have not entered your Email"
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:225
+#: .\connection\templates\connection\babysitter_profil.html:220
+#: .\connection\templates\connection\matched_babysitter_profil.html:227
+msgid "Nemam iskustva"
+msgstr "No experience"
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:227
+#: .\connection\templates\connection\babysitter_profil.html:222
+#: .\connection\templates\connection\matched_babysitter_profil.html:229
+#: .\family\choices.py:162
+msgid "Do godinu dana"
+msgstr "Up to a year"
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:229
+#: .\connection\templates\connection\babysitter_profil.html:224
+#: .\connection\templates\connection\family_profil.html:137
+#: .\connection\templates\connection\matched_babysitter_profil.html:231
+#: .\connection\templates\connection\matched_family_profil.html:144
+#: .\family\choices.py:163 .\family\choices.py:184
+#: .\family\templates\family\profil_family.html:190
+msgid "Više od godinu dana"
+msgstr "More than a year"
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:235
+#: .\connection\templates\connection\babysitter_profil.html:108
+#: .\connection\templates\connection\matched_babysitter_profil.html:115
+msgid "Da li bi čuvala decu"
+msgstr "Would you take care of "
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:235
+#: .\connection\templates\connection\babysitter_profil.html:108
+#: .\connection\templates\connection\matched_babysitter_profil.html:115
+msgid "kod svoje kuće"
+msgstr "the children at home"
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:240
+#: .\babysitter\templates\babysitter\profil_babysitter.html:253
+#: .\babysitter\templates\babysitter\profil_babysitter.html:270
+#: .\babysitter\templates\babysitter\profil_babysitter.html:283
+#: .\babysitter\templates\babysitter\profil_babysitter.html:296
+#: .\babysitter\templates\babysitter\profil_babysitter.html:309
+#: .\babysitter\templates\babysitter\profil_babysitter.html:322
+#: .\babysitter\templates\babysitter\profil_babysitter.html:335
+#: .\babysitter\templates\babysitter\profil_babysitter.html:349
+#: .\babysitter\templates\babysitter\profil_babysitter.html:362
+#: .\connection\templates\connection\babysitter_profil.html:113
+#: .\connection\templates\connection\babysitter_profil.html:126
+#: .\connection\templates\connection\babysitter_profil.html:139
+#: .\connection\templates\connection\babysitter_profil.html:165
+#: .\connection\templates\connection\babysitter_profil.html:178
+#: .\connection\templates\connection\babysitter_profil.html:191
+#: .\connection\templates\connection\babysitter_profil.html:204
+#: .\connection\templates\connection\babysitter_profil.html:253
+#: .\connection\templates\connection\babysitter_profil.html:266
+#: .\connection\templates\connection\babysitter_profil.html:279
+#: .\connection\templates\connection\matched_babysitter_profil.html:120
+#: .\connection\templates\connection\matched_babysitter_profil.html:133
+#: .\connection\templates\connection\matched_babysitter_profil.html:146
+#: .\connection\templates\connection\matched_babysitter_profil.html:172
+#: .\connection\templates\connection\matched_babysitter_profil.html:185
+#: .\connection\templates\connection\matched_babysitter_profil.html:198
+#: .\connection\templates\connection\matched_babysitter_profil.html:211
+#: .\connection\templates\connection\matched_babysitter_profil.html:260
+#: .\connection\templates\connection\matched_babysitter_profil.html:273
+#: .\connection\templates\connection\matched_babysitter_profil.html:286
+#: .\family\choices.py:193
+msgid "Ne"
+msgstr "No"
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:242
+#: .\babysitter\templates\babysitter\profil_babysitter.html:255
+#: .\babysitter\templates\babysitter\profil_babysitter.html:272
+#: .\babysitter\templates\babysitter\profil_babysitter.html:285
+#: .\babysitter\templates\babysitter\profil_babysitter.html:298
+#: .\babysitter\templates\babysitter\profil_babysitter.html:311
+#: .\babysitter\templates\babysitter\profil_babysitter.html:324
+#: .\babysitter\templates\babysitter\profil_babysitter.html:337
+#: .\babysitter\templates\babysitter\profil_babysitter.html:351
+#: .\babysitter\templates\babysitter\profil_babysitter.html:364
+#: .\connection\templates\connection\babysitter_profil.html:115
+#: .\connection\templates\connection\babysitter_profil.html:128
+#: .\connection\templates\connection\babysitter_profil.html:141
+#: .\connection\templates\connection\babysitter_profil.html:167
+#: .\connection\templates\connection\babysitter_profil.html:180
+#: .\connection\templates\connection\babysitter_profil.html:193
+#: .\connection\templates\connection\babysitter_profil.html:206
+#: .\connection\templates\connection\babysitter_profil.html:255
+#: .\connection\templates\connection\babysitter_profil.html:268
+#: .\connection\templates\connection\babysitter_profil.html:281
+#: .\connection\templates\connection\matched_babysitter_profil.html:122
+#: .\connection\templates\connection\matched_babysitter_profil.html:135
+#: .\connection\templates\connection\matched_babysitter_profil.html:148
+#: .\connection\templates\connection\matched_babysitter_profil.html:174
+#: .\connection\templates\connection\matched_babysitter_profil.html:187
+#: .\connection\templates\connection\matched_babysitter_profil.html:200
+#: .\connection\templates\connection\matched_babysitter_profil.html:213
+#: .\connection\templates\connection\matched_babysitter_profil.html:262
+#: .\connection\templates\connection\matched_babysitter_profil.html:275
+#: .\connection\templates\connection\matched_babysitter_profil.html:288
+#: .\family\choices.py:192
+msgid "Da"
+msgstr "Yes"
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:248
+#: .\connection\templates\connection\babysitter_profil.html:121
+#: .\connection\templates\connection\matched_babysitter_profil.html:128
+msgid "Da li ima dece"
+msgstr "Do you have children"
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:265
+msgid "Da li joj smetaju"
+msgstr "Do pets "
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:265
+#: .\connection\templates\connection\babysitter_profil.html:160
+#: .\connection\templates\connection\matched_babysitter_profil.html:167
+msgid "kućni ljubimci"
+msgstr "bother you"
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:278
+#: .\babysitter\templates\babysitter\profil_babysitter.html:291
+#: .\connection\templates\connection\babysitter_profil.html:173
+#: .\connection\templates\connection\matched_babysitter_profil.html:180
+msgid "Da li bi radila"
+msgstr "Would you do "
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:278
+#: .\connection\templates\connection\babysitter_profil.html:173
+#: .\connection\templates\connection\matched_babysitter_profil.html:180
+msgid "lakše kućne poslove"
+msgstr "easier housework"
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:291
+#: .\connection\templates\connection\babysitter_profil.html:186
+#: .\connection\templates\connection\matched_babysitter_profil.html:193
+msgid "školske aktivnosti"
+msgstr "school activities"
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:304
+msgid "Čuvanje dece"
+msgstr "Babysitting children "
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:304
+#: .\connection\templates\connection\babysitter_profil.html:199
+#: .\connection\templates\connection\matched_babysitter_profil.html:206
+msgid "sa posebnim potrebama"
+msgstr "with special needs"
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:317
+msgid "Da li bi kuvala?"
+msgstr "You cook for family/children"
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:330
+#: .\connection\templates\connection\babysitter_profil.html:248
+#: .\connection\templates\connection\matched_babysitter_profil.html:255
+msgid "Da li čuvate decu"
+msgstr "Do you take care of children "
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:330
+#: .\connection\templates\connection\babysitter_profil.html:248
+#: .\connection\templates\connection\matched_babysitter_profil.html:255
+msgid "dok su bolesna?"
+msgstr "while they are sick"
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:344
+#: .\connection\templates\connection\babysitter_profil.html:261
+#: .\connection\templates\connection\matched_babysitter_profil.html:268
+msgid "Da li bi vozili"
+msgstr "Did you drive the "
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:344
+#: .\connection\templates\connection\babysitter_profil.html:261
+#: .\connection\templates\connection\matched_babysitter_profil.html:268
+msgid "decu svojim autom?"
+msgstr "children in your car?"
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:357
+#: .\connection\templates\connection\babysitter_profil.html:274
+#: .\connection\templates\connection\matched_babysitter_profil.html:281
+msgid "Da li bi putovali"
+msgstr "Would you travel"
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:357
+#: .\connection\templates\connection\babysitter_profil.html:274
+#: .\connection\templates\connection\matched_babysitter_profil.html:281
+msgid "sa Porodicom?"
+msgstr "with Family"
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:374
+#: .\connection\templates\connection\babysitter_profil.html:23
+#: .\connection\templates\connection\babysitter_profil.html:357
+#: .\connection\templates\connection\family_profil.html:52
+#: .\connection\templates\connection\family_profil.html:214
+#: .\connection\templates\connection\matched_babysitter_profil.html:51
+#: .\connection\templates\connection\matched_babysitter_profil.html:373
+#: .\connection\templates\connection\matched_family_profil.html:61
+#: .\connection\templates\connection\matched_family_profil.html:225
+#: .\family\templates\family\profil_family.html:203
+msgid "Ocena korisnika"
+msgstr "User rating"
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:376
+#: .\connection\templates\connection\babysitter_profil.html:25
+#: .\connection\templates\connection\babysitter_profil.html:363
+#: .\connection\templates\connection\family_profil.html:54
+#: .\connection\templates\connection\family_profil.html:219
+#: .\connection\templates\connection\matched_babysitter_profil.html:53
+#: .\connection\templates\connection\matched_babysitter_profil.html:378
+#: .\connection\templates\connection\matched_family_profil.html:63
+#: .\connection\templates\connection\matched_family_profil.html:230
+#: .\family\templates\family\profil_family.html:205
+msgid "Nema ocene"
+msgstr "No rating"
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:386
+#: .\family\templates\family\profil_family.html:218
+msgid " Da li ste sigurni da zelite da obrišete profil? "
+msgstr "Are you sure you want to delete the profile?"
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:388
+#: .\family\templates\family\profil_family.html:220
+msgid " Obriši nalog "
+msgstr "Delete account"
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:395
+#: .\connection\templates\connection\babysitter_profil.html:301
+#: .\connection\templates\connection\family_profil.html:161
+#: .\connection\templates\connection\matched_babysitter_profil.html:317
+#: .\connection\templates\connection\matched_family_profil.html:174
+#: .\family\templates\family\profil_family.html:227
+msgid "O sebi"
+msgstr "About me"
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:425
+#: .\connection\templates\connection\babysitter_profil.html:331
+#: .\connection\templates\connection\matched_babysitter_profil.html:347
+#: .\family\choices.py:189
+msgid "Žensko"
+msgstr "Female"
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:427
+#: .\connection\templates\connection\babysitter_profil.html:333
+#: .\connection\templates\connection\matched_babysitter_profil.html:349
+#: .\family\choices.py:188
+msgid "Muško"
+msgstr "Male"
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:440
+#: .\connection\templates\connection\babysitter_profil.html:346
+#: .\connection\templates\connection\matched_babysitter_profil.html:363
+msgid "Strani Drzavljanin"
+msgstr "Foreign citizen"
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:442
+#: .\connection\templates\connection\babysitter_profil.html:348
+#: .\connection\templates\connection\matched_babysitter_profil.html:365
+msgid "Srpski Drzavljanin"
+msgstr "Serbian Citizen"
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:449
+msgid "Vreme kada čuvate decu"
+msgstr "When your babysitting "
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:620
+#: .\family\templates\family\profil_family.html:450
+msgid "Ažuriranje vreme čuvanja u toku nedelje"
+msgstr "Update babysitting time during the week"
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:623
+#: .\family\templates\family\profil_family.html:453
+msgid "Ažuriranje profila"
+msgstr "Profile update"
+
+#: .\babysitter\templates\babysitter\profil_babysitter.html:637
+#: .\connection\templates\connection\babysitter_profil.html:555
+#: .\connection\templates\connection\family_profil.html:410
+#: .\connection\templates\connection\matched_babysitter_profil.html:599
+#: .\connection\templates\connection\matched_family_profil.html:450
+#: .\family\templates\family\profil_family.html:468
+msgid "Nema komentara"
+msgstr "No Comment"
+
+#: .\babysitter\views.py:34
+msgid ""
+"Čestitamo, upravo ste kreirali profil na Parent's time platformi. Ukoliko "
+"neko bude zainteresovan za vaše usluge bićete kontakirani putem platforme"
+msgstr ""
+"Congratulations, you just created a profile on Parent's time platform. If "
+"someone is interested in your services you will be contacted through the "
+"platform"
+
+#: .\babysitter\views.py:38 .\babysitter\views.py:61 .\babysitter\views.py:147
+msgid ""
+"Proverite raspone cene, format broja telefona, društvene mreže ili slike "
+"(jpg, png ili jpeg)"
+msgstr ""
+"Check the price ranges, format of phone, social network, and image  (jpg, "
+"png, or jpeg)"
+
+#: .\babysitter\views.py:57 .\family\views.py:57
+msgid "Uspesno ste azurirali profil"
+msgstr "You have successfully updated your profile"
+
+#: .\babysitter\views.py:143
+msgid "Uspesno ste azurirali vreme kada možete da čuvate decu"
+msgstr "You have successfully updated the time when you babysitting"
+
+#: .\babysitter\views.py:157 .\family\views.py:150
+msgid "Uspešno ste obrisali profil!!!"
+msgstr "You have successfully deleted your profile !!!"
+
+#: .\connection\templates\connection\all_babysitters.html:4
+msgid "Baza Bebisiterki/Dadilja"
+msgstr "Babysitter/Nanny base"
+
+#: .\connection\templates\connection\all_babysitters.html:15
+msgid "Pretražite bazu prema Vama važnim kriterijumima"
+msgstr "Search the babysitter/nanny database according to your criteria"
+
+#: .\connection\templates\connection\all_babysitters.html:17
+msgid "prikaži filter"
+msgstr "show filter"
+
+#: .\connection\templates\connection\all_babysitters.html:24
+msgid "Pretraga po gradu"
+msgstr "Search by city"
+
+#: .\connection\templates\connection\all_babysitters.html:26
+msgid "Izaberite lokaciju"
+msgstr "Choose a location"
+
+#: .\connection\templates\connection\all_babysitters.html:31
+msgid "Uzrast dece koju je potrebno čuvati"
+msgstr "The age of the children to be cared for"
+
+#: .\connection\templates\connection\all_babysitters.html:34
+msgid "Beba 0-1"
+msgstr "Baby 0-1"
+
+#: .\connection\templates\connection\all_babysitters.html:40
+msgid "Tražite (bebisiterku/dadilju)"
+msgstr "Looking for (babysitter/nanny)"
+
+#: .\connection\templates\connection\all_babysitters.html:42
+#: .\connection\templates\connection\all_babysitters.html:49
+msgid "Izaberite"
+msgstr "Please select"
+
+#: .\connection\templates\connection\all_babysitters.html:47
+msgid "Godine iskustva"
+msgstr "Years of work experience"
+
+#: .\connection\templates\connection\all_babysitters.html:54
+msgid "Cena po satu"
+msgstr "Price per hour/RSD"
+
+#: .\connection\templates\connection\all_babysitters.html:75
+msgid "Napredni filteri"
+msgstr "Advanced filters"
+
+#: .\connection\templates\connection\all_babysitters.html:83
+msgid "Čuva decu sa"
+msgstr "Babysitting children "
+
+#: .\connection\templates\connection\all_babysitters.html:83
+msgid "posebnim potrebama"
+msgstr "with special needs"
+
+#: .\connection\templates\connection\all_babysitters.html:87
+msgid "Radi lakse kućne poslove"
+msgstr "Do easier housework"
+
+#: .\connection\templates\connection\all_babysitters.html:91
+msgid "Ne smetaju joj kućni ljubimci"
+msgstr "Doesn't mind pets"
+
+#: .\connection\templates\connection\all_babysitters.html:95
+msgid "Čuva decu kod svoje kuće"
+msgstr "Take care of the children at home"
+
+#: .\connection\templates\connection\all_babysitters.html:99
+msgid "Ima svoju decu"
+msgstr "Have children"
+
+#: .\connection\templates\connection\all_babysitters.html:103
+msgid "Kuva deci hranu"
+msgstr "Cooks food for children"
+
+#: .\connection\templates\connection\all_babysitters.html:107
+msgid "Čuva decu dok su bolesna"
+msgstr "Takes care of the children while they are sick"
+
+#: .\connection\templates\connection\all_babysitters.html:111
+msgid "Ima automobil"
+msgstr "Have a car"
+
+#: .\connection\templates\connection\all_babysitters.html:115
+msgid "Radi školske aktivnosti"
+msgstr "Do school activities"
+
+#: .\connection\templates\connection\all_babysitters.html:119
+msgid "Putuje sa porodicom"
+msgstr "Travel with family"
+
+#: .\connection\templates\connection\all_babysitters.html:126
+msgid " Filtriraj "
+msgstr "Filter"
+
+#: .\connection\templates\connection\all_babysitters.html:138
+#: .\connection\templates\connection\babysitter_profil.html:56
+#: .\connection\templates\connection\babysitter_profil.html:294
+#: .\favorite\templates\favorite\babysitters.html:28
+#: .\layout\templates\layout\index.html:332
+#: .\layout\templates\layout\index.html:385
+msgid "Rezerviši"
+msgstr "Reserve"
+
+#: .\connection\templates\connection\all_babysitters.html:143
+#: .\favorite\templates\favorite\babysitters.html:33
+msgid "Nema lokacije"
+msgstr "No location"
+
+#: .\connection\templates\connection\all_babysitters.html:148
+#: .\favorite\templates\favorite\babysitters.html:38
+msgid "Nema cene:"
+msgstr "Forgotten the price:"
+
+#: .\connection\templates\connection\all_babysitters.html:150
+#: .\favorite\templates\favorite\babysitters.html:40
+#: .\layout\templates\layout\index.html:397
+msgid "Satnica:"
+msgstr "Price per hour:"
+
+#: .\connection\templates\connection\all_babysitters.html:171
+msgid ""
+"Za zadate filtere nema rezultata pretrage. Pokušajte ponovo sa nekim "
+"izmenama u selektovanim filterima."
+msgstr ""
+"There are no search results for the specified filters. Please try again with"
+" some changes to the selected filters."
+
+#: .\connection\templates\connection\babysitter_profil.html:36
+msgid "Ukloni iz omiljenih"
+msgstr "Remove from favorites"
+
+#: .\connection\templates\connection\babysitter_profil.html:40
+msgid "Dodajte u omiljene"
+msgstr "Add to favorites"
+
+#: .\connection\templates\connection\babysitter_profil.html:68
+#: .\connection\templates\connection\family_profil.html:98
+#: .\connection\templates\connection\matched_babysitter_profil.html:75
+#: .\connection\templates\connection\matched_family_profil.html:105
+msgid "Nema Društvene mreže"
+msgstr "Don't have social networks"
+
+#: .\connection\templates\connection\babysitter_profil.html:88
+#: .\connection\templates\connection\babysitter_profil.html:99
+#: .\connection\templates\connection\babysitter_profil.html:215
+#: .\connection\templates\connection\babysitter_profil.html:233
+#: .\connection\templates\connection\matched_babysitter_profil.html:95
+#: .\connection\templates\connection\matched_babysitter_profil.html:106
+#: .\connection\templates\connection\matched_babysitter_profil.html:222
+#: .\connection\templates\connection\matched_babysitter_profil.html:240
+msgid "Nije uneto"
+msgstr "Not entered"
+
+#: .\connection\templates\connection\babysitter_profil.html:134
+#: .\connection\templates\connection\matched_babysitter_profil.html:141
+msgid "Da li bi kuvala"
+msgstr "Cook for "
+
+#: .\connection\templates\connection\babysitter_profil.html:160
+#: .\connection\templates\connection\matched_babysitter_profil.html:167
+msgid "Da li joj smetaju "
+msgstr "Does pets "
+
+#: .\connection\templates\connection\babysitter_profil.html:186
+#: .\connection\templates\connection\matched_babysitter_profil.html:193
+msgid "Da li bi radila "
+msgstr "Would you do "
+
+#: .\connection\templates\connection\babysitter_profil.html:199
+#: .\connection\templates\connection\matched_babysitter_profil.html:206
+msgid "Čuvanje dece "
+msgstr "Babysitting children "
+
+#: .\connection\templates\connection\babysitter_profil.html:374
+#: .\connection\templates\connection\matched_babysitter_profil.html:389
+msgid "Vreme tokom nedelje kada čuva decu"
+msgstr "Weekly babysitting schedule"
+
+#: .\connection\templates\connection\family_profil.html:6
+#: .\connection\templates\connection\matched_family_profil.html:6
+#: .\family\templates\family\profil_family.html:6
+msgid "Porodični Profil"
+msgstr "Family Profile"
+
+#: .\connection\templates\connection\family_profil.html:73
+#: .\connection\templates\connection\matched_family_profil.html:82
+msgid "Nema broja"
+msgstr "No phone number"
+
+#: .\connection\templates\connection\family_profil.html:108
+#: .\connection\templates\connection\matched_family_profil.html:115
+msgid "Godine roditelja"
+msgstr "Years of parents"
+
+#: .\connection\templates\connection\family_profil.html:118
+#: .\connection\templates\connection\matched_family_profil.html:125
+msgid "Uzrast dece koju treba čuvati"
+msgstr "The age of the children to be cared for"
+
+#: .\connection\templates\connection\family_profil.html:122
+#: .\connection\templates\connection\matched_family_profil.html:129
+#: .\family\templates\family\profil_family.html:174
+msgid "Broj dece"
+msgstr "Number of children"
+
+#: .\connection\templates\connection\family_profil.html:126
+#: .\connection\templates\connection\matched_family_profil.html:133
+#: .\family\templates\family\profil_family.html:178
+msgid "Period čuvanja"
+msgstr "Period for babysitting"
+
+#: .\connection\templates\connection\family_profil.html:129
+#: .\connection\templates\connection\matched_family_profil.html:136
+#: .\family\choices.py:180 .\family\templates\family\profil_family.html:182
+msgid "Manje od mesec dana"
+msgstr "Less than a month"
+
+#: .\connection\templates\connection\family_profil.html:131
+#: .\connection\templates\connection\matched_family_profil.html:138
+#: .\family\choices.py:181 .\family\templates\family\profil_family.html:184
+msgid "Mesec dana"
+msgstr "Month"
+
+#: .\connection\templates\connection\family_profil.html:133
+#: .\connection\templates\connection\matched_family_profil.html:140
+#: .\family\choices.py:182 .\family\templates\family\profil_family.html:186
+msgid "Par meseci"
+msgstr "A couple of months"
+
+#: .\connection\templates\connection\family_profil.html:135
+#: .\connection\templates\connection\matched_family_profil.html:142
+#: .\family\choices.py:183 .\family\templates\family\profil_family.html:188
+msgid "Godinu dana"
+msgstr "One year"
+
+#: .\connection\templates\connection\family_profil.html:139
+#: .\connection\templates\connection\matched_family_profil.html:146
+#: .\family\choices.py:179 .\family\templates\family\profil_family.html:192
+msgid "Povremeno"
+msgstr "Periodically"
+
+#: .\connection\templates\connection\family_profil.html:147
+msgid "Prihvati zahtev"
+msgstr "Accept request"
+
+#: .\connection\templates\connection\family_profil.html:185
+#: .\connection\templates\connection\matched_family_profil.html:198
+#: .\family\templates\family\create_profil_family.html:144
+#: .\family\templates\family\edit_profil_family.html:121
+#: .\family\templates\family\profil_family.html:251
+msgid "Grad"
+msgstr "City"
+
+#: .\connection\templates\connection\family_profil.html:189
+msgid "Porodica nije postavila svoju adresu"
+msgstr "The family did not enter their address"
+
+#: .\connection\templates\connection\family_profil.html:204
+#: .\connection\templates\connection\matched_family_profil.html:216
+#: .\family\templates\family\profil_family.html:270
+msgid "Srpsko"
+msgstr "Serbian"
+
+#: .\connection\templates\connection\family_profil.html:206
+#: .\connection\templates\connection\matched_family_profil.html:218
+#: .\family\templates\family\profil_family.html:272
+msgid "Strano"
+msgstr "Foreign"
+
+#: .\connection\templates\connection\family_profil.html:229
+#: .\connection\templates\connection\matched_family_profil.html:240
+msgid "Kada je u toku nedelje potrebno čuvanje dece"
+msgstr "When babysitting is needed during the week"
+
+#: .\connection\templates\connection\matched_babysitter_profil.html:5
+msgid "Bebisiter Profil"
+msgstr "Babysitter Profile"
+
+#: .\connection\templates\connection\matched_babysitter_profil.html:22
+msgid "Kontaktirani korisnik"
+msgstr "Contacted user"
+
+#: .\connection\templates\connection\matched_babysitter_profil.html:24
+msgid ""
+" \n"
+"                         Ovaj korisnik je prihvatio vaš zahtev za rezervaciju. \n"
+"                         Možete ga kontaktirati putem telefona ili mejla za dalji dogovor.\n"
+"                         Hvala što koristite platformu Parent's Time\n"
+"                         "
+msgstr ""
+"This user has accepted your booking request.\n"
+"You can contact him by phone or e-mail for further agreement.\n"
+"Thank you for using the Parent's Time platform"
+
+#: .\connection\templates\connection\matched_babysitter_profil.html:300
+#: .\connection\templates\connection\matched_family_profil.html:157
+msgid "Prijavi korisnika"
+msgstr "Report user"
+
+#: .\connection\templates\connection\matched_babysitter_profil.html:308
+#: .\connection\templates\connection\matched_babysitter_profil.html:585
+#: .\connection\templates\connection\matched_family_profil.html:165
+msgid " Pošalji "
+msgstr "Send"
+
+#: .\connection\templates\connection\matched_babysitter_profil.html:560
+#: .\connection\templates\connection\matched_family_profil.html:411
+msgid "Ocenite korisnika"
+msgstr "Rate the user"
+
+#: .\connection\templates\connection\matched_babysitter_profil.html:575
+#: .\connection\templates\connection\matched_family_profil.html:426
+msgid " Oceni "
+msgstr "Rate "
+
+#: .\connection\templates\connection\matched_babysitter_profil.html:581
+#: .\connection\templates\connection\matched_family_profil.html:432
+msgid "Ostavite komentar"
+msgstr "Leave a comment"
+
+#: .\connection\templates\connection\matched_family_profil.html:29
+msgid "Kontaktirani ste"
+msgstr "You have been contacted"
+
+#: .\connection\templates\connection\matched_family_profil.html:31
+msgid ""
+" \n"
+"                              Ova porodica vas je kontaktirala i vi ste prihvatili njihov zahtev za rezervaciju.\n"
+"                              Možete ih kontaktirati putem telefona ili mejla za dalji dogovor. \n"
+"                               Sve porodice\n"
+"                               koje su vas kontaktirale možete naći na svom profilu u delu \"Porodice koje žele kontakt sa vama\".\n"
+"                              Hvala što koristite platformu Parent's Time\n"
+"                              "
+msgstr ""
+"This family has contacted you and you have accepted their reservation request.\n"
+"You can contact them by phone or e-mail for further agreement.\n"
+"All families\n"
+"who contacted you can be found on their profile in the section \"Families who want to contact you\".\n"
+"Thank you for using the Parent's Time platform"
+
+#: .\connection\templates\connection\matched_family_profil.html:202
+msgid " Porodica nije postavila svoju adresu"
+msgstr "The family did not enter their address"
+
+#: .\connection\templates\connection\matched_family_profil.html:436
+msgid "  Pošalji"
+msgstr "Send"
+
+#: .\connection\views.py:360
+msgid "Ponovo ste ste rezervisali korisnika"
+msgstr "You have booked a user again"
+
+#: .\connection\views.py:363
+msgid "Već ste rezervisali korisnika"
+msgstr "You have already booked a user"
+
+#: .\connection\views.py:367
+msgid ""
+"Uspešno ste kontaktirali korisnika. Vaša rezervacija može biti prihvaćena "
+"ili odbijena. Ukoliko korisnik prohvati rezervaciju možete oceniti profil "
+"ostaviti komentar. Takođe korisnik  može videti Vaš profil i vaše kontakt "
+"podatke. Ukoliko smatrate da je korisnik odgovarajući kandidat, možete odmah"
+" stupiti u kontakt, upoznati se i započeti saradnju što pre. Dugmići "
+"(ikonice) koji će voditi na poziv na mejl."
+msgstr ""
+"You have successfully contacted the user. Your reservation can be accepted "
+"or rejected. If the user accepts the reservation, you can rate the profile "
+"and leave a comment. The user can also see your profile and your contact "
+"details. If you think that the user is a suitable candidate, you can get in "
+"touch immediately, get to know each other, and start cooperation as soon as "
+"possible. Buttons (icons) that will lead to an invitation to e-mail."
+
+#: .\connection\views.py:371
+msgid "Kontaktirani ste od strane porodice"
+msgstr "You have been contacted by family"
+
+#: .\connection\views.py:426 .\connection\views.py:435
+#: .\connection\views.py:610 .\connection\views.py:619
+msgid "Uspešno ste ostavili komentar!"
+msgstr "You have successfully left a comment!"
+
+#: .\connection\views.py:445 .\connection\views.py:453
+#: .\connection\views.py:629 .\connection\views.py:637
+msgid "Uspešno ste ocenili korisnika!"
+msgstr "You have successfully rated the user!"
+
+#: .\connection\views.py:456 .\connection\views.py:640
+msgid "Morate izabrati željenu ocenu!"
+msgstr "You must select the desired rating!"
+
+#: .\connection\views.py:466 .\connection\views.py:474
+#: .\connection\views.py:650 .\connection\views.py:658
+msgid "Uspešno ste prijavili korisnika!"
+msgstr "You have successfully reported the user!"
+
+#: .\connection\views.py:695
+msgid "Uspešno ste odbili zahtev!"
+msgstr "You have successfully declined the request!"
+
+#: .\connection\views.py:707
+msgid "Uspešno ste obrisali zahtev!"
+msgstr "You have successfully deleted the request!"
+
+#: .\family\choices.py:161
+msgid "Nema iskustva"
+msgstr "No experience"
+
+#: .\family\choices.py:174
+msgid "Srpski Državljanin"
+msgstr "Serbian Citizen"
+
+#: .\family\choices.py:175
+msgid "Strani Državljanin"
+msgstr "Foreign Citizen"
+
+#: .\family\templates\family\create_profil_family.html:57
+msgid "Kreirajte Profil Vaše Porodice"
+msgstr "Create Your Family Profile"
+
+#: .\family\templates\family\create_profil_family.html:79
+msgid ""
+"  \n"
+"               Ovo je strana za kreiranje Vašeg profila.\n"
+"                U 2 laka koraka se kreira profil.                 \n"
+"                 Prvi korak popunjavate osnovne informacije o sebi. Drugi korak ubacite vašu sliku. \n"
+"                 Na kraju samo kliknite na dugme kreiraj profil i to je to.\n"
+"                   Srećno u pronalaženju odgovarajuće bebisiterke/dadilje.\n"
+"               "
+msgstr ""
+"This is the page for creating your profile.\n"
+"A profile is created in 2 easy steps.\n"
+"The first step is to fill in basic information about yourself. The second step is to insert your image.\n"
+"In the end, just click the create profile button and that's it.\n"
+"Good luck finding the right babysitter/nanny."
+
+#: .\family\templates\family\create_profil_family.html:119
+#: .\family\templates\family\edit_profil_family.html:100
+msgid "Broj dece koju treba čuvati"
+msgstr "Number of children to be cared for"
+
+#: .\family\templates\family\create_profil_family.html:125
+#: .\family\templates\family\edit_profil_family.html:93
+msgid "Vremenski period čuvanja"
+msgstr "Period for babysitting"
+
+#: .\family\templates\family\create_profil_family.html:131
+#: .\family\templates\family\edit_profil_family.html:107
+msgid "Godine jednog roditelja"
+msgstr "The age of one parent"
+
+#: .\family\templates\family\create_profil_family.html:150
+#: .\family\templates\family\edit_profil_family.html:127
+msgid "Da li je državljanin RS ili inostrani državljanin"
+msgstr "Citizen of RS or a foreign citizen"
+
+#: .\family\templates\family\edit_calendar.html:4
+msgid "Kalendar"
+msgstr "Calendar"
+
+#: .\family\templates\family\edit_calendar.html:16
+msgid "Ažurirajte kada Vam je u toku nedelje potrebna usluga"
+msgstr "Ažurirajte kada Vam je u toku nedelje potrebna usluga"
+
+#: .\family\templates\family\edit_calendar.html:25
+msgid "Vreme kada je potrebno čuvanje dece"
+msgstr "A time when babysitting is needed"
+
+#: .\family\templates\family\edit_calendar.html:27
+msgid "Selektuj sve "
+msgstr "Select all"
+
+#: .\family\templates\family\edit_calendar.html:28
+msgid "Resetuj selektovano "
+msgstr "Reset selected"
+
+#: .\family\templates\family\edit_profil_family.html:17
+msgid "Ažurirajte Profil Vaše Porodice"
+msgstr "Update Your Family Profile"
+
+#: .\family\templates\family\edit_profil_family.html:43
+msgid ""
+" \n"
+"               Ovo je strana za ažuriranje vašeg profila.\n"
+"               U 2 laka koraka se ažurira profil.                 \n"
+"                Prvi korak izmenite šta želite od osnovnih informacija o sebi. Dugi korak ukoliko želite ubacite novu sliku. \n"
+"                Na kraju samo kliknite na dugme ažuriraj profil i to je to.\n"
+"                  Srećno u pronalaženju odgovarajuće bebisiterke/dadilje.\n"
+"               "
+msgstr ""
+"This is the page for updating your profile.\n"
+"The profile is updated in 2 easy steps.\n"
+"The first step is to change what you want from basic information about yourself. Long step if you want to insert a new image.\n"
+"In the end, just click the update profile button and that's it.\n"
+"Good luck finding the right babysitter/nanny."
+
+#: .\family\templates\family\profil_family.html:29
+msgid " \"Ovo je vaš profil\" "
+msgstr "This is your profile"
+
+#: .\family\templates\family\profil_family.html:31
+msgid ""
+"\n"
+"                                 Ovde možete da vidite korisnike koje ste kontaktirali.\n"
+"                                 Možete da ažurirate profil i da ažurirate\n"
+"                                 kada vam je potrebno vreme čuvanja u toku nedelje. Pretragu bebititerki/dadilja\n"
+"                                 vršite na dugme koje se nalazi u meniju - BAZA BEBISITERA DADILJA ili na žuto dugme u okviru vašeg profila \n"
+"                                 "
+msgstr ""
+"\n"
+"Here you can see the users you have contacted.\n"
+"You can update the profile and update\n"
+"it when you need storage time during the week. Search for babysitters\n"
+"perform on the button located in the menu - BABY BABY BASIS or on the yellow button within your profile"
+
+#: .\family\templates\family\profil_family.html:91
+msgid "Korisnici koje ste kontaktirali "
+msgstr "Users you have contacted"
+
+#: .\family\templates\family\profil_family.html:105
+msgid "Čeka se potvrda"
+msgstr "Awaiting confirmation"
+
+#: .\family\templates\family\profil_family.html:108
+msgid "Vidi profil"
+msgstr "View profile"
+
+#: .\family\templates\family\profil_family.html:113
+msgid " Da li ste sigurni da zelite da obrišete zahtev? "
+msgstr "Are you sure you want to delete the request?"
+
+#: .\family\templates\family\profil_family.html:116
+msgid "Obriši zahtev"
+msgstr "Delete request"
+
+#: .\family\templates\family\profil_family.html:132
+msgid "Vidi sve bebisitere/dadilje"
+msgstr "Look at babysitters/nannies base"
+
+#: .\family\templates\family\profil_family.html:135
+msgid "Vidi omiljene bebisitere/dadilje"
+msgstr "See your favorite babysitters/nannies "
+
+#: .\family\templates\family\profil_family.html:170
+msgid "Uzrast dece  koju treba čuvati"
+msgstr "The age of the children to be cared for"
+
+#: .\family\templates\family\profil_family.html:232
+msgid "Napišite nešto o sebi, kako bi bebisiteri što bolje informisali..."
+msgstr ""
+"Write something about yourself, so that babysitters can be better informed "
+"..."
+
+#: .\family\templates\family\profil_family.html:255
+msgid "Niste ažurirali svoju lokaciju"
+msgstr "You have not updated your location"
+
+#: .\family\templates\family\profil_family.html:279
+msgid "Kada Vam je potrebno čuvanje"
+msgstr "When you need babysitting"
+
+#: .\family\views.py:36
+msgid "Čestitamo, upravo ste kreirali profil na Parent's time platformi."
+msgstr ""
+"Congratulations, you just created a profile on Parent's time platform."
+
+#: .\family\views.py:40 .\family\views.py:61 .\family\views.py:140
+msgid ""
+"Proverite format broja telefona, društvene mreže ili slike (jpg, png ili "
+"jpeg)"
+msgstr ""
+"Check the format of phone, social network, and image  (jpg, png, or jpeg)"
+
+#: .\family\views.py:136
+msgid "Uspesno ste azurirali vreme kada Vam je potrebno čuvanje dece"
+msgstr "You have successfully updated the time when you need babysitting"
+
+#: .\favorite\templates\favorite\babysitters.html:4
+msgid "Omiljene Bebisiterke/Dadilje"
+msgstr "Favorite Babysitters/Nanny"
+
+#: .\favorite\templates\favorite\babysitters.html:15
+msgid "Vaše omiljene bebisiterke i dadilje"
+msgstr "Your favorite babysitters/nannies"
+
+#: .\favorite\templates\favorite\babysitters.html:61
+msgid ""
+"Nemate omiljne bebisiterke ni dadilje. Pretražite <a "
+"href='https://parentstime.rs/connection/all_babysitters'>Bazu "
+"bebisitera/dadilja</a> prema Vama važnim kriterijumima"
+msgstr ""
+"You don't have favorite babysitters or nannies. Search <a "
+"href='https://parentstime.rs/en/connection/all_babysitters'> "
+"Babysitter/Nanny Database </a> according to your important criteria"
+
+#: .\layout\templates\layout\base_contact.html:91
+#: .\layout\templates\layout\index.html:88 .\templates\base_reset.html:81
+msgid "naslovna"
+msgstr "home"
+
+#: .\layout\templates\layout\base_contact.html:97
+#: .\layout\templates\layout\index.html:94 .\templates\base_reset.html:87
+msgid "kontakt"
+msgstr "contact"
+
+#: .\layout\templates\layout\base_contact.html:99
+#: .\layout\templates\layout\base_contact.html:103
+#: .\layout\templates\layout\index.html:96
+#: .\layout\templates\layout\index.html:100
+msgid "baza bebisitera/dadilja"
+msgstr "babysitter/nanny base"
+
+#: .\layout\templates\layout\base_contact.html:111
+#: .\layout\templates\layout\index.html:108
+msgid "Odjavi se"
+msgstr "Logout"
+
+#: .\layout\templates\layout\base_contact.html:113
+#: .\layout\templates\layout\base_contact.html:115
+#: .\layout\templates\layout\index.html:110
+#: .\layout\templates\layout\index.html:112
+msgid "Profil"
+msgstr "Profile"
+
+#: .\layout\templates\layout\base_contact.html:142
+#: .\layout\templates\layout\base_contact.html:223
+#: .\layout\templates\layout\index.html:140
+#: .\layout\templates\layout\index.html:484 .\templates\base_reset.html:115
+msgid "Registruj se/prijavi se"
+msgstr "Register/Login"
+
+#: .\layout\templates\layout\base_contact.html:144
+#: .\layout\templates\layout\base_contact.html:225
+#: .\layout\templates\layout\index.html:142
+#: .\layout\templates\layout\index.html:486 .\templates\base_reset.html:117
+msgid "Kao Bebisiter/Dadilja"
+msgstr "As a Babysitter / Nanny"
+
+#: .\layout\templates\layout\base_contact.html:145
+#: .\layout\templates\layout\base_contact.html:226
+#: .\layout\templates\layout\index.html:143
+#: .\layout\templates\layout\index.html:487 .\templates\base_reset.html:118
+msgid "Kao Porodica"
+msgstr "As a Family"
+
+#: .\layout\templates\layout\base_contact.html:177
+msgid ""
+" \"Parent's time je platforma koja je tu da izađe u susret\n"
+"                    svakom roditelju kome je potrebna pomoć prilikom traženja\n"
+"                    idealne osobe koja bi čuvala njihovo dete kada oni to nisu u\n"
+"                    mogućnosti.\""
+msgstr ""
+"“Parent’s team is a platform that is there to meet\n"
+"to every parent who needs help finding\n"
+"the ideal person to look after their child when they are not\n"
+"possibilities. \""
+
+#: .\layout\templates\layout\base_contact.html:188
+#: .\layout\templates\layout\index.html:449 .\templates\base_reset.html:159
+msgid "Brzi linkovi"
+msgstr "Quick links"
+
+#: .\layout\templates\layout\base_contact.html:191
+#: .\layout\templates\layout\index.html:452 .\templates\base_reset.html:162
+msgid "Naslovna"
+msgstr "Home page"
+
+#: .\layout\templates\layout\base_contact.html:194
+#: .\layout\templates\layout\index.html:455
+#: .\layout\templates\layout\instruction_page.html:79
+msgid "Baza bebisitera/dadilja"
+msgstr "Babysitter/nanny base"
+
+#: .\layout\templates\layout\base_contact.html:202
+#: .\layout\templates\layout\index.html:184
+#: .\layout\templates\layout\index.html:463 .\templates\base_reset.html:170
+msgid "Uputstvo za korišćenje platforme"
+msgstr "Instructions for using the platform"
+
+#: .\layout\templates\layout\base_contact.html:205
+#: .\layout\templates\layout\contact.html:4
+#: .\layout\templates\layout\contact.html:17
+#: .\layout\templates\layout\index.html:466 .\templates\base_reset.html:173
+msgid "Kontakt"
+msgstr "Contact"
+
+#: .\layout\templates\layout\base_contact.html:215
+msgid ""
+"  \"U svakom trenutku pronađite dadilju na teritoriji cele\n"
+"                        Srbije koja odgovara baš Vašoj porodici!\" "
+msgstr ""
+"\"At all times, find a nanny in the whole territory\n"
+"A Serbia that suits your family! \""
+
+#: .\layout\templates\layout\base_contact.html:219
+#: .\layout\templates\layout\index.html:480
+msgid "U promo periodu besplatna i uvek dostupna baza bebisitera/dadilja"
+msgstr ""
+"In the promo period, a free and always available base of babysitters/nannies"
+
+#: .\layout\templates\layout\base_contact.html:237
+#: .\layout\templates\layout\index.html:501
+msgid "Pretplatite se na naš blog"
+msgstr "Subscribe to our blog"
+
+#: .\layout\templates\layout\base_contact.html:256
+#: .\layout\templates\layout\index.html:520 .\templates\base_reset.html:202
+msgid "Uslovi korišćenja i politika privatnosti"
+msgstr "Terms of use and privacy policy"
+
+#: .\layout\templates\layout\base_contact.html:259
+#: .\layout\templates\layout\index.html:523 .\templates\base_reset.html:205
+msgid "Mere poverenja i bezbednosti"
+msgstr "Confidence and security measures"
+
+#: .\layout\templates\layout\contact.html:22
+msgid ""
+" \"Ukoliko imate bilo kakvih nedoumica ili pitanja, možete nas\n"
+"              kontaktirati, a mi ćemo Vam odgovoriti u najkraćem roku.\" "
+msgstr ""
+"\"If you have any doubts or questions, you can contact us and we will reply "
+"to you as soon as possible. \""
+
+#: .\layout\templates\layout\contact.html:31
+msgid "Bulevar Mihajla Pupina 87/11"
+msgstr "Bulevar Mihajla Pupina 87/11"
+
+#: .\layout\templates\layout\contact.html:98
+msgid "Poruka"
+msgstr "Message"
+
+#: .\layout\templates\layout\index.html:183
+msgid ""
+"Porodicu ne čine samo oni sa kojima smo u krvnom srodstvu. Čine je i oni "
+"koji nas drže za ruku kada nam je to najpotrebnije "
+msgstr ""
+"The family is not only made up of those with whom we are blood relatives. It"
+" is also made up of those who hold our hand when we need it most."
+
+#: .\layout\templates\layout\index.html:202
+msgid "Pronalaženje bebisitera"
+msgstr "Finding a babysitter"
+
+#: .\layout\templates\layout\index.html:203
+msgid "nikad nije bilo jednostavnije!"
+msgstr "it has never been easier!"
+
+#: .\layout\templates\layout\index.html:209
+msgid ""
+" \"Parent's time je platforma koja je tu da izađe u susret svakom\n"
+"                        roditelju kome je potrebna pomoć prilikom traženja idealne osobe\n"
+"                        koja bi čuvala njihovo dete kada oni to nisu u mogućnosti. U\n"
+"                        samo par koraka i potpuno <b> besplatno</b> u promo periodu moguće je\n"
+"                        pronaći bebisitera/dadilju koji odgovaraju baš Vašim\n"
+"                        kriterijumima.\" "
+msgstr ""
+"“Parent’s team is a platform that is there to meet everyone’s needs\n"
+"a parent who needs help finding the ideal person\n"
+"which would look after their child when they are unable to do so. U\n"
+"just a few steps and completely </b> free </b> in the promo period is possible\n"
+"to find a babysitter/nanny that suits your\n"
+"criteria. \""
+
+#: .\layout\templates\layout\index.html:227
+msgid "Kako platforma funkcioniše?"
+msgstr "How does the platform work?"
+
+#: .\layout\templates\layout\index.html:233
+msgid "SVE U TRI KORAKA"
+msgstr "ALL IN THREE STEPS"
+
+#: .\layout\templates\layout\index.html:250
+msgid "Pretražite bazu dostupnih bebisitera/dadilja"
+msgstr "Search the database of available babysitters/nannies"
+
+#: .\layout\templates\layout\index.html:255
+msgid "Pronađite bebisitera/dadilju prema vašim kriterijumima"
+msgstr "Find a babysitter/nanny according to your criteria"
+
+#: .\layout\templates\layout\index.html:258
+msgid "Povežite se"
+msgstr "Connect"
+
+#: .\layout\templates\layout\index.html:262
+msgid ""
+"pozovite kandidata telefonom ili putem mejla i izaberite bebisitera/dadilju "
+"koja odgovara vašoj porodici"
+msgstr ""
+"call the candidate by phone or e-mail and choose the babysitter/nanny who "
+"suits your family"
+
+#: .\layout\templates\layout\index.html:265
+msgid "Zakažite upoznavanje"
+msgstr "Schedule an appointment"
+
+#: .\layout\templates\layout\index.html:269
+msgid "Odaberite datum i vreme kako biste se sa kandidatom upoznali uživo"
+msgstr "Choose a date and time to meet the candidate live"
+
+#: .\layout\templates\layout\index.html:286
+#: .\layout\templates\layout\index.html:291
+#: .\layout\templates\layout\index.html:305
+#: .\layout\templates\layout\index.html:310
+msgid "REGISTRUJ SE/PRIJAVI SE "
+msgstr "REGISTER / LOGIN"
+
+#: .\layout\templates\layout\index.html:286
+#: .\layout\templates\layout\index.html:305
+msgid "KAO  RODITELJ"
+msgstr "AS A FAMILY"
+
+#: .\layout\templates\layout\index.html:291
+#: .\layout\templates\layout\index.html:310
+msgid "KAO  BEBISITER/DADILJA"
+msgstr "AS A BABYSITTER/NANNY"
+
+#: .\layout\templates\layout\index.html:321
+msgid "Bebisiterke/Dadilje"
+msgstr "Babysitters/Nanny"
+
+#: .\layout\templates\layout\index.html:344
+msgid "Satnica: "
+msgstr "Price per hour:"
+
+#: .\layout\templates\layout\index.html:348
+#: .\layout\templates\layout\index.html:401
+msgid "Neocenjen"
+msgstr "Unrated"
+
+#: .\layout\templates\layout\index.html:353
+#: .\layout\templates\layout\index.html:406
+msgid "Komentar"
+msgstr "Comment"
+
+#: .\layout\templates\layout\index.html:374
+msgid "Bebisiterke/Dadije"
+msgstr "Babysitters/Nanny"
+
+#: .\layout\templates\layout\index.html:438
+msgid ""
+" \"Parent's time je platforma koja je tu da izađe u susret\n"
+"                       svakom roditelju kome je potrebna pomoć prilikom traženja\n"
+"                       idealne osobe koja bi čuvala njihovo dete kada oni to nisu u\n"
+"                       mogućnosti.\" "
+msgstr ""
+"“Parent’s time is a platform that is there to meet\n"
+"to every parent who needs help searching\n"
+"the ideal person to look after their child when they are not\n"
+"possibilities. \""
+
+#: .\layout\templates\layout\index.html:476
+msgid ""
+" \"U svakom trenutku pronađite dadilju na teritoriji cele\n"
+"                           Srbije koja odgovara baš Vašoj porodici!\" "
+msgstr ""
+"\"At all times, find a nanny in the whole territory\n"
+"A Serbia that suits your family! \""
+
+#: .\layout\templates\layout\instruction_page.html:4
+msgid "Instrukcije"
+msgstr "Instructions"
+
+#: .\layout\templates\layout\instruction_page.html:14
+msgid "Detaljno uputstvo za korišćenje platforme"
+msgstr "Detailed instructions for using the platform"
+
+#: .\layout\templates\layout\instruction_page.html:20
+msgid ""
+"Kako platforma funkcioniše - ako ste porodica kojoj je potrebna usluga "
+"čuvanja dece? "
+msgstr ""
+"How does the platform work - if you are a family that needs a childcare "
+"service?"
+
+#: .\layout\templates\layout\instruction_page.html:25
+msgid ""
+"Ukoliko ste u potraza za bebisiterom/dadiljom došli ste na pravo mesto."
+msgstr ""
+"If you are looking for a babysitter/nanny you have come to the right place."
+
+#: .\layout\templates\layout\instruction_page.html:27
+msgid ""
+" \n"
+"                        Parent's time je platforma pomoću koje možete stupiti u kontakt sa\n"
+"                        bebisiterima/dadiljama koje pružaju usluge čuvanja dece i ukoliko \n"
+"                        odgovarate jedni drugima možete ih vrlo brzo i jednostavno kontaktirati i početi sa radom.\n"
+"                        "
+msgstr ""
+"Parent's time is a platform through which you can get in touch with\n"
+"babysitters/nannies who provide childcare services and if\n"
+"you match each other you can contact them very quickly and easily and get started."
+
+#: .\layout\templates\layout\instruction_page.html:34
+#: .\layout\templates\layout\instruction_page.html:126
+msgid "Platforma funkcioniše na sledeći način:"
+msgstr "The platform works as follows:"
+
+#: .\layout\templates\layout\instruction_page.html:36
+#: .\layout\templates\layout\instruction_page.html:128
+msgid "Registracija korisnika"
+msgstr "User registration"
+
+#: .\layout\templates\layout\instruction_page.html:37
+msgid ""
+"\n"
+"                         - ukoliko želite da pristupite bazi dostupnih bebisitera/dadilja morate biti <a href=\"https://www.parentstime.rs/register_family/\"> registrovani </a>\n"
+"                        korisnik platforme parentstime.rs. \n"
+"                       <a href=\"https://www.parentstime.rs/register_family/\"> Registrujete</a> se pomoću email adrese i lozinke.\n"
+"                        Obratite pažnju na to da lozinka bude što bolja kako biste što bolje zaštitili svoje podatke.\n"
+"                        Nakon <a href=\"https://www.parentstime.rs/register_family/\">registracije </a> potrebno je da verifikujete svoju email adresu \n"
+"                        odlaskom na vaš email nalog i klikom na verifikacioni link. \n"
+"                        "
+msgstr ""
+"\n"
+"- if you want to access the database of available babysitters/nannies you must be a <a href=\"https://www.parentstime.rs/en/register_family/\"> registered </a>\n"
+"user of the parentstime.rs platform\n"
+"You <a href=\"https://www.parentstime.rs/en/register_family/\"> register </a> using your email address and password.\n"
+"Make sure the password is as good as possible to better protect your data.\n"
+"After <a href=\"https://www.parentstime.rs/en/register_family/\"> registration </a>, you need to verify your email address\n"
+"by going to your email account and clicking on the verification link."
+
+#: .\layout\templates\layout\instruction_page.html:47
+#: .\layout\templates\layout\instruction_page.html:138
+msgid "Popunjavanje profila"
+msgstr "Filling in the profile"
+
+#: .\layout\templates\layout\instruction_page.html:48
+msgid ""
+" \n"
+"                        - nakon uspešne <a href=\"https://www.parentstime.rs/register_family/\">registracije</a> i verifikacije,\n"
+"                        prelazite na sledeći korak. Naredni korak je popunjavanje informacija na vašem profilu.\n"
+"                        Kreiranje profila se sastoji iz dva koraka: popunjavanja osnovnih informacija o sebi i dodavanja slike.\n"
+"                        Vaš profil je dostupan samo bebisiterima/dadiljama kojima vi pošaljete zahtev za rezervaciju.\n"
+"                        "
+msgstr ""
+"- after successful <a href=\"https://www.parentstime.rs/en/register_family/\">registration</a>  and verification,\n"
+"move on to the next step. The next step is to fill in the information on your profile.\n"
+"Creating a profile consists of two steps: filling in basic information about yourself and adding an image.\n"
+"Your profile is only available to babysitters/nannies to whom you send a reservation request."
+
+#: .\layout\templates\layout\instruction_page.html:56
+msgid "Ažuriranje vremena"
+msgstr "Time update"
+
+#: .\layout\templates\layout\instruction_page.html:57
+msgid ""
+" \n"
+"                         - u ovom koraku je potrebno da dodate informacije o vremenu\n"
+"                        kada vam je potrebna usluga čuvanja dece. \n"
+"                        Možete izabrati dane kao i doba dana kada vam je usluga potrebna (ujutru, popodne, uveče ili noću).\n"
+"                        "
+msgstr ""
+"- in this step, you need to add time information\n"
+"when you need a babysitting service.\n"
+"You can choose the days as well as the time of day when you need the service (morning, afternoon, evening, or night)."
+
+#: .\layout\templates\layout\instruction_page.html:65
+msgid ""
+" \n"
+"                        Kreiranje profila je završeno. Čestitamo. \n"
+"                        Sada možete pristupiti bazi dostupnih bebisitera/dadilja \n"
+"                        i stupiti u kontakt sa njima.\n"
+"                        "
+msgstr ""
+"Profile creation complete. Congratulations.\n"
+"You can now access the database of available babysitters/nannies\n"
+"and get in touch with them."
+
+#: .\layout\templates\layout\instruction_page.html:72
+#: .\layout\templates\layout\instruction_page.html:160
+msgid "Ažuriranje profila -"
+msgstr "Profile update"
+
+#: .\layout\templates\layout\instruction_page.html:73
+msgid ""
+" \n"
+"                        u svakom trenutku možete da ažurirate vaš profil i vreme kada vam je potrebno čuvanje dece.\n"
+"                        "
+msgstr ""
+"you can update your profile and the time you need babysitting at any time."
+
+#: .\layout\templates\layout\instruction_page.html:80
+msgid ""
+" \n"
+"                        - Sada kada ste <a href=\"https://www.parentstime.rs/register_family/\"> registrovani</a> korisnik možete pristupiti\n"
+"                        bazi bebisitera/dadilja i vrlo brzo i jednostavno pronaći osobu koja odgovara baš vašim kriterijumima pomoću \n"
+"                        "
+msgstr ""
+"- Now that you are a <a href=\"https://www.parentstime.rs/en/register_family/\"> registered </a> user you can access\n"
+"the base of babysitters/nannies and very quickly and easily find a person who meets your criteria using"
+
+#: .\layout\templates\layout\instruction_page.html:86
+msgid "Poklapanje sa bebisiterima/dadiljama"
+msgstr "Match with babysitters/nannies"
+
+#: .\layout\templates\layout\instruction_page.html:87
+msgid ""
+" \n"
+"                        -  na stranici baza bebisitera/dadilja,\n"
+"                        koja će vam biti dostupna nakon <a href=\"https://www.parentstime.rs/register_family/\"> registracije</a>, možete videti sve dostupne bebisitere/dadilje \n"
+"                        i filtrirati ih baš prema vašim kriterijumima. \n"
+"                        Nakon što pronađete odgovarajućeg bebisitera/dadilju možete videti njihov profil sa detaljnim informacijama i rezervisati korisnika.\n"
+"                        "
+msgstr ""
+"- on the babysitter/nanny database page,\n"
+"which will be available to you after <a href=\"https://www.parentstime.rs/en/register_family/\"> registration </a>, you can see all available babysitters / nannies\n"
+"and filter them exactly according to your criteria.\n"
+"Once you find the right babysitter/nanny you can see their profile with detailed information and book a user."
+
+#: .\layout\templates\layout\instruction_page.html:95
+#: .\layout\templates\layout\instruction_page.html:176
+msgid "Rezervacija"
+msgstr "Reservation"
+
+#: .\layout\templates\layout\instruction_page.html:96
+msgid ""
+" \n"
+"                        - Kada pošaljete zahtev za rezervaciju bebisiter/dadilja ga može prihvatiti ili odbiti. Nakon što je vaša rezervacija prihvaćena dobijate mogućnost ocenjivanja, \n"
+"                        komentarisanja i prijavljivanja korisnika.\n"
+"                        Vaš profil takođe u ovom slučaju može biti ocenjen,\n"
+"                        komentarisan i prijavljen od strane bebisitera/dadilja.\n"
+"                        "
+msgstr ""
+"- When you send a reservation request, the babysitter/nanny can accept or reject it. Once your reservation is accepted you get the opportunity to rate,\n"
+"user comments and logins.\n"
+"Your profile can also be rated in this case,\n"
+"commented on and reported by babysitters/nannies."
+
+#: .\layout\templates\layout\instruction_page.html:104
+msgid "Srećno u pronalaženju bebisitera/dadilja :)"
+msgstr "Good luck finding a babysitter/nanny :)"
+
+#: .\layout\templates\layout\instruction_page.html:113
+msgid ""
+"Kako platforma funkcioniše - ako ste bebisiter/dadilja koja je u potrazi za "
+"poslom?"
+msgstr ""
+"How does the platform work - if you are a babysitter/nanny looking for a "
+"job?"
+
+#: .\layout\templates\layout\instruction_page.html:118
+msgid ""
+"Ukoliko ste u potraza za poslom bebisitera/dadilje došli ste na pravo mesto."
+msgstr ""
+"If you are looking for a babysitter/nanny job, you have come to the right "
+"place."
+
+#: .\layout\templates\layout\instruction_page.html:120
+msgid ""
+" \n"
+"                        Parent's time je platforma pomoću koje možete stupiti u \n"
+"                        kontakt sa porodicom kojoj je potrebna usluga čuvanja dece i ukoliko odgovarate jedni drugima početi sa radom.\n"
+"                        "
+msgstr ""
+"Parent's time is a platform you can use to enter\n"
+"contact with a family that needs a childcare service and if you suit each other start working."
+
+#: .\layout\templates\layout\instruction_page.html:129
+msgid ""
+" \n"
+"                        - ukoliko želite da vaš profil bude dostupan porodicama koje traže usluge bebisitera/dadilja morate se prvo <a href=\"https://www.parentstime.rs/register_babysitter/\"> registrovati</a> na platformu. <a href=\"https://www.parentstime.rs/register_babysitter/\"> Registrujete</a> se pomoću email adrese i lozinke. Obratite pažnju na to da lozinka bude što bolja kako biste što bolje zaštitili svoje podatke.\n"
+"                          Nakon <a href=\"https://www.parentstime.rs/register_babysitter/\"> registracije</a> potrebno je da verifikujete svoju email adresu odlaskom\n"
+"                          na vaš email nalog i klikom na verifikacioni link.\n"
+"                        "
+msgstr ""
+"- if you want your profile to be available to families seeking babysitting/nanny services, you must first <a href=\"https://www.parentstime.rs/en/register_babysitter/\"> register </a> on the platform. <a href=\"https://www.parentstime.rs/en/register_babysitter/\"> Register </a> with your email address and password. Make sure the password is as good as possible to better protect your data.\n"
+"After <a href=\"https://www.parentstime.rs/en/register_babysitter/\"> registration </a> you need to verify your email address by leaving\n"
+"to your email account and by clicking on the verification link."
+
+#: .\layout\templates\layout\instruction_page.html:139
+msgid ""
+" \n"
+"                            - nakon uspešne <a href=\"https://www.parentstime.rs/register_babysitter/\"> registracije</a> i verifikacije, prelazite na sledeći korak. Naredni korak je popunjavanje informacija na vašem profilu. Ovaj korak je malo duži, ali ne brinite, svaka od ovih informacija će pomoći roditeljima da brže i lakše pronađu vaš profil. Kreiranje profila se sastoji iz tri koraka:\n"
+"                        popunjavanja osnovnih informacija o sebi,\n"
+"                        dodavanja slike i odgovora na pitanja koja\n"
+"                        će pomoći da vaš profil na parentstime.rs platformi bude što bolji.\n"
+"                        "
+msgstr ""
+"- After successful <a href=\"https://www.parentstime.rs/en/register_babysitter/\"> registration </a> and verification, move on to the next step. The next step is to fill in the information on your profile. This step is a little longer, but don't worry, each of these pieces of information will help parents find your profile faster and easier. Creating a profile consists of three steps:\n"
+"filling in basic information about yourself,\n"
+"add a picture, and answering questions that\n"
+"will help make your profile on the parentstime.rs platform as good as possible."
+
+#: .\layout\templates\layout\instruction_page.html:148
+msgid "Ažuriranje dostupnosti"
+msgstr "Update availability"
+
+#: .\layout\templates\layout\instruction_page.html:149
+msgid ""
+" \n"
+"                           - u ovom koraku je potrebno da dodate informacije o vašoj dostupnosti. \n"
+"                        Ovo se odnosi na vreme kada ste slobodni da radite.\n"
+"                        Možete izabrati dane kojima ste slobodni za rad kao i doba dana kada ste slobodni (ujutru, popodne, uveče ili noću).\n"
+"                        "
+msgstr ""
+"- In this step, you need to add information about your availability.\n"
+"This refers to the time when you are free to work.\n"
+"You can choose the days you are free to work as well as the time of day when you are free (morning, afternoon, evening or night)."
+
+#: .\layout\templates\layout\instruction_page.html:157
+msgid ""
+"Kreiranje profila je završeno. Čestitamo. Sada je vaš profil vidljv svim "
+"registrovanim korisnicima."
+msgstr ""
+"Profile creation complete. Congratulations. Your profile is now visible to "
+"all registered users."
+
+#: .\layout\templates\layout\instruction_page.html:161
+msgid "- u svakom trenutku možete da ažurirate vaš profil i vašu dostupnost."
+msgstr "- You can update your profile and your availability at any time."
+
+#: .\layout\templates\layout\instruction_page.html:164
+msgid ""
+" Sada kada je vaš profil aktivan porodice vas mogu pronaći i stupiti u "
+"kontakt sa vama."
+msgstr ""
+"Now that your profile is active, families can find you and get in touch with"
+" you"
+
+#: .\layout\templates\layout\instruction_page.html:167
+msgid "Poklapanje sa potrebama porodice"
+msgstr "Matching with the needs of the family"
+
+#: .\layout\templates\layout\instruction_page.html:168
+msgid ""
+" \n"
+"                           -  ukoliko porodica smatra da ste baš vi prava osoba koja će čuvati njihovo dete/decu može \n"
+"                        vas pozvati, poslati vam e-mail, \n"
+"                        kontaktirati vas putem društvenih mreža koje ste ostavili i poslati zahtev za rezervaciju na platformi parentstime.\n"
+"                        "
+msgstr ""
+"- If the family thinks that you are the right person to take care of their child/children, they can\n"
+"invite you, send you an email,\n"
+"contact you via the social networks you have left and send a reservation request on the parentstime platform."
+
+#: .\layout\templates\layout\instruction_page.html:177
+msgid ""
+" \n"
+"                           - Kada vam roditelj pošalje zahtev za rezervaciju \n"
+"                        vi ga možete prihvatiti ili odbiti. \n"
+"                        Nakon što prihvatite zahtev vaš profil može biti ocenjen i\n"
+"                        komentarisan i prijavljen od strane samo onih prodica čije ste zahteve prihvatili.\n"
+"                        Što bolje ocene i komentare imate vaš profil če biti vidiljiv porodicama.\n"
+"                        Takođe i vi možete oceniti, komentarisati i prijaviti profil porodice.\n"
+"                        "
+msgstr ""
+"- When your parent sends you a reservation request\n"
+"you can accept or reject it.\n"
+"Once you accept the request, your profile can be evaluated as well\n"
+"commented on and reported by only those families whose requests you have accepted.\n"
+"The better ratings and comments you have your profile will be visible to families.\n"
+"You can also rate, comment, and report family profile."
+
+#: .\layout\templates\layout\instruction_page.html:188
+msgid "Srećno u pronalaženju posla :)"
+msgstr "Good luck in finding a job :)"
+
+#: .\layout\views.py:49
+msgid "Hvala, Uspešno ste poslali email!"
+msgstr "Thank you, You have successfully sent an email!"
+
+#: .\layout\views.py:53
+msgid "Vec ste se prijavili ili je email neispravan!"
+msgstr "You are already signed in or the email is invalid!"
+
+#: .\layout\views.py:62
+msgid "Hvala, Uspešno ste poslali poruku!"
+msgstr "Thanks, You have successfully sent a message!"
+
+#: .\parents_time_project\settings.py:148
+msgid "Srpski"
+msgstr "Serbian"
+
+#: .\parents_time_project\settings.py:149
+msgid "Engleski"
+msgstr "English"
+
+#: .\templates\base_reset.html:148
+msgid ""
+" \"Parent's time je platforma koja je tu da izadje u susret\n"
+"                    svakom roditelju kome je potrebna pomoć prilikom traženja\n"
+"                    idealne osobe koja bi čuvala njihovo dete kada oni to nisu u\n"
+"                    mogućnosti.\" "
+msgstr ""
+"“Parent’s time is a platform that is there to meet\n"
+"to every parent who needs help searching\n"
+"the ideal person to look after their child when they are not\n"
+"possibilities. \""
+
+#: .\templates\base_reset.html:184
+msgid ""
+" \"U svakom trenutku pronađite dadilju na teritoriji cele\n"
+"                        Srbije koja odgovara baš Vašoj porodici!\" "
+msgstr ""
+"\"At all times, find a nanny in the whole territory\n"
+"A Serbia that suits your family! \""
+
+#: .\templates\base_reset.html:187
+msgid "Besplatna i uvek dostupna baza bebisitera/dadilja"
+msgstr "Free and always available babysitter/nanny base"
+
+#: .\templates\email_connection.html:33
+#: .\templates\password_reset_email.html:33
+msgid "Poštovani/a "
+msgstr "Dear"
+
+#: .\templates\email_connection.html:46
+#, python-format
+msgid ""
+"\n"
+"                           Roditelj %(name)s %(surname)s Vas je kontaktirao.\n"
+"                           Ukoliko prihvatite zahtev porodice moći ćete da vidite profil porodice, njene kontakt podatke, ocenite porodicu i ostavite komentar.\n"
+"                           "
+msgstr ""
+"\n"
+"The parent %(name)s  %(surname)s has contacted you. \n"
+"If you accept the family's request, you will be able to see the family's profile, contact information, rate the family and leave a comment."
+
+#: .\templates\email_connection.html:51
+msgid "Da bi ste videli profil porodice kliknite na dugme"
+msgstr "To see the family profile click on the button"
+
+#: .\templates\email_connection.html:62
+msgid " Vidi profil "
+msgstr "View profile"
+
+#: .\templates\email_connection.html:74
+#: .\templates\password_reset_email.html:85
+msgid "Ukoliko imate problema možete nam pisati na contact@parentstime.rs"
+msgstr "If you have problems you can write to us at contact@parentstime.rs"
+
+#: .\templates\email_connection.html:76
+#: .\templates\password_reset_email.html:87
+msgid "S poštovanjem"
+msgstr "Sincerely"
+
+#: .\templates\email_verified.html:7
+#| msgid "Rezervacija"
+msgid "Verifikacija"
+msgstr "Verification"
+
+#: .\templates\email_verified.html:32
+#| msgid "Poštovani/a "
+msgid "Poštovani"
+msgstr "Dear"
+
+#: .\templates\email_verified.html:43
+msgid ""
+"Upravo ste kreirali nalog na Parent's time platformi. Molimo vas potvrdite "
+"vašu email adresu klikom na link (dugme) VERIFIKUJ  ispod. Hvala."
+msgstr ""
+"You have just created an account on Parent's time platform. Please confirm "
+"your email address by clicking the VERIFY link below. Thanks."
+
+#: .\templates\email_verified.html:54
+msgid "VERIFIKUJ"
+msgstr "VERIFY"
+
+#: .\templates\email_verified.html:65
+msgid "Ukoliko imate problema pri verifikaciji kopirajte ovaj link u brauser"
+msgstr "If you have problems verifying, copy this link to the browser"
+
+#: .\templates\email_verified.html:70
+msgid "Pozdrav"
+msgstr "Greeting"
+
+#: .\templates\password_reset.html:4 .\templates\password_reset_done.html:4
+msgid "Reset lozinke"
+msgstr "Reset password"
+
+#: .\templates\password_reset.html:15
+msgid "Resetuj lozinku"
+msgstr "Reset password"
+
+#: .\templates\password_reset.html:40
+msgid "Posalji email"
+msgstr "Send an email"
+
+#: .\templates\password_reset_complete.html:4
+msgid "Uspešna promena lozinke"
+msgstr "Successful password change"
+
+#: .\templates\password_reset_complete.html:16
+msgid "Potvrda o promeni lozinke"
+msgstr "Confirmation of password change"
+
+#: .\templates\password_reset_complete.html:21
+msgid "Čestitamo, Lozinka je uspešno promenjena"
+msgstr "Congratulations, Password changed successfully"
+
+#: .\templates\password_reset_confirm.html:5
+msgid "Promena lozinke"
+msgstr "Change your password"
+
+#: .\templates\password_reset_confirm.html:17
+msgid "Molimo Vas, promenite svoju lozinku"
+msgstr "Please change your password"
+
+#: .\templates\password_reset_confirm.html:27
+msgid "Resetuj Lozinku"
+msgstr "Reset Password"
+
+#: .\templates\password_reset_confirm.html:30
+msgid "Link za promenu lozinke je istekao, ponovite postupak"
+msgstr "The link to change the password has expired, repeat the procedure"
+
+#: .\templates\password_reset_done.html:16
+msgid "Potvrda o slanju Email-a"
+msgstr "Confirmation of sending Email"
+
+#: .\templates\password_reset_done.html:19
+msgid "Proverite svoj Email, poslali smo Vam instrukcije za promenu šifre"
+msgstr ""
+"Check your Email, we have sent you instructions to change the password"
+
+#: .\templates\password_reset_done.html:20
+msgid "Ako poruke nema u inbox, obavezno proverite spam"
+msgstr "If the message is not in the inbox, be sure to check for spam"
+
+#: .\templates\password_reset_done.html:22
+msgid "U sličaju problema, ponovite Postupak"
+msgstr "In case of problems, repeat the Procedure"
+
+#: .\templates\password_reset_email.html:51
+#, python-format
+msgid ""
+"\n"
+"                           Primili ste ovaj email, jer ste Vi (ili neko ko se pretvara da ste Vi), zatražio\n"
+"                           promenu lozinke na %(domain)s sajtu. Ako ne želite da menjate lozinku, molim Vas\n"
+"                           zanemarite ovu poruku.\n"
+"                           "
+msgstr ""
+"\n"
+"You received this email because you (or someone pretending to be you) requested it\n"
+"change the password on %(domain)s site. If you do not want to change your password, please\n"
+"ignore this message."
+
+#: .\templates\password_reset_email.html:57
+msgid "Da bi promenili lozinku kliknite na dugme reset password"
+msgstr "To change the password, click the reset password button"
+
+#: .\templates\password_reset_email.html:80
+msgid ""
+"\n"
+"                           Vaše korisničko ime, u slučaju da ste zaboravili je: \n"
+"                           "
+msgstr ""
+"\n"
+"Your username, in case you forgot is:"
+
+#~ msgid "Uspešno ste rezervisali korisnika"
+#~ msgstr "You have successfully booked a user"
+
+#~ msgid "Nemate omiljne bebisiterke ni dadilje."
+#~ msgstr "You don't have favorite babysitters or nannies."
+
+#~ msgid "Pomagao/la bih u obavljanju školskih aktivnosti"
+#~ msgstr "I would help with school activities"
+
+#~ msgid "Čuvao/la bih dete dok je bolesno"
+#~ msgstr "I would take care of the child while it is sick"
+
+#~ msgid "Imam automobil"
+#~ msgstr "I have a car"
+
+#~ msgid "Dostupnost korisnika"
+#~ msgstr "User availability"
+
+#~ msgid ""
+#~ " \" Parent's time je platforma koja je tu da izadje u susret\n"
+#~ "                    svakom roditelju kome je potrebna pomoć prilikom traženja\n"
+#~ "                    idealne osobe koja bi čuvala njihovo dete kada oni to nisu u\n"
+#~ "                    mogućnosti.\""
+#~ msgstr ""
+#~ "“Parent’s time is a platform that is there to meet\n"
+#~ "to every parent who needs help searching\n"
+#~ "the ideal person to look after their child when they are not\n"
+#~ "possibilities. \""
+
+#~ msgid ""
+#~ "Da bi promenili lozinku, pratite dole navedeni link, ili kopirajte link u "
+#~ "Vašem browser-u:"
+#~ msgstr ""
+#~ "To change your password, follow the link below, or copy the link in your "
+#~ "browser:"
+
+#~ msgid "Vaše korisničko ime, u slučaju da ste zaboravili je: "
+#~ msgstr "Your username, in case you forgot, is:"
+
+#~ msgid "Kreiraj profil"
+#~ msgstr "Create a profile"
+
+#~ msgid "Nema informacija..."
+#~ msgstr "No information..."
+
+#~ msgid "Novosti iz dečijeg sveta"
+#~ msgstr "Blog"
+
+#~ msgid "Ko smo mi"
+#~ msgstr "About us"
+
+#~ msgid "O seb"
+#~ msgstr "About me"
+
+#~ msgid "Ovo je vaš profil"
+#~ msgstr "This is your profile"
+
+#~ msgid "Jedan mesec"
+#~ msgstr "One month"

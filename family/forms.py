@@ -54,18 +54,25 @@ class FamilyForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(FamilyForm, self).__init__(*args, **kwargs)
         self.fields['first_name'].widget.attrs['class'] = 'form-control'
+        self.fields['first_name'].required = True
         self.fields['last_name'].widget.attrs['class'] = 'form-control'
+        self.fields['last_name'].required = True
         self.fields['about_me'].widget.attrs['class'] = 'form-control'
         self.fields['about_me_eng'].widget.attrs['class'] = 'form-control'
         self.fields['picture'].widget.attrs['class'] = 'form-control'
         self.fields['picture'].widget.initial_text = ("")
         self.fields['picture'].widget.input_text = ("")
         self.fields['sity'].widget.attrs['class'] = 'form-select'
+        self.fields['sity'].required = True
         self.fields['mobile_number'].widget.attrs['class'] = 'form-control'
+        self.fields['mobile_number'].required = True
         self.fields['email'].widget.attrs['class'] = 'form-control'
+        self.fields['email'].required = True
         self.fields['social_network'].widget.attrs['class'] = 'form-control'
         self.fields['number_children'].widget.attrs['class'] = 'form-select'
+        self.fields['number_children'].required = True
         self.fields['age_children'].widget.attrs['class'] = 'chk'
+        self.fields['age_children'].required = True
         self.fields['citizenship'].widget.attrs['class'] = 'form-select'
         self.fields['age'].widget.attrs['class'] = 'form-control'
         self.fields['childcare_period'].widget.attrs['class'] = 'form-select'

@@ -25,10 +25,28 @@ ul {
 .slid-title {
   position: absolute;
   left: 15px;
-  top: 45%;
+  top: 40%;
   width: 540px;
 }
- /* komantar za vuleta git */
+
+h5.index-h-5{
+margin-top: 25px;  
+}
+
+a.btn-inst-href{
+background: linear-gradient(135deg, #63bef2 25%, transparent 0) -25px 0, linear-gradient(225deg, #63bef2 25%, transparent 25%) -25px 0, linear-gradient(315deg, #63bef2 25%, transparent 25%), linear-gradient(45deg, #63bef2 25%, transparent 25%);
+background-size: 50px 50px;
+background-color: #68b0dc;
+border-radius: 10px;
+color: #fff;
+font-size: 18px;
+font-weight: 600;
+margin-top: 5px;
+animation: shadow-pulsee 1.3s infinite;
+border: 1px solid #fff;
+letter-spacing: 1;
+}
+
 
 .lop-for-cont {
   position: absolute;
@@ -93,6 +111,14 @@ ul {
 .slid {
   position: relative;
   height: 85vh;
+}
+
+.slid .main_message{
+position: absolute;  
+left: 50%;
+top: 50%;
+transform: translate(-50%,-50%);
+width: inherit;
 }
 
 .insade-slid {
@@ -198,8 +224,10 @@ ul {
   position: relative;
 }
 
+ 
+
 .logo-for-mob-on-menu,
-.logo-mob-on-top {
+.logo-mob-on-top,.top-lang-on-mob {
   display: none;
 }
 
@@ -266,6 +294,7 @@ nav ul li a:hover {
   margin-right: 50px;
   line-height: 0;
   margin-top: 27px;
+  width: 243px;
 }
 .no-login-select:after {
   display: block;
@@ -306,6 +335,21 @@ nav ul li a:hover {
   border: 2px solid #73c4f4;
 }
 
+.reserve-info{
+  position: absolute;
+  left: 8px;
+  bottom: 18px;
+  width: 30px;
+  height: 30px;
+  background-color: red;  
+  border-radius: 50%;
+  font-size: 20px;
+  color: #fff;
+  text-align: center;
+  line-height: 30px;
+  font-weight: 700;
+  }
+
 
 .logout a {
   text-decoration: none;
@@ -316,7 +360,9 @@ nav ul li a:hover {
   background: #f2cfd1;
   border-bottom: 4px solid #efc3c5;
   border-radius: 10px;
+  margin-right: 15px;
 }
+
 
 
 
@@ -376,6 +422,8 @@ text-shadow: 1px 1px rgb(0 0 0 / 20%);
   text-align: center;
   border: 5px solid #fff;
   animation: shadow-pulsee 1.3s infinite;
+  z-index: 50;
+
 }
 
 @keyframes shadow-pulsee {
@@ -585,6 +633,20 @@ text-shadow: 1px 1px rgb(0 0 0 / 20%);
 
 .mission-box h3 {
   font-size: 27px;
+}
+
+.mission-box a{
+text-decoration: none;  
+font-size: 27px;
+font-weight: 600;
+color: #46b2f0;
+line-height: 35px;
+transition: .2s ease-in-out;
+text-shadow: 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+.mission-box a:hover{
+color: #000;  
 }
 
 .mission-box p {
@@ -959,6 +1021,9 @@ p.baby-p-second {
 
 .baby-rew-on-filter{
   display: block;
+  color: #fff;
+  font-size: 20px;
+  padding: 0 10px;
 }
 
 .baby-he i,
@@ -1033,7 +1098,7 @@ footer {
 }
 
 .footer-wrapper-main {
-  background-image: url(../img/naslovna2.jpg);
+  background-image: url(../img/naslovna2.webp);
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;  
@@ -1233,6 +1298,9 @@ ul.soc-bot-link li {
 ul.soc-bot-link li a {
   color: #fff;
   font-size: 20px;
+  width: 40px;
+  height: 40px;
+  display: inline-block;
 }
 
 .fot-map-info-main {
@@ -1240,31 +1308,21 @@ ul.soc-bot-link li a {
   margin-left: 25px;
 }
 
-.sub-mar {
-  margin-top: -120px;
-}
+
 
 .fot-map-text {
   width: 50%;
+  position: relative;
+  height: 250px;
 }
+
+
 
 .fot-map-text p {
   font-size: 18px;
 }
 
-.foter-map {
-  width: 50%;
-  height: 350px;
-  overflow: hidden;
-  margin-left: 25px;
-}
 
-.foter-map img {
-  height: 350px;
-  width: auto;
-  object-fit: cover;
-  object-position: center;
-}
 
 
 
@@ -1400,6 +1458,34 @@ ul.vertical-ul li .content p {
   height: 350px;
   overflow: hidden;
   border-radius: 10px;
+  position: relative;
+}
+
+
+.favorites .tooltiptext {
+  opacity: 0;
+  display: inline-block;
+  background-color: #68b0dc;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 5px;
+top: 10px;
+right: -130px;
+  
+  position: absolute;
+  z-index: 1;
+  transition: 1s ease;
+  font-size: 17px;
+ width: 140px;
+ pointer-events: none;
+}
+
+.favorites:hover .tooltiptext {
+  opacity: 1;
+  right: -150px;
+  
+  
 }
 
 
@@ -1513,6 +1599,8 @@ text-align: center;
   content: "";
 }
 
+
+
 span.user-year-num {
   float: right;
   display: block;
@@ -1544,11 +1632,29 @@ span.user-year-num {
   text-shadow: 2px 2px rgb(0 0 0 / 20%);
 }
 
+
+
+.favorite-btn {
+  border-radius: 0;
+  background: #5796bd;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  width: 100%;
+  letter-spacing: 1px;
+  
+}
+
 .reserve-btn:hover{
   background-color: #84bad9;  
   color: #fff;
   }
 
+
+  .favorite-btn:hover{
+    background-color: #84bad9;  
+    color: #fff;
+  }  
 
 
 .btn-rating-star {
@@ -1613,6 +1719,20 @@ a span.user-year-num:hover{
 
 .login-div p {
   font-size: 22px;
+}
+
+a.reg-log-a{
+display: block; 
+color: #63bef2;
+font-weight: 700; 
+font-size: 18px;
+}
+
+span.reg-log-s{
+font-size: 19px;  
+border-top: 1px dashed #63bef2;
+margin-top: 15px;
+display: inline-block;
 }
 
 .register-form h4 {
@@ -1779,7 +1899,7 @@ p.pull-insd {
   position: absolute;
   left: 0;
   width: 100%;
-  height: 650px;
+  height: 100%;
   top: 0;
   background: rgba(0, 0, 0, 0.2);
 }
@@ -1834,6 +1954,7 @@ table.table thead {
   display: flex;
   margin-top: 55px;
   position: relative;
+  justify-content: space-around;
 }
 
 .usual-info:before,
@@ -1847,6 +1968,10 @@ table.table thead {
   height: 2px;
 }
 
+
+.only-on-small{
+  display: none;  
+  }
 .usual-info:before {
   top: -20px;
   border-top: 1px dashed #68b0dc;
@@ -2066,6 +2191,18 @@ text-shadow: 2px 2px rgb(0 0 0 / 20%);
 color: #fff;
 }
 
+.verify-btn{
+border-radius: 0;
+background: #f2cfd1;
+border-bottom: 4px solid #efc3c5;
+border-radius: 10px;
+color: #000;
+font-size: 18px;
+font-weight: 600;
+margin-top: 25px;
+}
+
+
 /*modal for signup */
 
 a.matched_family {
@@ -2120,8 +2257,26 @@ background-color: #68b0dc;
 text-shadow: 2px 2px rgb(0 0 0 / 20%);
 color: #fff; 
 font-size: 22px;
+position: relative;
 }
 
+
+
+.reserve-info2{
+  position: absolute;
+  left: 15px;
+  top: -15px;
+  width: 30px;
+  height: 30px;
+  background-color: red;
+  border-radius: 50%;
+  font-size: 20px;
+  color: #fff;
+  text-align: center;
+  line-height: 30px;
+  font-weight: 700;  
+  z-index: 60;
+}
 
 .acc-btn-baby-list:not(.collapsed){
   background: linear-gradient(135deg, #63bef2 25%, transparent 0) -25px 0, linear-gradient(225deg, #63bef2 25%, transparent 25%) -25px 0, linear-gradient(315deg, #63bef2 25%, transparent 25%), linear-gradient(45deg, #63bef2 25%, transparent 25%);
@@ -2169,6 +2324,15 @@ ul.contact li {
   font-size: 20px;
   line-height: 26px;
   margin-top: 5px;
+}
+
+.no-link a{
+text-decoration: none;
+color: #000;  
+}
+
+.no-link a:hover{
+color: #838383;  
 }
 
 ul.social-contact {
@@ -2239,8 +2403,77 @@ p.create-profil{
   margin-bottom: 30px;   
   }
   
+  .about-me-create{
+    position: relative;
+  }
   
-  
+  .about-info-create{
+position: absolute;    
+right: 0;
+top: 0;
+width: 40px;
+height: 40px;
+background-color: #73c4f4;
+line-height: 40px;
+border-radius: 50%;
+text-align: center;
+animation: shadow-two 1.3s infinite;
+cursor: pointer;
+}
+
+
+@keyframes shadow-two {
+  0% {
+    box-shadow: 0 0 0 0 rgba(99, 190, 242, 1);
+  }
+  100% {
+    box-shadow: 0 0 0 15px transparent;
+  }
+}
+
+
+
+.about-info-create .content {
+  position: absolute;
+  bottom: 70px;
+  width: 300px;
+  background: #fff;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  visibility: visible;
+  opacity: 0;
+  transition: 1s;
+  transform: translateX(-50%) translateY(-50px);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+  z-index: 2;
+  left: -110px;
+  pointer-events: none;
+  border-bottom: 2px solid #73c4f4;
+}
+
+.about-info-create:hover .content {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+.about-info-create:hover {
+  background: #68b0dc;
+
+}
+
+.about-info-create  .content p {
+  font-size: 20px;
+  position: relative;
+  z-index: 3;
+  line-height: 30px;
+  text-align: left;
+}
+
+
+
+
+
   
   .only-on-create_profil-page{
   width: 85%;
@@ -2369,6 +2602,9 @@ color: #fff;
 }
 
 
+
+
+
 .select-btn{
 display: flex;  
 }
@@ -2441,6 +2677,13 @@ font-size: 20px;
 /*login form on login page*/
 /* flash message login success, login error etc. */
 
+.insade-profil-wrapper .main_message {
+  position: absolute;
+  top: 20px;
+  z-index: 3;  
+  left: 50%;
+  transform: translateX(-50%);
+}
 
 
 .main_message .al-text {
@@ -2449,6 +2692,8 @@ font-size: 20px;
   color: #fff;
   line-height: 21px;
   text-shadow: 2px 2px rgb(0 0 0 / 20%);
+  padding: 15px 25px 15px 0
+  
 }
 
 .main_message .success {
@@ -2461,7 +2706,9 @@ font-size: 20px;
   background-size: 100px 100px;
   background-color: #73c4f4;
   border-radius: 10px;
-  margin: -33px 25px 71px 25px;
+  border: 4px solid #fff;
+  
+  
 }
 
 .main_message .error {
@@ -2473,8 +2720,7 @@ font-size: 20px;
   background-size: auto, auto, auto, auto;
   background-size: 100px 100px;
   background-color: #efc3c5;
-  border-radius: 10px;
-  margin: 25px;
+  border-radius: 10px;  
 }
 
 .main_message .alert-dismissible .btn-close {
@@ -2563,6 +2809,38 @@ margin:0 auto 35px auto;
   border-bottom-left-radius: 50px;
 }
 
+.filter-wrapper-main{
+position: relative;  
+/* border: 2px solid red; */
+}
+
+.favorites{
+position: absolute;  
+left: 10px;
+top: 10px;
+z-index: 5;
+
+text-align: center;
+
+}
+
+.favorites a{
+color: #fff;  
+width: 50px;
+height: 50px;
+background-color: rgba(99, 190, 242, .7);
+display: block;
+border-radius: 50%;
+line-height: 50px;
+border: 2px solid rgba(255,255,255,.7);
+box-sizing: content-box;
+}
+
+.favorites a i{
+font-size: 25px; 
+line-height: 50px;; 
+}
+
 .filter-img-main {
   width: 175px;
   height: 235px;
@@ -2595,7 +2873,7 @@ margin-bottom: 5px;
 }
 
 .filter-ocupation {
-  width: 165px;
+  width: 174px;
 }
 
 .paginator{
@@ -2819,7 +3097,19 @@ input[type="range"]:active::-webkit-slider-thumb{
   .dugmic{
     display: none;
   }
+  .no-data-filter{    
+    border-radius: 8px;
+    border: 1px solid #e8ecf3;
+    background-color: #fff;    
+    width: 80%;
+    margin: 0 auto;
+    box-shadow: 0 10px 40px 0 rgb(6 22 58 / 10%);
+    padding: 25px;
+  }
 
+  .no-data-filter h6{
+    font-size: 25px;
+    }
 
   /* filter show hife */
 
@@ -2875,4 +3165,62 @@ ul#id_age_children li{
   font-size: 20px;
 }
 
+/* ==== instructional page */
+.instructional-page{
+  padding: 50px 200px 20px 200px;
+background-color: #fff;
+margin-top: -150px;
+position: relative;
+margin-bottom: 55px;
+box-shadow: 0 1px 1px rgb(173 168 168 / 10%);
+border: 1px solid rgba(0, 0, 0, 0.1);
+}
+h3.inst-h3{
+margin-bottom: 25px;  
 
+}
+
+p.inst-first-p{
+font-size: 22px;;  
+}
+
+p.inst-scd-p{
+font-size: 19px;  
+}
+
+p.inst-scd-p a{
+color: #63bef2;  
+font-weight: 700;
+font-size: 20px;
+}
+
+.instructional-page .accordion-item{
+  margin-bottom: 30px;
+}
+.instructional-page .accordion-button {
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #63bef2 25%, transparent 0) -50px 0, linear-gradient(225deg, #63bef2 25%, transparent 25%) -50px 0, linear-gradient(315deg, #63bef2 25%, transparent 25%), linear-gradient(45deg, #63bef2 25%, transparent 25%);
+  background-color: rgba(0, 0, 0, 0);
+  background-size: auto, auto, auto, auto;
+background-size: 100px 100px;
+background-color: #73c4f4;
+text-shadow: 2px 2px rgb(0 0 0 / 20%);
+}
+
+
+a.inst-btn-reg{
+border-radius: 0;
+background: #f2cfd1;
+border-bottom: 4px solid #efc3c5;
+border-radius: 10px;
+color: #000;
+font-size: 18px;
+font-weight: 600;
+margin-top: 25px;
+}
+a.inst-btn-reg:hover{
+color: #fff; 
+text-shadow: 2px 2px rgb(0 0 0 / 20%); 
+}

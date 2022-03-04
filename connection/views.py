@@ -10,6 +10,14 @@ from django.db.models import Q
 from reviews .models import Commentary, Rate, Report
 from django.db.models import Avg
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.utils.translation import gettext_lazy as _
+from django.conf import settings
+from django.core.mail import send_mail
+from django.core.mail import EmailMultiAlternatives
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
+from django.utils.translation import get_language
+from favorite .models import Favorite
 
 
 @login_required
@@ -32,7 +40,7 @@ def all_babysitters(request):
             filter_babysitter = filter_babysitter.filter(sity=city)
 
         if 'age_children' in request.session:
-            city = request.session['age_children']
+            age_children = request.session['age_children']
             filter_babysitter = filter_babysitter.filter(
                 Q(age_children=age_children) | Q(age_children__contains=age_children))
 
@@ -265,7 +273,7 @@ def all_babysitters(request):
                 rated_person_id=babysitter.user_id).aggregate(Avg('score')).get('score__avg', 0.00)
             rate_list.append(babysitter_rate)
 
-        paginator = Paginator(babysitters, 2)  # 10 babysitters in page
+        paginator = Paginator(babysitters, 10)  # 10 babysitters in page
         page = request.GET.get('page')
         venues = paginator.get_page(page)
 
@@ -311,11 +319,21 @@ def babysitter_profil(request, slug):
     # RATE FOR BABYSITTER
     rate_average = Rate.objects.filter(
         rated_person_id=babysitter.user_id).aggregate(Avg('score')).get('score__avg', 0.00)
-
+    rate_number = Rate.objects.filter(
+        rated_person_id=babysitter.user_id).count()
+    # FAVORITE
+    favorite_babysitter_id = babysitter.id
+    favorite_family_id = request.user.family.id
+    favorite = False
+    favorite_queryset = Favorite.objects.filter(
+        family_id=request.user.family.id, babysitter_id=babysitter.id)
+    if favorite_queryset.exists():
+        favorite = True
     newsletter_form = NewsletterForm()
     context = {'babysitter': babysitter,
                'calendar': calendar, 'form': newsletter_form,
-               'commentary_list': commentary_list, 'rate_average': rate_average}
+               'commentary_list': commentary_list, 'rate_average': rate_average,
+               'rate_number': rate_number, 'favorite': favorite}
     return render(request, 'connection/babysitter_profil.html', context)
 
 
@@ -339,14 +357,36 @@ def send_match(request):
                     connection.is_matched = None
                     connection.save()
                     messages.success(
-                        request, (f'Ponovo ste ste rezervisali {babysiter_for_match.work_type} {babysiter_for_match.first_name} {babysiter_for_match.last_name}'))
+                        request, _('Ponovo ste ste rezervisali korisnika'))
                 else:
                     messages.success(
-                        request, (f'Već ste rezervisali {babysiter_for_match.work_type} {babysiter_for_match.first_name} {babysiter_for_match.last_name}'))
+                        request, _('Već ste rezervisali korisnika'))
         else:
             connection.save()
             messages.success(
-                request, (f'Uspešno ste rezervisali {babysiter_for_match.work_type} {babysiter_for_match.first_name} {babysiter_for_match.last_name}'))
+                request, _('Uspešno ste kontaktirali korisnika. Vaša rezervacija može biti prihvaćena ili odbijena. Ukoliko korisnik prohvati rezervaciju možete oceniti profil ostaviti komentar. Takođe korisnik  može videti Vaš profil i vaše kontakt podatke. Ukoliko smatrate da je korisnik odgovarajući kandidat, možete odmah stupiti u kontakt, upoznati se i započeti saradnju što pre. Dugmići (ikonice) koji će voditi na poziv na mejl.'))
+            # SEND EMAIL TO BABYSITTER
+            babysitter_email = babysiter_for_match.user.email
+            babysitter_name = babysiter_for_match.first_name
+            subject = _('Kontaktirani ste od strane porodice')
+            family = Family.objects.get(id=family_id)
+            language = get_language()
+            if language == 'sr':
+                link = (
+                    f'https://www.parentstime.rs/connection/family_profil/{family.slug}')
+            else:
+                link = (
+                    f'https://www.parentstime.rs/en/connection/family_profil/{family.slug}')
+            email_from = settings.EMAIL_HOST_USER
+            recipient_list = [babysitter_email]
+            html_content = render_to_string(
+                "email_connection.html", {'title': subject, 'name': family.first_name, 'surname': family.last_name, 'babysitter_name': babysitter_name, 'link': link})
+            text_content = strip_tags(html_content)
+            email = EmailMultiAlternatives(
+                subject, text_content, email_from, recipient_list)
+            email.attach_alternative(html_content, 'text/html')
+            email.send()
+
     return redirect('family:profil')
 
 
@@ -366,6 +406,74 @@ def matched_babysitter_profil(request, slug):
         if connection_queryset[0].is_matched == False:
             return redirect('family:profil')
         else:
+            # COMENNTARY, RATE and REPORT FORM
+            author_id = request.user.id
+            person_id = babysitter.user_id
+            commentary_model = Commentary()
+            rate_model = Rate()
+            report_model = Report()
+            if request.method == "POST":
+                # Commentary section
+                if 'commentary_submit' in request.POST:
+                    commentary = request.POST['comment_area']
+                    try:
+                        commentary_model = Commentary.objects.get(
+                            author_of_commentary_id=author_id, commentated_person_id=person_id)
+                        commentary_model.commentary_body = commentary
+                        commentary_model.published = True
+                        commentary_model.save()
+                        messages.success(
+                            request, _('Uspešno ste ostavili komentar!'))
+                    except Commentary.DoesNotExist:
+                        commentary_model = Commentary.objects.create(
+                            author_of_commentary_id=author_id,
+                            commentated_person_id=person_id,
+                            commentary_body=commentary,
+                            published=True
+                        )
+                        messages.success(
+                            request, _('Uspešno ste ostavili komentar!'))
+                # Rate section
+                if 'rate_submit' in request.POST and request.POST.get('rate'):
+                    score = request.POST['rate']
+                    try:
+                        rate_model = Rate.objects.get(
+                            author_of_rate_id=author_id, rated_person_id=person_id)
+                        rate_model.score = score
+                        rate_model.save()
+                        messages.success(
+                            request, _('Uspešno ste ocenili korisnika!'))
+                    except Rate.DoesNotExist:
+                        rate_model = Rate.objects.create(
+                            author_of_rate_id=author_id,
+                            rated_person_id=person_id,
+                            score=score
+                        )
+                        messages.success(
+                            request, _('Uspešno ste ocenili korisnika!'))
+                elif 'rate_submit' in request.POST:
+                    messages.error(
+                        request, _('Morate izabrati željenu ocenu!'))
+                # Report section
+                if 'report_submit' in request.POST:
+                    report = request.POST['user_report']
+                    try:
+                        report_model = Report.objects.get(
+                            author_of_report_id=author_id, reported_person_id=person_id)
+                        report_model.report_body = report
+                        report_model.save()
+                        messages.success(
+                            request, _('Uspešno ste prijavili korisnika!'))
+                    except Report.DoesNotExist:
+                        report_model = Report.objects.create(
+                            author_of_report_id=author_id,
+                            reported_person_id=person_id,
+                            report_body=report
+                        )
+                        messages.success(
+                            request, _('Uspešno ste prijavili korisnika!'))
+
+            # END OF COMENNTARY, RATE and REPORT
             # COMMENTARY FOR BABYSITTER
             comment_list = []
             author_of_commentary_list = []
@@ -387,80 +495,13 @@ def matched_babysitter_profil(request, slug):
             # RATE FOR BABYSITTER
             rate_average = Rate.objects.filter(
                 rated_person_id=babysitter.user_id).aggregate(Avg('score')).get('score__avg', 0.00)
-
-            # COMENNTARY, RATE and REPORT FORM
-            author_id = request.user.id
-            person_id = babysitter.user_id
-            commentary_model = Commentary()
-            rate_model = Rate()
-            report_model = Report()
-            if request.method == "POST":
-                # Commentary section
-                if 'commentary_submit' in request.POST:
-                    commentary = request.POST['comment_area']
-                    try:
-                        commentary_model = Commentary.objects.get(
-                            author_of_commentary_id=author_id, commentated_person_id=person_id)
-                        commentary_model.commentary_body = commentary
-                        commentary_model.published = True
-                        commentary_model.save()
-                        messages.success(
-                            request, ('Uspešno ste ostavili komentar!'))
-                    except Commentary.DoesNotExist:
-                        commentary_model = Commentary.objects.create(
-                            author_of_commentary_id=author_id,
-                            commentated_person_id=person_id,
-                            commentary_body=commentary,
-                            published=True
-                        )
-                        messages.success(
-                            request, ('Uspešno ste ostavili komentar!'))
-                # Rate section
-                if 'rate_submit' in request.POST and request.POST.get('rate'):
-                    score = request.POST['rate']
-                    try:
-                        rate_model = Rate.objects.get(
-                            author_of_rate_id=author_id, rated_person_id=person_id)
-                        rate_model.score = score
-                        rate_model.save()
-                        messages.success(
-                            request, ('Uspešno ste ocenili korisnika!'))
-                    except Rate.DoesNotExist:
-                        rate_model = Rate.objects.create(
-                            author_of_rate_id=author_id,
-                            rated_person_id=person_id,
-                            score=score
-                        )
-                        messages.success(
-                            request, ('Uspešno ste ocenili korisnika!'))
-                elif 'rate_submit' in request.POST:
-                    messages.error(
-                        request, ('Morate izabrati željenu ocenu!'))
-                # Report section
-                if 'report_submit' in request.POST:
-                    report = request.POST['user_report']
-                    try:
-                        report_model = Report.objects.get(
-                            author_of_report_id=author_id, reported_person_id=person_id)
-                        report_model.report_body = report
-                        report_model.save()
-                        messages.success(
-                            request, ('Uspešno ste prijavili korisnika!'))
-                    except Report.DoesNotExist:
-                        report_model = Report.objects.create(
-                            author_of_report_id=author_id,
-                            reported_person_id=person_id,
-                            report_body=report
-                        )
-                        messages.success(
-                            request, ('Uspešno ste prijavili korisnika!'))
-
-            # END OF COMENNTARY, RATE and REPORT
+            rate_number = Rate.objects.filter(
+                rated_person_id=babysitter.user_id).count()
 
             newsletter_form = NewsletterForm()
             context = {'babysitter': babysitter,
                        'calendar': calendar, 'form': newsletter_form,
-                       'commentary_list': commentary_list, 'rate_average': rate_average}
+                       'commentary_list': commentary_list, 'rate_average': rate_average, 'rate_number': rate_number}
             return render(request, 'connection/matched_babysitter_profil.html', context)
     else:
         return redirect('family:profil')
@@ -512,11 +553,13 @@ def family_profil(request, slug):
     # RATE FOR FAMILY
     rate_average = Rate.objects.filter(
         rated_person_id=profil.user_id).aggregate(Avg('score')).get('score__avg', 0.00)
+    rate_number = Rate.objects.filter(
+        rated_person_id=profil.user_id).count()
 
     newsletter_form = NewsletterForm()
     context = {'profil': profil, 'connection_list': connection_list,
                'calendar': calendar, 'form': newsletter_form,
-               'commentary_list': commentary_list, 'rate_average': rate_average}
+               'commentary_list': commentary_list, 'rate_average': rate_average, 'rate_number': rate_number}
     return render(request, 'connection/family_profil.html', context)
 
 
@@ -543,21 +586,6 @@ def matched_family_profil(request, slug):
             comentary_queryset = Commentary.objects.filter(
                 commentated_person_id=profil.user_id)
 
-            if comentary_queryset.exists():
-                for comment in comentary_queryset:
-                    comment_list.append(comment)
-
-                    author_of_commentary = Babysitter.objects.get(
-                        user_id=comment.author_of_commentary_id)
-
-                    author_of_commentary_list.append(author_of_commentary)
-                # MAKING ONE LIST FROM COMMENT LIST AND AUTHOR OF COMMENTARY_LIST
-                commentary_list = zip(comment_list, author_of_commentary_list)
-            else:
-                commentary_list = None
-            # RATE FOR FAMILY
-            rate_average = Rate.objects.filter(
-                rated_person_id=profil.user_id).aggregate(Avg('score')).get('score__avg', 0.00)
             # Change is matched in TRUE
             for connection in connection_queryset:
                 connection.is_matched = True
@@ -579,7 +607,7 @@ def matched_family_profil(request, slug):
                         commentary_model.published = True
                         commentary_model.save()
                         messages.success(
-                            request, ('Uspešno ste ostavili komentar!'))
+                            request, _('Uspešno ste ostavili komentar!'))
                     except Commentary.DoesNotExist:
                         commentary_model = Commentary.objects.create(
                             author_of_commentary_id=author_id,
@@ -588,7 +616,7 @@ def matched_family_profil(request, slug):
                             published=True
                         )
                         messages.success(
-                            request, ('Uspešno ste ostavili komentar!'))
+                            request, _('Uspešno ste ostavili komentar!'))
                 # Rate section
                 if 'rate_submit' in request.POST and request.POST.get('rate'):
                     score = request.POST['rate']
@@ -598,7 +626,7 @@ def matched_family_profil(request, slug):
                         rate_model.score = score
                         rate_model.save()
                         messages.success(
-                            request, ('Uspešno ste ocenili korisnika!'))
+                            request, _('Uspešno ste ocenili korisnika!'))
                     except Rate.DoesNotExist:
                         rate_model = Rate.objects.create(
                             author_of_rate_id=author_id,
@@ -606,10 +634,10 @@ def matched_family_profil(request, slug):
                             score=score
                         )
                         messages.success(
-                            request, ('Uspešno ste ocenili korisnika!'))
+                            request, _('Uspešno ste ocenili korisnika!'))
                 elif 'rate_submit' in request.POST:
                     messages.error(
-                        request, ('Morate izabrati željenu ocenu!'))
+                        request, _('Morate izabrati željenu ocenu!'))
                 # Report section
                 if 'report_submit' in request.POST:
                     report = request.POST['user_report']
@@ -619,7 +647,7 @@ def matched_family_profil(request, slug):
                         report_model.report_body = report
                         report_model.save()
                         messages.success(
-                            request, ('Uspešno ste prijavili korisnika!'))
+                            request, _('Uspešno ste prijavili korisnika!'))
                     except Report.DoesNotExist:
                         report_model = Report.objects.create(
                             author_of_report_id=author_id,
@@ -627,14 +655,30 @@ def matched_family_profil(request, slug):
                             report_body=report
                         )
                         messages.success(
-                            request, ('Uspešno ste prijavili korisnika!'))
+                            request, _('Uspešno ste prijavili korisnika!'))
 
             # END OF COMENNTARY, RATE and REPORT
+            if comentary_queryset.exists():
+                for comment in comentary_queryset:
+                    comment_list.append(comment)
 
+                    author_of_commentary = Babysitter.objects.get(
+                        user_id=comment.author_of_commentary_id)
+
+                    author_of_commentary_list.append(author_of_commentary)
+                # MAKING ONE LIST FROM COMMENT LIST AND AUTHOR OF COMMENTARY_LIST
+                commentary_list = zip(comment_list, author_of_commentary_list)
+            else:
+                commentary_list = None
+            # RATE FOR FAMILY
+            rate_average = Rate.objects.filter(
+                rated_person_id=profil.user_id).aggregate(Avg('score')).get('score__avg', 0.00)
+            rate_number = Rate.objects.filter(
+                rated_person_id=profil.user_id).count()
             newsletter_form = NewsletterForm()
             context = {'profil': profil,
                        'calendar': calendar, 'form': newsletter_form,
-                       'commentary_list': commentary_list, 'rate_average': rate_average}
+                       'commentary_list': commentary_list, 'rate_average': rate_average, 'rate_number': rate_number}
             return render(request, 'connection/matched_family_profil.html', context)
     else:
         return redirect('babysitter:profil')
@@ -648,7 +692,7 @@ def deny_connection(request):
         connection.is_matched = False
         connection.save()
         messages.success(
-            request, ('Uspešno ste odbili zahtev!'))
+            request, _('Uspešno ste odbili zahtev!'))
         context = {'connection': connection}
         return redirect('babysitter:profil')
 
@@ -660,6 +704,6 @@ def delete_connection(request):
         connection = Connection.objects.get(id=connection_id)
         connection.delete()
         messages.success(
-            request, ('Uspešno ste obrisali zahtev!'))
+            request, _('Uspešno ste obrisali zahtev!'))
         context = {'connection': connection}
         return redirect('family:profil')

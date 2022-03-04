@@ -31,8 +31,8 @@ class BabysitterForm(forms.ModelForm):
 
     sex = forms.ChoiceField(widget=forms.Select(
         attrs={'class': 'form-select', 'id': 'siter_sex', 'name': 'siter_sex', 'aria-label': 'Default select example'})),
-    hourly_rate = forms.ChoiceField(widget=forms.Select(
-        attrs={'class': 'form-control', 'id': 'siter_money', 'name': 'siter_money'})),
+    hourly_rate = forms.CharField(widget=forms.TextInput(
+        attrs={'class': 'form-control', 'id': 'siter_money', 'name': 'siter_money', 'min': '0', 'max': '3000', 'type': 'number'})),
     years_care_experience = forms.ChoiceField(widget=forms.Select(
         attrs={'class': 'form-select', 'id': 'siter_experience', 'name': 'siter_experience'})),
     work_type = forms.ChoiceField(widget=forms.Select(
@@ -97,15 +97,20 @@ class BabysitterForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(BabysitterForm, self).__init__(*args, **kwargs)
         self.fields['first_name'].widget.attrs['class'] = 'form-control'
+        self.fields['first_name'].required = True
         self.fields['last_name'].widget.attrs['class'] = 'form-control'
+        self.fields['last_name'].required = True
         self.fields['about_me'].widget.attrs['class'] = 'form-control'
         self.fields['about_me_eng'].widget.attrs['class'] = 'form-control'
         self.fields['picture'].widget.attrs['class'] = 'form-control'
         self.fields['picture'].widget.initial_text = ("")
         self.fields['picture'].widget.input_text = ("")
         self.fields['sity'].widget.attrs['class'] = 'form-select'
+        self.fields['sity'].required = True
         self.fields['mobile_number'].widget.attrs['class'] = 'form-control'
+        self.fields['mobile_number'].required = True
         self.fields['email'].widget.attrs['class'] = 'form-control'
+        self.fields['email'].required = True
         self.fields['social_network'].widget.attrs['class'] = 'form-control'
         self.fields['age_children'].widget.attrs['class'] = 'chk'
         self.fields['citizenship'].widget.attrs['class'] = 'form-select'
@@ -114,7 +119,9 @@ class BabysitterForm(forms.ModelForm):
         self.fields['sex'].widget.attrs['class'] = 'form-select'
         self.fields['hourly_rate'].widget.attrs['class'] = 'form-control'
         self.fields['years_care_experience'].widget.attrs['class'] = 'form-select'
+        self.fields['years_care_experience'].required = True
         self.fields['work_type'].widget.attrs['class'] = 'form-select'
+        self.fields['work_type'].required = True
         self.fields['car'].widget.attrs['class'] = 'form-select'
         self.fields['sick_child'].widget.attrs['class'] = 'form-select'
         self.fields['travel'].widget.attrs['class'] = 'form-select'

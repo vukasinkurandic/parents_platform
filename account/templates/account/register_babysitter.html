@@ -1,6 +1,7 @@
 {% extends "layout/base_contact.html" %}
+{% load i18n %}
 {% load static %}
-{% block title %} Register Babysitter {% endblock %}
+{% block title %} {% trans "Registracija Babysitterke" %} {% endblock %}
 
 {% block content %}
 <div class="slid insade-slid">
@@ -12,16 +13,16 @@
   <div class="container add-fluid-div">
     <div class="insade-profil-wrapper">
       <div class="user-title">
-        <h1 class="extrasmalldev">Registruj se kao bebisiter/dadilja</h1>
+        <h1 class="extrasmalldev">{% trans "Registruj se kao bebisiterka/dadilja" %}</h1>
       </div>
 
       <div class="row">
         <div class="col-lg-6">
           <div class="register-info">
             <p>
-              Dragi bebisiteri i svi koji uživate uradu sa decom registrujte se
+              {% blocktrans %}Dragi bebisiteri i svi koji uživate uradu sa decom registrujte se
               <b>besplatno u promo periodu</b> na našem sajtu i pronađite
-              porodicu u kakvoj ste oduvek želeli da radite
+              porodicu u kakvoj ste oduvek želeli da radite  {% endblocktrans %}                   
             </p>
           </div>
         </div>
@@ -29,16 +30,16 @@
           <div class="user-main-info">
             <div class="register-form-login">
               <div class="login-div">
-                <p>
-                  Ukoliko ste već registrovani kod nas kliknite na dugme
-                  "Prijavi se". <br />
+                <p>{% blocktrans %} Ukoliko ste već registrovani kod nas kliknite na dugme
+                  "Prijavi se". {% endblocktrans %}      
+                   <br />
                 </p>
-               <a class="btn btn-user-login-inmodal" href="{% url 'account:login' %}">Prijavi se</a>
+               <a class="btn btn-user-login-inmodal" href="{% url 'account:login' %}">{% trans "Prijavi se" %}</a>
               </div>
             </div>
 
             <div class="register-form">
-              <h4>Registruj se</h4>
+              <h4>{% trans "Registruj se" %}</h4>
                <!--MESSAGE-->
               {% if form.errors %}
                 {% for field in form %}
@@ -65,16 +66,16 @@
                   </div>
                   <div class="col-lg-6">
                     <div class="mb-3">
-                      <label for="password" class="form-label">Lozinka</label>
+                      <label for="password" class="form-label">{% trans "Lozinka" %}</label>
                       <!--INPUT PASSWORS1-->
                      {{form.password1}}
                     </div>
                   </div>
                   <div class="col-lg-6">
                     <div class="mb-3">
-                      <label for="repeat-password" class="form-label"
-                        >Ponovi lozinku</label
-                      >
+                      <label for="repeat-password" class="form-label">
+                        {% trans "Ponovi lozinku" %}
+                      </label>
                       <!--INPUT PASSWORS2-->
                       {{form.password2}}
                     </div>
@@ -84,19 +85,19 @@
                   <!--INPUT CHECKBOX-->
                   {{form.is_terms_confirmed}}
                   <span
-                    ><label class="form-check-label" for="exampleCheck1"
-                      >Slažem se sa uslovima korišćenja</label
-                    >
+                    ><label class="form-check-label" for="exampleCheck1">
+                      {% trans "Imate više od 18 godina i slažete se sa uslovima korišćenja" %}
+                    </label>
                   </span>
                   <span
                     ><div class="form-check-agree">
-                      <a href="">Uslovi korišćenja</a>
+                      <a href="">{% trans "Uslovi korišćenja" %}</a>
                     </div></span
                   >
                 </div>
 
                 <button type="submit" class="btn btn-log-reg">
-                  Registracija
+                  {% trans "Registracija" %}
                 </button>
               </form>
               <!--FORM***************-->
@@ -107,5 +108,6 @@
     </div>
   </div>
 </section>
+<input type="hidden" id="input-{{LANGUAGE_CODE}}">
 <script type="text/javascript" src="{% static 'layout/js/register_babysitter_register_family.js' %}"></script>
 {% endblock %}

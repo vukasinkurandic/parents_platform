@@ -113,7 +113,5 @@ class FamilyCalendar(models.Model):
     date_added = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        # pk = Family.objects.get(calendar_id=self.id).user_id
-        # return f'{CustomUser.objects.get(id=pk).email}-{self.date_added}'
         pk = self.family.user_id
         return f'{CustomUser.objects.get(id=pk).email}-{self.date_added}'

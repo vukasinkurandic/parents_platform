@@ -1,3 +1,5 @@
+from django.utils.translation import gettext_lazy as _
+
 SITY_CHOICES = (
     ('Beograd', 'Beograd'),
     ('Novi Sad', 'Novi Sad'),
@@ -156,9 +158,9 @@ NUMBER_CHOICES = (
 
 )
 NUMBER_EXPERIENCE_CHOICES = (
-    ('Nemam iskustva', 'Nemam iskustva'),
-    ('Do godinu dana', 'Do godinu dana'),
-    ('Više od godinu dana', 'Više od godinu dana'),
+    ('Nema iskustva', _('Nema iskustva')),
+    ('Do godinu dana', _('Do godinu dana')),
+    ('Više od godinu dana', _('Više od godinu dana')),
 
 )
 AGE_CHOICES = (
@@ -169,30 +171,31 @@ AGE_CHOICES = (
     ('12-18', '12-18'),
 )
 CITIZENSHIP_CHOICES = (
-    ('Srpski Drzavljanin', 'Srpski Drzavljanin'),
-    ('Strani Drzavljanin', 'Strani Drzavljanin'),
+    ('Srpski Državljanin', _('Srpski Državljanin')),
+    ('Strani Državljanin', _('Strani Državljanin')),
 )
 
 CHILDCARE_PERIOD_CHOICES = (
-    ('Manje od mesec dana', 'Manje od mesec dana'),
-    ('Mesec dana', 'Mesec dana'),
-    ('Par meseci', 'Par meseci'),
-    ('Godinu dana', 'Godinu dana'),
-    ('Više od godinu dana', 'Više od godinu dana'),
+    ('Povremeno', _('Povremeno')),
+    ('Manje od mesec dana', _('Manje od mesec dana')),
+    ('Mesec dana', _('Mesec dana')),
+    ('Par meseci', _('Par meseci')),
+    ('Godinu dana', _('Godinu dana')),
+    ('Više od godinu dana', _('Više od godinu dana')),
 )
 
 SEX_CHOICES = (
-    ('Muško', 'Muško'),
-    ('Žensko', 'Žensko'),
+    ('Muško', _('Muško')),
+    ('Žensko', _('Žensko')),
 )
 YES_NO_CHOICES = (
-    ('Da', 'Da'),
-    ('Ne', 'Ne'),
+    ('Da', _('Da')),
+    ('Ne', _('Ne')),
 )
 WORK_CHOICES = (
-    ('Bebisiterka', 'Bebisiterka'),
-    ('Dadilja', 'Dadilja'),
-    ('Bebisiterka i Dadilja', 'Bebisiterka i Dadilja'),
+    ('Bebisiterka', _('Bebisiterka')),
+    ('Dadilja', _('Dadilja')),
+    ('Bebisiterka i Dadilja', _('Bebisiterka i Dadilja')),
 
 )
 

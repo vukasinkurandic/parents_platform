@@ -13,6 +13,8 @@ from layout.forms import NewsletterForm
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
+from django.utils.translation import gettext_lazy as _
+from django.utils.translation import get_language
 
 
 def register_family(request):
@@ -29,7 +31,7 @@ def register_family(request):
             user.save()
            # messages.success(request, ('Uspešno ste se registrovali!'))
             send_mail_after_registration(email, token)
-            return redirect('/token')
+            return redirect('account:token_send')
     else:
         form = UserAdminCreationForm()
     return render(request, 'account/register_family.html', {'form': form})
@@ -48,7 +50,7 @@ def register_babysitter(request):
                 'is_terms_confirmed')
             user.save()
             send_mail_after_registration(email, token)
-            return redirect('/token')
+            return redirect('account:token_send')
 
     else:
         form = UserAdminCreationForm()
@@ -69,17 +71,17 @@ def verify(request, auth_token):
 
         if profile_obj:
             if profile_obj.is_email_verified:
-                messages.success(request, 'Vaš email je već verifikovan.')
+                messages.success(request, _('Vaš email je već verifikovan.'))
                 return render(request, 'account/already_verified.html')
             profile_obj.is_email_verified = True
             profile_obj.save()
-            messages.success(request, ('Uspešno ste se registrovali!'))
+            messages.success(request, _('Uspešno ste se registrovali!'))
             return render(request, 'account/success.html')
         else:
-            return redirect('/error')
+            return redirect('account:error')
     except Exception as e:
         print(e)
-        return redirect('/login')
+        return redirect('account:login')
 
 
 def error_page(request):
@@ -87,8 +89,12 @@ def error_page(request):
 
 
 def send_mail_after_registration(email, token):
-    subject = 'Your accounts need to be verified'
-    message = f'Hi paste the link to verify your account http://127.0.0.1:8000/verify/{token}'
+    subject = _('Vaš nalog mora biti verifikovan')
+    language = get_language()
+    if language == 'sr':
+        message = f'https://parentstime.rs/verify/{token}'
+    else:
+        message = f'https://parentstime.rs/en/verify/{token}'
     email_from = settings.EMAIL_HOST_USER
     recipient_list = [email]
     html_content = render_to_string(
@@ -116,19 +122,19 @@ def login(request):
                 if user.user_type == 1:
                     # messages.success(
                     # request, 'You are logged in successfully like FAMILY!')
-                    return redirect('/family/create_profil')
+                    return redirect('family:create_profil')
                 elif user.user_type == 2:
                     # messages.success(
                     # request, 'You are logged in successfully like Babysitter!')
-                    return redirect('/babysitter/create_profil')
+                    return redirect('babysitter:create_profil')
             else:
                 token = str(uuid.uuid4())
                 user.auth_token = token
                 user.save()
                 send_mail_after_registration(email, token)
-                return redirect('/token')
+                return redirect('account:token_send')
         else:
-            messages.error(request, 'Nepostojeći email ili netačna lozinka')
-            return redirect('/login')
+            messages.error(request, _('Nepostojeći email ili netačna lozinka'))
+            return redirect('account:login')
     else:
         return render(request, 'account/login.html', {'form': form})

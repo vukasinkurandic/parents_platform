@@ -1,4 +1,6 @@
 <!-- HEADER POČETAK  -->
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -29,6 +31,11 @@
     />
     <link rel="stylesheet" type="text/css" href="{% static 'layout/css/style.css' %}" /> 
     <link rel="stylesheet" type="text/css" href="{% static 'layout/css/responsive.css' %}" />
+     <!--Favicon-->
+      <link rel="apple-touch-icon" sizes="180x180" href="{% static 'layout/img/favicon/apple-touch-icon.png' %}">
+      <link rel="icon" type="image/png" sizes="32x32" href="{% static 'layout/img/favicon/favicon-32x32.png' %}">
+      <link rel="icon" type="image/png" sizes="16x16" href="{% static 'layout/img/favicon/favicon-16x16.png' %}">
+      <link rel="manifest" href="{% static 'layout/img/favicon/site.webmanifest' %}">
     <title>{% block title%} {% endblock %}</title>
   </head>
   <body>
@@ -39,7 +46,9 @@
     <!-- menu -->
     <div class="slid-wrap-nav">
       <div class="logo-mob-on-top">
-        <img src="{% static 'layout/img/logo4.png' %}" />
+        <a href="{% url 'layout:home' %}">
+          <img src="{% static 'layout/img/logo4.png' %}" />
+          </a>
       </div>
       <header>
         <div class="container rem-onmobile add-fluid-div">
@@ -54,36 +63,59 @@
               </div>
               <div class="col-md-8">
                 <div class="top-lang">
-                  <a href=""><img src="{% static 'layout/img/eng.png' %}" /></a>
-                  <a href=""><img src="{% static 'layout/img/srb.jpg' %}" /></a>
+                  <a href="/en/"><img src="{% static 'layout/img/eng.png' %}" /></a>
+                  <a href="/"><img src="{% static 'layout/img/srb.jpg' %}" /></a>
                 </div>
               </div>
             </div>
           </div>
           <div class="nav-top">
             <div class="circle-logo">
+              <a href="{% url 'layout:home' %}">
               <img src="{% static 'layout/img/logo6.png' %}" />
+            </a>
             </div>
             <nav>
+              <div class="top-lang-on-mob">
+                <ul class="lang-circle">
+                  <li><a href="/en/"><img src="{% static 'layout/img/eng-mob.jpg' %}" /></a></li>
+                  <li><a href="/"><img src="{% static 'layout/img/srb-mob.jpg' %}" /></a></li>
+                  </ul>
+                </div>
               <div class="logo-for-mob-on-menu">
+                <a href="{% url 'layout:home' %}">
                 <img src="{% static 'layout/img/logo4.png' %}" class="img-fluid" />
+              </a>
               </div>
               <div class="row">
                 <div class="col-md-8">
                   <ul class="mob-mar">
-                    <li><a href="{% url 'layout:home' %}">naslovna</a></li>
-                    <li><a href="">blog</a></li>
-                    <li><a href="{% url 'layout:contact' %}">kontakt</a></li>
-                    {% if user.is_authenticated and user.user_type == 1 %}
-                     <li><a href="{% url 'connection:all_babysitters' %}">baza bebisitera/dadilja</a></li>
-                    {%endif%}
+                    <li><a href="{% url 'layout:home' %}">{% trans "naslovna" %}</a></li>
+                    {% if LANGUAGE_CODE == 'sr'%}
+                    <li><a href="https://blog.parentstime.rs/">blog</a></li>
+                    {% elif LANGUAGE_CODE == 'en'%}
+                    <li><a href="https://blog.parentstime.rs/">blog</a></li>
+                    {% endif%}
+                    <li><a href="{% url 'layout:contact' %}">{% trans "kontakt" %}</a></li>
+                   {% if user.is_authenticated and user.user_type == 1 %}
+                    <li><a href="{% url 'connection:all_babysitters' %}">{% trans "baza bebisitera/dadilja" %}</a></li>
+                   {%elif user.is_authenticated and user.user_type == 2%}
+                               
+                   {% else %}
+                   <li><a href="{% url 'account:login' %}">{% trans "baza bebisitera/dadilja" %}</a></li>
+                   {%endif%}
                   </ul>
                 </div>
                 <div class="col-md-4">
                            <!--USER IS AUTHENTICATED-->
                            {% if user.is_authenticated %}
                            <div class="logout">
-                            <a class="btn btn-logout" href="{% url 'account:logout' %}">Odjavi se</a>
+                            <a class="btn btn-logout" href="{% url 'account:logout' %}">{% trans "Odjavi se" %}</a>
+                              {%if user.user_type == 1%}
+                              <a class="btn btn-logout" href="{% url 'family:profil' %}">{% trans "Profil" %}</a>
+                              {%else%}
+                              <a class="btn btn-logout" href="{% url 'babysitter:profil' %}">{% trans "Profil" %}</a>
+                              {%endif%}
                           </div>
                               {%if user.user_type == 1%}
                                  {%if request.user.family.picture.url == '' %}                               
@@ -98,18 +130,22 @@
                                  {%else%}
                                  <div class="login-user">
                                  <a href="{% url 'babysitter:profil' %}">
-                                 <img src="{{request.user.babysitter.picture.url}}" class="img-fluid" /></a>
+                                 <img src="{{request.user.babysitter.picture.url}}" class="img-fluid" />
+                                 {% if number_waiting_connections_base%}
+                                   <div class="reserve-info">{{number_waiting_connections_base}}</div>  
+                                 {% endif %} 
+                                </a>
                                  </div>
                                  {%endif%}
                               {%endif%}
                              <!--USER IS NOT AUTHENTICATED-->
                         {%else%}
                       <div class="no-login-select">
-                        <button class="dropbtn btn"><i class="far fa-user"></i> Registruj se/prijavi se</button>
+                        <button class="dropbtn btn"><i class="far fa-user"></i> {% trans "Registruj se/prijavi se" %} </button>
                         <div class="dropdown-content">
-                          <a href="{% url 'account:register_babysitter' %}">Kao Bebisiter/Dadilja</a>
-                          <a href="{% url 'account:register_family' %}">Kao Porodica</a>
-                          <a href="{% url 'account:login' %}">Prijavi se</a>       
+                          <a href="{% url 'account:register_babysitter' %}">{% trans "Kao Bebisiter/Dadilja" %}</a>
+                          <a href="{% url 'account:register_family' %}">{% trans "Kao Porodica" %}</a>
+                          <a href="{% url 'account:login' %}">{% trans "Prijavi se" %}</a>       
                         </div>
                       </div> 
                     {%endif%}
@@ -137,31 +173,38 @@
             <div class="row">
               <div class="col-lg-6 col-xl-3 col-md-6">
                 <div class="footer-wrapper">
-                  <img src="{% static 'layout/img/logo4.png' %}" class="img-fluid footer-logo-img" />
-                  <p class="footer-logo-info">
-                    Parent's time je platforma koja je tu da izadje u susret
+                  <a href="{% url 'layout:home' %}">
+                    <img src="{% static 'layout/img/logo4.png' %}" class="img-fluid" />
+                    </a>
+                  <p class="footer-logo-info">{% blocktrans %} "Parent's time je platforma koja je tu da izađe u susret
                     svakom roditelju kome je potrebna pomoć prilikom traženja
                     idealne osobe koja bi čuvala njihovo dete kada oni to nisu u
-                    mogućnosti.
+                    mogućnosti."{% endblocktrans %}
+                   
                   </p>
                 </div>
               </div>
               <div class="col-lg-6 col-xl-3 col-md-6">
                 <div class="footer-wrapper">
                   <div class="footer-main-link">
-                    <h4>Brzi linkovi</h4>
+                    <h4>{% trans "Brzi linkovi" %}</h4>
                     <ul>
                       <li>
-                        <a href="">Ko smo mi</a>
+                        <a href="{% url 'layout:home' %}">{% trans "Naslovna" %}</a>
                       </li>
                       {% if user.is_authenticated and user.user_type == 1 %}
-                      <li><a href="{% url 'connection:all_babysitters' %}">Baza bebisitera/dadilja</a></li>
+                      <li><a href="{% url 'connection:all_babysitters' %}">{% trans "Baza bebisitera/dadilja" %}</a></li>
                       {%endif%}
+                      {% if LANGUAGE_CODE == 'sr'%}
+                         <li><a href="https://blog.parentstime.rs/">Novosti iz dečijeg sveta</a></li>
+                        {% elif LANGUAGE_CODE == 'en'%}
+                        <li><a href="https://blog.parentstime.rs/">News from the children's world</a></li>
+                        {% endif%}
                       <li>
-                        <a href="">Novosti iz dečijeg sveta</a>
-                      </li>
+                           <a href="{% url 'layout:instruction_page' %}">{% trans "Uputstvo za korišćenje platforme" %}</a>
+                         </li>
                       <li>
-                        <a href="{% url 'layout:contact' %}">Kontakt</a>
+                        <a href="{% url 'layout:contact' %}">{% trans "Kontakt" %}</a>
                       </li>
                     </ul>
                   </div>
@@ -171,21 +214,29 @@
                 <div class="footer-wrapper">
                   <div class="fot-map-info-main">
                     <div class="fot-map-text">
-                      <p>
-                        U svakom trenutku pronađite dadilju na teritoriji cele
-                        Srbije koja odgovara baš Vašoj porodici!
+                      <p>{% blocktrans %}  "U svakom trenutku pronađite dadilju na teritoriji cele
+                        Srbije koja odgovara baš Vašoj porodici!" {% endblocktrans %}
+                        
                       </p>
-                      <p>U promo periodu besplatna i uvek dostupna baza bebisitera/dadilja</p>
-                    </div>
-                    <div class="foter-map">
-                      <img src="{% static 'layout/img/mapa.png' %}" class="img-fluid" />
-                    </div>
+                      <p>{% trans "U promo periodu besplatna i uvek dostupna baza bebisitera/dadilja" %}</p>
+                      {% if user.is_authenticated %}
+                      {%else%}
+                      <div class="no-login-select">
+                        <button class="dropbtn btn"><i class="far fa-user"></i> {% trans "Registruj se/prijavi se" %} </button>
+                        <div class="dropdown-content">
+                           <a href="{% url 'account:register_babysitter' %}">{% trans "Kao Bebisiter/Dadilja" %}</a>
+                           <a href="{% url 'account:register_family' %}">{% trans "Kao Porodica" %}</a>
+                           <a href="{% url 'account:login' %}">{% trans "Prijavi se" %}</a>       
+                        </div>
+                        </div> 
+                        {%endif%}
+                    </div>                    
                   </div>
                 </div>
               </div>
               <div class="col-lg-6 col-xl-4 col-md-12">
                 <div class="footer-wrapper sub-mar">
-                  <h4>Pretplatite se na naš blog</h4>
+                  <h4>{% trans "Pretplatite se na naš blog" %}</h4>
                      <form action="{% url 'layout:newsletter' %}" method="post">
                         {% csrf_token%}
                        <div class="form-newsletter">
@@ -204,21 +255,21 @@
           <div class="footer-bottom">
             <ul class="agree-ul-f">
               <li>
-                <a href="">Uslovi korišćenja i politika privatnosti</a>
+                <a href="">{% trans "Uslovi korišćenja i politika privatnosti" %}</a>
               </li>
               <li>
-                <a href="">Mere poverenja i bezbednosti</a>
+                <a href="">{% trans "Mere poverenja i bezbednosti" %}</a>
               </li>
             </ul>
             <ul class="soc-bot-link">
               <li>
-                <a href=""><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.facebook.com/Parents-time-102157838176047/"><i class="fab fa-facebook-f"></i></a>
               </li>
               <li>
-                <a href=""><i class="fab fa-instagram"></i></a>
+                <a href="https://instagram.com/parents.time?utm_medium=copy_link"><i class="fab fa-instagram"></i></a>
               </li>
               <li>
-                <a href=""><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.linkedin.com/company/parent-s-time"><i class="fab fa-linkedin-in"></i></a>
               </li>
             </ul>
           </div>

@@ -1,6 +1,7 @@
 {% extends "layout/base_contact.html" %}
+{% load i18n %}
 {% load static %}
-{% block title%} Kontakt {% endblock %}
+{% block title%} {% trans "Kontakt" %} {% endblock %}
 
 {% block content%}
   
@@ -13,43 +14,33 @@
   <div class="container add-fluid-div">
     <div class="insade-profil-wrapper">
       <div class="user-title">
-        <h1>Kontakt</h1>
+        <h1>{% trans "Kontakt" %}</h1>
       </div>
       <div class="row">
         <div class="col-md-6">
           <div class="contact-right">
-            <h2>
-              Ukoliko imate bilo kakvih nedoumica ili pitanja, možete nas
-              kontaktirati, a mi ćemo Vam odgovoriti u najkraćem roku.
+            <h2>{% blocktrans %} "Ukoliko imate bilo kakvih nedoumica ili pitanja, možete nas
+              kontaktirati, a mi ćemo Vam odgovoriti u najkraćem roku." {% endblocktrans %}
+              
             </h2>
-            <ul class="contact">
-              <li>
-                <div class="contact-icon">
-                  <i class="fas fa-map-marker-alt"></i>
-                </div>
-                <div class="contact-text">Bulevar Mihajla Pupina 87/11</div>
-              </li>
-              <li>
-                <div class="contact-icon">
-                  <i class="fas fa-phone"></i>
-                </div>
-                <div class="contact-text">(+381) 060/17-07-410</div>
-              </li>
-              <li>
+            <ul class="contact">             
+            <li>
                 <div class="contact-icon">
                   <i class="fas fa-envelope"></i>
                 </div>
-                <div class="contact-text">office@parentstime.org</div>
+                <div class="contact-text no-link">
+                <a href="mailto:email@example.com">contact@parentstime.rs</a>  
+                </div>
               </li>
             </ul>
             <ul class="social-contact">
-              <a href="">
+              <a href="https://www.facebook.com/Parents-time-102157838176047/">
                 <li><i class="fab fa-facebook"></i></li>
               </a>
-              <a href="">
+              <a href="https://instagram.com/parents.time?utm_medium=copy_link">
                 <li><i class="fab fa-instagram"></i></li>
               </a>
-              <a href="">
+              <a href="https://www.linkedin.com/company/parent-s-time">
                 <li><i class="fab fa-linkedin-in"></i></li>
               </a>
             </ul>
@@ -82,7 +73,7 @@
             <form method="POST" action="{% url 'layout:contact_message' %}">
               {% csrf_token%}
               <div class="mb-3">
-                <label for="sender_name" class="form-label">Ime</label>
+                <label for="sender_name" class="form-label">{% trans "Ime" %}</label>
                 {{form.name}}
               </div>
               <div class="mb-3">
@@ -90,7 +81,7 @@
                 {{form.email}}
               </div>
               <div class="mb-3">
-                <label for="sender_message" class="form-label">Poruka</label>
+                <label for="sender_message" class="form-label">{% trans "Poruka" %}</label>
                 {{form.contact_message}}
               </div>
               <input

@@ -1,8 +1,9 @@
 
 {% extends "layout/base_contact.html" %}
+{% load i18n %}
 {% load static %}
 {% load crispy_forms_tags %}
-{% block title%} Ažuriraj Babysitter Profil {% endblock %}
+{% block title%} {% trans "Ažuriraj Profil" %} {% endblock %}
 
 {% block content%}
 <div class="slid insade-slid">
@@ -14,7 +15,7 @@
        <div class="insade-profil-wrapper insade-profil-wrapper-bebisit">          
           <div class="user-title">
              <h1>
-                Ažurirajte Vaš Profil 
+                {% trans "Ažurirajte Vaš Profil " %}
              </h1>
           </div>
           <!-- MESSAGES-->
@@ -35,7 +36,7 @@
                   {% endif %}                  
                   <!-- MESSAGES-->
           <div class="profile_edit only-on-create_profil-page">
-            <p class="create-profil">Ovo je strana za ažuriranje vašeg profila. U 4 laka koraka se kreira profil. Što bolje popunite ovu stranu to vam olakšava da vas neko angažuje za posao. Prvi korak popunjavate osnovne informacije o sebi. Dugi korak ubacite vašu sliku. Treći korak odgovarate na pitanja da bi vaš profil na parents-time platformi bio što bolji. Četvrti korak klikni na dugme kreiraj profil. Srećno u pronalaženju posla.</p>
+            <p class="create-profil">{% trans "Ovo je strana za ažuriranje vašeg profila. U 4 laka koraka se kreira profil. Što bolje popunite ovu stranu to vam olakšava da vas neko angažuje za posao. Prvi korak popunjavate osnovne informacije o sebi. Dugi korak ubacite vašu sliku. Treći korak odgovarate na pitanja da bi vaš profil na parents-time platformi bio što bolji. Četvrti korak klikni na dugme kreiraj profil. Srećno u pronalaženju posla." %}</p>
             <div class="edit-circle ed-cir-he">1</div>
              <form method="post" action="" enctype="multipart/form-data">
                {% csrf_token%}
@@ -47,20 +48,20 @@
                            <div class="col-lg-12"></div>
                             <div class="col-lg-6">
                                <div class="mb-3">
-                                  <label for="siter_name" class="form-label">Ime</label>
+                                  <label for="siter_name" class="form-label">{% trans "Ime" %}</label>
                                   {{ form_babysitter.first_name}}
                                </div>
                             </div>
                             <div class="col-lg-6">
                                <div class="mb-3">
-                                  <label for="siter_surname" class="form-label">Prezime</label>
+                                  <label for="siter_surname" class="form-label">{% trans "Prezime" %}</label>
                                   {{ form_babysitter.last_name}}
                                </div>
                             </div>
                             <div class="col-lg-6">
                               <div class="mb-3">
-                                 <label for="siter_phone" class="form-label">Telefon</label>
-                                 <span class="small_info" >u formi +38163123456</span>
+                                 <label for="siter_phone" class="form-label">{% trans "Telefon" %}</label>
+                                 <span class="small_info" >{% trans "u formi +38163123456" %}</span>
                                    {{ form_babysitter.mobile_number}}
                               </div>
                            </div>      
@@ -74,26 +75,27 @@
 
                             <div class="col-lg-6">
                               <div class="mb-3">
-                                 <label for="siter_money" class="form-label">Satnica/RSD</label>
+                                 <label for="siter_money" class="form-label">{% trans "Satnica/RSD" %}</label>
+                                 <span class="small_info" >{% trans "min 0 max 3000" %}</span>
                                  {{ form_babysitter.hourly_rate}}
                               </div>
                            </div>
                            <div class="col-lg-6">
                              <div class="mb-3">
-                                <label for="user_child_number" class="form-label">Vaše godine starosti</label>
+                                <label for="user_child_number" class="form-label">{% trans "Vaše godine starosti" %}</label>
                                {{ form_babysitter.age}}
                              </div>
                           </div> 
 
                             <div class="col-lg-6">
                                <div class="mb-3">
-                                  <label for="siter_sex" class="form-label">Pol</label>
+                                  <label for="siter_sex" class="form-label">{% trans "Pol" %}</label>
                                   {{ form_babysitter.sex}}
                                </div>
                             </div>
                             <div class="col-lg-6">
                                <div class="mb-3">
-                                  <label for="siter_city" class="form-label">Grad u kojem bi radio/la</label>
+                                  <label for="siter_city" class="form-label">{% trans "Grad u kojem bi radio/la" %}</label>
                                   {{ form_babysitter.sity}}
                                </div>
                             </div>
@@ -102,33 +104,33 @@
 
                             <div class="col-lg-6">
                                <div class="mb-3">
-                                  <label for="siter_bd" class="form-label">Tražim posao kao</label>
+                                  <label for="siter_bd" class="form-label">{% trans "Tražim posao kao" %}</label>
                                  {{ form_babysitter.work_type}}
                                </div>
                             </div>
                              
                             <div class="col-lg-6">
                                <div class="mb-3">
-                                  <label for="siter_experience" class="form-label">Godine iskustva u radu</label>
+                                  <label for="siter_experience" class="form-label">{% trans "Godine iskustva u radu" %}</label>
                                   {{ form_babysitter.years_care_experience}}
                                </div>
                             </div>
                             <div class="col-lg-6">
                               <div class="mb-3">
-                                 <label for="siter_social_network" class="form-label">Društvene mreže</label>
+                                 <label for="siter_social_network" class="form-label">{% trans "Društvene mreže" %}</label>
                                  {{ form_babysitter.social_network}}
                               </div>
                            </div>
                            <div class="col-lg-6">
                               <div class="mb-3">
-                                 <label for="siter_experience" class="form-label">Državljanstvo</label>
+                                 <label for="siter_experience" class="form-label">{% trans "Državljanstvo" %}</label>
                                  {{ form_babysitter.citizenship}}
                               </div>
                            </div>
                            	
                            <div class="col-lg-12">
                               <div class="mb-3">
-                                 <label for="user_child_number" class="form-label">Uzrast dece koju čuvate</label>
+                                 <label for="user_child_number" class="form-label">{% trans "Uzrast dece koju čuvate" %}</label>
                                 {{ form_babysitter.age_children}}
                               </div>
                            </div>
@@ -152,7 +154,7 @@
                            <div class="edit-circle2 ed-cir-he2">2</div>
                             <div class="col-lg-12">
                               <div class="mb-3">
-                                 <label for="user_image" class="form-label">Slika</label>
+                                 <label for="user_image" class="form-label">{% trans "Slika" %}</label>
                                  {{ form_babysitter.picture}}
                               </div>
                             </div>
@@ -161,13 +163,13 @@
 
                             <div class="col-lg-6">
                               <div class="mb-3">
-                                 <label for="siter_spec_chd" class="form-label">Čuvao/la bih decu sa posebnim potrebama</label>
+                                 <label for="siter_spec_chd" class="form-label">{% trans "Čuvao/la bi decu sa posebnim potrebama:" %}</label>
                                    {{ form_babysitter.children_with_special_needs}}
                               </div>
                            </div>
                               <div class="col-lg-6">
                               <div class="mb-3">
-                                 <label for="siter_pet" class="form-label">Radio/la bih lakše kućne poslove</label>
+                                 <label for="siter_pet" class="form-label">{% trans "Radio/la bi lakše kućne poslove:" %}</label>
                                  {{ form_babysitter.home_job}}
                               </div>
                            </div>
@@ -175,27 +177,27 @@
 
                            <div class="col-lg-6">
                               <div class="mb-3">
-                                 <label for="siter_pet" class="form-label">Smetaju mi kućni ljubimci</label>
+                                 <label for="siter_pet" class="form-label">{% trans "Smetaju mi kućni ljubimci:" %}</label>
                                  {{ form_babysitter.pets}}
                               </div>
                            </div>
 
                             <div class="col-lg-6">
                                <div class="mb-3">
-                                  <label for="siter_home" class="form-label">Čuvao/la bih decu kod svoje kuće</label>
+                                  <label for="siter_home" class="form-label">{% trans "Čuvao/la bi decu kod svoje kuće:" %}</label>
                                   {{ form_babysitter.house}}
                                </div>
                             </div>
                          
                             <div class="col-lg-6">
                               <div class="mb-3">
-                                 <label for="siter_schol_act" class="form-label">Pomagao/la bih u obavljaju školskih aktivnosti</label>
+                                 <label for="siter_schol_act" class="form-label">{% trans "Pomagao/la bi u školskim aktivnostima:" %}</label>
                                  {{ form_babysitter.school_activities}}
                               </div>
                            </div>
                            <div class="col-lg-6">
                               <div class="mb-3">
-                                 <label for="siter_hc" class="form-label">Imam decu</label>
+                                 <label for="siter_hc" class="form-label">{% trans "Imam decu:" %}</label>
                                  {{ form_babysitter.own_children}}
                               </div>
                            </div>
@@ -203,26 +205,26 @@
 
                            <div class="col-lg-6">
                               <div class="mb-3">
-                                 <label for="siter_food" class="form-label">Kuvao/la bih za decu/porodicu</label>
+                                 <label for="siter_food" class="form-label">{% trans "Kuvao/la bi za decu i porodicu:" %}</label>
                                  {{ form_babysitter.cooking}}
                               </div>
                            </div>
                              <div class="col-lg-6">
                               <div class="mb-3">
-                                 <label for="siter_drivlic" class="form-label">Čuvao/la bih dete dok je bolesno</label>
+                                 <label for="siter_drivlic" class="form-label">{% trans "Čuvao/la bi decu dok su bolesna:" %}</label>
                                     {{ form_babysitter.sick_child}}
                               </div>
                            </div>
 
                            <div class="col-lg-6">
                               <div class="mb-3">
-                                 <label for="siter_drivlic" class="form-label"> Putovao/la bih sa porodicom</label>
+                                 <label for="siter_drivlic" class="form-label">{% trans "Putovao/la bi sa porodicom:" %} </label>
                                     {{ form_babysitter.travel}}
                               </div>
                            </div>
                            <div class="col-lg-6">
                               <div class="mb-3">
-                                 <label for="siter_car" class="form-label">Imam automobil</label>
+                                 <label for="siter_car" class="form-label">{% trans "Vozio/la bi decu svojim autom:" %}</label>
                                  {{ form_babysitter.car}}
                               </div>
                            </div>
@@ -230,7 +232,7 @@
                    
                    
                 
-                <input type="submit" name="send_msg" value="Ažuriraj profil" class="btn btn-log-reg">
+                <input type="submit" name="send_msg" value="{% blocktrans %} Ažuriraj profil {% endblocktrans %}  " class="btn btn-log-reg">
              </form>
           </div>
        </div>

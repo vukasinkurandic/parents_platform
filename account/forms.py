@@ -1,17 +1,18 @@
 from django import forms
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm
+from django.utils.translation import gettext_lazy as _
 
 
 class UserAdminCreationForm(UserCreationForm):
-    email = forms.EmailField(error_messages={'unique': ('Email je vec registrovan')}, widget=forms.EmailInput(
+    email = forms.EmailField(error_messages={'unique': _('Email je vec registrovan')}, widget=forms.EmailInput(
         attrs={'class': 'form-control', 'id': 'email', 'name': 'email'}))
 
     is_terms_confirmed = forms.BooleanField(required=True, widget=forms.CheckboxInput(
         attrs={'class': 'form-check-input', 'id': 'exampleCheck1'}))
 
     error_messages = {
-        'password_mismatch': ('Dva polja za lozinku se ne poklapaju.'),
+        'password_mismatch': _('Dva polja za lozinku se ne poklapaju.'),
     }
 
     class Meta:

@@ -1,7 +1,9 @@
 {% extends "layout/base_contact.html" %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
 {% load static %}
 {% load crispy_forms_tags %}
-{% block title%} Family Profil {% endblock %}
+{% block title%} {% trans "Porodični Profil" %} {% endblock %}
 
 {% block content%}
 <div class="slid insade-slid">
@@ -14,7 +16,7 @@
                    <div class="user-title">
                       <h1>
                         {%if profil.first_name == "" and profil.last_name == "" %}
-                        Ime i prezime
+                        {% trans "Ime i prezime" %}
                         {%else%}
                         {{profil.first_name}} {{profil.last_name}} 
                         {%endif%}
@@ -44,6 +46,18 @@
                   <!-- MESSAGES-->
                    <div class="row">
                       <div class="col-xxl-4 col-xl-5 col-lg-5">
+                        <div class="user-short-info only-on-small">
+                           <ul>
+                              <li>
+                                 <span class="user-year">{% trans "Ocena korisnika" %}</span>
+                                 {%if rate_average == None %}
+                                 <span class="user-year-num">{% trans "Nema ocene" %}</span>
+                                 {%else%}
+                                 <span class="user-year-num rat-num">{{rate_average}} ({{rate_number}})</span>
+                                 {%endif%}
+                              </li>
+                           </ul>
+                        </div>
                          <div class="user-image">
                                 {%if profil.picture == None %}
                                 <img src="{% static 'layout/img/zena02.jpg' %}" class="img-fluid">
@@ -56,7 +70,7 @@
                                {%if profil.mobile_number == "" %}
                               <li>
                                 <span class="icon-user" ><i class="fas fa-phone"></i></span> <span class="user-phone" >
-                                      Nema broja
+                                      {% trans "Nema broja" %}
                                     </span>                        
                              </li>
                                {%else%}
@@ -66,30 +80,32 @@
                                       {{profil.mobile_number}}
                                     </span></a>
                                    
-                             </li> {%endif%}
-                               <li> <span class="icon-user" > <i class="far fa-envelope"></i></span>  <span class="user-phone" >
-                                      {%if profil.email == None %}
-                                      {%else%}
-                                      {{profil.email}}
-                                      {%endif%}
-                               </span></li>
+                             </li> {%endif%}                               
                             </ul>
                          </div>
                          <div class="user-short-info">
                             <ul>
+                               <li class="email-center no-link" >
+                                  <span class="user-year" >
+                                     {%if profil.email == None %}
+                                 {%else%}
+                                  <a href="mailto:{{profil.email}}"> {{profil.email}}</a>
+                                 {%endif%}</span>
+                              </li>
+
                               {% if profil.social_network == None %}
                               <li>
-                                 <span class="user-year">Nema Društvene mreže</span>
+                                 <span class="user-year">{% trans "Nema Društvene mreže" %}</span>
                               </li>
                                  
                                  {%else%}
                               <li>
-                                  <span class="user-year">Društvene mreže</span>
-                                  <a href="{{profil.social_network}}"><span class="user-year-num">Klikni ovde</span></a>
+                                  <span class="user-year">{% trans "Društvene mreže" %}</span>
+                                  <a href="{{profil.social_network}}"><span class="user-year-num">{% trans "Klikni ovde" %}</span></a>
                                </li> 
                                {%endif%}                                     
                                <li>
-                                  <span class="user-year">Godine roditelja</span>
+                                  <span class="user-year">{% trans "Godine roditelja" %}</span>
                                   {%if profil.age == None %}
                                   {%else%}
                                       <span class="user-year-num">
@@ -99,60 +115,78 @@
 
                                </li>                                      
                                <li>
-                                  <span class="user-year">Uzrast dece koju treba čuvati</span>
+                                  <span class="user-year">{% trans "Uzrast dece koju treba čuvati" %}</span>
                                   <span class="user-year-num">{{profil.age_children}}</span>
                                </li>
                                <li>
-                                  <span class="user-year">Broj dece</span>
+                                  <span class="user-year">{% trans "Broj dece" %}</span>
                                   <span class="user-year-num">{{profil.number_children}}</span>
                                </li>
-                            </ul>
-                         </div>
-                 
-                         <div class="user-short-info">
-                            <ul>
                                <li>
-                                  <span class="user-year">Ocena korisnika</span>
-                                  {%if rate_average == None %}
-                                  <span class="user-year-num">Nema ocene</span>
-                                  {%else%}
-                                  <span class="user-year-num rat-num">{{rate_average}}</span>
-                                  {%endif%}
+                                  <span class="user-year">{% trans "Period čuvanja" %}</span>
+                                  <span class="user-year-num">   
+                                    {% if profil.childcare_period == 'Manje od mesec dana' %}
+                                       {% trans "Manje od mesec dana" %}
+                                    {% elif profil.childcare_period == 'Mesec dana' %}
+                                       {% trans "Mesec dana" %}
+                                    {% elif profil.childcare_period == 'Par meseci' %}
+                                       {% trans "Par meseci" %}
+                                    {% elif profil.childcare_period == 'Godinu dana' %}
+                                       {% trans "Godinu dana" %}
+                                    {% elif profil.childcare_period == 'Više od godinu dana' %}
+                                       {% trans "Više od godinu dana" %}
+                                    {% elif profil.childcare_period == 'Povremeno' %}
+                                       {% trans "Povremeno" %}
+                                    {%endif%}
+                                  </span>
                                </li>
                             </ul>
-                         </div>
+                         </div>                 
+                      
                     <div class="user-short-info">
-                     <a href="{% url 'connection:matched_family_profil' profil.slug %}"><button class="btn btn-success">Prihvati zahtev</button></a>
+                     <a href="{% url 'connection:matched_family_profil' profil.slug %}"><button class="btn btn-success">{% trans "Prihvati zahtev" %}</button></a>
                 </div>
                 {% for connection in connection_list%}
                <div class="user-short-info">
                    <form action="{% url 'connection:deny_connection' %}" method="post">
                       {% csrf_token%}
                         <input type="hidden" name="connection_id" value="{{connection.id}}">
-                        <button class="btn btn-danger" type="submit" class="">Odbij zahtev</button>
+                        <button class="btn btn-danger" type="submit" class="">{% trans "Odbij zahtev" %}</button>
                    </form>   
                 </div>
                 {% endfor%}
                       </div>
                       <div class="col-xxl-8 col-xl-7 col-lg-7">
                          <div class="user-main-info">
-                            <h3>O sebi</h3>
+                            <h3>{% trans "O sebi" %}</h3>
                             <div class="about-area">
-                               <p>       
-                                 {% if profil.about_me == "" %}
-                                    Nema informacija...
-                                 {%else%}
-                                    {{profil.about_me}}
-                                 {%endif%}
+                               <p>
+                                  {% if LANGUAGE_CODE == 'sr'%}
+                                    {% if profil.about_me == "" %}
+                                       Porodica nije napisala ništa o sebi...
+                                    {%else%}
+                                       {{profil.about_me}}
+                                    {%endif%}
+                                  {% elif LANGUAGE_CODE == 'en'%}
+                                    {% if profil.about_me_eng == "" %}
+                                          {% if profil.about_me == "" %}
+                                             The family did not write anything about themselves ...
+                                          {%else%}
+                                             {{profil.about_me}}
+                                          {%endif%}
+                                    {%else%}
+                                       {{profil.about_me_eng}}
+                                    {% endif %}
+                                  {% endif %}
                                </p>
                             </div>
                             <div class="usual-info">
                                <div class="usual-box">
-                                  <h4>Grad</h4>
+                                  <h4>{% trans "Grad" %}</h4>
                                   <div class="usual-box-info">
                                      {% if profil.sity == None %}
                                     <span>   
-                                     Porodica nije postavila svoju adresu
+                                     {% trans "Porodica nije postavila svoju adresu" %}
                                     </span>
                                      {%else%}
                                      <span>
@@ -162,37 +196,53 @@
                                   </div>
                                </div>
                                <div class="usual-box">
-                                  <h4>Državljanstvo</h4>
+                                  <h4>{% trans "Državljanstvo" %}</h4>
                                   <div class="usual-box-info">
 
                                      <span>
-                                        {% if profil.citizenship == "Srpski Drzavljanin" %}
-                                        Srpsko
+                                        {% if profil.citizenship == "Srpski Državljanin" %}
+                                        {% trans "Srpski Državljanin" %}
                                         {%else%}
-                                        Strano
+                                        {% trans "Strani Državljanin" %}
                                         {%endif%}
 
                                      </span>
                                   </div>
                                </div>
+
+                               <div class="usual-box">
+                                 <h4 class="only-on-big-d" >{% trans "Ocena korisnika" %}</h4>
+                                <div class="usual-box-info only-on-big-d">                          
+                                 <ul>
+                                     <li>          
+                                        {%if rate_average == None %}
+                                        <span class="user-year-num">{% trans "Nema ocene" %}</span>
+                                        {%else%}
+                                        <span class="user-year-num rat-num">{{rate_average}} ({{rate_number}})</span>
+                                        {%endif%}
+                                     </li>
+                                  </ul>
+                                 </div>
+                              </div>
+
                             </div>
-                            <h3 class="mt-4">Kada je u toku nedelje potrebno čuvanje dece</h3>
+                            <h3 class="mt-4 only-on-mob-title">{% trans "Kada je u toku nedelje potrebno čuvanje dece" %}</h3>
                             <div class="user-table table-responsive table-sm">
                                        <table class="table table-striped table-hover">
                                   <thead>
                                      <tr><th></th>
-                                        <th scope="col">Ponedeljak</th>
-                                        <th scope="col">Utorak</th>
-                                        <th scope="col">Sreda</th>
-                                        <th scope="col">Četvrtak</th>
-                                        <th scope="col">Petak</th>
-                                        <th scope="col">Subota</th>
-                                        <th scope="col">Nedelja</th>
+                                        <th scope="col">{% trans "Ponedeljak" %}</th>
+                                        <th scope="col">{% trans "Utorak" %}</th>
+                                        <th scope="col">{% trans "Sreda" %}</th>
+                                        <th scope="col">{% trans "Četvrtak" %}</th>
+                                        <th scope="col">{% trans "Petak" %}</th>
+                                        <th scope="col">{% trans "Subota" %}</th>
+                                        <th scope="col">{% trans "Nedelja" %}</th>
                                      </tr>
                                   </thead>
                                   <tbody>
                                      <tr>
-                                        <th scope="row">Jutro</th>
+                                        <th scope="row">{% trans "Jutro" %}</th>
                                         <td>
                                             {%if calendar.morning_monday%}
                                             <i class="fas fa-check"></i>
@@ -230,7 +280,7 @@
                                         </td>
                                      </tr>
                                      <tr>
-                                        <th scope="row">Popodne</th>
+                                        <th scope="row">{% trans "Popodne" %}</th>
                                         <td>
                                             {%if calendar.afternoon_monday%}
                                             <i class="fas fa-check"></i>
@@ -268,7 +318,7 @@
                                         </td>
                                      </tr>
                                      <tr>
-                                        <th scope="row">Veče</th>
+                                        <th scope="row">{% trans "Veče" %}</th>
                                         <td>
                                             {%if calendar.evening_monday%}
                                             <i class="fas fa-check"></i>
@@ -305,7 +355,7 @@
                                             {%endif%}
                                         </td>
                                      <tr>
-                                        <th scope="row">Noć</th>
+                                        <th scope="row">{% trans "Noć" %}</th>
                                         <td>
                                             {%if calendar.night_monday%}
                                             <i class="fas fa-check"></i>
@@ -357,7 +407,7 @@
                                {% endfor %}
                                {%else%}
                                <div class="comment-preview">
-                                  <h6> <b> Nema komentara</b></h6>
+                                  <h6> <b> {% trans "Nema komentara" %}</b></h6>
                                   <p class="com-dat"></p>
                                   <p></p>
                                </div>

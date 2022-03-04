@@ -1,4 +1,6 @@
 <!-- HEADER POČETAK  -->
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -29,6 +31,11 @@
     />
     <link rel="stylesheet" type="text/css" href="{% static 'layout/css/style.css' %}" /> 
     <link rel="stylesheet" type="text/css" href="{% static 'layout/css/responsive.css' %}" />
+     <!--Favicon-->
+      <link rel="apple-touch-icon" sizes="180x180" href="{% static 'layout/img/favicon/apple-touch-icon.png' %}">
+      <link rel="icon" type="image/png" sizes="32x32" href="{% static 'layout/img/favicon/favicon-32x32.png' %}">
+      <link rel="icon" type="image/png" sizes="16x16" href="{% static 'layout/img/favicon/favicon-16x16.png' %}">
+      <link rel="manifest" href="{% static 'layout/img/favicon/site.webmanifest' %}">
     <title>{% block title%} {% endblock %}</title>
   </head>
   <body>
@@ -54,8 +61,8 @@
               </div>
               <div class="col-md-8">
                 <div class="top-lang">
-                  <a href=""><img src="{% static 'layout/img/eng.png' %}" /></a>
-                  <a href=""><img src="{% static 'layout/img/srb.jpg' %}" /></a>
+                  <a href="/en/"><img src="{% static 'layout/img/eng.png' %}" /></a>
+                  <a href="/"><img src="{% static 'layout/img/srb.jpg' %}" /></a>
                 </div>
               </div>
             </div>
@@ -71,16 +78,20 @@
               <div class="row">
                 <div class="col-xl-8">
                   <ul class="mob-mar">
-                    <li><a href="{% url 'layout:home' %}">naslovna</a></li>
-                    <li><a href="">blog</a></li>
-                    <li><a href="{% url 'layout:contact' %}">kontakt</a></li>
+                    <li><a href="{% url 'layout:home' %}">{% trans "naslovna" %}</a></li>
+                    {% if LANGUAGE_CODE == 'sr'%}
+                    <li><a href="https://blog.parentstime.rs/">blog</a></li>
+                    {% elif LANGUAGE_CODE == 'en'%}
+                    <li><a href="https://blog.parentstime.rs/">blog</a></li>
+                    {% endif%}
+                    <li><a href="{% url 'layout:contact' %}">{% trans "kontakt" %}</a></li>
                   </ul>
                 </div>
                 <div class="col-xl-4">
                            <!--USER IS AUTHENTICATED-->
                            {% if user.is_authenticated %}
                            <div class="login-user">
-                              {%if user.user_type == 1%}
+                              {%if user.user_type == 1 and user.is_email_verified %}
                                  <a href="{% url 'family:profil' %}">
                                  {%if request.user.family.picture.url == '' %}
                                  <img src="{% static 'layout/img/zena02.jpg' %}" class="img-fluid" />
@@ -88,7 +99,7 @@
                                   <img src="{{request.user.family.picture.url}}" class="img-fluid" />
                                   {%endif%}
                                  </a>
-                              {%else%}
+                              {%elif user.user_type == 2 and user.is_email_verified%}
                               <a href="{% url 'babysitter:profil' %}">
                                  {%if request.user.babysitter.picture.url == '' %}
                                  <img src="{% static 'layout/img/zena02.jpg' %}" class="img-fluid" />
@@ -101,11 +112,11 @@
                              <!--USER IS NOT AUTHENTICATED-->
                   {%else%}
                   <div class="no-login-select">
-                  <button class="dropbtn btn"><i class="far fa-user"></i> Registruj se/prijavi se</button>
+                  <button class="dropbtn btn"><i class="far fa-user"></i> {% trans "Registruj se/prijavi se" %}</button>
                   <div class="dropdown-content">
-                    <a href="{% url 'account:register_babysitter' %}">Kao Bebisiter/Dadilja</a>
-                    <a href="{% url 'account:register_family' %}">Kao Porodica</a>
-                    <a href="{% url 'account:login' %}">Prijavi se</a>     
+                    <a href="{% url 'account:register_babysitter' %}">{% trans "Kao Bebisiter/Dadilja" %}</a>
+                    <a href="{% url 'account:register_family' %}">{% trans "Kao Porodica" %}</a>
+                    <a href="{% url 'account:login' %}">{% trans "Prijavi se" %}</a>     
                   </div>
                  </div> 
                 {%endif%}
@@ -134,27 +145,32 @@
               <div class="col-lg-6 col-xl-3 col-md-6">
                 <div class="footer-wrapper">
                   <img src="{% static 'layout/img/logo4.png' %}" class="img-fluid footer-logo-img" />
-                  <p class="footer-logo-info">
-                    Parent's time je platforma koja je tu da izadje u susret
+                  <p class="footer-logo-info">{% blocktrans %} "Parent's time je platforma koja je tu da izadje u susret
                     svakom roditelju kome je potrebna pomoć prilikom traženja
                     idealne osobe koja bi čuvala njihovo dete kada oni to nisu u
-                    mogućnosti.
+                    mogućnosti." {% endblocktrans %}
+                    
                   </p>
                 </div>
               </div>
               <div class="col-lg-6 col-xl-3 col-md-6">
                 <div class="footer-wrapper">
                   <div class="footer-main-link">
-                    <h4>Brzi linkovi</h4>
+                    <h4>{% trans "Brzi linkovi" %}</h4>
                     <ul>
                       <li>
-                        <a href="">Ko smo mi</a>
+                        <a href="{% url 'layout:home' %}">{% trans "Naslovna" %}</a>
                       </li>
+                        {% if LANGUAGE_CODE == 'sr'%}
+                         <li><a href="https://blog.parentstime.rs/">Novosti iz dečijeg sveta</a></li>
+                        {% elif LANGUAGE_CODE == 'en'%}
+                        <li><a href="https://blog.parentstime.rs/">News from the children's world</a></li>
+                        {% endif%}
                       <li>
-                        <a href="">Novosti iz dečijeg sveta</a>
-                      </li>
+                           <a href="{% url 'layout:instruction_page' %}">{% trans "Uputstvo za korišćenje platforme" %}</a>
+                         </li>
                       <li>
-                        <a href="{% url 'layout:contact' %}">Kontakt</a>
+                        <a href="{% url 'layout:contact' %}">{% trans "Kontakt" %}</a>
                       </li>
                     </ul>
                   </div>
@@ -165,10 +181,10 @@
                   <div class="fot-map-info-main">
                     <div class="fot-map-text">
                       <p>
-                        U svakom trenutku pronađite dadilju na teritoriji cele
-                        Srbije koja odgovara baš Vašoj porodici!
+                        {% blocktrans %} "U svakom trenutku pronađite dadilju na teritoriji cele
+                        Srbije koja odgovara baš Vašoj porodici!" {% endblocktrans %}
                       </p>
-                      <p>Besplatna i uvek dostupna baza bebisitera/dadilja</p>
+                      <p>{% trans "Besplatna i uvek dostupna baza bebisitera/dadilja" %}</p>
                     </div>
                     <div class="foter-map">
                       <img src="{% static 'layout/img/mapa.png' %}" class="img-fluid" />
@@ -183,21 +199,21 @@
           <div class="footer-bottom">
             <ul class="agree-ul-f">
               <li>
-                <a href="">Uslovi korišćenja i politika privatnosti</a>
+                <a href="">{% trans "Uslovi korišćenja i politika privatnosti" %}</a>
               </li>
               <li>
-                <a href="">Mere poverenja i bezbednosti</a>
+                <a href="">{% trans "Mere poverenja i bezbednosti" %}</a>
               </li>
             </ul>
             <ul class="soc-bot-link">
               <li>
-                <a href=""><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.facebook.com/Parents-time-102157838176047/"><i class="fab fa-facebook-f"></i></a>
               </li>
               <li>
-                <a href=""><i class="fab fa-instagram"></i></a>
+                <a href="https://instagram.com/parents.time?utm_medium=copy_link"><i class="fab fa-instagram"></i></a>
               </li>
               <li>
-                <a href=""><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.linkedin.com/company/parent-s-time"><i class="fab fa-linkedin-in"></i></a>
               </li>
             </ul>
           </div>

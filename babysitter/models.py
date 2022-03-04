@@ -1,6 +1,6 @@
 from django.db import models
 from account .models import CustomUser
-from django.core.validators import RegexValidator, FileExtensionValidator
+from django.core.validators import RegexValidator, FileExtensionValidator, MinValueValidator, MaxValueValidator
 from family . validators import validate_image
 from family . utils import get_random_code
 from django.template.defaultfilters import slugify
@@ -36,7 +36,7 @@ class Babysitter(models.Model):
         max_length=200, choices=SITY_CHOICES, null=True, blank=True)
 
     hourly_rate = models.PositiveIntegerField(
-        blank=True, null=True)
+        blank=True, null=True, default=250, validators=[MinValueValidator(1), MaxValueValidator(3000)])
     mobile_num_regex = RegexValidator(
         regex=r'^\+?1?\d{9,15}$', message="Broj nije u odgovarajućem formatu, +381641234567")
     mobile_number = models.CharField(blank=True, validators=[mobile_num_regex], max_length=17, help_text=(
@@ -138,3 +138,7 @@ class BabysitterCalendar(models.Model):
     night_sunday = models.BooleanField(default=False)
 
     date_added = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        pk = self.babysitter.user_id
+        return f'{CustomUser.objects.get(id=pk).email}-{self.date_added}'

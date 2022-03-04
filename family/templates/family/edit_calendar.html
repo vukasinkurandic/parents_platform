@@ -1,6 +1,7 @@
 {% extends "base_reset.html" %}
+{% load i18n %}
 {% load static %}
-{% block title%} Edit Calendar {% endblock %}
+{% block title%} {% trans "Kalendar" %} {% endblock %}
 
 {% block content%}
 <div class="slid insade-slid">
@@ -12,7 +13,7 @@
     <div class="container add-fluid-div">
        <div class="insade-profil-wrapper insade-profil-wrapper-bebisit">
           <div class="user-title edit-calendar-h1">
-             <h1 class="calendar-h1" >Ažurirajte kada Vam je u toku nedelje potrebna usluga</h1>
+             <h1 class="calendar-h1" >{% trans "Ažurirajte kada Vam je u toku nedelje potrebna usluga" %}</h1>
           </div>
           <div class="profile_edit">
              <form method="post" action="">
@@ -21,10 +22,10 @@
                    
                    <div class="col-lg-10">
                       <div class="profile_edit_right">
-                        <h3 >Vreme kada je potrebno čuvanje dece</h3>
+                        <h3 >{% trans "Vreme kada je potrebno čuvanje dece" %}</h3>
                             <div class="select-btn mt-4">
-                               <input type="button" class="select_all" value="Selektuj sve"/>  
-                               <input type="button" class="deselect_all" value="Resetuj selektovano"/>  
+                               <input type="button" class="select_all" value="{% blocktrans %}Selektuj sve {% endblocktrans %}"/>  
+                               <input type="button" class="deselect_all" value="{% blocktrans %}Resetuj selektovano {% endblocktrans %}"/>  
                             </div>
                          <div class="user-table table-responsive table-sm">
                             
@@ -32,18 +33,18 @@
                                <thead>
                                   <tr>
                                      <th scope="col"></th>
-                                     <th scope="col">Ponedeljak</th>
-                                     <th scope="col">Utorak</th>
-                                     <th scope="col">Sreda</th>
-                                     <th scope="col">Četvrtak</th>
-                                     <th scope="col">Petak</th>
-                                     <th scope="col">Subota</th>
-                                     <th scope="col">Nedelja</th>
+                                     <th scope="col">{% trans "Ponedeljak" %}</th>
+                                     <th scope="col">{% trans "Utorak" %}</th>
+                                     <th scope="col">{% trans "Sreda" %}</th>
+                                     <th scope="col">{% trans "Četvrtak" %}</th>
+                                     <th scope="col">{% trans "Petak" %}</th>
+                                     <th scope="col">{% trans "Subota" %}</th>
+                                     <th scope="col">{% trans "Nedelja" %}</th>
                                   </tr>
                                </thead>
                                <tbody>
                                   <tr>
-                                     <th scope="row">Jutro</th>
+                                     <th scope="row">{% trans "Jutro" %}</th>
                                      <td>{{family_calendar_form.morning_monday}}</td>
                                      <td>{{family_calendar_form.morning_tuesday}}</td>
                                      <td>{{family_calendar_form.morning_wednesday}}</td>
@@ -53,7 +54,7 @@
                                      <td>{{family_calendar_form.morning_sunday}}</td>       
                                   </tr>
                                   <tr>
-                                     <th scope="row">Popodne</th>
+                                     <th scope="row">{% trans "Popodne" %}</th>
                                      <td>{{family_calendar_form.afternoon_monday}}</td>
                                      <td>{{family_calendar_form.afternoon_tuesday}}</td>
                                      <td>{{family_calendar_form.afternoon_wednesday}}</td>
@@ -63,7 +64,7 @@
                                      <td>{{family_calendar_form.afternoon_sunday}}</td> 
                                   </tr>
                                   <tr>
-                                     <th scope="row">Veče</th>
+                                     <th scope="row">{% trans "Veče" %}</th>
                                      <td>{{family_calendar_form.evening_monday}}</td>
                                      <td>{{family_calendar_form.evening_tuesday}}</td>
                                      <td>{{family_calendar_form.evening_wednesday}}</td>
@@ -73,7 +74,7 @@
                                      <td>{{family_calendar_form.evening_sunday}}</td> 
                                   </tr>
                                   <tr>
-                                     <th scope="row">Noć</th>
+                                     <th scope="row">{% trans "Noć" %}</th>
                                      <td>{{family_calendar_form.night_monday}}</td>
                                      <td>{{family_calendar_form.night_tuesday}}</td>
                                      <td>{{family_calendar_form.night_wednesday}}</td>
@@ -88,7 +89,7 @@
                       </div>
                    </div>
                 </div>
-                <input type="submit" name="send_msg" value="Ažuriraj kalendar" class="btn btn-log-reg">
+                <input type="submit" name="send_msg" value="{% blocktrans %} Ažuriraj kalendar {% endblocktrans %}" class="btn btn-log-reg">
              </form>
           </div>
        </div>
