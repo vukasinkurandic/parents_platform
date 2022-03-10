@@ -115,9 +115,11 @@ class BabysitterForm(forms.ModelForm):
         self.fields['age_children'].widget.attrs['class'] = 'chk'
         self.fields['citizenship'].widget.attrs['class'] = 'form-select'
         self.fields['age'].widget.attrs['class'] = 'form-control'
+        self.fields['age'].widget.attrs['min'] = 18
         self.fields['home_job'].widget.attrs['class'] = 'form-select'
         self.fields['sex'].widget.attrs['class'] = 'form-select'
         self.fields['hourly_rate'].widget.attrs['class'] = 'form-control'
+        self.fields['hourly_rate'].widget.attrs['max'] = 3000
         self.fields['years_care_experience'].widget.attrs['class'] = 'form-select'
         self.fields['years_care_experience'].required = True
         self.fields['work_type'].widget.attrs['class'] = 'form-select'
