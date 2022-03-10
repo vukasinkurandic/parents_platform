@@ -138,10 +138,10 @@
                          {%endif%}
                       </li>
                       <li>
-                         <span class="user-year">{% trans "Da li bi kuvala" %}</span>
+                         <span class="user-year">{% trans "Kuvao/la bi za" %}<span class="only-on-mob-one">{% trans "decu i porodicu" %}</span> </span>
                          {% if babysitter.cooking == None %}
                          {%else%}
-                         <span class="user-year-num">
+                         <span class="user-year-num only-on-mob-two">
                             {% if babysitter.cooking == "Ne" %}
                               {% trans "Ne" %}
                            {%else%}
@@ -164,7 +164,7 @@
                 <div class="user-short-info">
                    <ul>
                       <li>
-                         <span class="user-year">{% trans "Da li joj smetaju " %}<span class="only-on-mob-one" >{% trans "kućni ljubimci" %}</span> </span>
+                         <span class="user-year">{% trans "Smetaju mu/joj " %}<span class="only-on-mob-one" >{% trans "kućni ljubimci" %}</span> </span>
                          {% if babysitter.pets == None %}
                          {%else%}
                          <span class="user-year-num only-on-mob-two">
@@ -177,7 +177,7 @@
                            {%endif%}
                       </li>
                       <li>
-                         <span class="user-year">{% trans "Da li bi radila" %} <span class="only-on-mob-one"> {% trans "lakše kućne poslove" %} </span> </span>
+                         <span class="user-year">{% trans "Radio/la bi" %} <span class="only-on-mob-one"> {% trans "lakše kućne poslove" %} </span> </span>
                          {% if babysitter.home_job == None %}
                          {%else%}
                          <span class="user-year-num only-on-mob-two">
@@ -190,7 +190,7 @@
                            {%endif%}
                       </li>
                       <li>
-                         <span class="user-year">{% trans "Da li bi radila " %}<span class="only-on-mob-one" >{% trans "školske aktivnosti" %}</span></span> 
+                         <span class="user-year">{% trans "Pomagao/la bi " %}<span class="only-on-mob-one" >{% trans " u školskim aktivnostima" %}</span></span> 
                          {% if babysitter.school_activities == None %}
                          {%else%}
                          <span class="user-year-num only-on-mob-two">
@@ -203,7 +203,7 @@
                            {%endif%}
                       </li>
                       <li>
-                         <span class="user-year">{% trans "Čuvanje dece " %} <span class="only-on-mob-one" > {% trans "sa posebnim potrebama" %}</span></span>
+                         <span class="user-year">{% trans "Čuvao/la bi decu " %} <span class="only-on-mob-one" > {% trans "sa posebnim potrebama" %}</span></span>
                          {% if babysitter.children_with_special_needs == None %}
                          {%else%}
                          <span class="user-year-num only-on-mob-two">
@@ -252,7 +252,7 @@
                            {%endif%}
                       </li>
                       <li>
-                         <span class="user-year">{% trans "Da li čuvate decu" %} <span class="only-on-mob-one" > {% trans "dok su bolesna?" %} </span></span>
+                         <span class="user-year">{% trans "Čuvao/la bi decu" %} <span class="only-on-mob-one" > {% trans "dok su bolesna" %} </span></span>
                          {% if babysitter.sick_child == None %}
                          {%else%}
                          <span class="user-year-num only-on-mob-two">
@@ -265,7 +265,7 @@
                            {%endif%}
                       </li>
                       <li>
-                         <span class="user-year">{% trans "Da li bi vozili" %} <span class="only-on-mob-one" >{% trans "decu svojim autom?" %} </span></span>
+                         <span class="user-year">{% trans "Vozio/la bi" %} <span class="only-on-mob-one" >{% trans "decu svojim autom" %} </span></span>
                          {% if babysitter.car == None %}
                          {%else%}
                          <span class="user-year-num only-on-mob-two">
@@ -278,7 +278,7 @@
                            {%endif%}
                       </li>
                       <li>
-                         <span class="user-year">{% trans "Da li bi putovali" %} <span class="only-on-mob-one" > {% trans "sa Porodicom?" %}</span></span>
+                         <span class="user-year">{% trans "Putovao/la bi" %} <span class="only-on-mob-one" > {% trans "sa Porodicom?" %}</span></span>
                          {% if babysitter.travel == None %}
                          {%else%}
                          <span class="user-year-num only-on-mob-two">
