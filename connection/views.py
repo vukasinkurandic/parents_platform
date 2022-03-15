@@ -46,7 +46,7 @@ def all_babysitters(request):
 
         if 'work_type' in request.session:
             work_type = request.session['work_type']
-            if work_type == 'Bebisiterka i Dadilja':
+            if work_type == 'Bebisiter/ka i Dadilja':
                 filter_babysitter = filter_babysitter
 
             else:
@@ -182,7 +182,7 @@ def all_babysitters(request):
         if work_type != '':
             request.session['work_type'] = work_type
             # IF 'Bebisiter i Dadilja' don't filter work
-            if work_type == 'Bebisiterka i Dadilja':
+            if work_type == 'Bebisiter/ka i Dadilja':
                 filter_babysitter = filter_babysitter
             else:
                 filter_babysitter = filter_babysitter.filter(
