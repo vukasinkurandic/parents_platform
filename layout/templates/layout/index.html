@@ -276,23 +276,42 @@
       <section class="babysitter">
 <!-- VELIKA DUGMAD KADA JE ULOGOVAN NEKO POSTAJU REKLAMA -->
          {% if user.is_authenticated %}
-         <div class="container add-fluid-div">
-            <div class="reg-log-all">               
-               <div class="circle-logo-btn">
-                  <img src="{% static 'layout/img/logo6.png' %}" />
+    
+
+
+
+         <div class="blog-index">
+            <div class="divider-sub-top" ></div>
+            <div class="container">
+               <div class="row flex-column-reverse flex-lg-row">
+                  <div class="col-lg-6">
+                     <div class="frea-box">
+                        <h2>Novosti iz <br> dečijeg sveta </h2>
+                        <p>Ukoliko Vas zanima da saznate novosti iz dečijeg sveta na raznorazne teme dobrodošli ste na naš blog. 
+                           Ovde možete pročitati sve zanimljivosti iz perspektive roditelja, bebisitera/dadilje ili iz dečijeg ugla                       </p>  
+                        <a class="btn btn-frea" href="">
+                   <div class="slide-link-text">Blog</div>            
+                     <div class="slide-link-arrow"><i class="fas fa-chevron-right"></i></div>            
+                 </a>            
+                      </div>
+                  </div>
+                  <div class="col-lg-6">
+                     <div class="frea-img-wrapper">
+                        <div class="frea-img">
+                           <img src="{% static 'layout/img/blog-img.webp' %}" alt="" class="img-fluid">
+                        </div>
+                        <div class="mission-bubble2" ></div>
+                     </div>    
+                  </div>
                </div>
-               <a class="zigzag-link"  href="{% url 'account:register_family' %}">
-                  <div class="first-large-btn">
-                     {% trans "REGISTRUJ SE/PRIJAVI SE " %}<br>{% trans "KAO  RODITELJ" %}
-                  </div>
-               </a>
-               <a class="zigzag-link" href="{% url 'account:register_babysitter' %}">
-                  <div class="second-large-btn">
-                     {% trans "REGISTRUJ SE/PRIJAVI SE " %}<br>{% trans "KAO  BEBISITER/DADILJA" %}  
-                  </div>
-               </a>
             </div>
+            <!-- <div class="divider-sub-bottom" ></div> -->
          </div>
+
+         
+
+
+
 <!-- VELIKA DUGMAD KADA NIJE ULOGOVAN NIKO-->
          {% else %}
          <div class="container add-fluid-div">
@@ -538,6 +557,29 @@
            </div>
          </div>
        </footer>
+       <script>
+          const color = ['#5dbbf2','#efc3c5'];
+          function createSquare() {
+  const section = document.querySelector(".frea-img");
+  const square = document.createElement("div");  
+  square.classList.add("ku-kvadrati");
+
+  var size = Math.random() * 50;
+  square.style.width = 20 + size + "px";
+  square.style.height = 20 + size + "px";
+  square.style.borderRadius = "50%";
+  square.style.left = Math.random() * innerWidth + "px";
+  square.style.top = Math.random() * innerHeight + "px";
+  
+  const br = color[Math.floor(Math.random() * color.length)];
+  square.style.background=br;
+  section.appendChild(square);
+  setTimeout(() => {
+    square.remove();
+  }, 10000);
+}
+setInterval(createSquare, 50);
+       </script>
        <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
        <script
          src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

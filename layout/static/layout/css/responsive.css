@@ -275,6 +275,20 @@ margin-left: -80px;
 }
 
 
+
+/* blog on index============== */
+.frea-img-wrapper, .frea-img, .frea-img img {
+  height: 540px;
+  width: 540px;
+  }
+  .frea-img{
+  margin-left: 20px;
+  margin-top: 60px;  
+  }
+  /* blog on index============== */
+
+
+
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -531,6 +545,19 @@ height: 862px;
 width: 80%;
 margin-left: -90px;
 }
+
+
+/* blog on index============== */
+.frea-img-wrapper, .frea-img, .frea-img img {
+  height: 440px;
+  width: 440px;
+  }
+  .frea-img{
+  margin-left: 20px;
+  margin-top: 100px;  
+  }
+  /* blog on index============== */
+
 
   /*==========================*/
 }
@@ -872,6 +899,42 @@ top: 300px;
   display: block;
   margin-bottom: 40px;
 }
+
+
+
+/* blog on index============== */
+.blog-index{ 
+  padding-bottom: 105px;
+  }
+  
+  .frea-img-wrapper {
+  margin: 0 auto; 
+  }
+  
+  .frea-img{
+  margin-left: 0;  
+  }
+  
+  .frea-box {
+   margin: -145px auto;
+   position: relative;
+   z-index: 50;
+   width: 80%;  
+  }
+  
+  a.btn-frea {
+  margin-top: 25px;
+   margin-bottom: 25px;
+  }
+  
+  
+  .frea-box p {
+   border-top: none;
+   }
+  
+  /* blog on index============== */
+
+
 
 }
 
@@ -1506,6 +1569,58 @@ display: block;
 width: 60%;
 margin: 10px auto;
   }
+
+/* blog on index============== */
+.blog-index{ 
+  padding-bottom: 105px;
+  }
+  
+  .frea-img-wrapper {
+  margin: 0 auto; 
+  }
+  
+  .frea-img{
+  margin-left: 0;  
+  }
+  
+  .frea-box {
+   margin: -195px auto -50px auto;
+   position: relative;
+   z-index: 5;
+   width: 80%;  
+   background-color: #fff;
+   padding: 20px;
+   border-radius: 25px 25px 0 0;
+   box-shadow: 0 9px 24px 0 rgb(26 47 106 / 10%);
+  }
+  
+  a.btn-frea {
+  margin-top: 25px;
+   margin-bottom: 25px;
+  }
+  
+  
+  .frea-box p {
+   border-top: none;
+   }
+
+
+.frea-img-wrapper, .frea-img, .frea-img img {
+height: 520px;
+width: 520px;
+}   
+
+.frea-box h2 {
+  font-size: 58px;
+  }
+
+
+  .mission-bubble2 {
+  bottom: 129px;
+  }  
+  
+  /* blog on index============== */
+
 
   /*==========================*/
 }
@@ -2461,6 +2576,82 @@ display: none;
     width: 60%;
     margin: 10px auto;
       }
+
+/* blog on index============== */
+.blog-index{ 
+  padding-bottom: 105px;
+  padding-top: 55px;
+  }
+  
+  .frea-img-wrapper {
+  margin: 0 auto; 
+  }
+  
+  .frea-img{
+  margin-left: 0;  
+  }
+  
+  .frea-box {
+   margin: -75px auto -90px auto;
+   position: relative;
+   z-index: 5;
+   width: 95%;  
+   background-color: #fff;
+   padding: 20px;
+   border-radius: 25px 25px 0 0;
+   
+  }
+  
+
+  .frea-box h2::after {
+    font-size: 96px;
+    }
+
+  a.btn-frea {
+  margin-top: 25px;
+   margin-bottom: 25px;
+  }
+  
+  
+  .frea-box p {
+   border-top: none;
+   }
+
+
+.frea-img-wrapper, .frea-img {
+height: 320px;
+width: 100%;
+border-radius: 25px;
+}   
+
+
+.frea-img img{
+width: 100%;  
+object-fit: cover;
+object-position: center;
+height: 320px;
+}
+
+.frea-img::before {
+  
+  border: 5px solid rgba(255, 255, 255, 0.5);
+  border-radius: 25px;
+  
+}
+
+.frea-box h2 {
+  font-size: 40px;
+  line-height: 40px;
+  }
+
+
+  .mission-bubble2 {
+  bottom: 129px;
+  display: none;
+  }  
+  
+  /* blog on index============== */
+      
 }
 
 
