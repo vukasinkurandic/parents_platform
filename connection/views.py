@@ -48,10 +48,12 @@ def all_babysitters(request):
             work_type = request.session['work_type']
             if work_type == 'Bebisiter/ka i Dadilja':
                 filter_babysitter = filter_babysitter
-
-            else:
-                filter_babysitter = filter_babysitter.filter(
-                    work_type=work_type)
+            elif work_type == 'Bebisiter/ka':
+                filter_babysitter = filter_babysitter.exclude(
+                    work_type='Dadilja')
+            elif work_type == 'Dadilja':
+                filter_babysitter = filter_babysitter.exclude(
+                    work_type='Bebisiter/ka')
 
         if 'experience_number' in request.session:
             experience_number = request.session['experience_number']
@@ -184,9 +186,14 @@ def all_babysitters(request):
             # IF 'Bebisiter i Dadilja' don't filter work
             if work_type == 'Bebisiter/ka i Dadilja':
                 filter_babysitter = filter_babysitter
-            else:
-                filter_babysitter = filter_babysitter.filter(
-                    work_type=work_type)
+            # IF 'Bebisiter' give all without Dadilja
+            elif work_type == 'Bebisiter/ka':
+                filter_babysitter = filter_babysitter.exclude(
+                    work_type='Dadilja')
+            # IF 'Dadilja' give all without Bebisiter/ka
+            elif work_type == 'Dadilja':
+                filter_babysitter = filter_babysitter.exclude(
+                    work_type='Bebisiter/ka')
         experience_number = request.POST['experience_number']
         if experience_number != '':
             request.session['experience_number'] = experience_number
