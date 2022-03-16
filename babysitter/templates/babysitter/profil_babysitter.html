@@ -186,7 +186,7 @@
                          {%endif%}
                       </li>
                       <li>
-                         <span class="user-year">{% trans "Posao traži kao?" %}</span>
+                         <span class="user-year">{% trans "Posao traži kao" %}</span>
                          {% if profil.work_type == None %}
                          <span class="user-year-num">
                             {% trans "Odaberite vrstu posla" %}
@@ -205,7 +205,7 @@
                            {%endif%}
                       </li>
                         <li>
-                         <span class="user-year">{% trans "Uzrast dece" %}  <span class="only-on-mob-one" > {% trans "koju bi čuvala" %}</span></span>
+                         <span class="user-year">{% trans "Uzrast dece" %}  <span class="only-on-mob-one" > {% trans "koju bi čuvao/la" %}</span></span>
                          {% if profil.age_children == None %}
                          {%else%}
                          <span class="user-year-num only-on-mob-two">
@@ -232,7 +232,7 @@
                            {%endif%}
                       </li>
                       <li>
-                         <span class="user-year">{% trans "Da li bi čuvala decu" %} <span class="only-on-mob-one" >{% trans "kod svoje kuće" %} </span></span>
+                         <span class="user-year">{% trans "Čuvao/la bi  decu" %} <span class="only-on-mob-one" >{% trans "kod svoje kuće" %} </span></span>
                          {% if profil.house == None %}
                          {%else%}
                          <span class="user-year-num only-on-mob-two">
@@ -327,7 +327,7 @@
                          {%endif%}
                       </li>
                       <li>
-                         <span class="user-year">{% trans "Čuvao/la bi" %} <span class="only-on-mob-one" >{% trans " decu dok su bolesna?" %} </span></span>
+                         <span class="user-year">{% trans "Čuvao/la bi" %} <span class="only-on-mob-one" >{% trans " decu dok su bolesna" %} </span></span>
                          {% if profil.sick_child == None %}
                          {%else%}
                          <span class="user-year-num only-on-mob-two">

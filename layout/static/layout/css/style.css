@@ -1761,7 +1761,21 @@ display: inline-block;
 
 .form-check-agree a {
   font-size: 20px;
-  color: #000;
+  color: #73c4f4;
+  font-weight: 500;
+}
+
+a.form-check-agree2{
+  font-size: 20px;
+  color: #73c4f4;
+  font-weight: 500;
+  
+}
+
+span.span-news{
+  font-size: 18px;
+  margin-top: 10px;
+  display: block;
 }
 
 .form-check-label {
@@ -2218,14 +2232,14 @@ line-height: 24px;
   font-size: 20px;
   font-weight: 600;
   color: #000;
-  background: linear-gradient(-45deg, rgba(239, 195, 197,1) 0%, rgba(239, 195, 197,1) 50%, rgba(242, 207, 209,1) 50%, rgba(242, 207, 209,1) 100%);
+  background:#68b0dc;
   }
   
   
   .accordion-button:not(.collapsed){
   font-size: 20px;
   color: #000;
-  background: linear-gradient(-45deg, rgba(239, 195, 197,1) 0%, rgba(239, 195, 197,1) 50%, rgba(242, 207, 209,1) 50%, rgba(242, 207, 209,1) 100%);
+  background:#68b0dc;
   }
 
 
@@ -3490,4 +3504,74 @@ text-shadow: 2px 2px rgb(0 0 0 / 20%);
   
   a.btn-frea:hover .slide-link-arrow{
     background-color: #efc3c5;  
+  }
+
+
+  /* report user accordian */
+
+.accordion-button-new{
+padding: 10px;
+}
+
+  .danger-report-us {
+    margin-right: 10px;
+    background-color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
+  }
+
+
+  .danger-report-us i {
+    line-height: 40px;
+    color: #68b0dc;
+  }
+
+
+  .accordion-button span {
+    text-shadow: 2px 2px rgb(0 0 0 / 20%);
+    color: #fff;
+  }
+
+
+  .btnreport-user-new{
+    background-color: #73c4f4;
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      margin-top: 20px;
+      font-weight: 600;
+      border-radius: 10px;
+      border-bottom: 4px solid #63bef2;
+      font-size: 18px;
+      font-weight: 600;
+      border-radius: 10px;
+      text-shadow: 2px 2px rgb(0 0 0 / 10%)
+  }
+
+  .accordion-button span {
+    text-shadow: 2px 2px rgb(0 0 0 / 20%);
+  }
+
+
+
+
+  /*=====rezervacija korisnika poruka u login se nalazi*/
+
+.main_message .reserve-msg-big{
+  text-shadow: 2px 2px rgb(0 0 0 / 10%);
+  }
+  
+  .reserve-msg-big > ul > li:nth-child(1){
+  margin-bottom: 10px;
+  }
+  
+  
+  .reserve-msg-big  ul  li{
+    margin-bottom: 5px;
+  }
+  
+  .reserve-msg-big span{
+  color: #000;  
   }

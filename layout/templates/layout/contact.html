@@ -84,6 +84,15 @@
                 <label for="sender_message" class="form-label">{% trans "Poruka" %}</label>
                 {{form.contact_message}}
               </div>
+
+              <div class="mb-2 form-check">
+                <!--INPUT CHECKBOX-->
+                <input type="checkbox" name="is_terms_confirmed" class="form-check-input" id="exampleCheck1" required="">
+                <span><label class="form-check-label" for="exampleCheck1"> {% trans "Saglasan da se moji podaci koriste u skladu sa" %}  <a class="form-check-agree2" href=""> {% trans "Politikom privatnosti" %} </a>
+                    </label>
+                </span>                
+              </div>
+
               <input
                 type="submit"
                 name="send_msg"
