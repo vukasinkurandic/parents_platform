@@ -41,7 +41,9 @@
                    </div>
                    <!-- MESSAGES-->
 
-
+                     {% if messages %}
+                     {% for message in messages %}
+                     {% if message.tags == 'info' %}
                    <!-- ====poruka kada se rezerviše bebisiter  start -->
                    <div class="main_message">
                      <div class="alert alert-dismissible fade show success" role="alert"
@@ -74,20 +76,23 @@
                      </div>
                    </div>
 <!-- ====poruka kada se rezerviše bebisiter  end -->
-
-
-
+                  {%endif%}
+                  {% endfor %}
+                  {%endif%}
 
 
                   {% if messages %}
                      {% for message in messages %}
+                     {% if message.tags != 'info' %}
                         {% if forloop.first %}
+                        
                         <div class="main_message">
                            <div class="alert alert-dismissible fade show {{ message.tags }}" role="alert">
                               <span class="al-text">{{message}}</span>
                               <button type="button"class="btn-close"data-bs-dismiss="alert" aria-label="Close"></button>
                            </div>
                         </div> 
+                        {% endif %}
                         {% endif %}
                      {% endfor %}
                   {% endif %}
@@ -108,21 +113,17 @@
                               <li>
                                 <span class="icon-user" ><i class="fas fa-phone"></i></span> <span class="user-phone" >
                                       {% trans "Ažurirajte vaš broj telefona" %}
-                                    </span>
-                                   
+                                    </span>     
                              </li>
                                {%else%}
                               <li><a href="tel:
                                       {{profil.mobile_number}} ">
                                 <span class="icon-user" ><i class="fas fa-phone"></i></span> <span class="user-phone" >
                                       {{profil.mobile_number}}
-                                    </span></a>
-                                   
+                                    </span></a>         
                              </li> {%endif%}                               
                             </ul>
                          </div>
-
-
                          <div class="accordion mb-4 mt-4" id="accordionExample">
                            <div class="accordion-item">
                               <h2 class="accordion-header" id="headingThree">
@@ -163,18 +164,13 @@
                                  </div>
                               </div>
                            </div>
-                           
                         </div>
-
-
                         <div class="user-short-info">
                            <a href="{% url 'connection:all_babysitters' %}" class="btn reserve-btn">{% trans "Vidi sve bebisitere/dadilje" %}</a>
                         </div>
                         <div class="user-short-info">
                            <a href="{% url 'favorite:babysitters' %}" class="btn favorite-btn"> <i class="fas fa-heart"></i> {% trans  "Vidi omiljene bebisitere/dadilje" %}</a>
                         </div>
-
-
                          <div class="user-short-info">
                             <ul>
                                <li class="email-center no-link" ><span class="user-year">

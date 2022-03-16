@@ -370,7 +370,7 @@ def send_match(request):
                         request, _('Već ste rezervisali korisnika'))
         else:
             connection.save()
-            messages.success(
+            messages.info(
                 request, _('Uspešno ste kontaktirali korisnika. Vaša rezervacija može biti prihvaćena ili odbijena. Ukoliko korisnik prohvati rezervaciju možete oceniti profil ostaviti komentar. Takođe korisnik  može videti Vaš profil i vaše kontakt podatke. Ukoliko smatrate da je korisnik odgovarajući kandidat, možete odmah stupiti u kontakt, upoznati se i započeti saradnju što pre. Dugmići (ikonice) koji će voditi na poziv na mejl.'))
             # SEND EMAIL TO BABYSITTER
             babysitter_email = babysiter_for_match.user.email
