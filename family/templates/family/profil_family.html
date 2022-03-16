@@ -40,6 +40,45 @@
                        </ul>
                    </div>
                    <!-- MESSAGES-->
+
+
+                   <!-- ====poruka kada se rezerviše bebisiter  start -->
+                   <div class="main_message">
+                     <div class="alert alert-dismissible fade show success" role="alert"
+                     >
+                       <span class="al-text">
+                         <div class="reserve-msg-big">
+         
+                         <p>USPEŠNO STE KONTAKTIRALI KORISNIKA. Vaša rezervacija može biti prihvaćena ili obijena </p>
+                         
+                         <p>Ukoliko korisnik prihvati rezervaciju možete <span> oceniti</span> profil ili ostaviti <span> komentar</span>
+                         </p>
+                         <p>
+                         Korisnik može videti Vaš profil i kontakt podatke
+                         </p>
+                         
+                         <ul>
+                         <li>Ukoliko smatrate da je korisnik ODGOVARAJUĆI KANDIDAT možete <span> odmah: </span></li>  
+                         <li>1. stupiti u kontakt putem <span> telefona, emaila </span> ili <span> društvenih mreža </span> </li>
+                           <li>2. upoznati se</li>
+                           <li>3. započeti saradnju</li>
+                           </ul>
+                         </div>
+                       </span>         
+                       <button
+                         type="button"
+                         class="btn-close"
+                         data-bs-dismiss="alert"
+                         aria-label="Close"
+                       ></button>
+                     </div>
+                   </div>
+<!-- ====poruka kada se rezerviše bebisiter  end -->
+
+
+
+
+
                   {% if messages %}
                      {% for message in messages %}
                         {% if forloop.first %}

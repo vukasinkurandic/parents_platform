@@ -520,7 +520,7 @@
                  </div>
                  <div class="col-lg-6 col-xl-4 col-md-12">
                    <div class="footer-wrapper" id="proba">
-                     <h4>{% trans "Pretplatite se na naš blog" %}</h4>              
+                     <h4>{% trans "Prijavite se na naš blog" %}</h4>              
                      <form action="{% url 'layout:newsletter' %}" method="post">
                         {% csrf_token%}
                        <div class="form-newsletter">
@@ -528,8 +528,9 @@
                          <button type="submit" class="btn btn-primary dugme">
                            <i class="fas fa-paper-plane"></i>
                          </button>
-                       </div>
+                       </div>                       
                      </form>
+                     <span class="span-news" >{% trans "Saglasan da se moji email koriste u skladu sa" %} <a class="form-check-agree2" href=""> <br> {% trans "Politikom privatnosti" %}</a></span>
                    </div>
                  </div>
                </div>
