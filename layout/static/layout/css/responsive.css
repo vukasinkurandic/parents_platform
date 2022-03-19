@@ -2651,7 +2651,27 @@ height: 320px;
   }  
   
   /* blog on index============== */
-      
+    
+  
+
+/* ====popup */
+
+.contentBox {
+  
+  padding: 15px;
+  background: #fff;
+  border-radius: 10px;
+  width: 320px;
+  
+  border: 3px solid #63bef2;
+}
+
+
+.contentBox p {
+  font-size: 19px;
+}
+
+
 }
 
 
