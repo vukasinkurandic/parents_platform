@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-20 21:57+0100\n"
+"POT-Creation-Date: 2022-03-20 22:59+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1643,6 +1643,64 @@ msgid ""
 "                                 vršite na dugme koje se nalazi u meniju - "
 "BAZA BEBISITERA DADILJA ili na žuto dugme u okviru vašeg profila \n"
 "                                 "
+msgstr ""
+
+#: .\family\templates\family\profil_family.html:54
+msgid ""
+"USPEŠNO STE KONTAKTIRALI KORISNIKA. Vaša rezervacija može biti prihvaćena "
+"ili obijena"
+msgstr ""
+
+#: .\family\templates\family\profil_family.html:56
+msgid "Ukoliko korisnik prihvati rezervaciju možete"
+msgstr ""
+
+#: .\family\templates\family\profil_family.html:56
+msgid "oceniti"
+msgstr ""
+
+#: .\family\templates\family\profil_family.html:56
+msgid "profil ili ostaviti"
+msgstr ""
+
+#: .\family\templates\family\profil_family.html:56
+msgid "komentar"
+msgstr ""
+
+#: .\family\templates\family\profil_family.html:59
+msgid "Korisnik može videti Vaš profil i kontakt podatke"
+msgstr ""
+
+#: .\family\templates\family\profil_family.html:63
+msgid "Ukoliko smatrate da je korisnik ODGOVARAJUĆI KANDIDAT možete"
+msgstr ""
+
+#: .\family\templates\family\profil_family.html:63
+msgid "odmah:"
+msgstr ""
+
+#: .\family\templates\family\profil_family.html:64
+msgid "1. stupiti u kontakt putem"
+msgstr ""
+
+#: .\family\templates\family\profil_family.html:64
+msgid "telefona, emaila"
+msgstr ""
+
+#: .\family\templates\family\profil_family.html:64
+msgid "ili "
+msgstr ""
+
+#: .\family\templates\family\profil_family.html:64
+msgid "društvenih mreža"
+msgstr ""
+
+#: .\family\templates\family\profil_family.html:65
+msgid "2. upoznati se"
+msgstr ""
+
+#: .\family\templates\family\profil_family.html:66
+msgid "3. započeti saradnju"
 msgstr ""
 
 #: .\family\templates\family\profil_family.html:131
