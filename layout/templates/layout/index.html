@@ -41,6 +41,22 @@
    </head>   
    <body>
 
+      <div class="popup">
+         <div class="contentBox">
+           <div class="close"></div>        
+           <div class="popup-img">
+               <img src="https://www.parentstime.rs/static/layout/img/logo4.png" alt="">
+           </div>
+           <p>Na ovim internet stranicama koristimo kolačiće (eng. cookies) 
+            u svrhu pružanja boljeg korisničkog iskustva,
+             omogućavanja funkcionalnosti veb sajta, 
+             analize internet saobraćaja.
+              Nastavkom korišćenja naših stranica prihvatate upotrebu kolačića.
+               </p>
+                <p>Za više informacija o tome kako možete upravljati kolačićima (menjati preference ili ih onemogućiti) <a href=""> molimo vas pogledajte ovde.</a></p>
+         </div>
+       </div>  
+
       <div class="menu">
          <span class="bar"></span>
       </div>
@@ -278,7 +294,29 @@
          {% if user.is_authenticated %}
     
 
+<script>
+          const color = ['#5dbbf2','#efc3c5'];
+          function createSquare() {
+  const section = document.querySelector(".frea-img");
+  const square = document.createElement("div");  
+  square.classList.add("ku-kvadrati");
 
+  var size = Math.random() * 50;
+  square.style.width = 20 + size + "px";
+  square.style.height = 20 + size + "px";
+  square.style.borderRadius = "50%";
+  square.style.left = Math.random() * innerWidth + "px";
+  square.style.top = Math.random() * innerHeight + "px";
+  
+  const br = color[Math.floor(Math.random() * color.length)];
+  square.style.background=br;
+  section.appendChild(square);
+  setTimeout(() => {
+    square.remove();
+  }, 10000);
+}
+setInterval(createSquare, 50);
+       </script>
 
          <div class="blog-index">
             <div class="divider-sub-top" ></div>
@@ -561,29 +599,7 @@
            </div>
          </div>
        </footer>
-       <script>
-          const color = ['#5dbbf2','#efc3c5'];
-          function createSquare() {
-  const section = document.querySelector(".frea-img");
-  const square = document.createElement("div");  
-  square.classList.add("ku-kvadrati");
-
-  var size = Math.random() * 50;
-  square.style.width = 20 + size + "px";
-  square.style.height = 20 + size + "px";
-  square.style.borderRadius = "50%";
-  square.style.left = Math.random() * innerWidth + "px";
-  square.style.top = Math.random() * innerHeight + "px";
-  
-  const br = color[Math.floor(Math.random() * color.length)];
-  square.style.background=br;
-  section.appendChild(square);
-  setTimeout(() => {
-    square.remove();
-  }, 10000);
-}
-setInterval(createSquare, 50);
-       </script>
+       
        <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
        <script
          src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
