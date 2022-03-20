@@ -45,13 +45,22 @@
            <div class="popup-img">
                <img src="https://www.parentstime.rs/static/layout/img/logo4.png" alt="">
            </div>
-           <p>Na ovim internet stranicama koristimo kolačiće (eng. cookies) 
+           <p>
+            {% blocktrans %}
+            Na ovim internet stranicama koristimo kolačiće (eng. cookies) 
             u svrhu pružanja boljeg korisničkog iskustva,
-             omogućavanja funkcionalnosti veb sajta, 
-             analize internet saobraćaja.
-              Nastavkom korišćenja naših stranica prihvatate upotrebu kolačića.
+            omogućavanja funkcionalnosti veb sajta, 
+            analize internet saobraćaja.
+            Nastavkom korišćenja naših stranica prihvatate upotrebu kolačića.
+            {% endblocktrans %}
                </p>
-                <p>Za više informacija o tome kako možete upravljati kolačićima (menjati preference ili ih onemogućiti) <a href=""> molimo vas pogledajte ovde.</a></p>
+                <p>
+                  {% blocktrans %}
+                   Za više informacija o tome kako možete upravljati 
+                   kolačićima (menjati preference ili ih onemogućiti) 
+                   <a href=""> molimo vas pogledajte ovde.</a>
+                  {% endblocktrans %}
+               </p>
          </div>
        </div> 
     <div class="menu">
@@ -109,7 +118,7 @@
                     {% if LANGUAGE_CODE == 'sr'%}
                     <li><a href="https://blog.parentstime.rs/">blog</a></li>
                     {% elif LANGUAGE_CODE == 'en'%}
-                    <li><a href="https://blog.parentstime.rs/">blog</a></li>
+                    <li><a href="https://blog.parentstime.rs/category/engleski/">blog</a></li>
                     {% endif%}
                     <li><a href="{% url 'layout:contact' %}">{% trans "kontakt" %}</a></li>
                    {% if user.is_authenticated and user.user_type == 1 %}
@@ -213,7 +222,7 @@
                       {% if LANGUAGE_CODE == 'sr'%}
                          <li><a href="https://blog.parentstime.rs/">Novosti iz dečijeg sveta</a></li>
                         {% elif LANGUAGE_CODE == 'en'%}
-                        <li><a href="https://blog.parentstime.rs/">News from the children's world</a></li>
+                        <li><a href="https://blog.parentstime.rs/category/engleski/">News from the children's world</a></li>
                         {% endif%}
                       <li>
                            <a href="{% url 'layout:instruction_page' %}">{% trans "Uputstvo za korišćenje platforme" %}</a>
