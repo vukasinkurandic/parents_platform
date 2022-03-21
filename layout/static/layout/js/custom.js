@@ -49,10 +49,10 @@ if (fot_mob2 < 656) {
 const popup = document.querySelector(".popup");
 const close = document.querySelector(".close");
 setTimeout(function () {
-  let visited = sessionStorage.getItem("visited");
+  let visited = localStorage.getItem("visited");
   if (!visited) {
     popup.style.display = "block";
-    sessionStorage.setItem("visited", true);
+    localStorage.setItem("visited", true);
   }
 }, 500);
 
