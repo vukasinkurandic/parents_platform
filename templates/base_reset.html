@@ -58,8 +58,9 @@
                   {% blocktrans %}
                    Za više informacija o tome kako možete upravljati 
                    kolačićima (menjati preference ili ih onemogućiti) 
-                   <a href=""> molimo vas pogledajte ovde.</a>
-                  {% endblocktrans %}
+                   {% endblocktrans %}
+                   <a href="{% static 'layout/doc/Obaveštenje_o_kolačićima.pdf' %}"> {% trans "molimo vas pogledajte ovde." %}</a>
+                  
                </p>
          </div>
        </div> 
@@ -226,10 +227,10 @@
           <div class="footer-bottom">
             <ul class="agree-ul-f">
               <li>
-                <a href="">{% trans "Uslovi korišćenja i politika privatnosti" %}</a>
+                <a href="{% static 'layout/doc/Politika_privatnosti.pdf' %}">{% trans "Uslovi korišćenja i politika privatnosti" %}</a>
               </li>
               <li>
-                <a href="">{% trans "Mere poverenja i bezbednosti" %}</a>
+                <a href="{% static 'layout/doc/Pravila_i_uslovi_koriscenja.pdf' %}">{% trans "Mere poverenja i bezbednosti" %}</a>
               </li>
             </ul>
             <ul class="soc-bot-link">

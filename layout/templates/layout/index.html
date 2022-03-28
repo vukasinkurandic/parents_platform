@@ -60,8 +60,9 @@
                   {% blocktrans %}
                    Za više informacija o tome kako možete upravljati 
                    kolačićima (menjati preference ili ih onemogućiti) 
-                   <a href=""> molimo vas pogledajte ovde.</a>
-                  {% endblocktrans %}
+                   {% endblocktrans %}
+                   <a href="{% static 'layout/doc/Obaveštenje_o_kolačićima.pdf' %}"> {% trans "molimo vas pogledajte ovde." %}</a>
+                  
                </p>
          </div>
        </div>  
@@ -577,7 +578,7 @@ setInterval(createSquare, 50);
                          </button>
                        </div>                       
                      </form>
-                     <span class="span-news" >{% trans "Saglasan da se moji email koriste u skladu sa" %} <a class="form-check-agree2" href=""> <br> {% trans "Politikom privatnosti" %}</a></span>
+                     <span class="span-news" >{% trans "Saglasan da se moji email koriste u skladu sa" %} <a class="form-check-agree2" href="{% static 'layout/doc/Politika_privatnosti.pdf' %}"> <br> {% trans "Politikom privatnosti" %}</a></span>
                    </div>
                  </div>
                </div>
@@ -587,10 +588,10 @@ setInterval(createSquare, 50);
              <div class="footer-bottom">
                <ul class="agree-ul-f">
                  <li>
-                   <a href="">{% trans "Uslovi korišćenja i politika privatnosti" %}</a>
+                   <a href="{% static 'layout/doc/Politika_privatnosti.pdf' %}">{% trans "Uslovi korišćenja i politika privatnosti" %}</a>
                  </li>
                  <li>
-                   <a href="">{% trans "Mere poverenja i bezbednosti" %}</a>
+                   <a href="{% static 'layout/doc/Pravila_i_uslovi_koriscenja.pdf' %}">{% trans "Mere poverenja i bezbednosti" %}</a>
                  </li>
                </ul>
                <ul class="soc-bot-link">
