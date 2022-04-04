@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-29 00:04+0200\n"
+"POT-Creation-Date: 2022-04-04 23:14+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1919,13 +1919,13 @@ msgid "Politikom privatnosti"
 msgstr ""
 
 #: .\layout\templates\layout\base_contact.html:284
-#: .\layout\templates\layout\index.html:591 .\templates\base_reset.html:230
-msgid "Uslovi korišćenja i politika privatnosti"
+#: .\layout\templates\layout\index.html:591
+msgid "Pravila i uslovi korišćenja"
 msgstr ""
 
 #: .\layout\templates\layout\base_contact.html:287
-#: .\layout\templates\layout\index.html:594 .\templates\base_reset.html:233
-msgid "Mere poverenja i bezbednosti"
+#: .\layout\templates\layout\index.html:594
+msgid "Politika privatnosti"
 msgstr ""
 
 #: .\layout\templates\layout\contact.html:22
@@ -2411,6 +2411,14 @@ msgstr ""
 
 #: .\templates\base_reset.html:218
 msgid "Besplatna i uvek dostupna baza bebisitera/dadilja"
+msgstr ""
+
+#: .\templates\base_reset.html:230
+msgid "Uslovi korišćenja i politika privatnosti"
+msgstr ""
+
+#: .\templates\base_reset.html:233
+msgid "Mere poverenja i bezbednosti"
 msgstr ""
 
 #: .\templates\email_connection.html:33

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-29 00:04+0200\n"
-"PO-Revision-Date: 2022-03-29 00:08+0000\n"
+"POT-Creation-Date: 2022-04-04 23:14+0200\n"
+"PO-Revision-Date: 2022-04-04 23:17+0000\n"
 "Last-Translator:   <natasa@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -1877,12 +1877,6 @@ msgstr ""
 "By continuing to use our site, you accept the use of cookies."
 
 #: .\layout\templates\layout\base_contact.html:58
-#| msgid ""
-#| "\n"
-#| "                   Za više informacija o tome kako možete upravljati \n"
-#| "                   kolačićima (menjati preference ili ih onemogućiti) \n"
-#| "                   <a href=\"\"> molimo vas pogledajte ovde.</a>\n"
-#| "                  "
 msgid ""
 "\n"
 "                   Za više informacija o tome kako možete upravljati \n"
@@ -2018,14 +2012,16 @@ msgid "Politikom privatnosti"
 msgstr "Privacy Policy"
 
 #: .\layout\templates\layout\base_contact.html:284
-#: .\layout\templates\layout\index.html:591 .\templates\base_reset.html:230
-msgid "Uslovi korišćenja i politika privatnosti"
-msgstr "Terms of use and privacy policy"
+#: .\layout\templates\layout\index.html:591
+#| msgid "Uslovi korišćenja"
+msgid "Pravila i uslovi korišćenja"
+msgstr "Terms and conditions of use"
 
 #: .\layout\templates\layout\base_contact.html:287
-#: .\layout\templates\layout\index.html:594 .\templates\base_reset.html:233
-msgid "Mere poverenja i bezbednosti"
-msgstr "Confidence and security measures"
+#: .\layout\templates\layout\index.html:594
+#| msgid "Politikom privatnosti"
+msgid "Politika privatnosti"
+msgstr "Privacy Policy"
 
 #: .\layout\templates\layout\contact.html:22
 msgid ""
@@ -2044,12 +2040,6 @@ msgid "Saglasan da se moji podaci koriste u skladu sa"
 msgstr "I agree that my data is used in accordance with"
 
 #: .\layout\templates\layout\index.html:60 .\templates\base_reset.html:58
-#| msgid ""
-#| "\n"
-#| "                   Za više informacija o tome kako možete upravljati \n"
-#| "                   kolačićima (menjati preference ili ih onemogućiti) \n"
-#| "                   <a href=\"\"> molimo vas pogledajte ovde.</a>\n"
-#| "                  "
 msgid ""
 "\n"
 "                   Za više informacija o tome kako možete upravljati \n"
@@ -2548,6 +2538,14 @@ msgstr ""
 #: .\templates\base_reset.html:218
 msgid "Besplatna i uvek dostupna baza bebisitera/dadilja"
 msgstr "Free and always available babysitter/nanny base"
+
+#: .\templates\base_reset.html:230
+msgid "Uslovi korišćenja i politika privatnosti"
+msgstr "Terms of use and privacy policy"
+
+#: .\templates\base_reset.html:233
+msgid "Mere poverenja i bezbednosti"
+msgstr "Confidence and security measures"
 
 #: .\templates\email_connection.html:33
 #: .\templates\password_reset_email.html:33
