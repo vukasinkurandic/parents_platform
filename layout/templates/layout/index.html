@@ -118,9 +118,9 @@
                               <li><a href="https://blog.parentstime.rs/category/engleski/">blog</a></li>
                               {% endif%}
                               <li><a href="{% url 'layout:contact' %}">{% trans "kontakt" %}</a></li>
-                              {% if user.is_authenticated and user.user_type == 1 %}
+                              {% if user.is_authenticated and user.is_email_verified and user.user_type == 1 %}
                               <li><a href="{% url 'connection:all_babysitters' %}">{% trans "baza bebisitera/dadilja" %}</a></li>
-                              {%elif user.is_authenticated and user.user_type == 2%}
+                              {%elif user.is_authenticated and user.is_email_verified and user.user_type == 2%}
                                
                               {% else %}
                               <li><a href="{% url 'account:login' %}">{% trans "baza bebisitera/dadilja" %}</a></li>
@@ -129,7 +129,7 @@
                         </div>
                         <div class="col-md-4">
                            <!--USER IS AUTHENTICATED-->
-                           {% if user.is_authenticated %}
+                           {% if user.is_authenticated and user.is_email_verified %}
                            <div class="logout">
                               <a class="btn btn-logout" href="{% url 'account:logout' %}">{% trans "Odjavi se" %}</a>
                               {%if user.user_type == 1%}
@@ -263,7 +263,7 @@
             <div class="col-lg-7">
                <div class="mission-box-wrapper">
                <div class="mission-box">
-                  {% if user.is_authenticated %}
+                  {% if user.is_authenticated and user.is_email_verified %}
                      {%if user.user_type == 1 %}
                         <a href="{% url 'connection:all_babysitters' %}">
                      {%endif%}
@@ -301,7 +301,7 @@
       </section>
       <section class="babysitter">
 <!-- VELIKA DUGMAD KADA JE ULOGOVAN NEKO POSTAJU REKLAMA -->
-         {% if user.is_authenticated %}
+         {% if user.is_authenticated and user.is_email_verified %}
     
 
 <script>
@@ -386,7 +386,7 @@ setInterval(createSquare, 50);
          {%endif%}
 
 <!-- OVDE ĆE DA IDE CAROUSEL START -->
-         {% if user.is_authenticated and user.user_type == 1 %}
+         {% if user.is_authenticated and user.is_email_verified and user.user_type == 1 %}
          <div class="container text-center">
             <div class="baby-title">
                <h2>{% trans "Bebisiterke/Dadilje" %}</h2>
@@ -437,7 +437,7 @@ setInterval(createSquare, 50);
                <div class="swiper-pagination"></div>
              </div>
          </div>
-         {% elif user.is_authenticated and user.user_type == 2 %}
+         {% elif user.is_authenticated and user.is_email_verified and user.user_type == 2 %}
          <!--Babysitter cant 'see swiper-->
          {%else%}
          <div class="container text-center">
@@ -521,7 +521,7 @@ setInterval(createSquare, 50);
                          <li>
                            <a href="{% url 'layout:home' %}">{% trans "Naslovna" %}</a>
                          </li>
-                        {% if user.is_authenticated and user.user_type == 1 %}
+                        {% if user.is_authenticated and user.is_email_verified and user.user_type == 1 %}
                         <li><a href="{% url 'connection:all_babysitters' %}">{% trans "Baza bebisitera/dadilja" %}</a></li>
                         {%endif%}
                          {% if LANGUAGE_CODE == 'sr'%}
@@ -548,7 +548,7 @@ setInterval(createSquare, 50);
                            
                          </p>
                          <p>{% trans "U promo periodu besplatna i uvek dostupna baza bebisitera/dadilja" %}</p>
-                         {% if user.is_authenticated %}
+                         {% if user.is_authenticated and user.is_email_verified %}
                          {%else%}
                          <div class="no-login-select btn-on-small">
                            <button class="dropbtn btn"><i class="far fa-user"></i> {% trans "Registruj se/prijavi se" %} </button>

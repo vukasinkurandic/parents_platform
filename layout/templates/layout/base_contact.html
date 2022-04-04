@@ -122,7 +122,7 @@
                     <li><a href="https://blog.parentstime.rs/category/engleski/">blog</a></li>
                     {% endif%}
                     <li><a href="{% url 'layout:contact' %}">{% trans "kontakt" %}</a></li>
-                   {% if user.is_authenticated and user.user_type == 1 %}
+                   {% if user.is_authenticated and user.is_email_verified and user.user_type == 1 %}
                     <li><a href="{% url 'connection:all_babysitters' %}">{% trans "baza bebisitera/dadilja" %}</a></li>
                    {%elif user.is_authenticated and user.user_type == 2%}
                                
@@ -217,7 +217,7 @@
                       <li>
                         <a href="{% url 'layout:home' %}">{% trans "Naslovna" %}</a>
                       </li>
-                      {% if user.is_authenticated and user.user_type == 1 %}
+                      {% if user.is_authenticated and user.is_email_verified and user.user_type == 1 %}
                       <li><a href="{% url 'connection:all_babysitters' %}">{% trans "Baza bebisitera/dadilja" %}</a></li>
                       {%endif%}
                       {% if LANGUAGE_CODE == 'sr'%}
