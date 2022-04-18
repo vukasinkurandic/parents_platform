@@ -168,7 +168,7 @@ AGE_CHOICES = (
     ('1-3', '1-3'),
     ('3-5', '3-5'),
     ('5-12', '5-12'),
-    ('12-18', '12-18'),
+    ('12-17', '12-17'),
 )
 CITIZENSHIP_CHOICES = (
     ('Srpski Državljanin', _('Srpski Državljanin')),
@@ -193,9 +193,9 @@ YES_NO_CHOICES = (
     ('Ne', _('Ne')),
 )
 WORK_CHOICES = (
-    ('Bebisiterka', _('Bebisiterka')),
+    ('Bebisiter/ka', _('Bebisiter/ka')),
     ('Dadilja', _('Dadilja')),
-    ('Bebisiterka i Dadilja', _('Bebisiterka i Dadilja')),
+    ('Bebisiter/ka i Dadilja', _('Bebisiter/ka i Dadilja')),
 
 )
 

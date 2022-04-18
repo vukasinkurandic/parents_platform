@@ -39,6 +39,31 @@
     <title>{% block title%} {% endblock %}</title>
   </head>
   <body>
+       <div class="popup">
+         <div class="contentBox">
+           <div class="close"></div>        
+           <div class="popup-img">
+               <img src="https://www.parentstime.rs/static/layout/img/logo4.png" alt="">
+           </div>
+          <p>
+            {% blocktrans %}
+            Na ovim internet stranicama koristimo kolačiće (eng. cookies) 
+            u svrhu pružanja boljeg korisničkog iskustva,
+            omogućavanja funkcionalnosti veb sajta, 
+            analize internet saobraćaja.
+            Nastavkom korišćenja naših stranica prihvatate upotrebu kolačića.
+            {% endblocktrans %}
+               </p>
+                <p>
+                  {% blocktrans %}
+                   Za više informacija o tome kako možete upravljati 
+                   kolačićima (menjati preference ili ih onemogućiti) 
+                   {% endblocktrans %}
+                   <a href="https://blog.parentstime.rs/obavestenje-o-kolacicima/"> {% trans "molimo vas pogledajte ovde." %}</a>
+                  
+               </p>
+         </div>
+       </div> 
     <div class="menu">
       <span class="bar"></span>
     </div>
@@ -46,7 +71,9 @@
     <!-- menu -->
     <div class="slid-wrap-nav">
       <div class="logo-mob-on-top">
-        <img src="{% static 'layout/img/logo4.png' %}" />
+        <a href="{% url 'layout:home' %}">
+          <img src="{% static 'layout/img/logo4.png' %}" />
+          </a>
       </div>
       <header>
         <div class="container rem-onmobile add-fluid-div">
@@ -69,11 +96,15 @@
           </div>
           <div class="nav-top">
             <div class="circle-logo">
+              <a href="{% url 'layout:home' %}">
               <img src="{% static 'layout/img/logo6.png' %}" />
+            </a>
             </div>
             <nav>
-              <div class="logo-for-mob-on-menu">
+               <div class="logo-for-mob-on-menu">
+                <a href="{% url 'layout:home' %}">
                 <img src="{% static 'layout/img/logo4.png' %}" class="img-fluid" />
+              </a>
               </div>
               <div class="row">
                 <div class="col-xl-8">
@@ -82,7 +113,7 @@
                     {% if LANGUAGE_CODE == 'sr'%}
                     <li><a href="https://blog.parentstime.rs/">blog</a></li>
                     {% elif LANGUAGE_CODE == 'en'%}
-                    <li><a href="https://blog.parentstime.rs/">blog</a></li>
+                    <li><a href="https://blog.parentstime.rs/category/engleski/">blog</a></li>
                     {% endif%}
                     <li><a href="{% url 'layout:contact' %}">{% trans "kontakt" %}</a></li>
                   </ul>
@@ -164,7 +195,7 @@
                         {% if LANGUAGE_CODE == 'sr'%}
                          <li><a href="https://blog.parentstime.rs/">Novosti iz dečijeg sveta</a></li>
                         {% elif LANGUAGE_CODE == 'en'%}
-                        <li><a href="https://blog.parentstime.rs/">News from the children's world</a></li>
+                        <li><a href="https://blog.parentstime.rs/category/engleski/">News from the children's world</a></li>
                         {% endif%}
                       <li>
                            <a href="{% url 'layout:instruction_page' %}">{% trans "Uputstvo za korišćenje platforme" %}</a>
@@ -185,10 +216,7 @@
                         Srbije koja odgovara baš Vašoj porodici!" {% endblocktrans %}
                       </p>
                       <p>{% trans "Besplatna i uvek dostupna baza bebisitera/dadilja" %}</p>
-                    </div>
-                    <div class="foter-map">
-                      <img src="{% static 'layout/img/mapa.png' %}" class="img-fluid" />
-                    </div>
+                    </div>                  
                   </div>
                 </div>
               </div>
@@ -199,21 +227,21 @@
           <div class="footer-bottom">
             <ul class="agree-ul-f">
               <li>
-                <a href="">{% trans "Uslovi korišćenja i politika privatnosti" %}</a>
+                <a href="{% static 'layout/doc/Politika_privatnosti.pdf' %}">{% trans "Uslovi korišćenja i politika privatnosti" %}</a>
               </li>
               <li>
-                <a href="">{% trans "Mere poverenja i bezbednosti" %}</a>
+                <a href="{% static 'layout/doc/Pravila_i_uslovi_koriscenja.pdf' %}">{% trans "Mere poverenja i bezbednosti" %}</a>
               </li>
             </ul>
             <ul class="soc-bot-link">
               <li>
-                <a href="https://www.facebook.com/Parents-time-102157838176047/"><i class="fab fa-facebook-f"></i></a>
+                <a target="_blank" href="https://www.facebook.com/Parents-time-102157838176047/"><i class="fab fa-facebook-f"></i></a>
               </li>
               <li>
-                <a href="https://instagram.com/parents.time?utm_medium=copy_link"><i class="fab fa-instagram"></i></a>
+                <a target="_blank" href="https://instagram.com/parents.time?utm_medium=copy_link"><i class="fab fa-instagram"></i></a>
               </li>
               <li>
-                <a href="https://www.linkedin.com/company/parent-s-time"><i class="fab fa-linkedin-in"></i></a>
+                <a target="_blank" href="https://www.linkedin.com/company/parent-s-time"><i class="fab fa-linkedin-in"></i></a>
               </li>
             </ul>
           </div>

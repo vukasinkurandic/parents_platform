@@ -46,12 +46,14 @@ def all_babysitters(request):
 
         if 'work_type' in request.session:
             work_type = request.session['work_type']
-            if work_type == 'Bebisiterka i Dadilja':
+            if work_type == 'Bebisiter/ka i Dadilja':
                 filter_babysitter = filter_babysitter
-
-            else:
-                filter_babysitter = filter_babysitter.filter(
-                    work_type=work_type)
+            elif work_type == 'Bebisiter/ka':
+                filter_babysitter = filter_babysitter.exclude(
+                    work_type='Dadilja')
+            elif work_type == 'Dadilja':
+                filter_babysitter = filter_babysitter.exclude(
+                    work_type='Bebisiter/ka')
 
         if 'experience_number' in request.session:
             experience_number = request.session['experience_number']
@@ -182,11 +184,16 @@ def all_babysitters(request):
         if work_type != '':
             request.session['work_type'] = work_type
             # IF 'Bebisiter i Dadilja' don't filter work
-            if work_type == 'Bebisiterka i Dadilja':
+            if work_type == 'Bebisiter/ka i Dadilja':
                 filter_babysitter = filter_babysitter
-            else:
-                filter_babysitter = filter_babysitter.filter(
-                    work_type=work_type)
+            # IF 'Bebisiter' give all without Dadilja
+            elif work_type == 'Bebisiter/ka':
+                filter_babysitter = filter_babysitter.exclude(
+                    work_type='Dadilja')
+            # IF 'Dadilja' give all without Bebisiter/ka
+            elif work_type == 'Dadilja':
+                filter_babysitter = filter_babysitter.exclude(
+                    work_type='Bebisiter/ka')
         experience_number = request.POST['experience_number']
         if experience_number != '':
             request.session['experience_number'] = experience_number
@@ -363,7 +370,7 @@ def send_match(request):
                         request, _('Već ste rezervisali korisnika'))
         else:
             connection.save()
-            messages.success(
+            messages.info(
                 request, _('Uspešno ste kontaktirali korisnika. Vaša rezervacija može biti prihvaćena ili odbijena. Ukoliko korisnik prohvati rezervaciju možete oceniti profil ostaviti komentar. Takođe korisnik  može videti Vaš profil i vaše kontakt podatke. Ukoliko smatrate da je korisnik odgovarajući kandidat, možete odmah stupiti u kontakt, upoznati se i započeti saradnju što pre. Dugmići (ikonice) koji će voditi na poziv na mejl.'))
             # SEND EMAIL TO BABYSITTER
             babysitter_email = babysiter_for_match.user.email

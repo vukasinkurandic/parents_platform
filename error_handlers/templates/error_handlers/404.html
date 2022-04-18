@@ -1,3 +1,6 @@
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% load static%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,11 +13,27 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" type="text/css" href="{% static 'layout/css/style.css' %}" /> 
-    <link rel="stylesheet" type="text/css" href="{% static 'layout/css/responsive.css' %}" />
-    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="https://www.parentstime.rs/static/layout/css/style.css" /> 
+    <link rel="stylesheet" type="text/css" href="https://www.parentstime.rs/static/layout/css/responsive.css" /> 
+    
+    <link rel="stylesheet" href="">
+    <title>404</title>
 </head>
 <body>
-    <div class="container">4545</div>
+ <div class="slid">
+    <div class="lop-for-cont">
+       <div class="container position-relative">
+          <div class="slid-title">
+             <h1>404</h1> 
+             <br />            
+             <p>{% trans "Strana ne postoji" %} </p>             
+             <h5 class="index-h-5" ><a  class="btn btn-inst-href" href="https://www.parentstime.rs/">{% trans "Povratak na početnu stranu" %} </a></h5>
+          </div>
+       </div>
+    </div>
+    <div class="slid-grad"></div>
+    <img src="https://www.parentstime.rs/static/layout/img/naslovna3.webp" />
+    <div class="slid-bottom"></div>
+ </div> 
 </body>
 </html>

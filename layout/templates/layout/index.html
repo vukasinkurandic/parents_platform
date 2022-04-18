@@ -41,6 +41,32 @@
    </head>   
    <body>
 
+      <div class="popup">
+         <div class="contentBox">
+           <div class="close"></div>        
+           <div class="popup-img">
+               <img src="https://www.parentstime.rs/static/layout/img/logo4.png" alt="">
+           </div>
+           <p>
+            {% blocktrans %}
+            Na ovim internet stranicama koristimo kolačiće (eng. cookies) 
+            u svrhu pružanja boljeg korisničkog iskustva,
+            omogućavanja funkcionalnosti veb sajta, 
+            analize internet saobraćaja.
+            Nastavkom korišćenja naših stranica prihvatate upotrebu kolačića.
+            {% endblocktrans %}
+               </p>
+                <p>
+                  {% blocktrans %}
+                   Za više informacija o tome kako možete upravljati 
+                   kolačićima (menjati preference ili ih onemogućiti) 
+                   {% endblocktrans %}
+                   <a href="https://blog.parentstime.rs/obavestenje-o-kolacicima/"> {% trans "molimo vas pogledajte ovde." %}</a>
+                  
+               </p>
+         </div>
+       </div>  
+
       <div class="menu">
          <span class="bar"></span>
       </div>
@@ -89,12 +115,12 @@
                               {% if LANGUAGE_CODE == 'sr'%}
                               <li><a href="https://blog.parentstime.rs/">blog</a></li>
                               {% elif LANGUAGE_CODE == 'en'%}
-                              <li><a href="https://blog.parentstime.rs/">blog</a></li>
+                              <li><a href="https://blog.parentstime.rs/category/engleski/">blog</a></li>
                               {% endif%}
                               <li><a href="{% url 'layout:contact' %}">{% trans "kontakt" %}</a></li>
-                              {% if user.is_authenticated and user.user_type == 1 %}
+                              {% if user.is_authenticated and user.is_email_verified and user.user_type == 1 %}
                               <li><a href="{% url 'connection:all_babysitters' %}">{% trans "baza bebisitera/dadilja" %}</a></li>
-                              {%elif user.is_authenticated and user.user_type == 2%}
+                              {%elif user.is_authenticated and user.is_email_verified and user.user_type == 2%}
                                
                               {% else %}
                               <li><a href="{% url 'account:login' %}">{% trans "baza bebisitera/dadilja" %}</a></li>
@@ -103,7 +129,7 @@
                         </div>
                         <div class="col-md-4">
                            <!--USER IS AUTHENTICATED-->
-                           {% if user.is_authenticated %}
+                           {% if user.is_authenticated and user.is_email_verified %}
                            <div class="logout">
                               <a class="btn btn-logout" href="{% url 'account:logout' %}">{% trans "Odjavi se" %}</a>
                               {%if user.user_type == 1%}
@@ -237,7 +263,7 @@
             <div class="col-lg-7">
                <div class="mission-box-wrapper">
                <div class="mission-box">
-                  {% if user.is_authenticated %}
+                  {% if user.is_authenticated and user.is_email_verified %}
                      {%if user.user_type == 1 %}
                         <a href="{% url 'connection:all_babysitters' %}">
                      {%endif%}
@@ -275,24 +301,69 @@
       </section>
       <section class="babysitter">
 <!-- VELIKA DUGMAD KADA JE ULOGOVAN NEKO POSTAJU REKLAMA -->
-         {% if user.is_authenticated %}
-         <div class="container add-fluid-div">
-            <div class="reg-log-all">               
-               <div class="circle-logo-btn">
-                  <img src="{% static 'layout/img/logo6.png' %}" />
+         {% if user.is_authenticated and user.is_email_verified %}
+    
+
+<script>
+          const color = ['#5dbbf2','#efc3c5'];
+          function createSquare() {
+  const section = document.querySelector(".frea-img");
+  const square = document.createElement("div");  
+  square.classList.add("ku-kvadrati");
+
+  var size = Math.random() * 50;
+  square.style.width = 20 + size + "px";
+  square.style.height = 20 + size + "px";
+  square.style.borderRadius = "50%";
+  square.style.left = Math.random() * innerWidth + "px";
+  square.style.top = Math.random() * innerHeight + "px";
+  
+  const br = color[Math.floor(Math.random() * color.length)];
+  square.style.background=br;
+  section.appendChild(square);
+  setTimeout(() => {
+    square.remove();
+  }, 10000);
+}
+setInterval(createSquare, 50);
+       </script>
+
+         <div class="blog-index">
+            <div class="divider-sub-top" ></div>
+            <div class="container">
+               <div class="row flex-column-reverse flex-lg-row">
+                  <div class="col-lg-6">
+                     <div class="frea-box">
+                        <h2>{% trans "Novosti iz" %} <br> {% trans "dečijeg sveta" %} </h2>
+                        <p>
+                           {% blocktrans %}
+                           Ukoliko Vas zanima da saznate novosti iz dečijeg sveta na raznorazne teme dobrodošli ste na naš blog. 
+                           Ovde možete pročitati sve zanimljivosti iz perspektive roditelja, bebisitera/dadilje ili iz dečijeg ugla.
+                           {% endblocktrans %}
+                        </p> 
+                        {% if LANGUAGE_CODE == 'sr'%}
+                        <a class="btn btn-frea" href="https://blog.parentstime.rs/">
+                        {% elif LANGUAGE_CODE == 'en'%}
+                        <a class="btn btn-frea" href="https://blog.parentstime.rs/category/engleski/">
+                        {% endif%}
+                   <div class="slide-link-text">{% trans "Blog" %}</div>            
+                     <div class="slide-link-arrow"><i class="fas fa-chevron-right"></i></div>            
+                 </a>            
+                      </div>
+                  </div>
+                  <div class="col-lg-6">
+                     <div class="frea-img-wrapper">
+                        <div class="frea-img">
+                           <img src="{% static 'layout/img/blog-img.webp' %}" alt="" class="img-fluid">
+                        </div>
+                        <div class="mission-bubble2" ></div>
+                     </div>    
+                  </div>
                </div>
-               <a class="zigzag-link"  href="{% url 'account:register_family' %}">
-                  <div class="first-large-btn">
-                     {% trans "REGISTRUJ SE/PRIJAVI SE " %}<br>{% trans "KAO  RODITELJ" %}
-                  </div>
-               </a>
-               <a class="zigzag-link" href="{% url 'account:register_babysitter' %}">
-                  <div class="second-large-btn">
-                     {% trans "REGISTRUJ SE/PRIJAVI SE " %}<br>{% trans "KAO  BEBISITER/DADILJA" %}  
-                  </div>
-               </a>
             </div>
+            <!-- <div class="divider-sub-bottom" ></div> -->
          </div>
+
 <!-- VELIKA DUGMAD KADA NIJE ULOGOVAN NIKO-->
          {% else %}
          <div class="container add-fluid-div">
@@ -315,7 +386,7 @@
          {%endif%}
 
 <!-- OVDE ĆE DA IDE CAROUSEL START -->
-         {% if user.is_authenticated and user.user_type == 1 %}
+         {% if user.is_authenticated and user.is_email_verified and user.user_type == 1 %}
          <div class="container text-center">
             <div class="baby-title">
                <h2>{% trans "Bebisiterke/Dadilje" %}</h2>
@@ -366,7 +437,7 @@
                <div class="swiper-pagination"></div>
              </div>
          </div>
-         {% elif user.is_authenticated and user.user_type == 2 %}
+         {% elif user.is_authenticated and user.is_email_verified and user.user_type == 2 %}
          <!--Babysitter cant 'see swiper-->
          {%else%}
          <div class="container text-center">
@@ -438,8 +509,7 @@
                      <p class="footer-logo-info">{% blocktrans %} "Parent's time je platforma koja je tu da izađe u susret
                        svakom roditelju kome je potrebna pomoć prilikom traženja
                        idealne osobe koja bi čuvala njihovo dete kada oni to nisu u
-                       mogućnosti." {% endblocktrans %}
-                       
+                       mogućnosti." {% endblocktrans %}   
                      </p>
                    </div>
                  </div>
@@ -451,13 +521,13 @@
                          <li>
                            <a href="{% url 'layout:home' %}">{% trans "Naslovna" %}</a>
                          </li>
-                        {% if user.is_authenticated and user.user_type == 1 %}
+                        {% if user.is_authenticated and user.is_email_verified and user.user_type == 1 %}
                         <li><a href="{% url 'connection:all_babysitters' %}">{% trans "Baza bebisitera/dadilja" %}</a></li>
                         {%endif%}
                          {% if LANGUAGE_CODE == 'sr'%}
                          <li><a href="https://blog.parentstime.rs/">Novosti iz dečijeg sveta</a></li>
                         {% elif LANGUAGE_CODE == 'en'%}
-                        <li><a href="https://blog.parentstime.rs/">News from the children's world</a></li>
+                        <li><a href="https://blog.parentstime.rs/category/engleski/">News from the children's world</a></li>
                         {% endif%}
                          <li>
                            <a href="{% url 'layout:instruction_page' %}">{% trans "Uputstvo za korišćenje platforme" %}</a>
@@ -478,7 +548,7 @@
                            
                          </p>
                          <p>{% trans "U promo periodu besplatna i uvek dostupna baza bebisitera/dadilja" %}</p>
-                         {% if user.is_authenticated %}
+                         {% if user.is_authenticated and user.is_email_verified %}
                          {%else%}
                          <div class="no-login-select btn-on-small">
                            <button class="dropbtn btn"><i class="far fa-user"></i> {% trans "Registruj se/prijavi se" %} </button>
@@ -498,7 +568,7 @@
                  </div>
                  <div class="col-lg-6 col-xl-4 col-md-12">
                    <div class="footer-wrapper" id="proba">
-                     <h4>{% trans "Pretplatite se na naš blog" %}</h4>              
+                     <h4>{% trans "Prijavite se na naš blog" %}</h4>              
                      <form action="{% url 'layout:newsletter' %}" method="post">
                         {% csrf_token%}
                        <div class="form-newsletter">
@@ -506,8 +576,9 @@
                          <button type="submit" class="btn btn-primary dugme">
                            <i class="fas fa-paper-plane"></i>
                          </button>
-                       </div>
+                       </div>                       
                      </form>
+                     <span class="span-news" >{% trans "Saglasan da se moji email koriste u skladu sa" %} <a class="form-check-agree2" href="https://blog.parentstime.rs/politika-privatnosti/"> <br> {% trans "Politikom privatnosti" %}</a></span>
                    </div>
                  </div>
                </div>
@@ -517,27 +588,28 @@
              <div class="footer-bottom">
                <ul class="agree-ul-f">
                  <li>
-                   <a href="">{% trans "Uslovi korišćenja i politika privatnosti" %}</a>
+                   <a href="https://blog.parentstime.rs/pravila-i-uslovi-koriscenja/">{% trans "Pravila i uslovi korišćenja" %}</a>
                  </li>
                  <li>
-                   <a href="">{% trans "Mere poverenja i bezbednosti" %}</a>
+                   <a href="https://blog.parentstime.rs/politika-privatnosti/">{% trans "Politika privatnosti" %}</a>
                  </li>
                </ul>
                <ul class="soc-bot-link">
                  <li>
-                   <a href="https://www.facebook.com/Parents-time-102157838176047/"><i class="fab fa-facebook-f"></i></a>
+                   <a target="_blank" href="https://www.facebook.com/Parents-time-102157838176047/"><i class="fab fa-facebook-f"></i></a>
                  </li>
                  <li>
-                   <a href="https://instagram.com/parents.time?utm_medium=copy_link"><i class="fab fa-instagram"></i></a>
+                   <a target="_blank" href="https://instagram.com/parents.time?utm_medium=copy_link"><i class="fab fa-instagram"></i></a>
                  </li>
                  <li>
-                   <a href="https://www.linkedin.com/company/parent-s-time"><i class="fab fa-linkedin-in"></i></a>
+                   <a target="_blank" href="https://www.linkedin.com/company/parent-s-time"><i class="fab fa-linkedin-in"></i></a>
                  </li>
                </ul>
              </div>
            </div>
          </div>
        </footer>
+       
        <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
        <script
          src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

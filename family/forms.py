@@ -75,6 +75,7 @@ class FamilyForm(forms.ModelForm):
         self.fields['age_children'].required = True
         self.fields['citizenship'].widget.attrs['class'] = 'form-select'
         self.fields['age'].widget.attrs['class'] = 'form-control'
+        self.fields['age'].widget.attrs['min'] = 18
         self.fields['childcare_period'].widget.attrs['class'] = 'form-select'
 
 

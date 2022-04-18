@@ -21,7 +21,7 @@ class CustomUserAdmin(UserAdmin):
                     'is_terms_confirmed', 'membership', 'is_staff', 'date_joined')
     search_fields = ('email', 'user_type', 'is_email_verified',
                      'is_terms_confirmed', 'membership', 'date_joined')
-    ordering = ('date_joined',)
+    ordering = ('-date_joined',)
 
 
 admin.site.register(get_user_model(), CustomUserAdmin)

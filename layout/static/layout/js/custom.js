@@ -42,3 +42,23 @@ if (fot_mob2 < 656) {
 }
 
 
+
+
+// popup
+
+const popup = document.querySelector(".popup");
+const close = document.querySelector(".close");
+setTimeout(function () {
+  let visited = localStorage.getItem("visited");
+  if (!visited) {
+    popup.style.display = "block";
+    localStorage.setItem("visited", true);
+  }
+}, 500);
+
+close.addEventListener("click", function () {
+  document.querySelector(".popup").style.display = "none";
+});
+
+
+

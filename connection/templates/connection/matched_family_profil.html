@@ -153,8 +153,9 @@
                          <div class="accordion mb-3" id="accordionExample">
                            <div class="accordion-item">
                               <h2 class="accordion-header" id="headingThree">
-                                 <button  class="accordion-button collapsed mika" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                 {% trans "Prijavi korisnika" %}
+                                 <button  class="accordion-button accordion-button-new collapsed mika" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    <div class="danger-report-us"><i class="fas fa-exclamation"></i></div>
+                                 <span>{% trans "Prijavi korisnika" %}</span>
                                  </button>
                               </h2>
                               <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
@@ -162,7 +163,7 @@
                                     <form action="" method="post">
                                        {% csrf_token%}
                                        <textarea class="form-control"  id="user_report" name="user_report" required></textarea>
-                                       <input type="submit" name="report_submit" class="btn btn-log-reg" value="{% blocktrans %} Pošalji {% endblocktrans %}">
+                                       <input type="submit" name="report_submit" class="btn btnreport-user-new" value="{% blocktrans %} Pošalji {% endblocktrans %}">
                                     </form>
                                  </div>
                               </div>
