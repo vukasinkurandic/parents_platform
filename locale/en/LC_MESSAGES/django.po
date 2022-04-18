@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-04 23:14+0200\n"
-"PO-Revision-Date: 2022-04-04 23:17+0000\n"
+"POT-Creation-Date: 2022-04-18 18:28+0200\n"
+"PO-Revision-Date: 2022-04-18 18:30+0000\n"
 "Last-Translator:   <natasa@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -1611,6 +1611,20 @@ msgstr "You have successfully declined the request!"
 msgid "Uspešno ste obrisali zahtev!"
 msgstr "You have successfully deleted the request!"
 
+#: .\error_handlers\templates\error_handlers\400.html:29
+#: .\error_handlers\templates\error_handlers\403.html:29
+#: .\error_handlers\templates\error_handlers\404.html:29
+#: .\error_handlers\templates\error_handlers\500.html:29
+msgid "Strana ne postoji"
+msgstr "The page does not exist"
+
+#: .\error_handlers\templates\error_handlers\400.html:30
+#: .\error_handlers\templates\error_handlers\403.html:30
+#: .\error_handlers\templates\error_handlers\404.html:30
+#: .\error_handlers\templates\error_handlers\500.html:30
+msgid "Povratak na početnu stranu"
+msgstr "Back to homepage"
+
 #: .\family\choices.py:161
 msgid "Nema iskustva"
 msgstr "No experience"
@@ -2013,13 +2027,11 @@ msgstr "Privacy Policy"
 
 #: .\layout\templates\layout\base_contact.html:284
 #: .\layout\templates\layout\index.html:591
-#| msgid "Uslovi korišćenja"
 msgid "Pravila i uslovi korišćenja"
 msgstr "Terms and conditions of use"
 
 #: .\layout\templates\layout\base_contact.html:287
 #: .\layout\templates\layout\index.html:594
-#| msgid "Politikom privatnosti"
 msgid "Politika privatnosti"
 msgstr "Privacy Policy"
 
