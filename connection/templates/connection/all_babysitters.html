@@ -1,6 +1,7 @@
 {% extends "layout/base_contact.html" %}
 {% load i18n %}
 {% load static %}
+{% get_current_language as LANGUAGE_CODE %}
 {% block title %} {% trans "Baza Bebisiterki/Dadilja" %} {% endblock %}
 
 {% block content %}
@@ -153,7 +154,17 @@
                                     {% if babysitter.work_type == None%}
                                     <p></p>
                                     {%else%}
-                                    <p>{{babysitter.work_type}}</p>
+                                       {% if LANGUAGE_CODE == 'en'%}
+                                          {%if babysitter.work_type == 'Bebisiter/ka' %}
+                                             <p>Babysitter</p>
+                                          {%elif babysitter.work_type == 'Dadilja' %} 
+                                             <p>Nanny</p>
+                                          {%elif babysitter.work_type == 'Bebisiter/ka i Dadilja'%}
+                                             <p>Babysitter and Nanny</p>
+                                          {%endif%} 
+                                       {%else%}
+                                       <p>{{babysitter.work_type}}</p>
+                                       {%endif%}
                                     {%endif%}
                                        <div class="baby-link">
                                           <div class="baby-link-circle"><i class="fas fa-chevron-right"></i></div>

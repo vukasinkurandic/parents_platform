@@ -184,18 +184,25 @@ def all_babysitters(request):
         if work_type != '':
             request.session['work_type'] = work_type
             # IF 'Bebisiter i Dadilja' don't filter work
-            if work_type == 'Bebisiter/ka i Dadilja':
+            if work_type == 'Bebisiter/ka i Dadilja' or work_type == 'Babysitter and Nanny':
                 filter_babysitter = filter_babysitter
             # IF 'Bebisiter' give all without Dadilja
-            elif work_type == 'Bebisiter/ka':
+            elif work_type == 'Bebisiter/ka' or work_type == 'Babysitter':
                 filter_babysitter = filter_babysitter.exclude(
                     work_type='Dadilja')
             # IF 'Dadilja' give all without Bebisiter/ka
-            elif work_type == 'Dadilja':
+            elif work_type == 'Dadilja' or work_type == 'Nanny':
                 filter_babysitter = filter_babysitter.exclude(
                     work_type='Bebisiter/ka')
         experience_number = request.POST['experience_number']
         if experience_number != '':
+            # Pretvaranje filtera u srpski kada se filtrira englesko iskustvo
+            if experience_number == 'No experience':
+                experience_number = 'Nema iskustva'
+            if experience_number == 'Up to a year':
+                experience_number = 'Do godinu dana'
+            if experience_number == 'More than a year':
+                experience_number = 'Više od godinu dana'
             request.session['experience_number'] = experience_number
             filter_babysitter = filter_babysitter.filter(
                 years_care_experience=experience_number)
