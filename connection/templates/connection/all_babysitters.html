@@ -191,8 +191,8 @@
          <div class="paginator">
             {% if venues %}
             {% if venues.has_previous %}
-            <a href="{% if request.GET.key is not None %}{{ request.get_full_path }}&{% else %}?{% endif %}page=1" class="btn btn-pag-first mb-4">Prva</a>
-            <a href="{% if request.GET.key is not None %}{{ request.get_full_path }}&{% else %}?{% endif %}page={{ venues.previous_page_number }}" class="btn btn-pag-first mb-4">Predhodna</a>
+            <a href="{% if request.GET.key is not None %}{{ request.get_full_path }}&{% else %}?{% endif %}page=1" class="btn btn-pag-first mb-4">{% trans "Prva" %}</a>
+            <a href="{% if request.GET.key is not None %}{{ request.get_full_path }}&{% else %}?{% endif %}page={{ venues.previous_page_number }}" class="btn btn-pag-first mb-4">{% trans "Predhodna" %}</a>
             {% endif %}
 
             {% for num in venues.paginator.page_range %}
@@ -204,8 +204,8 @@
             {% endfor %}
 
             {% if venues.has_next %}
-            <a href="{% if request.GET.key is not None %}{{ request.get_full_path }}&{% else %}?{% endif %}page={{ venues.next_page_number }}" class="btn btn-pag-first mb-4">Sledeća</a>
-            <a href="{% if request.GET.key is not None %}{{ request.get_full_path }}&{% else %}?{% endif %}page={{ venues.paginator.num_pages }}" class="btn btn-pag-first mb-4">Poslednja</a>
+            <a href="{% if request.GET.key is not None %}{{ request.get_full_path }}&{% else %}?{% endif %}page={{ venues.next_page_number }}" class="btn btn-pag-first mb-4">{% trans "Sledeća" %}</a>
+            <a href="{% if request.GET.key is not None %}{{ request.get_full_path }}&{% else %}?{% endif %}page={{ venues.paginator.num_pages }}" class="btn btn-pag-first mb-4">{% trans "Poslednja" %}</a>
             {% endif %}
             {% endif %}
          </div>
