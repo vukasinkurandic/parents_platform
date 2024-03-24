@@ -92,9 +92,13 @@ def send_mail_after_registration(email, token):
     subject = _('Vaš nalog mora biti verifikovan')
     language = get_language()
     if language == 'sr':
-        message = f'https://parentstime.rs/verify/{token}'
+        #message = f'https://parentstime.rs/verify/{token}'
+        message = f'http://127.0.0.1:8000/verify/{token}'
+
     else:
-        message = f'https://parentstime.rs/en/verify/{token}'
+        #message = f'https://parentstime.rs/en/verify/{token}'
+        message = f'http://127.0.0.1:8000/en/verify/{token}'
+
     email_from = settings.EMAIL_HOST_USER
     recipient_list = [email]
     html_content = render_to_string(

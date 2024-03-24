@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'reviews.apps.ReviewsConfig',
     'error_handlers.apps.ErrorHandlersConfig',
     'favorite.apps.FavoriteConfig',
+    'payment.apps.PaymentConfig',   
 
 
     # Django app

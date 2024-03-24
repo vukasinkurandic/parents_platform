@@ -17,6 +17,8 @@ urlpatterns += i18n_patterns(
     path('connection/', include('connection.urls', namespace='connection')),
     path('reviews/', include('reviews.urls', namespace='reviews')),
     path('favorite/', include('favorite.urls', namespace='favorite')),
+    path('payment/', include('payment.urls', namespace='payment')),
+
 
 
     path('rosetta/', include('rosetta.urls')),
