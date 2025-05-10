@@ -123,7 +123,13 @@
                   </span>
                   <span
                     ><div class="form-check-agree">
-                      <a href="https://blog.parentstime.rs/pravila-i-uslovi-koriscenja/">{% trans "Uslovi korišćenja" %}</a>
+                      <a 
+                      {% if LANGUAGE_CODE == 'en'%}
+                        href="https://blog.parentstime.rs/terms-and-conditions-of-use/"
+                      {% else %}
+                        href="https://blog.parentstime.rs/pravila-i-uslovi-koriscenja/"
+                      {% endif %}
+                      >{% trans "Uslovi korišćenja" %}</a>
                     </div></span
                   >
                 </div>

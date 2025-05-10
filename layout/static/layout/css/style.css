@@ -197,8 +197,10 @@ width: inherit;
 }
 
 .top-lang {
-  float: right;
-  margin-top: 5px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100%;
 }
 
 .top-lang img {
@@ -213,7 +215,7 @@ width: inherit;
 
 .top-logo img {
   width: 232px;
-  height: 35px;
+  height: auto;
 }
 
 .nav-top {
@@ -1189,6 +1191,23 @@ color: #63bef2;
 
 p.footer-logo-info {
   font-size: 17px;
+}
+
+.footer-contact-info {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-top: 10px;
+  color: #fff;
+}
+
+.footer-contact-info p {
+  margin-bottom: 5px;
+  font-size: 20px;
+}
+
+.footer-contact-info i {
+  margin-right: 8px;
+  color: #fff;
 }
 
 .form-newsletter {

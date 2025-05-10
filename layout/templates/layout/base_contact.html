@@ -266,6 +266,10 @@
                         </div>
                         </div> 
                         {%endif%}
+                        <div class="page-footer-contact-info">
+                          <p><i class="far fa-envelope"></i> contact@parentstime.rs</p>
+                          <p><i class="fas fa-map-marker-alt"></i> 30 N Gould St Ste R, Sheridan, WY 82801, USA</p>
+                        </div>
                     </div>                    
                   </div>
                 </div>
@@ -282,7 +286,13 @@
                       </button>
                     </div>
                   </form>
-                  <span class="span-news" >{% trans "Saglasan da se moji email koriste u skladu sa" %} <a class="form-check-agree2" href="https://blog.parentstime.rs/politika-privatnosti/"> <br> {% trans "Politikom privatnosti" %}</a></span>
+                  <span class="span-news" >{% trans "Saglasan da se moji email koriste u skladu sa" %} <a class="form-check-agree2"
+                    {% if LANGUAGE_CODE == 'en'%}
+                    href="https://blog.parentstime.rs/privacy-policy-2/"
+                    {% else %}
+                    href="https://blog.parentstime.rs/politika-privatnosti/"
+                    {% endif%}
+                     > <br> {% trans "Politikom privatnosti" %}</a></span>
                 </div>
               </div>
             </div>
@@ -292,10 +302,22 @@
           <div class="footer-bottom">
             <ul class="agree-ul-f">
               <li>
-                <a href="https://blog.parentstime.rs/pravila-i-uslovi-koriscenja/">{% trans "Pravila i uslovi korišćenja" %}</a>
+                <a 
+                {% if LANGUAGE_CODE == 'en'%}
+                  href="https://blog.parentstime.rs/terms-and-conditions-of-use/"
+                {% else %}
+                  href="https://blog.parentstime.rs/pravila-i-uslovi-koriscenja/"
+                {% endif %}
+                >{% trans "Pravila i uslovi korišćenja" %}</a>
               </li>
               <li>
-                <a href="https://blog.parentstime.rs/politika-privatnosti/">{% trans "Politika privatnosti" %}</a>
+                <a 
+                {% if LANGUAGE_CODE == 'en'%}
+                  href="https://blog.parentstime.rs/privacy-policy-2/"
+                  {% else %}
+                  href="https://blog.parentstime.rs/politika-privatnosti/" 
+                  {% endif%}
+                >{% trans "Politika privatnosti" %}</a>
               </li>
             </ul>
             <ul class="soc-bot-link">
